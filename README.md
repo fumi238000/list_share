@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# LIST SHARE
+チェックリストを作成・共有するサービスです。
+URL:
 
-Things you may want to cover:
+# アプリケーションの概要
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+# アプリケーションの機能一覧
+- ログイン機能
+- 画像アップロード機能 
+- カテゴリー作成機能
+- 
+# アプリケーション内で使用している技術一覧
+## 言語・フレームワーク
+- HTML/CSS
+- Bootstrap
+- Ruby
+- Ruby on Rails
+- JavaScript
+- Vue.js
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##初期データ投入方法
