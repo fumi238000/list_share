@@ -1,5 +1,8 @@
 ### README
 
+![Nomi-Joy_letter](https://user-images.githubusercontent.com/60662524/88514554-44829f80-d025-11ea-8dc3-166964a86d2f.png)
+
+
 ## LIST SHARE
 チェックリストを作成・共有するサービスです。
 
