@@ -29,3 +29,17 @@
 .alert-alert {
   @extend .alert-danger;
 }
+
+
+.header-color {
+  background-color: rgb(0, 59, 144);
+}
+
+.nav-color {
+  font-size: 14px;
+  color: white;
+}
+
+.navbar-toggler-icon {
+  color: red;
+}
