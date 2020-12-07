@@ -1,4 +1,4 @@
-i/*
+/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -13,6 +13,8 @@ i/*
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap/scss/bootstrap";
 
  .mw-md {
   max-width: 576px;
