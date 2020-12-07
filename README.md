@@ -81,11 +81,9 @@
 ## 資料
   
   
-### インフラ構成図
-  
-  
-  
 ### ER図
+ここに写真をはる
+
 ##### ER図・ユースケース
 (https://drive.google.com/file/d/1pV26x36maggRPssRgNHyUCD-f_0umsH-/view?usp=sharing)
 
