@@ -86,8 +86,11 @@
   
   
 ### ER図
-  
-  
+##### ER図・ユースケース
+(https://drive.google.com/file/d/1pV26x36maggRPssRgNHyUCD-f_0umsH-/view?usp=sharing)
+
+##### 用件定義・ユースケース  
+(https://docs.google.com/spreadsheets/d/1UjPEs-39oeIc-ZluBtAswBnVYScy2kK0Uu3jaOKYKe4/edit?usp=sharing)
   
 ### About me
 新卒で４年間、新築住宅会社の営業をしておりました。2020年4月からWebエンジニアを目指して勉強中です。
