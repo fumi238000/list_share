@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_095223) do
 
   create_table "categories", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "name"
+    t.string "name", null: false
     t.integer "position"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
