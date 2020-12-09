@@ -1,0 +1,6 @@
+<%# 後日活用予定 %>
+<%= form_with model: category, local: true do |category| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, required: true %>
+  <%= form.submit "新規作成" %>
+<% end %>

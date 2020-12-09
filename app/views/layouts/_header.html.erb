@@ -1,7 +1,6 @@
 <header class="header-color" >
   <nav class="navbar navbar-expand-lg ">
     <%= link_to "List Share", root_path, class: 'navbar-brand text-light'%>
- 
     <button type="button" class="navbar-toggler bg-light" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="ナビゲーションの切替">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -33,6 +32,9 @@
         </li>
         <li class="nav-item">  
           <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-light' %>
+        </li>
+        <li class="nav-item">  
+         <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: 'nav-link text-light',method: :post %>
         </li>
       <% end %>
       </ul>
