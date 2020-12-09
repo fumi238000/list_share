@@ -36,7 +36,7 @@
                 <% end %>
 
                 <%# 編集ボタン %>
-                <%= link_to root_path,class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %>
+                <%= link_to category_path(c),class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %>
                   <i class="fas fa-pen"></i>
                 <% end %>
                 
@@ -45,7 +45,7 @@
         
 
                 <%# 詳細ボタン(一時的に作成) %>
-                <%= link_to category_path(c),class: "btn btn-danger text-white btn-sm btn-sm mr-1", :method => :delete do %>
+                <%= link_to category_path(c),class: "btn btn-danger text-white btn-sm btn-sm mr-1",data: { confirm: '本当に削除しますか?' }, :method => :delete do %>
                   <i class="fas fa-pen"></i>
                 <% end %>
                

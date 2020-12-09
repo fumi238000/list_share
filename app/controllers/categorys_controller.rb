@@ -37,19 +37,22 @@ class CategorysController < ApplicationController
 
   def destroy
     @category.destroy!
-    redirvect_to @category
+    redirect_to root_path
   end
 
 
   private
 
+  def category_params
+    params.require(:category).permit(:name)
+  end
+
   def set_category
-    category = current_user.categorys.find(params[:id])
+
+    @category = Category.find(params[:id])
+    # cuurent_userのみ消せないように後から設定する
     # redirect_to category_path, alert: "権限がありません"
   end
 
 
-  def category_params
-    params.require(:category).permit(:name ,:id)
-  end
 end
