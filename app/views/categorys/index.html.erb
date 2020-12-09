@@ -9,7 +9,9 @@
   
 
 <div id="tasks-list">
+
 <% @categorys.each do |c| %>
+
   <ul class="card">
     <div class="card-body">
       <div class="d-flex justify-content-between">
@@ -32,11 +34,21 @@
                 <%= link_to root_path,class: "btn text-dark btn-sm btn-sm mr-1", :method => :get do %>
                 <i class="fas fa-link"></i>
                 <% end %>
+
                 <%# 編集ボタン %>
                 <%= link_to root_path,class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %>
                   <i class="fas fa-pen"></i>
                 <% end %>
                 
+
+
+        
+
+                <%# 詳細ボタン(一時的に作成) %>
+                <%= link_to category_path(c),class: "btn btn-danger text-white btn-sm btn-sm mr-1", :method => :delete do %>
+                  <i class="fas fa-pen"></i>
+                <% end %>
+               
             </div>
           </div>
         </div>
