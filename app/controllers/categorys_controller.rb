@@ -5,13 +5,16 @@ class CategorysController < ApplicationController
   end
 
   def new
+    binding.pry
+    
     @category = Category.new
   end
 
   def create
     binding.pry
-    category = current_user.category.create!(category_params)
-    redirect_to category
+    Category.create(category_params)
+    # category = current_user.category.create!(category_params)
+    # redirect_to category
   end
 
 
