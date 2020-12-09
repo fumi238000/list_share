@@ -1,20 +1,18 @@
 class CategorysController < ApplicationController
   
+
+
   def index
     @categorys = Category.all
   end
 
   def new
-    binding.pry
-    
     @category = Category.new
   end
 
   def create
-    binding.pry
-    # Category.create(category_params)
     category = current_user.category.create!(category_params)
-    redirect_to categorys_path
+    redirect_to categorys_path, notice:"作成しました"
   end
 
 
