@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   end
   resources :tasks
   resources :categorys
-  root to: 'tasks#index'
+
+  # root to: 'tasks#index'
+  root to: 'categorys#index'
+
 end
