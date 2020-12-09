@@ -1,26 +1,28 @@
 
-<div class="card">
-  <div class="text-left">
+<div class="card mt-3 mb-5 py-3">
+  <div class="text-left ml-3">
     <span>
       <%= link_to "キャンセル", categorys_path, class: 'text-dark'%>
    </span>
   </div>
   <div class="text-center">
-    <span>カテゴリーを追加する</span>
+    <span>新しいカテゴリーを追加する</span>
   </div>
 </div>
 
+<%= form_with model: @category, url: "/categorys", method: :post, local: true do |f| %>
+  <p>カテゴリー名：<%= f.text_field :name %></p>
+  <%= f.submit "作成" , class:"btn btn-primary"%>
+<% end %>
 
 
-<div class="card">
-  <div class="text-left">
-  </div>
-  <div class="text-center">
-    <span class="pl-5">名前</span>
-  </div>
-</div>
 
 
+
+
+
+
+  
 <%
 =begin%>
  <%= form_with model: @category  local: true do |f| %>
