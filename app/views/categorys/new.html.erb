@@ -10,11 +10,7 @@
   </div>
 </div>
 
-
-
-
-
-<%= form_with model: @category, url: "/caategorys", method: :post, local: true do |f| %>
+<%= form_with model: @category, url: "/categorys", method: :post, local: true do |f| %>
   <p>カテゴリー名：<%= f.text_field :name %></p>
   <%= f.submit "作成" , class:"btn btn-primary"%>
 <% end %>

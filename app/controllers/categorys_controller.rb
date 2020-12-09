@@ -12,9 +12,9 @@ class CategorysController < ApplicationController
 
   def create
     binding.pry
-    Category.create(category_params)
-    # category = current_user.category.create!(category_params)
-    # redirect_to category
+    # Category.create(category_params)
+    category = current_user.category.create!(category_params)
+    redirect_to categorys_path
   end
 
 
