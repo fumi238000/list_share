@@ -1,6 +1,11 @@
 <h1>編集</h1>
+<%= link_to "キャンセル", categorys_path, class: 'text-dark'%>
 
 <%= form_with model: @category, url: "/categorys", method: :post, local: true do |f| %>
   <p>カテゴリー名：<%= f.text_field :name %></p>
   <%= f.submit "作成" , class:"btn btn-primary"%>
 <% end %>
+
+ <%# 削除ボタン(一時的に作成) %>
+    <%= link_to "このカテゴリーを削除する" ,root_path, class: "btn btn-danger text-white btn-sm btn-sm mr-1",data: { confirm: '本当に削除しますか?' } %>
+ 
