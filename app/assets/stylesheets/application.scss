@@ -46,13 +46,21 @@
 
 
 //マイページ
+
+//データリセット
+.reset-button {
+  background-color: #ed551b;
+  border: 0px none;
+  margin-top: 100px;
+}
+
 // ログアウト
 .logout-button {
   padding: 10px 50px;
-  margin-top: 100px;
   background-color: #ed551b;
-  
+  margin-top: 50px;
 }
+
 
 
 
