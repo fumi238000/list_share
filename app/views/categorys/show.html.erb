@@ -1,9 +1,0 @@
-<h1>とりあえず詳細画面の作成</h1>
-
-<p>【ポジション】 <%= @category.position %></p>
-
-<p>
-  <%= link_to "編集", edit_category_path(@category) %>
-  <%= link_to "削除", category_path(@category), method: :delete, data: { confirm: "削除しますか？" } %>
-</p>
-<p><%= link_to "投稿一覧へ", categorys_path %></p>

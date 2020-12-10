@@ -1,5 +1,5 @@
 class CategorysController < ApplicationController
-  before_action :set_category, only: %i[show edit update destroy]
+  before_action :set_category, only: %i[edit update destroy]
 
 
   def index
@@ -11,8 +11,6 @@ class CategorysController < ApplicationController
     @category = Category.new
   end
 
-  def show
-  end
 
   def create
     category = current_user.category.create!(category_params)  
