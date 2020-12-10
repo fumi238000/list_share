@@ -14,34 +14,3 @@
   <p>カテゴリー名：<%= f.text_field :name %></p>
   <%= f.submit "作成" , class:"btn btn-primary"%>
 <% end %>
-
-
-
-
-
-
-
-
-  
-<%
-=begin%>
- <%= form_with model: @category  local: true do |f| %>
-  <div> 
-    <%= f.label :name %>
-  </div>
-
-  <div>
-    <%= f.text_field :name, required: true %>
-  </div>
-
-  <%= f.submit "新規作成" %>
-<% end %> 
-<%
-=end%>
-
-
-
-
-
-
-
