@@ -6,7 +6,7 @@
     </button>
 
     <div class="collapse navbar-collapse nav-item" id="navbarNav">
-　　　　<ul class="navbar-nav ml-auto">
+       <ul class="navbar-nav ml-auto">
        
         <li class="nav-item">
           <%= link_to "カテゴリー", categorys_path, class: 'nav-link nav-color' %>
@@ -28,13 +28,13 @@
 
         <%# 未ログイン時 %>
         <li class="nav-item">
-          <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-light' %>
+          <%= link_to "新規登録", new_user_registration_path, class: 'nav-link nav-color' %>
         </li>
         <li class="nav-item">  
-          <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-light' %>
+          <%= link_to "ログイン", new_user_session_path, class: 'nav-link nav-color' %>
         </li>
         <li class="nav-item">  
-         <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: 'nav-link text-light',method: :post %>
+         <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: 'nav-link nav-color',method: :post %>
         </li>
       <% end %>
       </ul>
