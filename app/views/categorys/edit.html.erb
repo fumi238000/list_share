@@ -6,6 +6,7 @@
   <%= f.submit "作成" , class:"btn btn-primary"%>
 <% end %>
 
+
  <%# 削除ボタン(一時的に作成) %>
-    <%= link_to "このカテゴリーを削除する" ,root_path, class: "btn btn-danger text-white btn-sm btn-sm mr-1",data: { confirm: '本当に削除しますか?' } %>
- 
+
+    <%= link_to "このカテゴリーを削除する" ,category_path(@category), class: "btn btn-danger text-white btn-sm btn-sm mr-1",data: { confirm: '本当に削除しますか?' } ,method: :delete%>

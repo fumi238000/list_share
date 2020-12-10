@@ -13,7 +13,7 @@ class CategorysController < ApplicationController
 
 
   def create
-    category = current_user.category.create!(category_params)  
+    category = current_user.category.create!(category_params)
     if category.save
       redirect_to categorys_path, notice:"作成しました"
     else
@@ -23,7 +23,8 @@ class CategorysController < ApplicationController
   end
 
 
-  def edit    
+  def edit
+  
   end
 
 
