@@ -1,4 +1,30 @@
-<p>MyPage</p>
+<h1>MyPage</h1>
 
-<p>ユーザーネーム<%= current_user.name %></p>
-<p>メールアドレス<%= current_user.email %></p>
+
+ <%# アカウント編集リンク %>
+ <div class="text-right">
+    <%= link_to 'アカウント編集', edit_user_registration_path %>
+</div>  
+
+ 
+<p class="bg-danger">イラストを表示予定<p>
+
+
+<p>ユーザー名 : <%= current_user.name %></p>
+<p>メールアドレス : <%= current_user.email %></p>
+
+
+
+
+
+ <%# アイコンにするとなぜかエラーが出る %>
+<%
+=begin%>
+ <%# ユーザー編集ボタン %>
+ <div class="text-right">
+    <%= link_to 'アカウント編集', edit_user_registration_path , :method => :get do %>
+    <i class="fas fa-pen"></i>
+    <% end %>
+ </div>  
+<%
+=end%>
