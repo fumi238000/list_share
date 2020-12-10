@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   end
   resources :tasks
   resources :categorys
-
+  
+  # mypage
+  resources :users, :only => [:show]
+  
+  # 一時的にcategoryをrootに設定
   # root to: 'tasks#index'
   root to: 'categorys#index'
 
