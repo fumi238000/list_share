@@ -11,7 +11,6 @@ class CategorysController < ApplicationController
     @category = Category.new
   end
 
-
   def create
     category = current_user.category.create!(category_params)
     if category.save
@@ -24,7 +23,6 @@ class CategorysController < ApplicationController
 
 
   def edit
-  
   end
 
 
