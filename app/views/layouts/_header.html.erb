@@ -13,29 +13,16 @@
           <%= link_to "カテゴリー", categorys_path, class: 'nav-link nav-color' %>
         </li>
 
-        <li class="nav-item">
-          <%= link_to "マイページ", root_path, class: 'nav-link nav-color' %>
-        </li>
 
       <% if user_signed_in? %>
         <%# ログイン時 %>
         <li class="nav-item">
-          <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link nav-color' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link nav-color ' %>
+          <%= link_to "マイページ", user_path(current_user.id), class: 'nav-link nav-color' %>
         </li>
       <% else %>
-
         <%# 未ログイン時 %>
-        <li class="nav-item">
-          <%= link_to "新規登録", new_user_registration_path, class: 'nav-link nav-color' %>
-        </li>
         <li class="nav-item">  
           <%= link_to "ログイン", new_user_session_path, class: 'nav-link nav-color' %>
-        </li>
-        <li class="nav-item">  
-         <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: 'nav-link nav-color',method: :post %>
         </li>
       <% end %>
       </ul>

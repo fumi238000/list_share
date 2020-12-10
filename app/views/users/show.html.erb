@@ -1,0 +1,37 @@
+<h1>MyPage</h1>
+
+
+ <%# アカウント編集リンク %>
+ <div class="text-right mb-3">
+    <%= link_to 'アカウント編集', edit_user_registration_path ,class: "btn btn-primary text-light text-right" %>
+</div>  
+
+ 
+<p class="bg-danger py-5">イラストを表示予定<p>
+
+
+<p>ユーザー名 : <%= current_user.name %></p>
+<p>メールアドレス : <%= current_user.email %></p>
+
+
+
+
+
+<div class="logout-button">
+  <center>
+    <%= link_to 'ログアウト', destroy_user_session_path,class: "text-light", method: :delete %>
+  </center>
+</div>
+
+
+ <%# アイコンにするとなぜかエラーが出る %>
+<%
+=begin%>
+ <%# ユーザー編集ボタン %>
+ <div class="text-right">
+    <%= link_to 'アカウント編集', edit_user_registration_path , :method => :get do %>
+    <i class="fas fa-pen"></i>
+    <% end %>
+ </div>  
+<%
+=end%>

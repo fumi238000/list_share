@@ -12,6 +12,9 @@
     <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
   </div>
 
+
+ 
+
   <% if devise_mapping.rememberable? %>
     <div class="form-group form-check">
       <%= f.check_box :remember_me, class: 'form-check-input' %>
@@ -21,9 +24,16 @@
     </div>
   <% end %>
 
+
+ 
   <div class="form-group">
     <%= f.submit  t('.sign_in'), class: 'btn btn-primary btn-block' %>
   </div>
 <% end %>
+
+  <div>  
+    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-primary text-light btn-block",method: :post %>
+  </div>
+
 
 <%= render 'devise/shared/links' %>
