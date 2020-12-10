@@ -2,12 +2,12 @@
 
 
  <%# アカウント編集リンク %>
- <div class="text-right">
-    <%= link_to 'アカウント編集', edit_user_registration_path %>
+ <div class="text-right mb-3">
+    <%= link_to 'アカウント編集', edit_user_registration_path ,class: "btn btn-primary text-light text-right" %>
 </div>  
 
  
-<p class="bg-danger">イラストを表示予定<p>
+<p class="bg-danger py-5">イラストを表示予定<p>
 
 
 <p>ユーザー名 : <%= current_user.name %></p>
