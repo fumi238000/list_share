@@ -1,1 +1,50 @@
-<h1>タスク一覧画面です</h1>
+<h1>タスク</h1>
+
+<div class="text-right">
+   <%# 追加ボタン %>
+    <%= link_to root_path, class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %> 
+      <span class="mr-2">タスクを追加</span><i class="fas fa-plus-circle"></i>
+    <% end %>
+</div>
+  
+
+<div id="tasks-list">
+
+<% @tasks.each do |t| %>
+
+  <ul class="card">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+
+        <div class="task-status">
+             
+          <%# チェックボックス デモ%>        
+          <i class="far fa-check-square text-primary mr-5"></i>
+          
+          <%# グリッド%>  
+          <i class="fas fa-grip-lines-vertical text-primary grip mr-2 "></i>
+
+          <%# タスク名 %>
+          <span class="h5 pr-5"><%= t.name %></span>
+        </div>  
+
+        <%# ボタン %>
+        <div class="d-none d-sm-block ">
+          <div class="btn-group d-flex">
+            <div class="btn-toolbar">
+       
+
+                <%# 編集ボタン %>
+                <%= link_to root_path,class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %>
+                  <i class="fas fa-pen"></i>
+                <% end %>
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ul>
+
+<% end %>
+</div>
