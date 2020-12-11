@@ -45,7 +45,6 @@ class CategorysController < ApplicationController
   end
 
   def set_category
-
     @category = Category.find(params[:id])
     # cuurent_userのみ消せないように後から設定する
     # redirect_to category_path, alert: "権限がありません"
@@ -53,3 +52,4 @@ class CategorysController < ApplicationController
 
 
 end
+ 
