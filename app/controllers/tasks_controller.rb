@@ -7,4 +7,10 @@ class TasksController < ApplicationController
     # @categorys = current_user.category.order(:id)
   end
 
+
+  def new
+    @task = Task.new
+  end
+
+
 end
