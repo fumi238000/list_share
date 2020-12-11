@@ -1,1 +1,17 @@
-<h1>new</h1>
+<div class="card category-card">
+  <div class="text-left ml-3">
+    <span>
+      <%= link_to "キャンセル", tasks_path, class: 'text-dark'%>
+   </span>
+  </div>
+  <div class="text-center">
+    <span>新しいタスクを追加する</span>
+  </div>
+</div>
+
+<div class="card category-form">
+  <%= form_with model: @task, url: "/tasks", method: :post, local: true do |f| %>
+    <p>タスク名：<%= f.text_field :name ,size: 50, class: "category-submit"%></p>
+</div>
+    <%= f.submit "作成" , class:"category-button btn-block"%>
+  <% end %>
