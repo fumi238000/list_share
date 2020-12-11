@@ -8,11 +8,14 @@
     
     <div class="collapse navbar-collapse nav-item" id="navbarNav">
        <ul class="navbar-nav ml-auto">
-       
+
+        <li class="nav-item">
+          <%= link_to "タスク", tasks_path, class: 'nav-link nav-color' %>
+        </li>
+
         <li class="nav-item">
           <%= link_to "カテゴリー", categorys_path, class: 'nav-link nav-color' %>
         </li>
-
 
       <% if user_signed_in? %>
         <%# ログイン時 %>
