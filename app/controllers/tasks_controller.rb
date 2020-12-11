@@ -1,8 +1,10 @@
 class TasksController < ApplicationController
-before_action :authenticate_user!
   
   def index
-    
+    @tasks = Task.all
+    # @tasks = current_user.category.order(:id)
+    # @tasks = Task.all
+    # @categorys = current_user.category.order(:id)
   end
 
 end

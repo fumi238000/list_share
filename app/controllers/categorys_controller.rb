@@ -3,7 +3,7 @@ class CategorysController < ApplicationController
 
 
   def index
-    @categorys = Category.order(:id)
+    @categorys = current_user.category.order(:id)
   end
 
 
