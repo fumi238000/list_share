@@ -18,7 +18,6 @@ class TasksController < ApplicationController
 
 
   def create
-    binding.pry
     #現状全てcategory[0]に作成されているので注意
     select_category = current_user.category[0]
 
@@ -47,7 +46,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy!
-    redirect_to task_path
+    redirect_to root_path
   end
 
 
