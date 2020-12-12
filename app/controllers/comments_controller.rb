@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
 
   def create
 
-    # task_idの引数の渡し方を変える
+    # comment_idの引数の渡し方を変える
     comment = Comment.create!(task_id: 1, user_id: current_user[:id],content: comment_params[:content])  
       
     if comment.save
@@ -29,7 +29,12 @@ class CommentsController < ApplicationController
 
 
 
+  def edit
+  end
+
   def update
+    @comment.update!(comment_params)
+    redirect_to comments_path
   end
 
 
