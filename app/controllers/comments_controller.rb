@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  # bedore_action:
+  before_action :set_comment, only: %i[edit update destroy]
   
   def index
   end
@@ -13,7 +13,17 @@ class CommentsController < ApplicationController
 
 
   def create
-  end
+    #現状全てcategory[0]に作成されているので注意
+    # select_category = current_user.category[0]
+  
+    #   task = select_category.task.create!(task_params)
+    #   if task.save
+    #     redirect_to tasks_path, notice:"作成しました"
+    #   else
+    #     flash.now[:alert] = "作成に失敗しました"
+    #     render :new
+      end
+    end
 
 
 
@@ -29,7 +39,8 @@ class CommentsController < ApplicationController
 
 private
 
-  def set_comments
+  def set_comment
+    @comment = Comment.find(params[:id])
   end
 
 end
