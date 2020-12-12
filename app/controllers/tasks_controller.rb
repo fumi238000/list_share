@@ -3,15 +3,19 @@ class TasksController < ApplicationController
   
   def index
     @tasks = Task.all
+
+    # @tasks = category.Task.all
     # @tasks = current_user.category.order(:id)
-    # @tasks = Task.all
     # @categorys = current_user.category.order(:id)
   end
+
 
 
   def new
     @task = Task.new
   end
+
+
 
   def create
     #現状全てcategory[0]に作成されているので注意
@@ -27,9 +31,23 @@ class TasksController < ApplicationController
   end
 
 
+
   def edit
   end
 
+
+
+  def update
+    @task.update!(task_params)
+    redirect_to root_path
+  end
+
+
+
+  def destroy
+    @task.destroy!
+    redirect_to root_path
+  end
 
 
   private
@@ -39,6 +57,8 @@ class TasksController < ApplicationController
     # cuurent_userのみ消せないように後から設定する
     # redirect_to category_path, alert: "権限がありません"
   end
+
+
 
   def task_params
     params.require(:task).permit(:name)

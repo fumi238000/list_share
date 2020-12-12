@@ -11,7 +11,7 @@
   </div>
 
   <div class="card category-form">
-    <%= form_with model: @task, url: "/tasks", method: :post, local: true do |f| %>
+    <%= form_with model: @task, local: true do |f| %>
     <p class="pt-3">タスク名：<%= f.text_field :name, size: 50, class: "category-submit" %></p>
   </div>
 
