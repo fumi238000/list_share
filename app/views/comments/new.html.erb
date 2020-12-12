@@ -10,8 +10,9 @@
 </div>
 
 <div class="card category-form">
+
   <%= form_with model: @comment, local: true do |f| %>
-    <p>コメント：<%= f.text_field :name ,size: 100, class: "category-submit"%></p>
+    <p>コメント：<%= f.text_field :content ,size: 50, class: "category-submit"%></p>
 </div>
     <%= f.submit "作成" , class:"category-button btn-block"%>
   <% end %>
