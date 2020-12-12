@@ -27,7 +27,7 @@
       <span class="h5 pr-5"><%= c.content %></span>
       <%# 編集ボタン%>
       <div  class="text-right">
-        <%= link_to "編集する" ,comment_path(c), class: " btn-sm btn-sm mr-1 text-light" ,method: :get %>
+        <%= link_to "編集する" ,edit_comment_path(c), class: " btn-sm btn-sm mr-1 text-light" ,method: :get %>
       </div>
       <%# 削除ボタン%>
       <div  class="text-right">
