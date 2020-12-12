@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   end
 
   root to: 'tasks#index'
-  
-  resources :tasks
+
   resources :categorys
-  
+  resources :tasks
+  resources :comments, :only => [:index]
+
   # mypage
   resources :users, :only => [:show]
   
