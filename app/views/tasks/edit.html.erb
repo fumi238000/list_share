@@ -1,0 +1,27 @@
+  <div class="card category-card">
+    <div class="text-left">
+      <span>
+        <%= link_to "キャンセル", tasks_path, class: 'text-dark'%>
+      </span>
+    </div>
+
+    <div class="text-center">
+      <span>タスク名の編集</span>
+    </div>
+  </div>
+
+  <div class="card category-form">
+    <%= form_with model: @task, url: "/tasks", method: :post, local: true do |f| %>
+    <p class="pt-3">タスク名：<%= f.text_field :name, size: 50, class: "category-submit" %></p>
+  </div>
+
+      <%= f.submit "更新" , class:"btn-block category-button"%>
+    <% end %>
+
+
+  <%# 削除ボタン%>
+  <div class="category-delete">
+    <center>
+      <%= link_to "このタスクを削除する" ,task_path(@task), class: "btn-block btn-sm btn-sm mr-1 text-light",data: { confirm: '本当に削除しますか?' } ,method: :delete%>
+    </center>
+  </div>
