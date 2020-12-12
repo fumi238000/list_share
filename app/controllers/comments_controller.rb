@@ -8,25 +8,24 @@ class CommentsController < ApplicationController
 
 
 
-  def new    
+  def new
     @comment = Comment.new
   end
 
 
 
-  def create  
+  def create
 
-    binding.pry
-
+    # task_idの引数の渡し方を変える
     comment = Comment.create!(task_id: 1, user_id: current_user[:id],content: comment_params[:content])  
       
-      if comment.save
-        redirect_to comments_path, notice:"作成しました"
-      else
-        flash.now[:alert] = "作成に失敗しました"
-        render :new
-      end
+    if comment.save
+      redirect_to comments_path, notice:"作成しました"
+    else
+      flash.now[:alert] = "作成に失敗しました"
+      render :new
     end
+  end
 
 
 
@@ -36,6 +35,8 @@ class CommentsController < ApplicationController
 
 
   def destroy
+    @comment.destroy!
+    redirect_to comments_path
   end
 
 
