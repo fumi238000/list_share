@@ -33,12 +33,11 @@
           <div class="btn-group d-flex">
             <div class="btn-toolbar">
        
-
                 <%# 編集ボタン %>
-                <%= link_to root_path,class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %>
+                <%= link_to edit_task_path(t),class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %>
                   <i class="fas fa-pen"></i>
                 <% end %>
-                
+              
             </div>
           </div>
         </div>
@@ -48,3 +47,4 @@
 
 <% end %>
 </div>
+

@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_category, only: %i[edit update destroy]
+  before_action :set_task, only: %i[edit update destroy]
   
   def index
     @tasks = Task.all
@@ -14,7 +14,6 @@ class TasksController < ApplicationController
   end
 
   def create
-
     #現状全てcategory[0]に作成されているので注意
     select_category = current_user.category[0]
 
@@ -26,6 +25,12 @@ class TasksController < ApplicationController
       render :new
     end
   end
+
+
+  def edit
+  end
+
+
 
   private
 
