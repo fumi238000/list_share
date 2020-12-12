@@ -1,58 +1,38 @@
-
 <div>
+  <%# キャンセルボタン %>
   <div class ="text-left ">
-        <span>
-        <%= link_to "キャンセル", root_path, class: 'text-dark'%>
-      </span>
+    <span>
+      <%= link_to "キャンセル", root_path, class: 'text-dark'%>
+    </span>
   </div>
-
+  <%# 追加ボタン %>
   <div class ="text-right ">
-     <%# 追加ボタン %>
     <%= link_to new_comment_path, class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %> 
       <span class="mr-2">コメントを追加</span><i class="fas fa-plus-circle"></i>
     <% end %>
   </div>
 </div>
 
-
-
-
-
-
+<%# コメントカード %>
 <div class="card p-3">
-  <p>コメント一覧</p>
-
-  <div class="card bg-primary mb-3">
-    <ul class="text-light">
-      <li>日付</li>
-      <li>編集ボタン</li>
-      <li>削除ボタン</li>
-    </ul>
-  </div>
-
-
-  <div class="card bg-primary mb-3">
-    <ul class="text-light">
-      <li>日付</li>
-      <li>編集ボタン</li>
-      <li>削除ボタン</li>
-    </ul>
-  </div>
-
-  <div class="card bg-primary mb-3">
-    <ul class="text-light">
-      <li>日付</li>
-      <li>編集ボタン</li>
-      <li>削除ボタン</li>
-    </ul>
-  </div>
-
-  <div class="card bg-primary mb-3">
-    <ul class="text-light">
-      <li>日付</li>
-      <li>編集ボタン</li>
-      <li>削除ボタン</li>
-    </ul>
-  </div>
-
+　<% @comments.each do |c| %>
+    <p>コメント一覧</p>
+    <div class="card bg-primary mb-3">
+      <%# 日付%>    
+      <div class="text-light">
+        <span>作成日<%= c.created_at %></span>
+        <span>更新日<%= c.updated_at %></span>
+      </div>
+      <%# コメント%>
+      <span class="h5 pr-5"><%= c.content %></span>
+      <%# 編集ボタン%>
+      <div  class="text-right">
+        <%= link_to "編集する" ,comment_path(c), class: " btn-sm btn-sm mr-1 text-light" ,method: :get %>
+      </div>
+      <%# 削除ボタン%>
+      <div  class="text-right">
+        <%= link_to "削除する" ,comment_path(c), class: " btn-sm btn-sm mr-1 text-light",data: { confirm: '本当に削除しますか?' } ,method: :delete%>
+      </div>
+    </div>
+  <% end %>
 </div>

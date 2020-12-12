@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
-  # bedore_action:
+  before_action :set_comment, only: %i[edit update destroy]
+
   
   def index
+    @comments = Comment.all
   end
 
 
@@ -12,8 +14,19 @@ class CommentsController < ApplicationController
 
 
 
-  def create
-  end
+  def create  
+
+    binding.pry
+
+    comment = Comment.create!(task_id: 1, user_id: current_user[:id],content: comment_params[:content])  
+      
+      if comment.save
+        redirect_to comments_path, notice:"作成しました"
+      else
+        flash.now[:alert] = "作成に失敗しました"
+        render :new
+      end
+    end
 
 
 
@@ -29,7 +42,13 @@ class CommentsController < ApplicationController
 
 private
 
-  def set_comments
+def comment_params
+  params.require(:comment).permit(:content)
+end
+
+
+  def set_comment
+    @comment = Comment.find(params[:id])
   end
 
 end
