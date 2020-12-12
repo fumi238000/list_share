@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
   
   def index
+    @comments = Comment.all
   end
 
 
@@ -22,7 +23,7 @@ class CommentsController < ApplicationController
     #   else
     #     flash.now[:alert] = "作成に失敗しました"
     #     render :new
-      end
+      # end
     end
 
 
