@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :categorys
   resources :tasks
-  resources :comments, :only => [:index]
+  resources :comments
 
   # mypage
   resources :users, :only => [:show]

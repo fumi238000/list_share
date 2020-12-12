@@ -7,39 +7,52 @@
   </div>
 
   <div class ="text-right ">
-    <span >コメントを追加</span>
+     <%# 追加ボタン %>
+    <%= link_to new_comment_path, class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %> 
+      <span class="mr-2">コメントを追加</span><i class="fas fa-plus-circle"></i>
+    <% end %>
   </div>
 </div>
 
-<div class="card bg-primary mb-3">
-  <ul class="text-light">
-    <li>日付</li>
-    <li>編集ボタン</li>
-    <li>削除ボタン</li>
-  </ul>
-</div>
 
 
-<div class="card bg-primary mb-3">
-  <ul class="text-light">
-    <li>日付</li>
-    <li>編集ボタン</li>
-    <li>削除ボタン</li>
-  </ul>
-</div>
 
-<div class="card bg-primary mb-3">
-  <ul class="text-light">
-    <li>日付</li>
-    <li>編集ボタン</li>
-    <li>削除ボタン</li>
-  </ul>
-</div>
 
-<div class="card bg-primary mb-3">
-  <ul class="text-light">
-    <li>日付</li>
-    <li>編集ボタン</li>
-    <li>削除ボタン</li>
-  </ul>
+
+<div class="card p-3">
+  <p>コメント一覧</p>
+
+  <div class="card bg-primary mb-3">
+    <ul class="text-light">
+      <li>日付</li>
+      <li>編集ボタン</li>
+      <li>削除ボタン</li>
+    </ul>
+  </div>
+
+
+  <div class="card bg-primary mb-3">
+    <ul class="text-light">
+      <li>日付</li>
+      <li>編集ボタン</li>
+      <li>削除ボタン</li>
+    </ul>
+  </div>
+
+  <div class="card bg-primary mb-3">
+    <ul class="text-light">
+      <li>日付</li>
+      <li>編集ボタン</li>
+      <li>削除ボタン</li>
+    </ul>
+  </div>
+
+  <div class="card bg-primary mb-3">
+    <ul class="text-light">
+      <li>日付</li>
+      <li>編集ボタン</li>
+      <li>削除ボタン</li>
+    </ul>
+  </div>
+
 </div>
