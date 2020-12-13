@@ -52,3 +52,38 @@
 <% end %>
 </div>
 
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <title>Document</title>
+ </head>
+ <body>
+
+
+
+<div id="contents">
+    <div class="tab_box">
+      <ul class="tab_list ">
+        <li v-on:click="change('A')" v-bind:class="{'active': isActive === 'A'}">タブ1</li>
+        <li v-on:click="change('B')" v-bind:class="{'active': isActive === 'B'}">タブ2</li>
+        <li v-on:click="change('C')" v-bind:class="{'active': isActive === 'C'}">タブ3</li>
+      </ul>
+ 
+      <ul class="article">
+        <li v-if="isActive === 'A'">ダミーテキスト1</li>
+        <li v-else-if="isActive === 'B'">ダミーテキスト2</li>
+        <li v-else-if="isActive === 'C'">ダミーテキスト3</li>
+      </ul>
+    </div>
+ 
+  </div>
+
+  <script src="vue.js"></script>
+  <script src="main.js"></script>
+
+ </body>
+ </html>
+ 
