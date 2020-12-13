@@ -2,7 +2,8 @@
 チェックリストを作成・共有するサービスです。
   
 ### URL
-[LIST_SHARE](https://list-share-app-staging.herokuapp.com{:target="_blank"})
+
+[LIST_SHARE](https://list-share-app-staging.herokuapp.com)
 
 簡単ログインは現在調整中です
 
