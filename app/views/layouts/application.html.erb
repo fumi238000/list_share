@@ -10,11 +10,15 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <%= render "layouts/flash" %>
-    <div class="container-fluid py-4 mw-md">
-      <%= yield %>
-    </div>
+    <header>
+      <%= render 'layouts/header' %>
+    </header>
+    <main>
+      <%= render "layouts/flash" %>
+      <div class="container-fluid py-4 mw-md">
+        <%= yield %>
+      </div>
+    </main>
   
   <%# Vue.js %>
   <%= javascript_pack_tag 'custom_vue' %> 

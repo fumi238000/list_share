@@ -45,14 +45,14 @@ class TasksController < ApplicationController
 
   def update
     @task.update!(task_params)
-    redirect_to root_path
+    redirect_to root_path, notice: "更新しました"
   end
 
 
 
   def destroy
     @task.destroy!
-    redirect_to root_path
+    redirect_to root_path, alert: "削除しました"
   end
 
 

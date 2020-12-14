@@ -32,7 +32,7 @@ class ParticipationsController < ApplicationController
 
   def destroy
     @participation.destroy!
-    redirect_to participations_path
+    redirect_to participations_path, alert: "削除しました"
   end
 
 

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :category, dependent: :destroy
+  has_many :category, dependent: :destroy, foreign_key: 'user_id'
+  has_many :check, dependent: :destroy, foreign_key: 'user_id'
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
