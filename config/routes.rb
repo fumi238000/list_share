@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
   resources :categorys
   resources :tasks
-  resources :comments
-  resources :participations
+  resources :comments 
+  resources :participations, only: %i[index new create destroy]
 
   # mypage
   resources :users, :only => [:show]

@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[edit update destroy]
-  # before_action :category_params, only: %i[create]
   before_action :task_params, only: %i[create]
 
   def index
@@ -22,7 +21,6 @@ class TasksController < ApplicationController
   end
 
 
-#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
   def create
 
     task = Task.create!(name: task_params[:name], category_id: task_params[:category_id], user_id: current_user[:id])
@@ -38,7 +36,6 @@ class TasksController < ApplicationController
   
   end
 
-#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
   def edit
@@ -72,9 +69,5 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:name,:category_id)
   end
-
-  # def category_params
-  #   params.require(:category).permit(:id)
-  # end
-
+  
 end
