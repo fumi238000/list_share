@@ -27,14 +27,14 @@ class CategorysController < ApplicationController
 
 
   def update
-    @category.updae!(category_params)
-    redirect_to @category
+    @category.update!(category_params)
+    redirect_to categorys_path, notice: "更新しました"
   end
 
 
   def destroy
     @category.destroy!
-    redirect_to root_path
+    redirect_to categorys_path, alert: "削除しました"
   end
 
 

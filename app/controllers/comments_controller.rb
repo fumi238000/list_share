@@ -34,14 +34,14 @@ class CommentsController < ApplicationController
 
   def update
     @comment.update!(comment_params)
-    redirect_to comments_path
+    redirect_to comments_path, notice: "更新しました"
   end
 
 
 
   def destroy
     @comment.destroy!
-    redirect_to comments_path
+    redirect_to comments_path, alert: "削除しました"
   end
 
 
