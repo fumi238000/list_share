@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :categorys
   resources :tasks
   resources :comments
+  resources :participations
 
   # mypage
   resources :users, :only => [:show]
