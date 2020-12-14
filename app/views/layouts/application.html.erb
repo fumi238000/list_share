@@ -15,5 +15,10 @@
     <div class="container-fluid py-4 mw-md">
       <%= yield %>
     </div>
-  </body>
+  
+  <%# Vue.js %>
+  <%= javascript_pack_tag 'custom_vue' %> 
+  <%= javascript_pack_tag 'hello_vue' %>
+  <%= stylesheet_pack_tag 'hello_vue'  %> 
+</body>
 </html>

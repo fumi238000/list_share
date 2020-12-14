@@ -7,48 +7,87 @@
     <% end %>
 </div>
   
+<div id="contents">
 
-<div id="tasks-list">
-
-<% @tasks.each do |t| %>
-
-  <ul class="card">
-    <div class="card-body">
-      <div class="d-flex justify-content-between">
-
-        <div class="task-status">
-             
-          <%# チェックボックス デモ%>        
-          <i class="far fa-check-square text-primary mr-5"></i>
-          
-          <%# グリッド%>  
-          <i class="fas fa-grip-lines-vertical text-primary grip mr-2 "></i>
-
-          <%# タスク名 %>
-          <span class="h5 pr-5"><%= t.name %></span>
-        </div>  
-
-        <%# ボタン %>
-        <div class="d-none d-sm-block ">
-          <div class="btn-group d-flex">
-            <div class="btn-toolbar">
-       
-                <%# 編集ボタン %>
-                <%= link_to edit_task_path(t),class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %>
-                  <i class="fas fa-pen"></i>
-                <% end %>
-
-                <%# コメント一覧へリンク %>
-                <%= link_to "コメントへ", comments_path, class: "btn text-primary btn-sm btn-sm mr-1"%>
-
-              
-            </div>
-          </div>
-        </div>
-      </div>
+　　<%# カテゴリー %>
+    <div class="tab_box">
+      <ul class="tab_list">
+　　     <% @categorys.each.with_index(0) do |c,i| %>
+          <li v-on:click="change('<%= i%>')" v-bind:class="{'active': isActive === '<%= i %>'}"><%= c.name %></li>
+        <% end %>
+      </ul>
     </div>
-  </ul>
 
-<% end %>
+    <%# タスクリスト %>
+    <ul class="article">
+    <% @categorys.each.with_index(0) do |c,i| %>
+     <%#= タスクのカード%>
+     <div id="tasks-list">
+          <% @tasks.each do |t| %>
+            <ul class="card article">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+
+                  <div class="task-status">
+                      
+                    <%# チェックボックス デモ%>        
+                    <i class="far fa-check-square text-primary mr-5"></i>
+                    
+                    <%# グリッド%>  
+                    <i class="fas fa-grip-lines-vertical text-primary grip mr-2 "></i>
+
+                    <%# タスク名 %>
+                    <span class="h5 pr-5" v-if="isActive === '<%= i %>'"><%= t.name %></span>
+                  </div>  
+
+                  <%# ボタン %>
+                  <div class="d-none d-sm-block ">
+                    <div class="btn-group d-flex">
+                      <div class="btn-toolbar">
+                
+                          <%# 編集ボタン %>
+                          <%= link_to edit_task_path(t),class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %>
+                            <i class="fas fa-pen"></i>
+                          <% end %>
+
+                          <%# コメント一覧へリンク %>
+                          <%= link_to "コメントへ", comments_path, class: "btn text-primary btn-sm btn-sm mr-1"%>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ul>
+          <% end %>
+        </div>
+        <% end %>
+    </ul>
+
+  </div> 
+
 </div>
+
+
+<%#=　テスト用 %>
+<div> 
+  <% @tasks.each do |t| %>
+     <span class="h5 pr-5"><%= t.name %></span>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
