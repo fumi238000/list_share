@@ -1,1 +1,48 @@
 <h1>参加者一覧</h1>
+
+<div class="text-right">
+   <%# 追加ボタン %>
+    <%= link_to root_path, class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %> 
+      <span class="mr-2">共有者を追加</span><i class="fas fa-plus-circle"></i>
+    <% end %>
+</div>
+  
+
+<div id="tasks-list">
+
+<% @participations.each do |p| %>
+
+  <ul class="card">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+
+        <div class="task-status">
+
+          <%# ユーザーネーム %>
+          <span class="h5 pr-5">ユーザーネーム</span>
+
+          <%# メールアドレス %>
+          <span class="h5 pr-5">メールアドレス</span>
+
+        </div>  
+
+
+        <%# ボタン %>
+        <div class="d-none d-sm-block ">
+          <div class="btn-group d-flex">
+            <div class="btn-toolbar">
+                
+                <%# 削除ボタン 形だけ導入%>
+                <div class="category-delete">
+                  <center>
+                    <%= link_to "このカテゴリーを削除する" ,root_path, class: "btn-block btn-sm btn-sm mr-1 text-light",data: { confirm: '本当に削除しますか?' } ,method: :get%>
+                  </center>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ul>
+
+<% end %>
+</div>
