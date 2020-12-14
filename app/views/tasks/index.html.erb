@@ -12,15 +12,15 @@
 　　<%# カテゴリー %>
     <div class="tab_box">
       <ul class="tab_list">
-　　     <% @categorys.each do |c| %>
-          <li v-on:click="change('<%= c.id %>')" v-bind:class="{'active': isActive === '<%= c.id %>'}"><%= c.name %></li>
+　　     <% @categorys.each.with_index(0) do |c,i| %>
+          <li v-on:click="change('<%= i%>')" v-bind:class="{'active': isActive === '<%= i %>'}"><%= c.name %></li>
         <% end %>
       </ul>
     </div>
 
     <%# タスクリスト %>
     <ul class="article">
-    <% @categorys.each do |c| %>
+    <% @categorys.each.with_index(0) do |c,i| %>
      <%#= タスクのカード%>
      <div id="tasks-list">
           <% @tasks.each do |t| %>
@@ -37,7 +37,7 @@
                     <i class="fas fa-grip-lines-vertical text-primary grip mr-2 "></i>
 
                     <%# タスク名 %>
-                    <span class="h5 pr-5" v-if="isActive === '<%= c.id %>'"><%= t.name %></span>
+                    <span class="h5 pr-5" v-if="isActive === '<%= i %>'"><%= t.name %></span>
                   </div>  
 
                   <%# ボタン %>
@@ -68,6 +68,13 @@
 
 </div>
 
+
+<%#=　テスト用 %>
+<div> 
+  <% @tasks.each do |t| %>
+     <span class="h5 pr-5"><%= t.name %></span>
+  <% end %>
+</div>
 
 
 

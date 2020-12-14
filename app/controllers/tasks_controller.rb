@@ -1,35 +1,44 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[edit update destroy]
-  
+  # before_action :category_params, only: %i[create]
+  before_action :task_params, only: %i[create]
+
   def index
-    @tasks = Task.all
-    @categorys = current_user.category.order(:id)
+
+     @tasks = Task.all
+     @categorys = current_user.category.order(:id)
+    # binding.pry
+    # @tasks = category.task.order[:id]
+
     # @tasks = category.Task.all
     # @tasks = current_user.category.order(:id)
-    # @categorys = current_user.category.order(:id)
   end
 
 
 
   def new
     @task = Task.new
+
   end
 
 
-
+#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
   def create
-    #現状全てcategory[0]に作成されているので注意
-    select_category = current_user.category[0]
 
-    task = select_category.task.create!(task_params)
+    task = Task.create!(name: task_params[:name], category_id: task_params[:category_id], user_id: current_user[:id])
+
     if task.save
       redirect_to tasks_path, notice:"作成しました"
     else
       flash.now[:alert] = "作成に失敗しました"
       render :new
     end
+ 
+  
+  
   end
 
+#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
   def edit
@@ -50,7 +59,8 @@ class TasksController < ApplicationController
   end
 
 
-  private
+
+
 
   def set_task
     @task = Task.find(params[:id])
@@ -59,11 +69,12 @@ class TasksController < ApplicationController
   end
 
 
-
   def task_params
-    params.require(:task).permit(:name)
+    params.require(:task).permit(:name,:category_id)
   end
 
-
+  # def category_params
+  #   params.require(:category).permit(:id)
+  # end
 
 end
