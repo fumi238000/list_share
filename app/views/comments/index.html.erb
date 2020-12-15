@@ -15,16 +15,15 @@
 
 <%# コメントカード %>
 <div class="card p-3">
+  <p>コメント一覧</p>
 　<% @comments.each do |c| %>
-    <p>コメント一覧</p>
     <div class="card bg-primary mb-3">
       <%# 日付%> 
-      <div class="text-light">
-        <span>作成日<%= c.created_at %></span>
-        <span>更新日<%= c.updated_at %></span>
+      <div class="text-light text-right">
+        <span>最終更新日<%= c.updated_at.to_s(:datetime_jp) %></span>
       </div>
       <%# コメント%>
-      <span class="h5 pr-5"><%= c.content %></span>
+      <span class="h5 pr-5 text-light"><%= c.content %></span>
       <%# 編集ボタン%>
       <div  class="text-right">
         <%= link_to "編集する" ,edit_comment_path(c), class: " btn-sm btn-sm mr-1 text-light" ,method: :get %>
