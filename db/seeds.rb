@@ -5,6 +5,8 @@ PASSWORD = "password"
 
 # データを全削除
 User.destroy_all
+Category.destroy_all
+Task.destroy_all
 
 #同じカラムに複数のデータを入れたいので検討する
 
