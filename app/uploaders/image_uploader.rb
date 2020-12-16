@@ -32,12 +32,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   def filename
     super.chomp(File.extname(super)) + ".jpg" if original_filename.present?
   end
+    
+  #サイズの変更
+  process resize_to_limit: [500, 500]
   
-    process resize_to_limit: [200, 300]
-  
-    version :thumb do
-      process resize_to_fit: [100, 100]
-    end
+  version :thumb do
+    process resize_to_fit: [500, 500]
+  end
   
 
   

@@ -1,14 +1,12 @@
 <h1>MyPage</h1>
 
-
  <%# アカウント編集リンク %>
  <div class="text-right mb-3">
     <%= link_to 'アカウント編集', edit_user_registration_path ,class: "btn btn-primary text-light text-right" %>
 </div>  
 
-  <p><%= image_tag @post.image.thumb.url %></p>
+<p class="text-center"><%= image_tag @post.image.thumb.url %></p>
  
-
  <% if @post.image?%>
    <div class="text-center mb-3">
       <%= link_to '画像の編集', edit_post_path(current_user) ,class: "btn btn-dark text-light" %>
@@ -19,12 +17,8 @@
   </div> 
 <% end %>
 
-
-
-
 <p>ユーザー名 : <%= current_user.name %></p>
 <p>メールアドレス : <%= current_user.email %></p>
-
 
 <div class="logout-button">
   <center>
