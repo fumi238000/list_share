@@ -17,7 +17,10 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
-
+    @category_id = params[:category_id]
+    binding.pry
+    # @task = Task.find_by(category_id: params[:category_id])
+    # @params_controller = params[:params_controller]
   end
 
 
