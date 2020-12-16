@@ -18,14 +18,12 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
     @category_id = params[:category_id]
-    binding.pry
     # @task = Task.find_by(category_id: params[:category_id])
     # @params_controller = params[:params_controller]
   end
 
 
   def create
-    binding.pry
     task = Task.create!(name: task_params[:name], category_id: task_params[:category_id])
 
     if task.save
