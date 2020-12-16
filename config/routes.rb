@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'tasks#index'
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -6,7 +7,6 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
-  root to: 'tasks#index'
 
   resources :categorys
   resources :tasks
