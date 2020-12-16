@@ -5,20 +5,20 @@
  <div class="text-right mb-3">
     <%= link_to 'アカウント編集', edit_user_registration_path ,class: "btn btn-primary text-light text-right" %>
 </div>  
- 
 
-<% @post.each do |post| %>
-  <p class="bg-dark py-5 text-light text-center"><%= post.image %></p>
+<% if @post.image? %>
+  STAP細胞はありまああす！
+  <p><%= image_tag @post.image.url %></p>
+<% else %>
+  ありません
+  <p><%= image_tag @post.image.url %></p>
 <% end %>
-
  
  <div class="text-center mb-3">
     <%= link_to '画像の編集', new_post_path ,class: "btn btn-dark text-light" %>
 </div>  
 
-<% @post.each do |post| %>
- <p><%= post.image %></p>
-<% end %>
+
 <p>ユーザー名 : <%= current_user.name %></p>
 <p>メールアドレス : <%= current_user.email %></p>
 

@@ -10,12 +10,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.create!(image: post_params[:image],user_id: current_user[:id])
+    post = Post.create(image: post_params[:image],user_id: current_user[:id])
 
     if post.save
       redirect_to user_path(current_user),notice:"作成しました"
     else 
-      flash.now[:alert] = "作成に失敗しました"
+      redirect_to user_path(current_user),alert:"すでに存在しています"
     end
   end
 
