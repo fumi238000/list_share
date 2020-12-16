@@ -4,6 +4,7 @@
 <div class="text-right">
    <%# 追加ボタン %>
     <%= link_to new_task_path(category_id: 1), class: "text-primary btn-sm btn-sm mr-1", :method => :get do %> 
+
       <span class="mr-2">タスクを追加</span><i class="fas fa-plus-circle"></i>
     <% end %>
 </div>
@@ -13,13 +14,7 @@
 <div id="tabs">
 
 <%#-------------------------------- %>
-   <%# これでもいける%>
-   <p v-text="category_id"></p>
-
-   <%# これをnewの引数に渡す！%>
-    <p>{{ category_id }}</p>
-
-
+    <a>{{ href }}</a>
 <%#-------------------------------- %>
 
 
@@ -86,19 +81,6 @@
   </div> 
 
 </div>
-
-
-<%#= テスト用 %>
-<div> 
-  <% @tasks.each do |t| %>
-     <span class="h5 pr-5"><%= t.name %></span>
-  <% end %>
-</div>
-
-
-
-
-
 
 
 

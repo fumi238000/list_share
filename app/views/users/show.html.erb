@@ -1,43 +1,29 @@
 <h1>MyPage</h1>
 
+ <%# ユーザー編集ボタン %>
+ <div class="text-right">
+    <%= link_to  edit_user_registration_path ,method: :get do %>
+    <i class="fas fa-pen"></i>
+    <% end %>
+ </div>  
 
- <%# アカウント編集リンク %>
- <div class="text-right mb-3">
-    <%= link_to 'アカウント編集', edit_user_registration_path ,class: "btn btn-primary text-light text-right" %>
-</div>  
- 
 
-<% @post.each do |post| %>
-  <p class="bg-dark py-5 text-light text-center"><%= post.image %></p>
+
+<% if @post.image? %>
+  <p class="text-center"><%= image_tag @post.image.url %></p>
+<% else %>
+  <p class="text-center"><image src = "/public/images/falback/default.png">></p>
 <% end %>
 
- 
- <div class="text-center mb-3">
-    <%= link_to '画像の編集', new_post_path ,class: "btn btn-dark text-light" %>
+<div class="text-center mb-3">
+  <%= link_to '画像の編集', edit_post_path(current_user) ,class: "btn btn-dark text-light" %>
 </div>  
 
-<% @post.each do |post| %>
- <p><%= post.image %></p>
-<% end %>
 <p>ユーザー名 : <%= current_user.name %></p>
 <p>メールアドレス : <%= current_user.email %></p>
-
 
 <div class="logout-button">
   <center>
     <%= link_to 'ログアウト', destroy_user_session_path,class: "text-light", method: :delete %>
   </center>
 </div>
-
-
- <%# アイコンにするとなぜかエラーが出る %>
-<%
-=begin%>
- <%# ユーザー編集ボタン %>
- <div class="text-right">
-    <%= link_to 'アカウント編集', edit_user_registration_path , :method => :get do %>
-    <i class="fas fa-pen"></i>
-    <% end %>
- </div>  
-<%
-=end%>
