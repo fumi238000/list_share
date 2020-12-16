@@ -17,7 +17,7 @@
 <div class="card p-3">
   <p>コメント一覧</p>
  <% @comments.each do |c| %>
-    <div class="card bg-primary mb-3">
+    <div class="card bg-primary pb-5 mb-3">
       <%# 日付%> 
       <div class="text-light text-right">
         <span>最終更新日<%= c.updated_at.to_s(:datetime_jp) %></span>
@@ -26,12 +26,18 @@
       <span class="h5 pr-5 text-light"><%= c.content %></span>
       <%# 編集ボタン%>
       <div  class="text-right">
-        <%= link_to "編集する" ,edit_comment_path(c), class: " btn-sm btn-sm mr-1 text-light" ,method: :get %>
+        <%= link_to edit_comment_path(c), class: " btn-sm btn-sm mr-1 text-light" ,method: :get do %>
+          <i class="fas fa-pen"></i>
+        <% end %>
       </div>
+   
       <%# 削除ボタン%>
       <div  class="text-right">
-        <%= link_to "削除する" ,comment_path(c), class: " btn-sm btn-sm mr-1 text-light",data: { confirm: '本当に削除しますか?' } ,method: :delete%>
+        <%= link_to comment_path(c), class: " btn-sm btn-sm mr-1 text-light", data: { confirm: '本当に削除しますか?' } ,:method => :delete do%>
+          <i class="far fa-trash-alt"></i> 
+        <% end %> 
       </div>
+   
     </div>
   <% end %>
 </div>
