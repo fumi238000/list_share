@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :tasks
   resources :comments 
   resources :participations, only: %i[index new create destroy]
-  resources :posts
+  resources :posts , only: %i[new edit create update destroy]
 
   # mypage
   resources :users, :only => [:show]

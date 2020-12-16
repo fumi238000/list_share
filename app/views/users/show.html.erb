@@ -6,11 +6,20 @@
     <%= link_to 'アカウント編集', edit_user_registration_path ,class: "btn btn-primary text-light text-right" %>
 </div>  
 
-  <p><%= image_tag @post.image.url %></p>
+  <p><%= image_tag @post.image.thumb.url %></p>
  
- <div class="text-center mb-3">
-    <%= link_to '画像の編集', new_post_path ,class: "btn btn-dark text-light" %>
-</div>  
+
+ <% if @post.image?%>
+   <div class="text-center mb-3">
+      <%= link_to '画像の編集', edit_post_path(current_user) ,class: "btn btn-dark text-light" %>
+  </div>  
+<% else %>
+   <div class="text-center mb-3">
+      <%= link_to '画像の新規作成', new_post_path ,class: "btn btn-dark text-light" %>
+  </div> 
+<% end %>
+
+
 
 
 <p>ユーザー名 : <%= current_user.name %></p>
