@@ -9,19 +9,19 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 
   def default_url(*args)
-     "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-   end
+    "/images/fallback/" + [version_name, "default.jpeg"].compact.join('_')
+  end
 
-   def extension_whitelist
-     %w(jpg jpeg gif png)
-   end
+  def extension_whitelist
+    %w(jpg jpeg gif png)
+  end
 
-   def size_range
+  def size_range
     0..5.megabytes
-   end
+  end
 
 
-   def filename
+  def filename
     "#{secure_token}.#{file.extension}" if original_filename.present?
   end
 

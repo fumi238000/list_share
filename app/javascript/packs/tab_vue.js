@@ -16,13 +16,15 @@ new Vue({
   el: '#tabs',
   data: {
     isActive: '1',
-    category_id: ''
-
-  },
+    category_id: '',    
+    href:''
+    },
   methods: {
     change: function(num){
       this.isActive = num
       this.category_id = num
+      this.href = `new_task_path(category_id: ${num})`
+
     }
   }
 })

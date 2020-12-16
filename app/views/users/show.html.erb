@@ -7,14 +7,17 @@
     <% end %>
  </div>  
 
-<% binding.pry %>
-<p class="text-center"><%= image_tag @post.image.url %></p>
- 
 
 
-   <div class="text-center mb-3">
-      <%= link_to '画像の編集', edit_post_path(current_user) ,class: "btn btn-dark text-light" %>
-  </div>  
+<% if @post.image? %>
+  <p class="text-center"><%= image_tag @post.image.url %></p>
+<% else %>
+  <p class="text-center"><image src = "/public/images/falback/default.png">></p>
+<% end %>
+
+<div class="text-center mb-3">
+  <%= link_to '画像の編集', edit_post_path(current_user) ,class: "btn btn-dark text-light" %>
+</div>  
 
 <p>ユーザー名 : <%= current_user.name %></p>
 <p>メールアドレス : <%= current_user.email %></p>
