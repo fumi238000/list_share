@@ -6,13 +6,7 @@
     <%= link_to 'アカウント編集', edit_user_registration_path ,class: "btn btn-primary text-light text-right" %>
 </div>  
 
-<% if @post.image? %>
-  STAP細胞はありまああす！
   <p><%= image_tag @post.image.url %></p>
-<% else %>
-  ありません
-  <p><%= image_tag @post.image.url %></p>
-<% end %>
  
  <div class="text-center mb-3">
     <%= link_to '画像の編集', new_post_path ,class: "btn btn-dark text-light" %>
