@@ -1,22 +1,49 @@
 <h1>タスク</h1>
 
+
 <div class="text-right">
    <%# 追加ボタン %>
-    <%= link_to new_task_path(category_id: 1), class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %> 
+    <%= link_to new_task_path(category_id: 1), class: "text-primary btn-sm btn-sm mr-1", :method => :get do %> 
       <span class="mr-2">タスクを追加</span><i class="fas fa-plus-circle"></i>
     <% end %>
 </div>
-  
-<div id="contents">
+
+
+
+<div id="tabs">
+
+<%#-------------------------------- %>
+   <%# これでもいける%>
+   <p v-text="category_id"></p>
+
+   <%# これをnewの引数に渡す！%>
+    <p>{{ category_id }}</p>
+
+
+div class="text-right">
+   <%# 追加ボタン %>
+    <%= link_to new_task_path(category_id: onclick:, class: "text-primary btn-sm btn-sm mr-1", :method => :get do %> 
+      <span class="mr-2">タスクを追加</span><i class="fas fa-plus-circle"></i>
+    <% end %>
+</div>
+
+
+
+<%#-------------------------------- %>
+
+
+
 
   <%# カテゴリー %>
     <div class="tab_box">
       <ul class="tab_list">
-       <% @categorys.each.with_index(0) do |c,i| %>
-          <li v-on:click="change('<%= i%>')" v-bind:class="{'active': isActive === '<%= i %>'}"><%= c.name %></li>
+       <% @categorys.each.with_index(1) do |c,i| %>
+          <li v-on:click="change('<%= i%>')" v-bind:class="{'active': isActive === '<%= i %>'}"><%= i %>.<%= c.name %></li>
         <% end %>
       </ul>
     </div>
+
+
 
     <%# タスクリスト %>
     <ul class="article">
