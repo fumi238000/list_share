@@ -10,7 +10,8 @@
 <%if @user.image? %>
 あります
 <% else %>
-ないですから、デフォルトを表示させます！
+ない
+<p class="text-center m-5"><%= image_tag @user.image.url %></p>
 <% end %>
 
 
