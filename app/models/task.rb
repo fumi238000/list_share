@@ -6,4 +6,9 @@ class Task < ApplicationRecord
 
   # has_many :check, dependent: :destroy, foreign_key: 'task_id'
   belongs_to :category
+
+  #チェックボックス判定メソッド
+  def checked_by?(user)
+    Check.find_by(user_id: user.id).present?
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_15_052809) do
+ActiveRecord::Schema.define(version: 2020_12_07_095223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,10 +26,9 @@ ActiveRecord::Schema.define(version: 2020_12_15_052809) do
 
   create_table "checks", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "task_id", null: false
+    t.string "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["task_id"], name: "index_checks_on_task_id"
     t.index ["user_id"], name: "index_checks_on_user_id"
   end
 
@@ -47,13 +46,6 @@ ActiveRecord::Schema.define(version: 2020_12_15_052809) do
     t.string "owner_id", null: false
     t.string "participation_id", null: false
     t.string "category", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string "image"
-    t.string "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -82,7 +74,6 @@ ActiveRecord::Schema.define(version: 2020_12_15_052809) do
   end
 
   add_foreign_key "categories", "users"
-  add_foreign_key "checks", "tasks"
   add_foreign_key "checks", "users"
   add_foreign_key "comments", "tasks"
   add_foreign_key "comments", "users"

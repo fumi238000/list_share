@@ -32,12 +32,37 @@
 
 
 
+
+  
+
     <%# タスクリスト %>
     <ul class="article">
     <% @categorys.each.with_index(0) do |c,i| %>
+
+
+
+
+
+
+
      <%#= タスクのカード%>
      <div id="tasks-list">
           <% @tasks.each do |t| %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
             <ul class="card article">
               <div class="card-body">
                 <div class="d-flex justify-content-between">
@@ -46,6 +71,19 @@
                       
                     <%# チェックボックス デモ%>        
                     <i class="far fa-check-square text-primary mr-5"></i>
+
+                    <% if t.checked_by?(current_user) %>
+                      
+                      <%# 「いいね！」済み %>
+                       ★
+                    
+                    <% else %>
+                      
+                      <%# 「いいね」していない %>
+                       ☆
+                    
+                    <% end %>
+
                     
                     <%# グリッド%>  
                     <i class="fas fa-grip-lines-vertical text-primary grip mr-2 "></i>

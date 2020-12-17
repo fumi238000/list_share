@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   resources :comments 
   resources :participations, only: %i[index new create destroy]
 
+  resources :tasks do
+    resource :checkes, only: [:create, :destroy]
+  end
+  
   # mypage
   resources :users, only: %i[show create edit update destroy]  
   
