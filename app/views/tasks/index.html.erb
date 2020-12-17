@@ -4,11 +4,9 @@
 <div class="text-right">
    <%# 追加ボタン %>
     <%= link_to new_task_path(category_id: 1), class: "text-primary btn-sm btn-sm mr-1", :method => :get do %> 
-
       <span class="mr-2">タスクを追加（link_toで作成）</span><i class="fas fa-plus-circle"></i>
     <% end %>
 </div> 
-
 
 
 
@@ -16,7 +14,8 @@
 
 <%#-------------------------------- %>
     <a>{{ href }}</a>
-    <a v-bind:href="href" v-bind:method="method">タスクを追加(vue.jsで作成）</a>
+    <a v-bind:href="href">タスクを追加(vue.jsで作成）</a>
+
 <%#-------------------------------- %>
 
 

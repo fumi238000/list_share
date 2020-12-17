@@ -16,7 +16,6 @@ new Vue({
   data: {
     isActive: '1',
     href:'',
-    method: 'get'
   },
   methods: {
     change: function(num){

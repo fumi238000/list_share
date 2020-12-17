@@ -1,31 +1,53 @@
 class UsersController < ApplicationController
-  before_action :post_check, only: %i[show]
-  IMAGE = "default.jpeg"
+  before_action :set_user, only: %i[edit update destroy]
 
   #マイページ
   def show
-    @post = Post.find(params[:id])
     @user = User.find(params[:id])
+  end
 
+
+  def create
+    user = User.create(image: user_params)
+
+    if user.save
+      redirect_to user_path(current_user),notice:"作成しました"
+    else 
+      redirect_to user_path(current_user),alert:"すでに存在しています"
+    end
+  end
+
+
+
+  def edit
+  end
+
+
+
+  def update
+    @user.update!(user_params)
+    redirect_to user_path(current_user), notice: "更新しました"
+  end
+
+
+
+  def destroy
+    @user.destroy!
+    redirect_to user_path(current_user), alert: "削除しました"
+  end
+
+
+
+  private
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
 
   
-  def post_params
-    params.require(:post).permit(:image)
+  def user_params
+    params.require(:user).permit(:image)
   end
-
-
-
-  #Postテーブルにログインユーザーのidがあるか
-  def post_check
-    if Post.exists?(user_id: current_user)
-      #あればそのままどうぞ
-    else
-      #なければ、作成してください
-      image = "default.jpeg"
-      Post.create(user_id: current_user[:id], image: image)  
-    end
-  end
-
+  
 end
