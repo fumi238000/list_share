@@ -73,14 +73,13 @@
                     <i class="far fa-check-square text-primary mr-5"></i>
 
                     <% if t.checked_by?(current_user) %>
-                      
+
                       <%# 「いいね！」済み %>
-                       ★
+                      <%= link_to "★", task_checks_path(t), method: :delete %>
                     
-                    <% else %>
-                      
+                    <% else %>                      
                       <%# 「いいね」していない %>
-                       ☆
+                      <%= link_to "☆",task_checks_path(t), method: :post %>
                     
                     <% end %>
 
