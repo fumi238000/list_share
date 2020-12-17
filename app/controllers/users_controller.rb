@@ -51,16 +51,3 @@ class UsersController < ApplicationController
   end
   
 end
-
-
-
-
-#Postテーブルにログインユーザーのidがあるか
-# def post_check
-#   if Post.exists?(user_id: current_user)
-#     #あればそのままどうぞ
-#   else
-#     #なければ、作成してください
-#     Post.create(user_id: current_user[:id], image: "default.jpeg")  
-#   end
-# end
