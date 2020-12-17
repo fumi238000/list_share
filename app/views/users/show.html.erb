@@ -7,16 +7,15 @@
     <% end %>
  </div>  
 
-
-
-<% if @post.image? %>
-  <p class="text-center"><%= image_tag @post.image.url %></p>
+<%if @user.image? %>
+あります
 <% else %>
-  <p class="text-center"><image src = "/public/images/falback/default.png">></p>
+ないですから、デフォルトを表示させます！
 <% end %>
 
+
 <div class="text-center mb-3">
-  <%= link_to '画像の編集', edit_post_path(current_user) ,class: "btn btn-dark text-light" %>
+  <%= link_to '画像の編集', edit_user_path(current_user) ,class: "btn btn-dark text-light" %>
 </div>  
 
 <p>ユーザー名 : <%= current_user.name %></p>
