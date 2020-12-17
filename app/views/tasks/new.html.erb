@@ -11,6 +11,7 @@
 
 <div class="card category-form">
   <%= form_with model: @task, local: true do |f| %>
+    <%# コメントアウトする予定 %>
     <p>カテゴリー名：<%= f.text_field :category_id ,value: @category_id, class: "category-submit"%></p> 
     <p>タスク名：<%= f.text_field :name , size: 50, class: "category-submit"%></p>
 </div>

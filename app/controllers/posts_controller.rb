@@ -26,7 +26,6 @@ class PostsController < ApplicationController
 
 
   def destroy
-    binding.pry
     @post.destroy!
     redirect_to user_path(current_user), alert: "削除しました"
   end

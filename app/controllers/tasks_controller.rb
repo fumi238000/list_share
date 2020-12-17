@@ -6,7 +6,6 @@ class TasksController < ApplicationController
 
      @tasks = Task.all
      @categorys = current_user.category.order(:id)
-    # binding.pry
     # @tasks = category.task.order[:id]
 
     # @tasks = category.Task.all
