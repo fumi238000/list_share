@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   resources :posts , only: %i[edit create update destroy]
 
   # mypage
-  resources :users, only: %i[show edit destroy]  
+  resources :users, only: %i[show create edit update destroy]  
   
 end

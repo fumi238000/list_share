@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
 
   def create
-    user = Post.create(image: user_params[:image],user_id: current_user[:id])
+    user = User.create(image: user_params)
 
     if user.save
       redirect_to user_path(current_user),notice:"作成しました"

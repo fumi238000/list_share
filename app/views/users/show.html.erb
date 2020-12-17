@@ -7,12 +7,7 @@
     <% end %>
  </div>  
 
-<%if @user.image? %>
-あります
-<% else %>
-ない
 <p class="text-center m-5"><%= image_tag @user.image.url %></p>
-<% end %>
 
 
 <div class="text-center mb-3">
