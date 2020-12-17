@@ -23,8 +23,7 @@ class UsersController < ApplicationController
       #あればそのままどうぞ
     else
       #なければ、作成してください
-      image = "default.jpeg"
-      Post.create(user_id: current_user[:id], image: image)  
+      Post.create(user_id: current_user[:id], image: "default.jpeg")  
     end
   end
 
