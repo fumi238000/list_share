@@ -44,7 +44,7 @@
 
                   <div class="task-status">
                   
-                  <p>
+                  <p id="taks-<%= t.id%>">
                     <%# チェックボックス %>       
                     <% if t.checked_by?(current_user) %>
                       <%# チェックがあるから、destroyへ %>
