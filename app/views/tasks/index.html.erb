@@ -43,19 +43,17 @@
                 <div class="d-flex justify-content-between">
 
                   <div class="task-status">
-                
-                    <%# チェックボックス %>        
+                  
+                  <p>
+                    <%# チェックボックス %>       
                     <% if t.checked_by?(current_user) %>
-                      <%# チェックあり %>
-                      <%= link_to task_checks_path(t), method: :delete do %>
-                        <i class="far fa-square"></i>
-                      <% end %>
-                    <% else %>    
-                      <%# チェックなし %>
-                      <%= link_to task_checks_path(t), method: :post do %>
-                        <i class="fas fa-check-square"></i>
-                      <% end %>
+                      <%# チェックがあるから、destroyへ %>
+                       <%= render "discheck", task_id: t %>
+                    <% else %>      
+                      <%# チェックがないから、createへ %>
+                       <%= render "oncheck", task_id: t %>
                     <% end %>
+                 </p>
 
                     <%# グリッド%>  
                     <i class="fas fa-grip-lines-vertical text-primary grip mr-2 "></i>
