@@ -34,11 +34,11 @@
                   
                       <%# チェックボックス %>  
                       <p id="taks-<%= t.id%>">    
-                        <% if t.checked_by?(current_user) %>
-                          <%# チェックあり %>
+                        <% if t.checked_by?(t) %>
+                          <%# あり %>
                           <%= render "offcheck", task_id: t %>
                         <% else %>      
-                          <%# チェックなし%>
+                          <%# なし%>
                           <%= render "oncheck", task_id: t %>
                         <% end %>
                       </p>
