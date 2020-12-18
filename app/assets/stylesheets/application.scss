@@ -161,6 +161,14 @@
 
 
 
+// カテゴリーのリンク表示を調整する
+// 下線を消す
+.category_link a {
+    text-decoration: none;
+    color: red;
+}
+
+
 //メインカラーメモ
 
 // ①メイン１（header/更新ボタン)

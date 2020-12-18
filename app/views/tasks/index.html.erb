@@ -24,10 +24,14 @@
   <%# カテゴリー %>
     <div class="tab_box">
       <ul class="tab_list">
-       <% @categorys.each do |c| %>
-          <li v-on:click="change('<%= c.id %>')" v-bind:class="{'active': isActive === '<%= c.id %>'}"><%= c.id %>.<%= c.name %></li>
+
+       <% @categorys.each.with_index(1) do |c,i| %>
+          <li v-on:click="change('<%= c.id %>')" v-bind:class="{'active': isActive === '<%= c.id %>'}"><%= i %>.<%= c.name %></li>
         <% end %>
+      
+      
       </ul>
+
     </div>
     <%# タスクリスト %>
     <ul class="article">
