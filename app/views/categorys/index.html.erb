@@ -12,7 +12,8 @@
 
 <% @categorys.each do |c| %>
 
-  <ul class="card">
+  <div class="card">
+    <a href="/tasks#index" class="category_link">
     <div class="card-body">
       <div class="d-flex justify-content-between">
 
@@ -22,6 +23,7 @@
 
           <%# カテゴリー名 %>
           <span class="h5 pr-5"><%= c.name %></span>
+
         </div>  
 
         <%# ボタン %>
@@ -44,7 +46,9 @@
         </div>
       </div>
     </div>
-  </ul>
+    </a>
+
+  </div>
 
 <% end %>
 </div>
