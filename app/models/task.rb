@@ -8,7 +8,7 @@ class Task < ApplicationRecord
   belongs_to :category
 
   #チェックボックス判定メソッド
-  def checked_by?(user)
-    Check.find_by(user_id: user.id).present?
+  def checked_by?(t)
+    Check.find_by(task_id: t.id).present?
   end
 end
