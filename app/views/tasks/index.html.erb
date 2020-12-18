@@ -24,71 +24,44 @@
   <%# カテゴリー %>
     <div class="tab_box">
       <ul class="tab_list">
-       <% @categorys.each.with_index(1) do |c,i| %>
-          <li v-on:click="change('<%= i%>')" v-bind:class="{'active': isActive === '<%= i %>'}"><%= i %>.<%= c.name %></li>
+       <% @categorys.each do |c| %>
+          <li v-on:click="change('<%= c.id %>')" v-bind:class="{'active': isActive === '<%= c.id %>'}"><%= c.id %>.<%= c.name %></li>
         <% end %>
       </ul>
     </div>
-
-
-
-
-  
-
     <%# タスクリスト %>
     <ul class="article">
-    <% @categorys.each.with_index(0) do |c,i| %>
-
-
-
-
-
-
-
+    <% @categorys.each do |c| %>
+     
+     
      <%#= タスクのカード%>
      <div id="tasks-list">
           <% @tasks.each do |t| %>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
             <ul class="card article">
               <div class="card-body">
                 <div class="d-flex justify-content-between">
 
                   <div class="task-status">
-                      
-                    <%# チェックボックス デモ%>        
-                    <i class="far fa-check-square text-primary mr-5"></i>
-
+                
+                    <%# チェックボックス %>        
                     <% if t.checked_by?(current_user) %>
-
-                      <%# 「いいね！」済み %>
-                      <%= link_to "★", task_checks_path(t), method: :delete %>
-                    
-                    <% else %>                      
-                      <%# 「いいね」していない %>
-                      <%= link_to "☆",task_checks_path(t), method: :post %>
-                    
+                      <%# チェックあり %>
+                      <%= link_to task_checks_path(t), method: :delete do %>
+                        <i class="far fa-square"></i>
+                      <% end %>
+                    <% else %>    
+                      <%# チェックなし %>
+                      <%= link_to task_checks_path(t), method: :post do %>
+                        <i class="fas fa-check-square"></i>
+                      <% end %>
                     <% end %>
 
-                    
                     <%# グリッド%>  
                     <i class="fas fa-grip-lines-vertical text-primary grip mr-2 "></i>
 
                     <%# タスク名 %>
-                    <span class="h5 pr-5" v-if="isActive === '<%= i %>'"><%= t.name %></span>
+                    <span class="h5 pr-5" v-if="isActive === '<%= c.id %>'"><%= t.name %></span>
                   </div>  
 
                   <%# ボタン %>
