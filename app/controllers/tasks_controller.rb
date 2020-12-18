@@ -6,19 +6,14 @@ class TasksController < ApplicationController
 
      @tasks = Task.all
      @categorys = current_user.category.order(:id)
-    # @tasks = category.task.order[:id]
-
-    # @tasks = category.Task.all
-    # @tasks = current_user.category.order(:id)
-  end
+     @checked_task_ids = current_user.check.pluck(:task_id)   
+    end
 
 
 
   def new
     @task = Task.new
     @category_id = params[:category_id]
-    # @task = Task.find_by(category_id: params[:category_id])
-    # @params_controller = params[:params_controller]
   end
 
 

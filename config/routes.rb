@@ -7,6 +7,11 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
+  resources :tasks do
+    resource :checks, only: [:create, :destroy]
+  end
+  
+
   resources :categorys
   resources :tasks
   resources :comments 
