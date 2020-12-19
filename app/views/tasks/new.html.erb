@@ -10,7 +10,7 @@
 </div>
 
 <div class="card category-form">
-    <p><%= form_with model: @task, local: true do |f| %>
+  <%= form_with model: @task, local: true do |f| %>
     <p>カテゴリーID：<%= f.text_field :category_id ,value: @category_id, class: "category-submit"%></p> 
     <p>タスク名：<%= f.text_field :name , size: 50, class: "category-submit"%></p>
     <%= f.submit "作成" , class:"category-button btn-block"%>
