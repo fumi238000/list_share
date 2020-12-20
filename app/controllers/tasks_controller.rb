@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :current_user_create_category?, only: %i[index]
   before_action :task_params, only: %i[create]
-  before_action :set_task, only: %i[edit update destroy]
+  before_action :set_task, only: %i[show edit update destroy]
 
   def index
     @tasks = Task.all
@@ -33,7 +33,10 @@ class TasksController < ApplicationController
   def edit
   end
 
-
+  def show
+    comments = Comment.all  
+    @comments = comments.where(user_id: current_user[:id])
+  end
 
   def update
     @task.update!(task_params)
