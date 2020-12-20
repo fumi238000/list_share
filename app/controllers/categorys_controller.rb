@@ -44,12 +44,17 @@ class CategorysController < ApplicationController
     params.require(:category).permit(:name)
   end
 
+
+
   def set_category
+    # カテゴリーに含まれるuser_idとログインユーザーが一致しているか
     @category = Category.find(params[:id])
-    # cuurent_userのみ消せないように後から設定する
-    # redirect_to category_path, alert: "権限がありません"
+
+    if @category.user_id === current_user[:id]
+      @category = current_user.category.find(params[:id])
+    else
+      redirect_to categorys_path, alert: "権限がありません"
+    end
   end
-
-
 end
  
