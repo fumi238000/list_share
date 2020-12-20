@@ -5,6 +5,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @task = Task.find(params[:id])
+
+    #経過日数
+    @today = Time.current
+    @continued_day= (@user.created_at.to_date - @today.to_date).to_i
+
   end
 
 
