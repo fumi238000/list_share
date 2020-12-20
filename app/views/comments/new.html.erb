@@ -10,8 +10,7 @@
 </div>
 
 <div class="card category-form">
- 
-  <% binding.pry %>
+
   <%= form_with model: @comment, local: true do |f| %>
     <p>タスクID：<%= f.text_field :task_id, value: params[:task_id] ,size: 3, class: "category-submit"%></p>
     <p>コメント：<%= f.text_field :content ,size: 50, class: "category-submit"%></p>

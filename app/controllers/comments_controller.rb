@@ -11,8 +11,7 @@ class CommentsController < ApplicationController
     comment = Comment.create!(task_id: comment_params[:task_id], user_id: current_user[:id],content: comment_params[:content])  
       
     if comment.save
-      binding.pry
-      redirect_to task_path(comment_params[:task_id]), notice:"作成しました"
+      redirect_to task_path(comment_params[:task_id]), notice:"コメントを作成しました"
     else
       flash.now[:alert] = "作成に失敗しました"
       render :new
@@ -31,14 +30,14 @@ class CommentsController < ApplicationController
 
   def update
     @comment.update!(comment_params)
-    redirect_to root_path, notice: "更新しました"
+    redirect_to root_path, notice: "コメントを更新しました"
   end
  
 
 
   def destroy
     @comment.destroy!
-    redirect_to root_path, alert: "削除しました"
+    redirect_to root_path, alert: "コメントを削除しました"
   end
 
 

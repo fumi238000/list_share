@@ -9,7 +9,6 @@
   
   <%# 追加ボタン %>
   <div class ="text-right ">
-    <% binding.pry %>
     <%= link_to new_comment_path(task_id: params[:id]), class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %> 
       <span class="mr-2">コメントを追加</span><i class="fas fa-plus-circle"></i>
     <% end %>
