@@ -1,0 +1,52 @@
+<div>
+
+  <%# キャンセルボタン %>
+  <div class ="text-left ">
+    <span>
+      <%= link_to "キャンセル", root_path, class: 'text-dark'%>
+    </span>
+  </div>
+  
+  <%# 追加ボタン %>
+  <div class ="text-right ">
+    <%= link_to new_comment_path(task_id: params[:id]), class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %> 
+      <span class="mr-2">コメントを追加</span><i class="fas fa-plus-circle"></i>
+    <% end %>
+  </div>
+
+</div>
+
+<%# コメントカード %>
+<div class="card p-3">
+  <p>【<%= @task.name %>】<br>コメント一覧</p>
+  <% @comments.each do |c| %>
+    <% if c.task_id == params[:id].to_i %>
+      <div class="card bg-primary pb-5 mb-3">
+        
+        <%# 日付%> 
+        <div class="text-light text-right">
+          <span>最終更新日<%= c.updated_at.to_s(:datetime_jp) %></span>
+        </div>
+
+        <%# コメント%>
+        <span class="h5 pr-5 text-light" ><%= c.content %></span>
+      
+        <%# 編集ボタン%>
+        <div  class="text-right">
+          <%= link_to edit_comment_path(c), class: " btn-sm btn-sm mr-1 text-light" ,method: :get do %>
+            <i class="fas fa-pen"></i>
+          <% end %>
+        </div>
+   
+        <%# 削除ボタン%>
+        <div  class="text-right">
+          <%= link_to comment_path(c), class: " btn-sm btn-sm mr-1 text-light", data: { confirm: '本当に削除しますか?' } ,:method => :delete do%>
+            <i class="far fa-trash-alt"></i> 
+          <% end %> 
+        </div>
+      
+      </div> 
+    <% end %>
+  <% end %>
+
+</div>
