@@ -8,13 +8,12 @@ class CommentsController < ApplicationController
 
 
   def create
-    comment = Comment.create!(task_id: comment_params[:task_id], user_id: current_user[:id],content: comment_params[:content])  
+    comment = Comment.create(task_id: comment_params[:task_id], user_id: current_user[:id],content: comment_params[:content])  
       
     if comment.save
       redirect_to task_path(comment_params[:task_id]), notice:"コメントを作成しました"
     else
-      flash.now[:alert] = "作成に失敗しました"
-      render :new
+      redirect_to new_comment_path, alert: "空投稿はできません。"
     end
   end
 
