@@ -30,14 +30,14 @@ class CommentsController < ApplicationController
 
   def update
     @comment.update!(comment_params)
-    redirect_to root_path, notice: "コメントを更新しました"
+    redirect_to task_path(@comment.task_id), notice: "コメントを更新しました"
   end
  
 
 
   def destroy
     @comment.destroy!
-    redirect_to root_path, alert: "コメントを削除しました"
+    redirect_to task_path(@comment.task_id), alert: "コメントを削除しました"
   end
 
 
