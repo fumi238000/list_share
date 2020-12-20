@@ -1,13 +1,13 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[edit update destroy]
+  before_action :current_user_create_category?, only: %i[index]
   before_action :task_params, only: %i[create]
+  before_action :set_task, only: %i[edit update destroy]
 
   def index
-
-     @tasks = Task.all
-     @categorys = current_user.category.order(:id)
-     @checked_task_ids = current_user.check.pluck(:task_id)   
-    end
+    @tasks = Task.all
+    @categorys = current_user.category.order(:id)
+    @checked_task_ids = current_user.check.pluck(:task_id)
+  end
 
 
 
@@ -18,18 +18,14 @@ class TasksController < ApplicationController
 
 
   def create
-
     task = Task.create!(name: task_params[:name], category_id: task_params[:category_id])
-
+    
     if task.save
       redirect_to tasks_path, notice:"作成しました"
     else
       flash.now[:alert] = "作成に失敗しました"
       render :new
-    end
- 
-  
-  
+    end 
   end
 
 
@@ -52,8 +48,7 @@ class TasksController < ApplicationController
   end
 
 
-
-
+private
 
   def set_task
     @task = Task.find(params[:id])
@@ -62,8 +57,23 @@ class TasksController < ApplicationController
   end
 
 
+
   def task_params
     params.require(:task).permit(:name,:category_id)
   end
-  
+
+
+
+  #カテゴリー作成判定メソッド
+  def current_user_create_category?
+    @category = Category.all
+    @category = @category.where(user_id: current_user[:id]).present?
+
+    if @category
+      redirect_to root_path
+    else
+      redirect_to categorys_path, notice: "カテゴリーを作成しましょう！"
+    end  
+  end
+
 end
