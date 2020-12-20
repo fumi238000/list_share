@@ -27,14 +27,17 @@ class CategorysController < ApplicationController
 
 
   def update
-    @category.update!(category_params)
-    redirect_to categorys_path, notice: "更新しました"
+    if @category.update!(category_params)
+      redirect_to categorys_path(current_user), notice: "更新しました"
+    else
+      redirect_to categorys_path(current_user), alert: "あなたには権限がありません"
+    end
   end
 
 
   def destroy
     @category.destroy!
-    redirect_to categorys_path, alert: "削除しました"
+    redirect_to categorys_path(current_user), alert: "削除しました"
   end
 
 
@@ -45,11 +48,24 @@ class CategorysController < ApplicationController
   end
 
   def set_category
+    # カテゴリーに含まれるuser_idとログインユーザーが一致しているか？
     @category = Category.find(params[:id])
-    # cuurent_userのみ消せないように後から設定する
-    # redirect_to category_path, alert: "権限がありません"
+
+    if @category.user_id === current_user[:id]
+      #一致
+      @category = current_user.category.find(params[:id])
+    
+    else
+
+      #不一致
+      redirect_to categorys_path, alert: "権限がありません"
+    end
   end
 
+
+# def set_category
+#   @category = current_user.category.find(params[:id])
+# end
 
 end
  
