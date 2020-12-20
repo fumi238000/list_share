@@ -1,5 +1,17 @@
 <h1>画像編集</h1>
 
-<%= render "form" %>
+<div class="text-left ml-3">
+  <span>
+    <%= link_to "戻る", user_path(current_user), class: 'text-dark'%>
+  </span>
+</div>
 
- <%= link_to "削除", user_path, method: :delete, data: { confirm: "削除しますか?" } %>
+<%= form_with model: @user, local: true do |form| %>
+  <p><%= form.file_field :image, accept: "image/png,image/jpeg,image/gif" ,class: "btn btn-primary btn-block" %></p>
+  <p><%= form.submit "送信", class: "btn btn-primary btn-block"%></p>
+<% end %>
+
+
+<% if @user.image? %>
+ <%= link_to "画像の初期化", user_path, method: :delete, data: { confirm: "デフォルトに戻しますか？" } %> 
+<% end %>
