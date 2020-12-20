@@ -18,7 +18,7 @@
 
 <%# コメントカード %>
 <div class="card p-3">
-  <p>コメント一覧</p>
+  <p>【<%= @task.name %>】<br>コメント一覧</p>
   <% @comments.each do |c| %>
     <% if c.task_id == params[:id].to_i %>
       <div class="card bg-primary pb-5 mb-3">
