@@ -13,46 +13,61 @@ namespace :import_csv do
     # Rake::Task["import_csv:participation"].invoke
   end
 
+
+   # ALLデリート処理
+   desc "全てのデータを削除するタスク"
+   task all_delete: :environment do 
+
+    puts "デリート処理を開始！"
+    # Participatinn.delete_all
+    Comment.delete_all
+    Task.delete_all
+    Category.delete_all
+    User.delete_all
+    puts "デリート処理完了！"
+   end
+
   
     #user_dataのインポート処理
       desc "user_data.csvをインポートするタスク"
       task user: :environment do
       
-      puts "インポート処理を開始！"
+      puts "Userインポート処理を開始！"
       User.delete_all
       list = Import.csv_data(path: "db/csv_data/user_data.csv")
   
       begin
         User.create!(list)
-        puts "インポート完了！"
+        puts "Userインポート完了！"
       rescue => e
         #例外が発生した時の処理
         puts "#{e.class}: #{e.message}"
         puts "-------------------------"
         puts e.backtrace # 例外が発生した位置情報
         puts "-------------------------"
-        puts "インポートに失敗"
+        puts "Userインポートに失敗"
       end
     end
+
 
   #categoryのインポート処理
     desc "category_data.csvをインポートするタスク"
     task category: :environment do
 
-    puts "インポート処理を開始！"
+    puts "Categoryインポート処理を開始！"
     Category.delete_all
     list = Import.csv_data(path: "db/csv_data/category_data.csv")
 
     begin
       Category.create!(list)
-      puts "インポート完了！"
+      puts "Categoryインポート完了！"
     rescue => e
       #例外が発生した時の処理
       puts "#{e.class}: #{e.message}"
       puts "-------------------------"
       puts e.backtrace # 例外が発生した位置情報
       puts "-------------------------"
-      puts "インポートに失敗"
+      puts "Categoryインポートに失敗"
     end
   end
 
@@ -61,20 +76,20 @@ namespace :import_csv do
     desc "task_data.csvをインポートするタスク"
     task task: :environment do
     
-    puts "インポート処理を開始！"
+    puts "Taskインポート処理を開始！"
     Task.delete_all
     list = Import.csv_data(path: "db/csv_data/task_data.csv")
 
     begin
       Task.create!(list)
-      puts "インポート完了！"
+      puts "Taskインポート完了！"
     rescue => e
       #例外が発生した時の処理
       puts "#{e.class}: #{e.message}"
       puts "-------------------------"
       puts e.backtrace # 例外が発生した位置情報
       puts "-------------------------"
-      puts "インポートに失敗"
+      puts "Taskインポートに失敗"
     end
   end
 
@@ -85,20 +100,20 @@ namespace :import_csv do
     desc "comment_data.csvをインポートするタスク"
     task comment: :environment do
 
-    puts "インポート処理を開始！"
+    puts "Commentインポート処理を開始！"
     Comment.delete_all
     list = Import.csv_data(path: "db/csv_data/comment_data.csv")
 
     begin
       Comment.create!(list)
-      puts "インポート完了！"
+      puts "Commentインポート完了！"
     rescue => e
       #例外が発生した時の処理
       puts "#{e.class}: #{e.message}"
       puts "-------------------------"
       puts e.backtrace # 例外が発生した位置情報
       puts "-------------------------"
-      puts "インポートに失敗"
+      puts "Commentインポートに失敗"
     end
   end
 
@@ -107,20 +122,20 @@ namespace :import_csv do
     desc "participation_data.csvをインポートするタスク"
     task participation: :environment do
     
-    puts "インポート処理を開始！"
+    puts "Participationインポート処理を開始！"
     Participation.delete_all
     list = Import.csv_data(path: "db/csv_data/participation_data.csv")
 
     begin
       Participation.create!(list)
-      puts "インポート完了！"
+      puts "Participationインポート完了！"
     rescue => e
       #例外が発生した時の処理
       puts "#{e.class}: #{e.message}"
       puts "-------------------------"
       puts e.backtrace # 例外が発生した位置情報
       puts "-------------------------"
-      puts "インポートに失敗"
+      puts "Participationインポートに失敗"
     end
   end 
 

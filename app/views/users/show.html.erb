@@ -3,7 +3,7 @@
  <%# ユーザー編集ボタン %>
  <div class="text-right">
     <%= link_to  edit_user_registration_path ,method: :get do %>
-    <i class="fas fa-pen"></i>
+    <span>ユーザー編集画面</span><i class="fas fa-pen"></i>
     <% end %>
  </div>  
 
@@ -14,8 +14,13 @@
   <%= link_to '画像の編集', edit_user_path(current_user) ,class: "btn btn-dark text-light" %>
 </div>  
 
-<p>ユーザー名 : <%= current_user.name %></p>
-<p>メールアドレス : <%= current_user.email %></p>
+<div class="mb-3 border border-white">
+  <p>ユーザー名 : <%= current_user.name %></p>
+  <p>メールアドレス : <%= current_user.email %></p>
+  <p>登録日 : <%= current_user.created_at.to_s(:datetime_jp) %></p>
+  <p>利用日数： <%= @continued_day %>日 </p>
+
+</div>  
 
 <div class="logout-button">
   <center>
