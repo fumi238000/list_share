@@ -14,7 +14,7 @@ class ParticipationsController < ApplicationController
 
 
   def create
-    participation = Participation.create!(
+    participation = Participation.create(
                     owner_id: current_user[:id], 
                     participation_id: participation_params[:participation_id],
                     category: participation_params[:category_id],
@@ -23,8 +23,7 @@ class ParticipationsController < ApplicationController
     if participation.save
       redirect_to participations_path, notice:"作成しました"
     else
-      flash.now[:alert] = "作成に失敗しました"
-      render :new
+      redirect_to new_participation_path, alert: "全て入力してください"
     end
   end
 
