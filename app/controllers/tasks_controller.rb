@@ -72,7 +72,7 @@ private
     if @category
       redirect_to root_path
     else
-      redirect_to categorys_path, notice: "カテゴリーを作成しましょう！"
+      redirect_to new_category_path, notice: "カテゴリーを作成しましょう！"
     end  
   end
 
