@@ -26,17 +26,16 @@ class UsersController < ApplicationController
 
   def update
     @user.update!(user_params)
-    redirect_to user_path(current_user), notice: "更新しました"
+    redirect_to user_path(current_user), notice: "画像を変更しました"
   end
 
 
 
   def destroy
-    @user.destroy!
-    redirect_to user_path(current_user), alert: "削除しました"
+    @user.remove_image!
+    @user.save
+    redirect_to user_path(current_user),alert:"イメージ画像を削除しました"
   end
-
-
 
   private
 
