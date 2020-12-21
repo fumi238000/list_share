@@ -55,9 +55,14 @@ private
 
   def set_task
     @task = Task.find(params[:id])
-    # cuurent_userのみ消せないように後から設定する
-    # redirect_to category_path, alert: "権限がありません"
-  end
+    @category = Category.find(@task.category_id) 
+      
+      if @category.user_id == current_user[:id] 
+      else
+        redirect_to categorys_path, alert: "そのタスクは権限がありません"
+      end
+
+    end
 
 
 
@@ -74,7 +79,6 @@ private
 
     #省略すること
     if @category
-     
     else
       redirect_to new_category_path, notice: "カテゴリーを作成しましょう！"
     end  
