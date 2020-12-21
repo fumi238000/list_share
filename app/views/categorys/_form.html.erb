@@ -1,6 +1,14 @@
-<%# 後日活用予定 %>
-<%= form_with model: category, local: true do |category| %>
-  <%= form.label :name %>
-  <%= form.text_field :name, required: true %>
-  <%= form.submit "新規作成" %>
-<% end %>
+  <div class="card category-card">
+    <div class="text-left">
+      <span>
+        <%= link_to "キャンセル", root_path, class: 'text-dark'%>
+      </span>
+    </div>
+
+    <div class="text-center">
+      <span>カテゴリー名</span>
+    </div>
+
+  </div>
+
+

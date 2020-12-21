@@ -1,7 +1,6 @@
 class CategorysController < ApplicationController
   before_action :set_category, only: %i[edit update destroy]
 
-
   def index
     @categorys = current_user.category.order(:id)
   end
@@ -10,6 +9,7 @@ class CategorysController < ApplicationController
   def new
     @category = Category.new
   end
+
 
   def create
     category = current_user.category.create(category_params)
@@ -44,7 +44,6 @@ class CategorysController < ApplicationController
   end
 
 
-
   def set_category
     # カテゴリーに含まれるuser_idとログインユーザーが一致しているか
     @category = Category.find(params[:id])
@@ -56,4 +55,3 @@ class CategorysController < ApplicationController
     end
   end
 end
- 
