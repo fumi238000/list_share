@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
   before_action :set_task, only: %i[index]
-  before_action :set_task_id, only: %i[new edit]
   
   def new
     @comment = Comment.new 

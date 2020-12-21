@@ -39,3 +39,5 @@ yarn-debug.log*
 /vendor/bundle
 
 /public/uploads/
+
+.gitignore
