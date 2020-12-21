@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = Task.order(:id)
     @categorys = current_user.category.order(:id)
     @checked_task_ids = current_user.check.pluck(:task_id)
   end

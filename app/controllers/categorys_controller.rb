@@ -12,6 +12,7 @@ class CategorysController < ApplicationController
   end
 
   def create
+    binding.pry
     category = current_user.category.create(category_params)
     if category.save
       redirect_to categorys_path, notice:"作成しました"

@@ -22,61 +22,69 @@
       <%# タスクカードリスト start%>
       <ul class="article">
         <div id="tasks-list">
+
           <% @tasks.each do |t| %>
+            <% @categorys.each do |c| %>
+              <% if t.category_id == c.id%> 
+          
+                <%#= タスクカード start %>
+                <ul class="article card" v-if="isActive === '<%= t.category_id %>'">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between ">
 
-            <%#= タスクカード start %>
-            <ul class="article card" v-if="isActive === '<%= t.category_id %>'">
-              <div class="card-body">
-                <div class="d-flex justify-content-between ">
-
-                    <%# カードの中身%>   
-                    <div class="task-status">
+                      <%# カードの中身%>   
+                      <div class="task-status">
                   
-                      <%# チェックボックス %>  
-                      <p id="taks-<%= t.id%>">    
-                        <% if t.checked_by?(t) %>
-                          <%# あり %>
-                          <%= render "offcheck", task_id: t %>
-                        <% else %>      
-                          <%# なし%>
-                          <%= render "oncheck", task_id: t %>
-                        <% end %>
-                      </p>
+                        <%# チェックボックス %>  
+                        <p id="taks-<%= t.id%>">    
+                          <% if t.checked_by?(t) %>
+                            <%# あり %>
+                            <%= render "offcheck", task_id: t %>
+                          <% else %>      
+                            <%# なし%>
+                            <%= render "oncheck", task_id: t %>
+                          <% end %>
+                        </p>
                     
-                      <%# グリッド%>  
-                      <i class="fas fa-grip-lines-vertical text-primary grip mr-2 "></i>
+                        <%# グリッド%>  
+                        <i class="fas fa-grip-lines-vertical text-primary grip mr-2 "></i>
+                     
+                        <%# タスク名 %>
+                        <span class="h5 pr-5"><%= t.name %></span>
                     
-                      <%# タスク名 %>
-                      <span class="h5 pr-5"><%= t.name %></span>
-                    
-                    </div>  
+                      </div>  
 
-                    <div class="d-none d-sm-block ">
-                      <div class="btn-group d-flex">
-                        <div class="btn-toolbar">
-                          <%# 編集ボタン %>
-                          <%= link_to edit_task_path(t),class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %>
-                            <i class="fas fa-pen"></i>
-                          <% end %>
-                          <%# コメント一覧へリンク %>
-                          <%= link_to  task_path(t), class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do%>
-                            <i class="far fa-comments"></i>
-                          <% end %>
+                      <div class="d-none d-sm-block ">
+                        <div class="btn-group d-flex">
+                          <div class="btn-toolbar">
+                            <%# 編集ボタン %>
+                            <%= link_to edit_task_path(t),class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %>
+                              <i class="fas fa-pen"></i>
+                            <% end %>
+                            <%# コメント一覧へリンク %>
+                            <%= link_to  task_path(t), class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do%>
+                              <i class="far fa-comments"></i>
+                            <% end %>
+                          </div>
                         </div>
                       </div>
-                    </div>
                     
+                    </div>
                   </div>
-                </div>
-              </ul>
-            <%#= タスクカード finish %>
-
+                </ul>
+                <%#= タスクカード finish %>
+              
+              <% end %>
+            <% end %>
           <% end %> 
+
         </div>
       </ul>
       <%# タスクカードリスト finish%>
+
     </div>
    <%# カテゴリー + タスク finish %>
+
 </div> 
 
 <%# Vue.js %>
