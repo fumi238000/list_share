@@ -57,10 +57,10 @@ private
     @task = Task.find(params[:id])
     @category = Category.find(@task.category_id) 
       
-      if @category.user_id == current_user[:id] 
-      else
-        redirect_to categorys_path, alert: "そのタスクは権限がありません"
-      end
+    if @category.user_id == current_user[:id] 
+    else
+      redirect_to categorys_path, alert: "そのタスクは権限がありません"
+    end
 
     end
 
