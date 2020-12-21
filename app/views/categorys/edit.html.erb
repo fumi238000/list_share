@@ -1,27 +1,16 @@
-  <div class="card category-card">
-    <div class="text-left">
-      <span>
-        <%= link_to "キャンセル", categorys_path, class: 'text-dark'%>
-      </span>
-    </div>
+<%= render "form", button_value: "更新する"%>
 
-    <div class="text-center">
-      <span>カテゴリー名の編集</span>
-    </div>
-  </div>
-
-  <div class="card category-form">
-    <%= form_with model: @category, local: true do |f| %>
+<div class="card category-form">
+  <%= form_with model: @category, local: true do |f| %>
     <p class="pt-3">カテゴリー名：<%= f.text_field :name, size: 50, class: "category-submit" %></p>
-  </div>
+    <%= f.submit "更新" , class:"btn-block category-button"%>
+  <% end %>
+</div>
 
-      <%= f.submit "更新" , class:"btn-block category-button"%>
-    <% end %>
 
-
-  <%# 削除ボタン%>
-  <div class="category-delete">
-    <center>
-      <%= link_to "このカテゴリーを削除する" ,category_path(@category), class: "btn-block btn-sm btn-sm mr-1 text-light",data: { confirm: '本当に削除しますか?' } ,method: :delete%>
-    </center>
-  </div>
+<%# 削除ボタン%>
+<div class="category-delete">
+  <center>
+    <%= link_to "このカテゴリーを削除する" ,category_path(@category), class: "btn-block btn-sm btn-sm mr-1 text-light",data: { confirm: '本当に削除しますか?' } ,method: :delete%>
+  </center>
+</div>

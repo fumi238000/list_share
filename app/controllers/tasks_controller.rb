@@ -29,8 +29,8 @@ class TasksController < ApplicationController
   end
 
 
-
   def edit
+    @category_id = @task.id
   end
 
   def show
@@ -38,11 +38,11 @@ class TasksController < ApplicationController
     @comments = comments.where(user_id: current_user[:id])
   end
 
-  def update
+
+  def update 
     @task.update!(task_params)
     redirect_to root_path, notice: "更新しました"
   end
-
 
 
   def destroy
@@ -56,12 +56,14 @@ private
   def set_task
     @task = Task.find(params[:id])
     @category = Category.find(@task.category_id) 
-      
+    
     if @category.user_id == current_user[:id] 
     else
       redirect_to categorys_path, alert: "そのタスクは権限がありません"
     end
-
+    
+    @task = Task.find(params[:id])
+    
     end
 
 

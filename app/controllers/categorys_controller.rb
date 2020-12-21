@@ -1,7 +1,6 @@
 class CategorysController < ApplicationController
   before_action :set_category, only: %i[edit update destroy]
 
-
   def index
     @categorys = current_user.category.order(:id)
   end
@@ -10,6 +9,7 @@ class CategorysController < ApplicationController
   def new
     @category = Category.new
   end
+
 
   def create
     category = current_user.category.create(category_params)
@@ -32,6 +32,7 @@ class CategorysController < ApplicationController
 
 
   def destroy
+    binding.pry
     @category.destroy!
     redirect_to categorys_path, alert: "削除しました"
   end
@@ -42,7 +43,6 @@ class CategorysController < ApplicationController
   def category_params
     params.require(:category).permit(:name)
   end
-
 
 
   def set_category
@@ -56,4 +56,3 @@ class CategorysController < ApplicationController
     end
   end
 end
- 

@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     resource :checks, only: [:create, :destroy]
   end
   
-
   resources :categorys
   resources :tasks
   resources :comments 

@@ -1,9 +1,10 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
   before_action :set_task, only: %i[index]
-
+  
   def new
-    @comment = Comment.new
+    @comment = Comment.new 
+    @task_id = params[:task_id].to_i
   end
 
 
@@ -25,6 +26,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @task_id = params[:id]
   end
 
   def update
@@ -50,19 +52,6 @@ private
 
   def set_comment
     @comment = Comment.find(params[:id])
-  end
-
-
-
-  def set_task
-    # @comment = Comment.all  
-    # @comments = @comment.where(user_id: current_user[:id])
-  #   if @comment.user_id === current_user[:id]
-  #     @category = current_user.category.find(params[:id])
-  #   else
-  #     redirect_to categorys_path, alert: "権限がありません"
-  #   end
-
   end
 
 end
