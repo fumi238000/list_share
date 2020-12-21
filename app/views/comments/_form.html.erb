@@ -1,0 +1,19 @@
+ <div class="card category-card">
+  <div class="text-left ml-3">
+    <span>
+      <%= link_to "キャンセル", tasks_path, class: 'text-dark'%>
+   </span>
+  </div>
+  <div class="text-center">
+    <span>新しいコメントを追加する</span>
+  </div>
+</div>
+
+<div class="card category-form">
+
+  <%= form_with model: @comment, local: true do |f| %>
+    <%= f.hidden_field :task_id, value: @task_id ,size: 3, class: "category-submit"%>
+    <p>コメント：<%= f.text_field :content ,size: 50, class: "category-submit"%></p>
+    <%= f.submit button_value , class:"category-button btn-block"%>
+  <% end %>
+</div>
