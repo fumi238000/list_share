@@ -35,7 +35,7 @@
                       <div class="task-status">
                   
                         <%# チェックボックス %>  
-                        <p id="taks-<%= t.id%>">    
+                        <span id="taks-<%= t.id%>" class="pr-3">    
                           <% if t.checked_by?(t) %>
                             <%# あり %>
                             <%= render "offcheck", task_id: t %>
@@ -43,7 +43,7 @@
                             <%# なし%>
                             <%= render "oncheck", task_id: t %>
                           <% end %>
-                        </p>
+                        </span>
                     
                         <%# グリッド%>  
                         <i class="fas fa-grip-lines-vertical text-primary grip mr-2 "></i>

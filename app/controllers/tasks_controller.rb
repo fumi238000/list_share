@@ -28,14 +28,15 @@ class TasksController < ApplicationController
     end 
   end
 
-
-  def edit
-    @category_id = @task.id
-  end
-
+  
   def show
     comments = Comment.all  
     @comments = comments.where(user_id: current_user[:id])
+  end
+
+  
+  def edit
+    @category_id = @task.id
   end
 
 
