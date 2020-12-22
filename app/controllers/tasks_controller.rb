@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :current_user_create_category?, only: %i[index]
   before_action :task_params, only: %i[create]
   before_action :set_task, only: %i[show edit update destroy]
