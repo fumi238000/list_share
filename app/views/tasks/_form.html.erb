@@ -1,20 +1,20 @@
-  <div class="card category-card">
-    <div class="text-left">
-      <span>
-        <%= link_to "キャンセル", tasks_path, class: 'text-dark'%>
-      </span>
-    </div>
-
-    <div class="text-center">
-      <span>タスク名</span>
-    </div>
+<div class="card category-card">
+  <div class="text-left ml-3">
+    <%= link_to "キャンセル", tasks_path, class: 'text-dark'%>
   </div>
 
-
-<div class="card category-form">
-  <%= form_with model: @task, local: true do |f| %>
-    <%= f.hidden_field :category_id, value: @category_id, class: "category-submit"%> 
-    <p>タスク名：<%= f.text_field :name , size: 50, class: "category-submit"%></p>
-    <%= f.submit button_value, class:"category-button btn-block"%>
-  <% end %>
+  <div class="text-center">
+    <span>タスク名</span>
+  </div>
 </div>
+
+  <%= form_with model: @task, local: true do |f| %>
+    <%= f.hidden_field :category_id, value: @category_id %>
+    <div class="card category-card pt-3 pb-5">
+      <p>タスク名：</p>
+      <%= f.text_field :name , size: 50, class:"card pb-5"%>
+    </div>    
+    <div>
+      <%= f.submit button_value, class:"category-button btn-block"%>
+    </div>
+  <% end %>
