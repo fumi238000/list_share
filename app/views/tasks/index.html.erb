@@ -36,7 +36,8 @@
                   
                         <%# チェックボックス %>  
                         <span id="taks-<%= t.id%>" class="pr-3">    
-                          <% if t.checked_by?(t) %>
+                          
+                          <% if  @checked_task_ids.include?(t.id) %>
                             <%# あり %>
                             <%= render "offcheck", task_id: t %>
                           <% else %>      
