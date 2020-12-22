@@ -32,8 +32,7 @@ class CategorysController < ApplicationController
 
 
   def destroy
-    binding.pry
-    @category.destroy!
+    @category.destroy
     redirect_to categorys_path, alert: "削除しました"
   end
 
