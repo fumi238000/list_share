@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!
-
+  before_action :login_check
   before_action :current_user_create_category?, only: %i[index]
   before_action :task_params, only: %i[create]
   before_action :set_task, only: %i[show edit update destroy]
@@ -44,13 +43,13 @@ class TasksController < ApplicationController
 
   def update 
     @task.update!(task_params)
-    redirect_to root_path, notice: "更新しました"
+    redirect_to tasks_path, notice: "更新しました"
   end
 
 
   def destroy
     @task.destroy!
-    redirect_to root_path, alert: "削除しました"
+    redirect_to tasks_path, alert: "削除しました"
   end
 
 

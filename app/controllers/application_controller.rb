@@ -17,4 +17,12 @@ class ApplicationController < ActionController::Base
     tasks_path
   end
 
+  #ログインしているか確認
+  def login_check
+    unless user_signed_in?
+      flash[:alert] = "ログインしてください"
+      redirect_to root_path
+    end
+  end
+
 end

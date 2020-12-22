@@ -1,5 +1,5 @@
 class ParticipationsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :login_check
   before_action :participation_params, only: %i[create]
   before_action :set_participation, only: %i[destroy]
 

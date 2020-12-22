@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :login_check
   before_action :set_comment, only: %i[edit update destroy]
   before_action :set_task, only: %i[index]
   
