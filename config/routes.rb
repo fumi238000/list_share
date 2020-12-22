@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   end
 
   resources :tasks do
-    resource :checks, only: [:create, :destroy]
+    resource :checks, only: %i[create destroy]
   end
   
-  resources :categorys
+  resources :categorys,only: %i[index new create edit update destroy]
+  resources :category,only: %i[edit]
+
   resources :tasks
   resources :comments 
   resources :participations, only: %i[index new create destroy]

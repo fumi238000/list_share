@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   #マイページ
   def show
+    binding.pry
     @user = User.find(params[:id])
     @task = Task.find(params[:id])
 
