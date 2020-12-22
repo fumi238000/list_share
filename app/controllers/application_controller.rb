@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
 
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -15,7 +14,15 @@ class ApplicationController < ActionController::Base
 
   # ログイン後のリダイレクト先
   def after_sign_in_path_for(resource)
-    root_path
+    tasks_path
+  end
+
+  #ログインしているか確認
+  def login_check
+    unless user_signed_in?
+      flash[:alert] = "ログインしてください"
+      redirect_to root_path
+    end
   end
 
 end

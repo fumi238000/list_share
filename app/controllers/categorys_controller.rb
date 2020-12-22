@@ -1,4 +1,5 @@
 class CategorysController < ApplicationController
+  before_action :login_check
   before_action :set_category, only: %i[edit update destroy]
 
   def index

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'tasks#index'
+  root to: 'homes#index'
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   
   resources :categorys,only: %i[index new create edit update destroy]
   resources :category,only: %i[edit]
-
   resources :tasks
   resources :comments 
   resources :participations, only: %i[index new create destroy]
