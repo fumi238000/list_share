@@ -3,13 +3,12 @@ class UsersController < ApplicationController
 
   #マイページ
   def show
-    binding.pry
     @user = User.find(params[:id])
     @task = Task.find(params[:id])
 
     #経過日数
     @today = Time.current
-    @continued_day= (@user.created_at.to_date - @today.to_date).to_i
+    @continued_day= (@today.to_date - @user.created_at.to_date).to_i
 
   end
 
