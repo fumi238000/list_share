@@ -1,1 +1,14 @@
-<h1>Hello</h1>
+<h1>Topページ</h1>
+
+
+
+  <div>  
+    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-primary text-light btn-block",method: :post %>
+  </div>
+
+
+
+
+  <div>  
+    <%= link_to 'ログインする', new_user_session_path, class: "btn btn-primary text-light btn-block",method: :post %>
+  </div>
