@@ -4,10 +4,4 @@ class Task < ApplicationRecord
   # has_many :comment, dependent: :destroy
   # has_many :check, dependent: :destroy, foreign_key: 'task_id'
   belongs_to :category
-
-  #チェックボックス判定メソッド
-  def checked_by?(t)
-    Check.find_by(task_id: t.id).present?
-  end
-
 end
