@@ -1,13 +1,4 @@
-<%= render "form", button_value: "更新する"%>
-
-<%= form_with model: @category, local: true do |f| %>
-  <div class="card category-card pt-3 pb-5">
-    <p class="pt-3">カテゴリー名：<%= f.text_field :name, size: 50%></p>
-  </div>
-  <div>
-    <%= f.submit "更新" , class:"btn-block category-button"%>
-  </div>
-<% end %>
+<%= render "form" %>
 
 <%# 削除ボタン%>
 <div class="category-delete">

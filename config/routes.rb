@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
   
   resources :categorys,only: %i[index new create edit update destroy]
+  resources :category,only: %i[edit]
 
   resources :tasks
   resources :comments 
