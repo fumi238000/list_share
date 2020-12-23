@@ -15,4 +15,9 @@ class User < ApplicationRecord
       end
     end
 
+
+    def user_delete
+      redirect_to root_path, alert:"userを削除しました"
+    end
+
 end
