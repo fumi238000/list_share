@@ -43,6 +43,14 @@ class UsersController < ApplicationController
     redirect_to user_path(current_user),alert:"イメージ画像を削除しました"
   end
 
+
+
+  def clean
+    redirect_to root_path,alert:"ユーザーを削除しました"
+  end
+
+
+
   private
 
   def set_user

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-      delete :clean, on: :member
+    delete :clean, on: :member
   end
 
   resources :tasks do
