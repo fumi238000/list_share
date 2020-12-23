@@ -171,10 +171,20 @@
 }
 
 
+.icon-style {
+  color: rgba(0,59,144,0.9);
+}
+
+.comment-bg {
+  color: #003b90;
+  background-color:rgba(188,226,232,0.9);
+  
+}
+
 //メインカラーメモ
 
 // ①メイン１（header/更新ボタン)
-// (0,59,144)
+// background-color:rgba(0,59,144,0.9)
 // background-color: #003b90;
 
 // ②メイン２(formの背景)
@@ -182,7 +192,7 @@
 // background-color:#bce2e8
 
 // ③メイン3(文字)
-// (0,132,202)
+// background-color:rgba((0,132,202,0.9)
 // background-color: #0084b6;
 
 // ④削除
