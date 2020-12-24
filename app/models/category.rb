@@ -3,6 +3,5 @@ class Category < ApplicationRecord
   validates :name, presence: true, length: { maximum: 20 }
 
   has_many :tasks, dependent: :destroy
-
   belongs_to :user
 end

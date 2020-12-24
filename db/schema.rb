@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 2020_12_07_095223) do
   end
 
   create_table "participations", force: :cascade do |t|
-    t.string "owner_id", null: false
-    t.string "participation_id", null: false
-    t.string "category", null: false
+    t.integer "owner_id", null: false
+    t.integer "participation_id", null: false
+    t.integer "category", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -14,10 +14,5 @@ class User < ApplicationRecord
         user.password = SecureRandom.urlsafe_base64
       end
     end
-
-
-    def clean
-      redirect_to root_path, alert:"userを削除しました"
-    end
-
+    
 end

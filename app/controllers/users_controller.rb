@@ -4,8 +4,6 @@ class UsersController < ApplicationController
   #マイページ
   def show
     @user = User.find(params[:id])
-    @task = Task.find(params[:id])
-
     #経過日数
     @today = Time.current
     @continued_day= (@today.to_date - @user.created_at.to_date).to_i
@@ -44,11 +42,44 @@ class UsersController < ApplicationController
   end
 
 
-
+  #ユーザーデータ削除メソッド
   def clean
+    # ユーザーID
+    @user = current_user.id
+
+    #participations
+     @participation = Participation.all
+     @owner = @participation.where(owner_id: @user)
+     @owner.destroy_all
+
+    #commentは消さない？
+    @comments = Comment.all
+    @comment = @comments.where(user_id: @user)
+    @comment.destroy_all
+
+    #task
+    @tasks = Task.all
+
+    
+    @tasks.each do |task|      
+      if task.category.user_id == @user
+      # @userだった場合
+      task.destroy
+      else
+      end
+    end
+   
+    #category
+    @categorys = Category.all
+    @category = @categorys.where(user_id: @user)
+    @category.destroy_all
+
+    binding.pry
+    @user = User.find(@user)
+    @user.destroy
+
     redirect_to root_path,alert:"ユーザーを削除しました"
   end
-
 
 
   private
