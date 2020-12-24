@@ -4,8 +4,6 @@ class UsersController < ApplicationController
   #マイページ
   def show
     @user = User.find(params[:id])
-    @task = Task.find(params[:id])
-
     #経過日数
     @today = Time.current
     @continued_day= (@today.to_date - @user.created_at.to_date).to_i
@@ -42,6 +40,41 @@ class UsersController < ApplicationController
     @user.save
     redirect_to user_path(current_user),alert:"イメージ画像を削除しました"
   end
+
+
+  def clean
+    @user = current_user.id
+
+    #participations
+    @participation = Participation.all
+    @owner = @participation.where(owner_id: @user)
+    @owner.destroy_all
+
+    #comment
+    @comments = Comment.all
+    @comment = @comments.where(user_id: @user)
+    @comment.destroy_all
+
+    #task
+    @tasks = Task.all
+    @tasks.each do |task|      
+      if task.category.user_id == @user
+        task.destroy
+      end
+    end
+   
+    #category
+    @categorys = Category.all
+    @category = @categorys.where(user_id: @user)
+    @category.destroy_all
+
+    #user
+    @user = User.find(@user)
+    @user.destroy
+
+    redirect_to root_path,notice:"ユーザーを全て削除しました。またのご利用をお待ちしています"
+  end
+
 
   private
 

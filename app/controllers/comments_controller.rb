@@ -26,16 +26,17 @@ class CommentsController < ApplicationController
     @comments = comments.where(user_id: current_user[:id])
   end
 
+
   def edit
     @task_id = params[:id]
   end
+
 
   def update
     @comment.update!(comment_params)
     redirect_to task_path(@comment.task_id), notice: "コメントを更新しました"
   end
  
-
 
   def destroy
     @comment.destroy!
