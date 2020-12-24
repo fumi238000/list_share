@@ -6,28 +6,38 @@
       <span class="mr-2">共有者を追加</span><i class="fas fa-plus-circle"></i>
     <% end %>
 </div>
+
   
+  
+<% if @participations.nil? %>
+
   <ul>
-    <% binding.pry %>
-    <% @participation.each do |p| %>
+    <% @participatios.each do |p| %>
     
-    <li class="card mb-3">
-    <div>
-      <%# ナンバー %>
-      <span class="pr-3">No.<%= p.id %></span>
-      <%# 参加者id %>
-      <span class="pr-3">参加者ID: <%= p.participation_id %></span>
+      <li class="card mb-3">
+        <div>
+          <%# ナンバー %>
+          <span class="pr-3">No.<%= @participation.id %></span>
+          <%# 参加者id %>
+          <span class="pr-3">参加者ID: <%= @participation.id %></span>
+        </div>
 
-       <%# 削除ボタン%>
-       <span class="text-rihgt">
-         <span>
-           <%= link_to participation_path(p), class: "bg-danger text-light",data: { confirm: '本当に削除しますか?' } ,:method => :delete do%>
-             <i class="fas fa-trash"></i> 
-           <% end %>
-         </span>
-      </div>
-      </span>
-
+        <%# 削除ボタン%>
+        <%= link_to participation_path(@participation), class: "bg-danger text-light",data: { confirm: '本当に削除しますか?' } ,:method => :delete do%>
+          <i class="fas fa-trash"></i> 
+        <% end %>
       </li>
+        
     <% end %>
   </ul>
+    
+    
+<% else %> 
+
+  <%# render partial: 'share/no_data' %>     
+  
+  <li class="card p-5 bg-primary">
+    <div class ="text-light">登録がありません</div>
+  </li>
+
+<% end %>
