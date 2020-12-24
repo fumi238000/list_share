@@ -4,10 +4,6 @@ class ParticipationsController < ApplicationController
   before_action :set_participation, only: %i[destroy]
   before_action :set_show, only: %i[show]
 
-  
-  def index
-    @participations = Participation.all
-  end
 
   def new
     @participation = Participation.new
@@ -19,7 +15,6 @@ class ParticipationsController < ApplicationController
     # @participations = @participations.where(category: params[:id])
     # @participation = params[:id]
   end
-
 
 
   def create
@@ -38,7 +33,6 @@ class ParticipationsController < ApplicationController
   end
 
 
-
   def destroy
     @participation.destroy!
     redirect_to participation_path(@participation.category), alert: "削除しました"
@@ -49,12 +43,14 @@ class ParticipationsController < ApplicationController
     params.require(:participation).permit(:participation_id,:category_id)
   end
 
+
   def set_participation
     @participation = Participation.find(params[:id])
     # cuurent_userのみ消せないように後から設定する
     # redirect_to category_path, alert: "権限がありません"
   end
 
+  
   def set_show
     @participations = Participation.all
     @participations = @participations.where(category: params[:id])
