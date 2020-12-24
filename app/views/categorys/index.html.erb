@@ -32,7 +32,8 @@
             <div class="btn-toolbar">
                 
                 <%# 共有ボタン %>
-                <%= link_to participations_path,class: "btn text-dark btn-sm btn-sm mr-1", :method => :get do %>
+                <%binding.pry%>
+                <%= link_to participation_path(c),class: "btn text-dark btn-sm btn-sm mr-1", :method => :get do %>
                 <i class="fas fa-link"></i>
                 <% end %>
 

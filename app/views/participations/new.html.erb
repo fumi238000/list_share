@@ -13,8 +13,13 @@
 
 <div class="card category-form">
   <%= form_with model: @participation, local: true do |f| %>
-    <p>参加者ID：<%= f.text_field :participation_id , size: 2, class: "category-submit"%></p> 
+    <% binding.pry %>
     <p>参加するカテゴリー：<%= f.text_field :category_id , size: 2, class: "category-submit"%></p>
+
+    <p>参加者ID：<%= f.text_field :participation_id , size: 2, class: "category-submit"%></p> 
 </div>
     <%= f.submit "作成" , class:"category-button btn-block"%>
   <% end %>
+
+
+   <%#= f.hidden_field :category_id, value: @category_id %> 

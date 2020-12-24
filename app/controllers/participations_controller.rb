@@ -13,6 +13,12 @@ class ParticipationsController < ApplicationController
   end
 
 
+  def show
+    @participations = Participation.all
+    binding.pry
+    @participation = @participations.find(params[:id])
+  end
+
   def create
     participation = Participation.create(
                     owner_id: current_user[:id], 
