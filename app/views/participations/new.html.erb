@@ -11,15 +11,16 @@
   </div>
 </div>
 
-<div class="card category-form">
   <%= form_with model: @participation, local: true do |f| %>
-    <% binding.pry %>
-    <p>参加するカテゴリー：<%= f.text_field :category_id , size: 2, class: "category-submit"%></p>
-
-    <p>参加者ID：<%= f.text_field :participation_id , size: 2, class: "category-submit"%></p> 
-</div>
-    <%= f.submit "作成" , class:"category-button btn-block"%>
-  <% end %>
+    <div class="card category-form">
+      <%= f.hidden_field :category_id , value: params[:category], size: 2, class: "category-submit"%>
+      <p>参加者ID：<%= f.text_field :participation_id , size: 2, class: "category-submit"%></p> 
+    </div>
+  
+    <div>
+      <%= f.submit "作成" , class:"category-button btn-block"%>
+    </div>
+ <% end %>
 
 
    <%#= f.hidden_field :category_id, value: @category_id %> 

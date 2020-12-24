@@ -2,6 +2,7 @@ class ParticipationsController < ApplicationController
   before_action :login_check
   before_action :participation_params, only: %i[create]
   before_action :set_participation, only: %i[destroy]
+  before_action :set_show, only: %i[show]
 
   
   def index
@@ -14,9 +15,9 @@ class ParticipationsController < ApplicationController
 
 
   def show
-    @participations = Participation.all
-    @participations = @participations.where(category: params[:id])
-    @participation = params[:id]
+    # @participations = Participation.all
+    # @participations = @participations.where(category: params[:id])
+    # @participation = params[:id]
   end
 
 
@@ -29,7 +30,8 @@ class ParticipationsController < ApplicationController
                     )
 
     if participation.save
-      redirect_to participations_path, notice:"作成しました"
+      redirect_to participation_path(participation_params[:category_id]), notice:"作成しました"
+    
     else
       redirect_to new_participation_path, alert: "全て入力してください"
     end
@@ -39,7 +41,7 @@ class ParticipationsController < ApplicationController
 
   def destroy
     @participation.destroy!
-    redirect_to participations_path, alert: "削除しました"
+    redirect_to participation_path(@participation.category), alert: "削除しました"
   end
 
 
@@ -53,5 +55,10 @@ class ParticipationsController < ApplicationController
     # redirect_to category_path, alert: "権限がありません"
   end
 
+  def set_show
+    @participations = Participation.all
+    @participations = @participations.where(category: params[:id])
+    @participation = params[:id]
+  end
 
 end
