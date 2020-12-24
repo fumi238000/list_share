@@ -42,30 +42,24 @@ class UsersController < ApplicationController
   end
 
 
-  #ユーザーデータ削除メソッド
   def clean
-    # ユーザーID
     @user = current_user.id
 
     #participations
-     @participation = Participation.all
-     @owner = @participation.where(owner_id: @user)
-     @owner.destroy_all
+    @participation = Participation.all
+    @owner = @participation.where(owner_id: @user)
+    @owner.destroy_all
 
-    #commentは消さない？
+    #comment
     @comments = Comment.all
     @comment = @comments.where(user_id: @user)
     @comment.destroy_all
 
     #task
     @tasks = Task.all
-
-    
     @tasks.each do |task|      
       if task.category.user_id == @user
-      # @userだった場合
-      task.destroy
-      else
+        task.destroy
       end
     end
    
@@ -74,11 +68,11 @@ class UsersController < ApplicationController
     @category = @categorys.where(user_id: @user)
     @category.destroy_all
 
-    binding.pry
+    #user
     @user = User.find(@user)
     @user.destroy
 
-    redirect_to root_path,alert:"ユーザーを削除しました"
+    redirect_to root_path,notice:"ユーザーを全て削除しました。またのご利用をお待ちしています"
   end
 
 

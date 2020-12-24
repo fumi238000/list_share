@@ -37,14 +37,11 @@
   <div class="form-group">
     <%= f.submit t('.update'), class: 'btn btn-primary btn-block' %>
   </div>
-<% end %>
-
+  
   <%#= データリセットボタンを実装要諦%>
   <div class=" reset-button mb-3">
-    <%= link_to "データをリセットする",clean_user_path(resource_name), data: { confirm: '本当に削除しますか?' }, method: :delete, class: 'text-light btn btn-block text-light'%>
+    <%= link_to "ユーザーを全てリセットする",clean_user_path(resource_name), data: { confirm: '本当に削除しますか?' }, method: :delete, class: 'text-light btn btn-block text-light'%>
   </div>
 
-  <div class="form-group">
-    <%= link_to t('.cancel_my_account') , registration_path(resource_name), data: {confirm: t('.are_you_sure')}, method: :delete, class: 'btn btn-danger btn-block' %>
-  </div>
+<% end %>
 
