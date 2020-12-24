@@ -1,0 +1,44 @@
+<h1>参加者一覧</h1>
+
+<div class="text-right">
+   <%# 追加ボタン %>
+    <%= link_to new_participation_path(category: params[:id]), class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %> 
+      <span class="mr-2">共有者を追加</span><i class="fas fa-plus-circle"></i>
+    <% end %>
+</div>
+
+<% if @participations.nil? %>
+  <%# render partial: 'share/no_data' %>     
+  <li class="card p-5">
+    <div class ="text-light">登録がありません</div>
+  </li>
+
+<% else %> 
+
+  <ul>
+    <% @participations.each.with_index(1) do |p, i| %>
+      <div class="card category-card">
+        <div>
+
+          <div class="text-left w-25 d-inline-block float-left ">
+            <div>No.<%= i %></div>
+          </div>
+  
+          <div class="w-50 d-inline-block float-left">
+            <h5 class="text-center">共有ユーザー</h5>
+          </div>
+  
+          <div class="w-25 d-inline-block">
+            <div class="float-right">
+              <%= link_to participation_path(p), class: "text-danger",data: { confirm: '本当に削除しますか?' } ,:method => :delete do%>
+                <i class="fas fa-trash"></i> 
+              <% end %>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+    <% end %>
+  </ul>
+
+<% end %>

@@ -10,7 +10,7 @@ namespace :import_csv do
     Rake::Task["import_csv:category"].invoke
     Rake::Task["import_csv:task"].invoke
     Rake::Task["import_csv:comment"].invoke
-    # Rake::Task["import_csv:participation"].invoke
+    Rake::Task["import_csv:participation"].invoke
   end
 
 

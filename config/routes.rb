@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :category,only: %i[edit]
   resources :tasks
   resources :comments 
-  resources :participations, only: %i[index new create destroy]
+  resources :participations, only: %i[new show create destroy]
 
   # mypage
   resources :users, only: %i[show create edit update destroy]  
