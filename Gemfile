@@ -17,6 +17,7 @@ gem 'devise-i18n'
 gem 'font-awesome-sass'
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
