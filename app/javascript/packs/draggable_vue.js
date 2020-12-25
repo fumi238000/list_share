@@ -1,55 +1,23 @@
-import Vue from 'vue/dist/vue.esm'
-import App from '../app.vue'
-import draggable from 'vuedraggable';
+// import Vue from 'vue/dist/vue.esm'
+// import draggable from 'vuedraggable';
 
-
-
-document.addEventListener('turbolinks:load', () => {
-  const app = new Vue({
-    data: () => {
-      return {
-      }
-    },
-    components: { App }
-  })
-}),
-
-
-new Vue({
-  el: '#hello2',
-  data: {
-      message: "聞こえますか？これはvue.jsなのです。htmlの書き込みではありません"
-    }
-})
-
-
-
-
-
-// <template>
-//   <div id="ddd">
-//     <draggable element="ul">
-//       <li v-for="task in tasks">{{ task }}</li>
-//     </draggable>
-//   </div>
-// </template>
-
-// <script>
 
 // export default {
-//   name: 'ddd',
+//       components: {
+//           draggable,
+//       },
+
+
+// new Vue({
+//   el: "#app",
 //   components: {
-//     draggable,
+//     'draggable': draggable,
 //   },
-//   data() {
-//     return {
-//       tasks: [
-//         'task1',
-//         'task2',
-//         'task3',
-//         'task4',
-//       ]
+
+//   methods: {
+//     onClick: function(){
+//       console.log('onclick');
 //     }
 //   }
-// }
-// </script>
+// }),
+

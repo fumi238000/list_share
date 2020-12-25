@@ -1,20 +1,6 @@
 <h1>カテゴリー</h1>
 
 
-<div id="hello2">
-<p>{{ message }}</p>
-</div>
-
-
-
-<%#
- <draggable element="ul">
-  <li v-for="task in tasks">{{ task }}</li>
-</draggable> 
-%>
-
-
-
 
 <div class="text-right">
    <%# 追加ボタン %>
@@ -26,47 +12,50 @@
 
 <div id="tasks-list">
 
-<% @categorys.each do |c| %>
+  <% @categorys.each do |c| %>
+     
+    
+        <li class="card" >
+     
+          <%# カード左部分 %>
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              
 
-  <div class="card">
-    <a href="/tasks#index" class="category_link">
-    <div class="card-body">
-      <div class="d-flex justify-content-between">
+              <div class="task-status">       
+                <%# グリッド%>  
+                <i class="fas fa-grip-lines-vertical text-primary grip mr-2 "></i>
+                <%# カテゴリー名・リンク %>
+                <a href="/tasks#index" class="category_link">
+                  <span class="h5 pr-5"><%= c.name %></span>
+                </a>
+              </div>  
+    
+     
+              <%# ボタン %>
+              <div class="d-none d-sm-block ">
+                <div class="btn-group d-flex">
+                  <div class="btn-toolbar">
+                    <%# 共有ボタン %>
+                    <%= link_to participation_path(c.id),class: "btn text-dark btn-sm btn-sm mr-1", :method => :get do %>
+                    <i class="fas fa-link"></i>
+                    <% end %>
+                    <%# 編集ボタン %>
+                    <%= link_to edit_category_path(c),class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %>
+                    <i class="fas fa-pen"></i>
+                    <% end %>          
+                 </div>
+               </div>
+             </div>
 
-        <div class="task-status">
-          <%# グリッド%>  
-          <i class="fas fa-grip-lines-vertical text-primary grip mr-2 "></i>
 
-          <%# カテゴリー名 %>
-          <span class="h5 pr-5"><%= c.name %></span>
 
-        </div>  
-
-        <%# ボタン %>
-        <div class="d-none d-sm-block ">
-          <div class="btn-group d-flex">
-            <div class="btn-toolbar">
-                
-                <%# 共有ボタン %>
-                <%= link_to participation_path(c.id),class: "btn text-dark btn-sm btn-sm mr-1", :method => :get do %>
-                <i class="fas fa-link"></i>
-                <% end %>
-
-                <%# 編集ボタン %>
-                <%= link_to edit_category_path(c),class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %>
-                  <i class="fas fa-pen"></i>
-                <% end %>
-                
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    </a>
 
-  </div>
-
-<% end %>
+        </li>
+  
+  <% end %>
 </div>
 
 <%# Vue.js %>
