@@ -12,7 +12,7 @@ export default {
     }
   }
 }
-</script>
+</script>g
 
 <style scoped>
 p {
