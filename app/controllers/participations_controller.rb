@@ -4,8 +4,13 @@ class ParticipationsController < ApplicationController
   before_action :set_participation, only: %i[destroy]
 
 
+  PER_PAGE = 3
+
   def new
     @participation = Participation.new
+    @category = params[:category]
+    @q = User.ransack(params[:q])
+    @search_users= @q.result(distinct: true).limit(PER_PAGE)
   end
 
 
@@ -22,7 +27,6 @@ class ParticipationsController < ApplicationController
                     participation_id: participation_params[:participation_id],
                     category: participation_params[:category_id],
                     )
-
     if participation.save
       redirect_to participation_path(participation_params[:category_id]), notice:"作成しました"
     
