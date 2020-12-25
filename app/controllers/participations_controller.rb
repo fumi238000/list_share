@@ -2,7 +2,6 @@ class ParticipationsController < ApplicationController
   before_action :login_check
   before_action :participation_params, only: %i[create]
   before_action :set_participation, only: %i[destroy]
-  before_action :set_show, only: %i[show]
 
 
   def new
@@ -11,9 +10,9 @@ class ParticipationsController < ApplicationController
 
 
   def show
-    # @participations = Participation.all
-    # @participations = @participations.where(category: params[:id])
-    # @participation = params[:id]
+    @participations = Participation.all
+    @participations = @participations.where(category: params[:id])
+    @participation = params[:id]
   end
 
 
@@ -48,13 +47,6 @@ class ParticipationsController < ApplicationController
     @participation = Participation.find(params[:id])
     # cuurent_userのみ消せないように後から設定する
     # redirect_to category_path, alert: "権限がありません"
-  end
-
-  
-  def set_show
-    @participations = Participation.all
-    @participations = @participations.where(category: params[:id])
-    @participation = params[:id]
   end
 
 end
