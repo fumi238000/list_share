@@ -2,18 +2,21 @@ class ParticipationsController < ApplicationController
   before_action :login_check
   before_action :participation_params, only: %i[create]
   before_action :set_participation, only: %i[destroy]
-  before_action :set_show, only: %i[show]
+  before_action :set_ransack, only: %i[new]
 
+
+  PER_PAGE = 3
 
   def new
     @participation = Participation.new
+    @category = params[:category]
   end
 
 
   def show
-    # @participations = Participation.all
-    # @participations = @participations.where(category: params[:id])
-    # @participation = params[:id]
+    @participations = Participation.all
+    @participations = @participations.where(category: params[:id])
+    @participation = params[:id]
   end
 
 
@@ -23,12 +26,11 @@ class ParticipationsController < ApplicationController
                     participation_id: participation_params[:participation_id],
                     category: participation_params[:category_id],
                     )
-
     if participation.save
       redirect_to participation_path(participation_params[:category_id]), notice:"作成しました"
     
     else
-      redirect_to new_participation_path, alert: "全て入力してください"
+      redirect_to new_participation_path, alert: "入力に誤りがあります。すでに登録されている可能性もあります。"
     end
   end
 
@@ -50,11 +52,9 @@ class ParticipationsController < ApplicationController
     # redirect_to category_path, alert: "権限がありません"
   end
 
-  
-  def set_show
-    @participations = Participation.all
-    @participations = @participations.where(category: params[:id])
-    @participation = params[:id]
+  def set_ransack
+    @q = User.ransack(params[:q])
+    @search_users= @q.result(distinct: true).limit(PER_PAGE)
   end
 
 end
