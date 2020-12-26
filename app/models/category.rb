@@ -4,4 +4,6 @@ class Category < ApplicationRecord
 
   has_many :tasks, dependent: :destroy
   belongs_to :user
+
+  acts_as_list
 end
