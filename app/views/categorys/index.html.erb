@@ -12,6 +12,7 @@
 
 <div id="tasks-list">
 
+  <div data-controller="drag">
   <% @categorys.each do |c| %>
      
     
@@ -57,7 +58,7 @@
   
   <% end %>
 </div>
-
+</div>
 <%# Vue.js %>
 <%= javascript_pack_tag 'draggable_vue'%> 
 <%= stylesheet_pack_tag 'draggable_vue'%> 
