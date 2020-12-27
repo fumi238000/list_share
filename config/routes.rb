@@ -17,7 +17,15 @@ Rails.application.routes.draw do
   end
   
   resources :categorys,only: %i[index new create edit update destroy]
+  
+  resources :categorys do
+    member do
+      patch :move
+    end
+  end
+  
   resources :category,only: %i[edit]
+
   resources :tasks
   resources :comments 
   resources :participations, only: %i[new show create destroy]
