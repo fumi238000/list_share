@@ -2,6 +2,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   
   has_many :category, dependent: :destroy, foreign_key: 'user_id'
+  scope :category, -> { order(id: :desc)}
+
   has_many :check, dependent: :destroy, foreign_key: 'user_id'
 
   devise :database_authenticatable, :registerable,
