@@ -12,11 +12,11 @@
 
 <div id="tasks-list">
 
-  <div data-controller="drag">
+  <div data-controller="drag" data-drag-url = "/categorys/:id/move">
   <% @categorys.each do |c| %>
      
-    
-        <li class="card" >
+ 
+        <li class="card" data-id="<%= c.id%>" >
      
           <%# カード左部分 %>
           <div class="card-body">

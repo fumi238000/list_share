@@ -37,6 +37,11 @@ class CategorysController < ApplicationController
     redirect_to categorys_path, alert: "削除しました"
   end
 
+  def move    
+    @category = Category.find(params[:id])
+    @category.insert_at(params[:position].to_i)
+    head :ok
+  end
 
   private
 
