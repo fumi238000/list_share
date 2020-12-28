@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Category, type: :model do
+RSpec.describe Comment, type: :model do
   describe "バリデーション" do
 
     context "name が空のとき" do
@@ -8,5 +8,4 @@ RSpec.describe Category, type: :model do
       end
     end
 
-  end
 end
