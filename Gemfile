@@ -18,10 +18,15 @@ gem 'font-awesome-sass'
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 gem 'ransack'
+gem "acts_as_list", "~> 1.0"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'pry-doc'
 end
 
 group :development do
@@ -39,4 +44,3 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "acts_as_list", "~> 1.0"
