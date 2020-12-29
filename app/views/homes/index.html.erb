@@ -1,25 +1,27 @@
+<div>
 <h1>生み出すからこそ、進化できる</h1>
 <h5>ListShareなら、オリジナルのリスト作成・改善をサポートします</h5>
-
-<div>  
-  <div class="左">  
-    <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-primary text-light",method: :post %>
-  </div>
-  
-  <div class="右">  
-    <%= link_to '無料で新規作成', new_user_session_path, class: "btn btn-primary text-light",method: :post %>
-  </div>
 </div>
 
-<%= link_to 'すでにアカウントをお持ちですか？ログイン', new_user_session_path, class: "btn btn-primary text-light",method: :post %>
 
 
-<div> 
-  <div class="text-light">
-    左側に写真がきます
+<section class="text-center">
+  <span class="gest-btn"><%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-primary text-light px-5 ",method: :post %></span>
+  <span class="registration-btn"><%= link_to '無料で新規作成', new_user_session_path, class: "btn btn-primary text-light px-5 ",method: :post %></span>
+</section>
+
+<section class="login-link">
+  <%= link_to 'すでにアカウントをお持ちですか？ログイン', new_user_session_path,method: :post %>
+</section>
+
+
+
+<section>
+  <div class="top-image w-50">    
+   <%= image_tag "image-photo.png", width:'90%', height:'90%'%>    
   </div>
 
-  <div class="text-right">
+  <div class="text w-50">
     <h4>習慣のリスト化</h4>
     <p>自分だけのオリジナルリストを作成できます</p>
     <h4>リストを共有する</h4>
@@ -29,4 +31,4 @@
     <h4>簡単に素早く変更</h4>
     <p>ドラッグ＆ドロップで素早く並べ替えが可能です</p>
   </div>
-</div> 
+</section> 

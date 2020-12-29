@@ -1,0 +1,60 @@
+/*-------------------------
+title
+-------------------------*/
+h1{
+  color: #003b90;
+  font-size: 60px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+h5 {
+  color: black;
+  font-size: 20px;
+  margin-bottom: 50px;
+  text-align: center;
+
+}
+
+/*-------------------------
+button/link
+-------------------------*/
+.gest-btn {
+  margin-right: 15px;
+}
+
+.registration-btn {
+  margin-left: 15px;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 70px;
+}
+
+/*-------------------------
+content
+-------------------------*/
+.top-image {
+  padding-bottom: 50%;
+  float: left;
+}
+
+.text {
+  float: right;
+  padding-left: 50px;
+}
+
+//テキスト
+h4 {
+  font-size: 20px;
+  // font-weight: bolder;
+  font-weight: bolder;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
