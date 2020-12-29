@@ -9,6 +9,7 @@
 
 import { Controller } from "stimulus"
 import Sortable from "sortablejs"
+import Rails from "@rails/ujs";
 
 export default class extends Controller {
   connect() {
@@ -23,7 +24,7 @@ export default class extends Controller {
     data.append("position", event.newIndex + 1)
 
     Rails.ajax ({
-      url: this.data.get("url").replace("id", id),
+      // url: this.data.get("url").replace("id", id),
       type: 'PATCH',
       data: data
     })
