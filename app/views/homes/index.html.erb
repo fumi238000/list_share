@@ -1,13 +1,32 @@
-<h1>ListShareとは</h1>
+<h1>生み出すからこそ、進化できる</h1>
+<h5>ListShareなら、オリジナルのリスト作成・改善をサポートします</h5>
 
-
-
-  <div>  
-    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-primary text-light",method: :post %>
+<div>  
+  <div class="左">  
+    <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-primary text-light",method: :post %>
   </div>
   
-  <br>
-
-  <div>  
-    <%= link_to 'ログインする', new_user_session_path, class: "btn btn-primary text-light",method: :post %>
+  <div class="右">  
+    <%= link_to '無料で新規作成', new_user_session_path, class: "btn btn-primary text-light",method: :post %>
   </div>
+</div>
+
+<%= link_to 'すでにアカウントをお持ちですか？ログイン', new_user_session_path, class: "btn btn-primary text-light",method: :post %>
+
+
+<div> 
+  <div class="text-light">
+    左側に写真がきます
+  </div>
+
+  <div class="text-right">
+    <h4>習慣のリスト化</h4>
+    <p>自分だけのオリジナルリストを作成できます</p>
+    <h4>リストを共有する</h4>
+    <p>作成したリストを、ご家族・友人と共同で使用することができます</p>
+    <h4>思うままに自由に編集</h4>
+    <p>カテゴリーからオリジナルで作成することができます</p>
+    <h4>簡単に素早く変更</h4>
+    <p>ドラッグ＆ドロップで素早く並べ替えが可能です</p>
+  </div>
+</div> 
