@@ -26,8 +26,10 @@
             <% @categorys.each do |c| %>
               <% if t.category_id == c.id%> 
           
+
+          <div data-controller="drag">
                 <%#= タスクカード start %>
-                <ul class="article card" v-if="isActive === '<%= t.category_id %>'">
+                <ul class="article card" v-if="isActive === '<%= t.category_id %>'" >
                   <div class="card-body">
                     <div class="d-flex justify-content-between ">
 
@@ -73,6 +75,9 @@
                   </div>
                 </ul>
                 <%#= タスクカード finish %>
+             </div>
+
+
               
               <% end %>
             <% end %>
