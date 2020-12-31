@@ -12,22 +12,25 @@ Rails.application.routes.draw do
     delete :clean, on: :member
   end
 
+  resources :tasks
+  
   resources :tasks do
     resource :checks, only: %i[create destroy]
+    member do
+      patch :move
+    end
   end
   
+  resources :categorys
   resources :categorys do
     member do
       patch :move
     end
   end
-
-  resources :categorys
   
   
   resources :category,only: %i[edit]
 
-  resources :tasks
   resources :comments 
   resources :participations, only: %i[new show create destroy]
 

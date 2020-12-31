@@ -27,10 +27,19 @@
               <% if t.category_id == c.id%> 
           
 
-          <div data-controller="drag">
+          <div data-controller="drag" data-drag-url = "/tasks/id/move">
                 <%#= タスクカード start %>
+      
+
+
+
+
                 <ul class="article card" v-if="isActive === '<%= t.category_id %>'" >
                   <div class="card-body">
+
+
+                           <p><%= c.position%></p>
+
                     <div class="d-flex justify-content-between ">
 
                       <%# カードの中身%>   
