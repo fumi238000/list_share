@@ -16,13 +16,14 @@ Rails.application.routes.draw do
     resource :checks, only: %i[create destroy]
   end
   
-  resources :categorys,only: %i[index new create edit update destroy]
-  
   resources :categorys do
     member do
       patch :move
     end
   end
+
+  resources :categorys
+  
   
   resources :category,only: %i[edit]
 

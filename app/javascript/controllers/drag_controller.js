@@ -20,11 +20,12 @@ export default class extends Controller {
 
   end(event) {
     let id = event.item.dataset.id
+    let position = event.newIndex + 1
     let data = new FormData()
-    data.append("position", event.newIndex + 1)
+    data.append("position",position);
 
-    Rails.ajax ({
-      // url: this.data.get("url").replace("id", id),
+    Rails.ajax ({      
+      url: this.data.get("url").replace("id", id),
       type: 'PATCH',
       data: data
     })

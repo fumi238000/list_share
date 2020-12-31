@@ -1,15 +1,5 @@
 <h1>カテゴリー</h1>
 
-<p>jQuery稼働テスト</p>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $("p").text("jQuery稼働テスト(稼働中)");
-  });
-</script>
-
-
-
-
 <div class="text-right">
    <%# 追加ボタン %>
     <%= link_to new_category_path, class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %> 
@@ -20,12 +10,11 @@
 
 <div id="tasks-list">
 
-  <div data-controller="drag" data-drag-url = "/categorys/:id/move">
-  <% @categorys.each do |c| %>
-     
- 
-        <li class="card" data-id="<%= c.id%>" >
-     
+  
+  <div data-controller="drag" data-drag-url = "/categorys/id/move">
+  
+    <% @categorys.each do |c| %>
+        <li class="card" data-id="<%= c.id%>">
           <%# カード左部分 %>
           <div class="card-body">
             <div class="d-flex justify-content-between">
