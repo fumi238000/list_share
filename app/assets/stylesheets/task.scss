@@ -1,0 +1,79 @@
+/*-------------------------
+link
+-------------------------*/
+.task-link {
+  text-align: right;
+  margin-bottom: 15px;
+  span {
+    padding-right: 10px;
+  }
+
+}
+
+
+/*-------------------------
+tab
+-------------------------*/
+ .tab_list {
+    overflow: hidden;
+  }
+  .tab_list li {
+    float: left;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: .3s;
+  }
+  .tab_list li:not(:first-child) {
+    border-left: none;
+  }
+  .tab_list li.active, {
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+    cursor: auto;
+  }
+  .article{
+    overflow: hidden;
+    margin-top: -1px;
+  }
+  .article li {
+    width: 320px;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+
+
+
+
+/*-------------------------
+card
+-------------------------*/
+
+.checkbox{
+ padding-right: 15px;
+ color: #003b90;
+}
+
+.grid {
+  color: #003b90;
+  margin-right: 10px;
+}
+
+.task-name {
+  padding-right: 30px;
+  font-size: 20px;
+}
+ 
+.task-edit-link {
+  color: #003b90;
+  margin-right: 10px; 
+}
+
+
+.task-comment-link {
+  color: #003b90;
+  margin-right: 10px; 
+}
+
+

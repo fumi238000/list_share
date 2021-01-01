@@ -3,8 +3,8 @@
 <div id="tabs">
 
   <%# タスクを追加リンク%>
-  <div class="text-right">
-    <span class="mr-2"><a v-bind:href="href" >タスクを追加</span><i class="fas fa-plus-circle"></i></a>
+  <div class="task-link">
+    <span><a v-bind:href="href" >タスクを追加</span><i class="fas fa-plus-circle"></i></a>
   </div> 
 
   <%# カテゴリー + タスク start %>
@@ -26,27 +26,23 @@
             <% @categorys.each do |c| %>
               <% if t.category_id == c.id%> 
           
-
-          <div data-controller="drag" data-drag-url = "/tasks/id/move">
+          <div data-controller = "drag" data-drag-url = "/tasks/id/move">
+          
                 <%#= タスクカード start %>
-      
 
+                <ul class="card" v-if="isActive === '<%= t.category_id %>'"  >
+                  <div class="card-body" >
 
+                           <p><%= t.id%></p>
+                           <p><%= t.position%></p>
 
-
-                <ul class="article card" v-if="isActive === '<%= t.category_id %>'" >
-                  <div class="card-body">
-
-
-                           <p><%= c.position%></p>
-
-                    <div class="d-flex justify-content-between ">
+                    <div class="d-flex justify-content-between"  >
 
                       <%# カードの中身%>   
                       <div class="task-status">
                   
                         <%# チェックボックス %>  
-                        <span id="taks-<%= t.id%>" class="pr-3">    
+                        <span id="taks-<%= t.id%>" class="checkbox">    
                           
                           <% if  @checked_task_ids.include?(t.id) %>
                             <%# あり %>
@@ -58,10 +54,10 @@
                         </span>
                     
                         <%# グリッド%>  
-                        <i class="fas fa-grip-lines-vertical text-primary grip mr-2 "></i>
+                        <i class="grid fas fa-grip-lines-vertical"></i>
                      
                         <%# タスク名 %>
-                        <span class="h5 pr-5"><%= t.name %></span>
+                        <span class="task-name"><%= t.name %></span>
                     
                       </div>  
 
@@ -69,11 +65,11 @@
                         <div class="btn-group d-flex">
                           <div class="btn-toolbar">
                             <%# 編集ボタン %>
-                            <%= link_to edit_task_path(t),class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %>
+                            <%= link_to edit_task_path(t),class: "task-edit-link", :method => :get do %>
                               <i class="fas fa-pen"></i>
                             <% end %>
                             <%# コメント一覧へリンク %>
-                            <%= link_to  task_path(t), class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do%>
+                            <%= link_to  task_path(t), class: "task-comment-link", :method => :get do%>
                               <i class="far fa-comments"></i>
                             <% end %>
                           </div>
