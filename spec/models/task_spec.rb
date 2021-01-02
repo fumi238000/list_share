@@ -8,5 +8,5 @@ RSpec.describe Task, type: :model do
       it "エラーが発生する" do
       end
     end
-
+  end
 end
