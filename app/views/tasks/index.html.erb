@@ -18,32 +18,22 @@
       </ul>
       <%# カテゴリーリスト finish %>
 
-      <%# タスクカードリスト start%>
-      <ul class="article">
-        <div id="tasks-list">
+    <%# タスクカードリスト start%>
+    <ul class="article">
+      <div id="tasks-list">
+        <div data-controller = "drag" data-drag-url = "/tasks/id/move">
 
           <% @tasks.each do |t| %>
             <% @categorys.each do |c| %>
               <% if t.category_id == c.id%> 
-          
-          <div data-controller = "drag" data-drag-url = "/tasks/id/move">
-          
                 <%#= タスクカード start %>
-
-                <ul class="card" v-if="isActive === '<%= t.category_id %>'"  >
-                  <div class="card-body" >
-
-                           <p><%= t.id%></p>
-                           <p><%= t.position%></p>
-
+                <div class="card" data-id="<%= t.id%>"  v-if="isActive === '<%= t.category_id %>'">
+                  <div class="card-body">
                     <div class="d-flex justify-content-between"  >
-
-                      <%# カードの中身%>   
+                      <%# カードの中身 start%>   
                       <div class="task-status">
-                  
                         <%# チェックボックス %>  
                         <span id="taks-<%= t.id%>" class="checkbox">    
-                          
                           <% if  @checked_task_ids.include?(t.id) %>
                             <%# あり %>
                             <%= render "offcheck", task_id: t %>
@@ -52,13 +42,10 @@
                             <%= render "oncheck", task_id: t %>
                           <% end %>
                         </span>
-                    
                         <%# グリッド%>  
                         <i class="grid fas fa-grip-lines-vertical"></i>
-                     
                         <%# タスク名 %>
                         <span class="task-name"><%= t.name %></span>
-                    
                       </div>  
 
                       <div class="d-none d-sm-block ">
@@ -75,25 +62,21 @@
                           </div>
                         </div>
                       </div>
-                    
+                      <%# カードの中身 finish%>   
                     </div>
                   </div>
-                </ul>
+                </div>
                 <%#= タスクカード finish %>
-             </div>
-
-
-              
               <% end %>
             <% end %>
           <% end %> 
-
         </div>
-      </ul>
-      <%# タスクカードリスト finish%>
+      </div>
+    </ul>
+    <%# タスクカードリスト finish%>
 
-    </div>
-   <%# カテゴリー + タスク finish %>
+  </div>
+  <%# カテゴリー + タスク finish %>
 
 </div> 
 

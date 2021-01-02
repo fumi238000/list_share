@@ -60,7 +60,6 @@ class TasksController < ApplicationController
   end
 
   def move
-    binding.pry
     @task = Task.find(params[:id])
     @task.insert_at(params[:position].to_i)
     head :ok
