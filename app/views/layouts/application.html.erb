@@ -13,12 +13,18 @@
     <header>
       <%= render 'layouts/header' %>
     </header>
-    <main>
-      <%= render "layouts/flash" %>
-      <div class="container py-4">
-        <%= yield %>
-      </div>
+    <main class="main">
+      <div id="wrapper">
+        <%= render "layouts/flash" %>
+        <div class="container py-4">
+          <%= yield %>
+        </div>
     </main>
-    <%= render 'layouts/footer' %>
+    <footer>
+      <%= render 'layouts/footer' %>
+    </footer>
+    </div>
   </body>
+  
+
 </html>

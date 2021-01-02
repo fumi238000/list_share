@@ -53,6 +53,43 @@
 }
 
 
+//footer
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  background-color: rgb(0, 59, 144);
+  margin-top: auto;
+}
+
+  .footer-text {
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+  }
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // フラッシュ
 
 .alert-notice {
