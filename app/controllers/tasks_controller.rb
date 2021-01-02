@@ -5,8 +5,15 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
-    @tasks = Task.order(:id)
+
+    
+
+
     @categorys = current_user.category.order(:id)
+    @tasks = Task.all
+
+    # @task.find(category_id: @category.id)
+
     @checked_task_ids = current_user.check.pluck(:task_id)
   end
 
@@ -52,6 +59,11 @@ class TasksController < ApplicationController
     redirect_to tasks_path, alert: "削除しました"
   end
 
+  def move
+    @task = Task.find(params[:id])
+    @task.insert_at(params[:position].to_i)
+    head :ok
+  end
 
 private
 

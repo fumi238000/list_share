@@ -124,35 +124,6 @@
   background-color: #ed551b;
 }
 
-//タブ
- .tab_list {
-    overflow: hidden;
-  }
-  .tab_list li {
-    float: left;
-    padding: 10px 20px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: .3s;
-  }
-  .tab_list li:not(:first-child) {
-    border-left: none;
-  }
-  .tab_list li.active, {
-    background-color: #000;
-    border-color: #000;
-    color: #fff;
-    cursor: auto;
-  }
-  .article{
-    overflow: hidden;
-    margin-top: -1px;
-  }
-  .article li {
-    width: 320px;
-    padding: 20px;
-    border: 1px solid #ccc;
-  }
 
 .display-none{
     display:none;

@@ -1,36 +1,31 @@
 <h1>カテゴリー</h1>
 
-
-
-<div class="text-right">
+<div class="category-link">
    <%# 追加ボタン %>
-    <%= link_to new_category_path, class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %> 
-      <span class="mr-2">カテゴリーを追加</span><i class="fas fa-plus-circle"></i>
+    <%= link_to new_category_path, class: "category-new-link", :method => :get do %> 
+      <span>カテゴリーを追加</span><i class="fas fa-plus-circle"></i>
     <% end %>
 </div>
   
 
 <div id="tasks-list">
 
-  <div data-controller="drag" data-drag-url = "/categorys/:id/move">
-  <% @categorys.each do |c| %>
-     
- 
-        <li class="card" data-id="<%= c.id%>" >
-     
+  
+  <ul data-controller="drag" data-drag-url = "/categorys/id/move">
+  
+    <% @categorys.each do |c| %>
+        <li class="card" data-id="<%= c.id%>">
           <%# カード左部分 %>
           <div class="card-body">
             <div class="d-flex justify-content-between">
-              
-
-              <div class="task-status">       
-                <%# グリッド%>  
-                <i class="fas fa-grip-lines-vertical text-primary grip mr-2 "></i>
+              <div class="task-status">
+                <%# グリッド%>
+                <i class="grid fas fa-grip-lines-vertical"></i>
                 <%# カテゴリー名・リンク %>
                 <a href="/tasks#index" class="category_link">
-                  <span class="h5 pr-5"><%= c.name %></span>
+                <span class="category-name"><%= c.name %></span>
                 </a>
-              </div>  
+              </div>
     
      
               <%# ボタン %>
@@ -38,25 +33,22 @@
                 <div class="btn-group d-flex">
                   <div class="btn-toolbar">
                     <%# 共有ボタン %>
-                    <%= link_to participation_path(c.id),class: "btn text-dark btn-sm btn-sm mr-1", :method => :get do %>
+                    <%= link_to participation_path(c.id),class: "shara-link", :method => :get do %>
                     <i class="fas fa-link"></i>
                     <% end %>
                     <%# 編集ボタン %>
-                    <%= link_to edit_category_path(c),class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %>
+                    <%= link_to edit_category_path(c),class: "category-edit-link", :method => :get do %>
                     <i class="fas fa-pen"></i>
                     <% end %>          
                  </div>
                </div>
              </div>
 
-
-
             </div>
           </div>
-
-        </li>
   
-  <% end %>
+    <% end %>
+  </ul>
 </div>
 </div>
 <%# Vue.js %>
