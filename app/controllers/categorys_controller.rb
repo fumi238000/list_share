@@ -3,7 +3,7 @@ class CategorysController < ApplicationController
   before_action :set_category, only: %i[edit update destroy]
 
   def index
-    @categorys = current_user.category.order(:id)
+    @categorys = current_user.category.order(:position)
   end
 
 
@@ -37,7 +37,7 @@ class CategorysController < ApplicationController
     redirect_to categorys_path, alert: "削除しました"
   end
 
-  def move    
+  def move
     @category = Category.find(params[:id])
     @category.insert_at(params[:position].to_i)
     head :ok
