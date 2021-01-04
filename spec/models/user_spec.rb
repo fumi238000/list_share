@@ -36,7 +36,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context "name が21文字以上である時" do 
+    context "name が20文字以上である時" do 
       let(:user)  { build(:user,name: "a" * 21) } 
       it "エラーが発生する" do
         expect(subject).to eq false

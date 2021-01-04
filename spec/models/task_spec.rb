@@ -4,18 +4,42 @@ RSpec.describe Task, type: :model do
   describe "バリデーション" do
     subject {task.valid?} 
    
-    context "データが条件を満たす時", type: :doing  do
+    context "データが条件を満たす時" do
       let(:task) { build(:task) }
       it "保存ができる" do
-        binding.pry
         expect(subject).to eq true
       end
     end
+
+    context "category_idが30文字以下の場合"  , type: :doing do
+      let(:task) { build(:task, name: "a" * 16 ) }
+      it "保存できる" do
+        expect(subject).to eq true
+      end
+    end
+
+
+    context "nameが空の時" do
+      it "エラーが発生する" do
+      end
+    end
+
+    context "category_idが空の時" do
+      it "エラーが発生する" do
+      end
+    end
+
+    context "category_idが30文字以上の場合" do
+      it "エラーが発生する" do
+      end
+    end
+
+
   
   end
 
 end
-  #   context "nameが20文字以下の場合" , type: :doing  do
+  #   context "nameが20文字以下の場合"   do
   #     let(:category) { build(:category, name: "a" * 3) }
   #     it "保存ができる" do
   #       expect(subject).to eq true
