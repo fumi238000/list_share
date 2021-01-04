@@ -52,17 +52,27 @@ RSpec.describe User, type: :model do
         expect(user.errors.messages[:email]).to include "はすでに存在します"
       end
     end
-    
+  end  
+
+
+
+
+
+
+
+
     #未実装
     context "ユーザーが削除されたとき" do
       subject { user.destroy }
-  
       let(:user) { create(:user) }
       before do
-        create_list(:message, 2, user: user)
-        create(:message)
+        create_list(:category, 2, user: user)
+        create(:category)
+      end
+      it "そのユーザーのメッセージも削除される" do
+        expect { subject }.to change { user.messages.count }.by(-2)
       end
     end
-  end
+  
 
 end

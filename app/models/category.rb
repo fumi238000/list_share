@@ -8,3 +8,4 @@ class Category < ApplicationRecord
   acts_as_list scope: :user
 
 end
+
