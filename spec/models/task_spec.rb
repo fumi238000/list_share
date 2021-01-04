@@ -34,8 +34,11 @@ RSpec.describe Task, type: :model do
       end
     end
 
-    context "category_idが30文字以上の場合" do
+    context "nameが30文字以上の場合" do
+      let(:task) { build(:task, name: "a" * 35) }
       it "エラーが発生する" do
+        expect(subject).to eq false
+        expect(task.errors.messages[:name]).to include "は30文字以内で入力してください"
       end
 
     end
