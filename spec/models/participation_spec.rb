@@ -11,10 +11,12 @@ RSpec.describe Participation, type: :model do
       end
     end
 
-    # context "participation_idがintegerの時" do
-    #   it "保存できる" do
-    #   end
-    # end
+    context "participation_idがintegerの時" do
+    let(:participation) { create(:participation, participation_id: "1") }  
+      it "保存できる" do
+        expect(subject).to eq true
+      end
+    end
 
     context "owner_idが空の時" do
       let(:participation) { build(:participation, owner_id: "") }
