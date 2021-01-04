@@ -11,20 +11,22 @@ RSpec.describe Task, type: :model do
       end
     end
 
-    context "category_idが30文字以下の場合"  , type: :doing do
+    context "category_idが30文字以下の場合" do
       let(:task) { build(:task, name: "a" * 16 ) }
       it "保存できる" do
         expect(subject).to eq true
       end
     end
 
-
     context "nameが空の時" do
+      let(:task) { build(:task, name: "") }
       it "エラーが発生する" do
+        expect(subject).to eq false
+        expect(task.errors.messages[:name]).to include "を入力してください"
       end
     end
 
-    context "category_idが空の時" do
+    context "category_idが空の時",type: :doing  do
       it "エラーが発生する" do
       end
     end
