@@ -26,14 +26,18 @@ RSpec.describe Task, type: :model do
       end
     end
 
-    context "category_idが空の時",type: :doing  do
+    context "category_idが空の時" do
+      let(:task) { build(:task, category_id: "") }
       it "エラーが発生する" do
+        expect(subject).to eq false
+        expect(task.errors.messages[:category_id]).to include "を入力してください"
       end
     end
 
     context "category_idが30文字以上の場合" do
       it "エラーが発生する" do
       end
+
     end
 
 
