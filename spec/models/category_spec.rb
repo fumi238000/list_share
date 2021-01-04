@@ -11,7 +11,7 @@ RSpec.describe Category, type: :model do
       end
     end
 
-    context "nameが20文字以下の場合" , type: :doing  do
+    context "nameが20文字以下の場合" do
       let(:category) { build(:category, name: "a" * 3) }
       it "保存ができる" do
         expect(subject).to eq true

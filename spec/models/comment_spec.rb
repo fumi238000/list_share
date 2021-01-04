@@ -12,19 +12,19 @@ RSpec.describe Comment, type: :model do
     end
     
   
-    context "user_idが空の時", type: :doing do
+    context "user_idが空の時" do
       let(:comment) { build(:comment, user_id: "") }
       it "エラーが発生する" do
         expect(subject).to eq false
-        binding.pry
         expect(comment.errors.messages[:user]).to include "を入力してください"
       end
     end
 
     context "task_idが空の時" do
-      let(:comment) { build(:comment, user_id: "") }
+      let(:comment) { build(:comment, task_id: "") }
         it "エラーが発生する" do
-      #     expect(subject).to eq true
+          expect(subject).to eq false
+          expect(comment.errors.messages[:task]).to include "を入力してください"
         end
       end
   
