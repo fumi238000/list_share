@@ -29,11 +29,11 @@ RSpec.describe Comment, type: :model do
       end
   
 
-    context "contentが空の時" do
-    #   let(:task) { build(:task, name: "") }
+    context "contentが空の時"  do
+      let(:comment) { build(:comment, content: "") }
       it "エラーが発生する" do
-    #     expect(subject).to eq false
-    #     expect(task.errors.messages[:name]).to include "を入力してください"
+        expect(subject).to eq false
+        expect(comment.errors.messages[:content]).to include "を入力してください"
        end
      end    
      context "contentが100文字以上の場合" do
