@@ -33,10 +33,10 @@ RSpec.describe Participation, type: :model do
     end
 
     context "categoryが空の時" do
-      let(:participation) { build(:participation) }
+      let(:participation) { build(:participation, category: "") }
       it "エラーが発生する" do
         expect(subject).to eq false
-        expect(participation.errors.messages[:user]).to include "を入力してください"
+        expect(participation.errors.messages[:category]).to include "を入力してください"
       end
     end
 
