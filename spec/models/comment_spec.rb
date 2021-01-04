@@ -2,10 +2,37 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   describe "バリデーション" do
+    subject {comment.valid?} 
 
-    context "name が空のとき" do
-      it "エラーが発生する" do
+    context "データが条件を満たす時", type: :doing do
+      let(:comment) { build(:comment) }
+      it "保存ができる" do
+        expect(subject).to eq true
       end
     end
+    
+  
+    context "user_idが空の時" do
+    #   let(:task) { build(:task, name: "a" * 16 ) }
+      it "エラーが発生する" do
+    #     expect(subject).to eq true
+      end
+    end
+
+    context "contentが空の時" do
+    #   let(:task) { build(:task, name: "") }
+      it "エラーが発生する" do
+    #     expect(subject).to eq false
+    #     expect(task.errors.messages[:name]).to include "を入力してください"
+       end
+     end    
+     context "contentが100文字以上の場合" do
+    #   let(:task) { build(:task, name: "a" * 35) }
+       it "エラーが発生する" do
+    #     expect(subject).to eq false
+    #     expect(task.errors.messages[:name]).to include "は30文字以内で入力してください"
+       end
+     end
+    
   end
 end
