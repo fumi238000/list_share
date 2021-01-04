@@ -19,7 +19,7 @@ RSpec.describe Category, type: :model do
         end
       end
 
-      context "nameが空の時", type: :doing  do
+      context "nameが空の時" do
         # ユーザーを作成する
         let(:category) { build(:category, name: "") }
         it "エラーが発生する" do
@@ -33,7 +33,7 @@ RSpec.describe Category, type: :model do
         let(:category) { build(:category, name: "a" * 21) }
         it "エラーが発生する" do
           expect(subject).to eq false
-          expect(category.errors.messages[:user]).to include "ここを記入する"
+          expect(category.errors.messages[:name]).to include "は20文字以内で入力してください"
         end
       end
 
