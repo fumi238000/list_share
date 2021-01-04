@@ -3,6 +3,6 @@ FactoryBot.define do
     association :user
     name { Faker::Name.name }
     user_id { 1 }
-    id { rand(256)}
+    id { 1 }
   end
 end
