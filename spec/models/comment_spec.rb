@@ -10,8 +10,7 @@ RSpec.describe Comment, type: :model do
         expect(subject).to eq true
       end
     end
-    
-  
+
     context "user_idが空の時" do
       let(:comment) { build(:comment, user_id: "") }
       it "エラーが発生する" do
@@ -36,13 +35,14 @@ RSpec.describe Comment, type: :model do
         expect(comment.errors.messages[:content]).to include "を入力してください"
        end
      end    
+
      context "contentが100文字以上の場合" do
-    #   let(:task) { build(:task, name: "a" * 35) }
+      let(:comment) { build(:comment, content: "a" * 101) }
        it "エラーが発生する" do
-    #     expect(subject).to eq false
-    #     expect(task.errors.messages[:name]).to include "は30文字以内で入力してください"
+        expect(subject).to eq false
+        expect(comment.errors.messages[:content]).to include "は100文字以内で入力してください"
        end
      end
-    
+
   end
 end
