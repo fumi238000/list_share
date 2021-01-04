@@ -4,6 +4,5 @@ FactoryBot.define do
     name { Faker::Name.name }
     user_id { 1 }
     id { rand(256)}
-    # association :user どっちだろ？  
   end
 end

@@ -18,7 +18,6 @@ RSpec.describe Category, type: :model do
       end
     end
 
-
     context "ユーザーが存在しない時" do
       let(:category) { build(:category, user_id: "") }
       it "エラーが発生する" do
