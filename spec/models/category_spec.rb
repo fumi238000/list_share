@@ -11,10 +11,11 @@ RSpec.describe Category, type: :model do
         end
       end
 
-      context "ユーザーが存在しない時" do
-        let(:category) { build(:category, user_id: "1") }
+      context "ユーザーが存在しない時" ,type: :doing do
+        let(:category) { build(:category, user_id: "") }
         it "エラーが発生する" do
           expect(subject).to eq false
+          binding.pry
           expect(category.errors.messages[:user]).to include "を入力してください"
         end
       end
