@@ -11,21 +11,20 @@ RSpec.describe Category, type: :model do
         end
       end
 
-      context "ユーザーが存在しない時" ,type: :doing do
+      context "ユーザーが存在しない時" do
         let(:category) { build(:category, user_id: "") }
         it "エラーが発生する" do
           expect(subject).to eq false
-          binding.pry
           expect(category.errors.messages[:user]).to include "を入力してください"
         end
       end
 
-      context "nameが空の時" do
+      context "nameが空の時", type: :doing  do
         # ユーザーを作成する
         let(:category) { build(:category, name: "") }
         it "エラーが発生する" do
           expect(subject).to eq false
-          expect(category.errors.messages[:user]).to include "ここを記入する"
+          expect(category.errors.messages[:name]).to include "を入力してください"
         end
       end
 
