@@ -17,17 +17,26 @@ RSpec.describe Participation, type: :model do
     # end
 
     context "owner_idが空の時" do
+      let(:participation) { build(:participation, owner_id: "") }
       it "エラーが発生する" do
+        expect(subject).to eq false
+        expect(participation.errors.messages[:owner_id]).to include "を入力してください"
       end
     end
 
     context "participation_idが空の時" do
+      let(:participation) { build(:participation) }
       it "エラーが発生する" do
+        expect(subject).to eq false
+        expect(participation.errors.messages[:user]).to include "を入力してください"
       end
     end
 
     context "categoryが空の時" do
+      let(:participation) { build(:participation) }
       it "エラーが発生する" do
+        expect(subject).to eq false
+        expect(participation.errors.messages[:user]).to include "を入力してください"
       end
     end
 
