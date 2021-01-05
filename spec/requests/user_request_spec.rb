@@ -6,7 +6,7 @@ RSpec.describe "Users", type: :request do
     subject { get(user_path(user_id))}
     context "ユーザーが存在する時" do
       let(:user) { create(:user)}
-      let(:user_id) { user.id }
+      let(:user_id) { user.id  }
       
       it "リクエストが成功する" do
         subject
@@ -28,16 +28,25 @@ RSpec.describe "Users", type: :request do
         expect(response.body).to include user.created_at.to_s(:datetime_jp)
       end  
 
-      it "利用日数が表示されている" do
-        subject
-        binding.pry
-        expect(response.body).to include user.image
-      end  
+      # it "利用日数が表示されている", type: :doing do
+      #   subject
+      #   let(:continuerd_day) { }
+      #   expect(response.body).to include user.Time.current
+      # end  
 
+      # it "imageが表示されている"  do
+      # end
+    end
+  
+
+    context ":idに対応するユーザーが存在しないとき", type: :doing do
+      let(:user_id) { 100 }
+      it "エラーが発生する" do
+        binding.pry
+        expect { subject }.to raise_error ActiveRecord::RecordNotFound
+      end
     end
   end
 
 
-  it "imageが表示されている"  do
-  end
 end
