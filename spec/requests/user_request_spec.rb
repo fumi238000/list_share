@@ -4,7 +4,7 @@ RSpec.describe "Users", type: :request do
   #show
   describe "GET #show" do
     subject { get(user_path(user_id))}
-    context "ユーザーが存在する時", type: :doing do
+    context "ユーザーが存在する時" do
       let(:user) { create(:user)}
       let(:user_id) { user.id }
       
@@ -14,6 +14,8 @@ RSpec.describe "Users", type: :request do
       end
       
       it "nameが表示されている" do
+        subject
+        expect(response.body).to include user.name
       end
       
       it "imageが表示されている" do
