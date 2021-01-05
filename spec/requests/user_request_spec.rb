@@ -16,20 +16,29 @@ RSpec.describe "Users", type: :request do
       it "nameが表示されている" do
         subject
         expect(response.body).to include user.name
-      end
-      
-      it "imageが表示されている" do
-      end
+      end 
 
-      it "emailが表示されている" do
+      it "emailが表示されている" ,type: :doing do
+        subject
+        expect(response.body).to include user.email
       end
 
       it "登録日が表示されている" do
+        subject
+        binding.pry
+        expect(response.body).to include user.image
       end  
 
       it "利用日数が表示されている" do
+        subject
+        binding.pry
+        expect(response.body).to include user.image
       end  
 
     end
+  end
+
+
+  it "imageが表示されている"  do
   end
 end
