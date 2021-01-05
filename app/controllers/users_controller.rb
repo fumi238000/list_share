@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[edit update destroy]
+  before_action :set_user, only: %i[show edit update destroy]
 
   #マイページ
   def show
-    @user = User.find(params[:id])
     #経過日数
     @today = Time.current
     @continued_day= (@today.to_date - @user.created_at.to_date).to_i
