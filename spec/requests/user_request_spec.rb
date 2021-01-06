@@ -38,15 +38,50 @@ RSpec.describe "Users", type: :request do
       # end
     end
   
-
-    context ":idに対応するユーザーが存在しないとき", type: :doing do
+    context ":idに対応するユーザーが存在しないとき" do
       let(:user_id) { 100 }
       it "エラーが発生する" do
-        binding.pry
         expect { subject }.to raise_error ActiveRecord::RecordNotFound
       end
     end
   end
+
+
+  #create
+  describe "GET #create" do
+    subject { post(users_path, params: params) }
+    context "パラメータが正常なとき" do
+      let(:params) { { user: attributes_for(:user) } }
+
+      it "リクエストが成功する", type: :doing  do
+        subject
+        expect(response).to have_http_status(302)
+      end
+      
+      it "ユーザーが保存される" do
+      end
+
+      it "詳細ページにリダイレクトされる" do
+      end
+    end
+
+    context "パラメータが異常なとき" do
+      it "リクエストが成功する" do
+      end
+  
+      it "ユーザーが保存されない" do
+      end
+  
+      it "新規投稿ページがレンダリングされる" do
+      end
+    end    
+
+
+
+
+  end
+
+
 
 
 end

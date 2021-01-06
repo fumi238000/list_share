@@ -43,17 +43,14 @@ class UsersController < ApplicationController
 
   def clean
     @user = current_user.id
-
     #participations
     @participation = Participation.all
     @owner = @participation.where(owner_id: @user)
     @owner.destroy_all
-
     #comment
     @comments = Comment.all
     @comment = @comments.where(user_id: @user)
     @comment.destroy_all
-
     #task
     @tasks = Task.all
     @tasks.each do |task|      
@@ -61,12 +58,10 @@ class UsersController < ApplicationController
         task.destroy
       end
     end
-   
     #category
     @categorys = Category.all
     @category = @categorys.where(user_id: @user)
     @category.destroy_all
-
     #user
     @user = User.find(@user)
     @user.destroy
