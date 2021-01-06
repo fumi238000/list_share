@@ -72,8 +72,41 @@ describe "GET #edit" do
 
 
 # update
+describe 'GET #update' do
+  subject { patch(user_path(user.id), params: params) }
+    let(:user) { create(:user) }
+
+    context 'パラメータが正常な場合' do
+      let(:params) { { user: attributes_for(:user) } }
+
+      it 'リクエストが成功する'do
+        subject
+        expect(response).to have_http_status(302)
+      end
+
+      it 'image が更新される' do
+        # origin_name = user.name
+        # new_name = params[:user][:name]
+        # expect { subject }.to change { user.reload.name }.from(origin_name).to(new_name)
+      end
+
+      it '詳細ページにリダイレクトされる' do
+        # subject
+        # expect(response).to redirect_to User.last
+      end
+    end
+  end
 
 
+
+
+    
+
+
+
+
+
+    
 # destroy 
 
 

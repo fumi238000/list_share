@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update!(user_params)
-    redirect_to user_path(current_user), notice: "画像を変更しました"
+    redirect_to user_path(@user), notice: "画像を変更しました"
   end
 
 
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def destroy
     @user.remove_image!
     @user.save
-    redirect_to user_path(current_user),alert:"イメージ画像を削除しました"
+    redirect_to user_path(@user),alert:"イメージ画像を削除しました"
   end
 
 
