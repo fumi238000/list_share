@@ -90,9 +90,9 @@ describe 'GET #update' do
         # expect { subject }.to change { user.reload.name }.from(origin_name).to(new_name)
       end
 
-      it '詳細ページにリダイレクトされる' do
-        # subject
-        # expect(response).to redirect_to User.last
+      it '詳細ページにリダイレクトされる', type: :doing do
+        subject
+        expect(response).to redirect_to User.last
       end
     end
   end
