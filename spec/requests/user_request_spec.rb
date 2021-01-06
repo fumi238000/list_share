@@ -53,12 +53,13 @@ RSpec.describe "Users", type: :request do
     context "パラメータが正常なとき" do
       let(:params) { { user: attributes_for(:user) } }
 
-      it "リクエストが成功する", type: :doing  do
+      it "リクエストが成功する" do
         subject
         expect(response).to have_http_status(302)
       end
       
       it "ユーザーが保存される" do
+        expect { subject }.to change { User.count }.by(1)
       end
 
       it "詳細ページにリダイレクトされる" do
