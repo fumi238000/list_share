@@ -47,40 +47,38 @@ RSpec.describe "Users", type: :request do
   end
 
 
-  #create
-  # describe "GET #create" do
-  #   subject { post(users_path, params: params) }
-  #   context "パラメータが正常なとき" do
-  #     let(:params) { { user: attributes_for(:user) } }
+# edit
+describe "GET #edit" do
+  subject { get(edit_user_path(user_id)) }
+  context "ユーザーが存在する時" do
+    let(:user) { create(:user) }
+    let(:user_id) { user.id }
+    
+    it "リクエストが成功する", type: :doing  do      
+      binding.pry
+     subject
+     expect(response).to have_http_status(200)
+    end
+    
+    it "〇〇が表示される" do      
+    end
 
-  #     it "リクエストが成功する" do
-  #       subject
-  #       expect(response).to have_http_status(302)
-  #     end
-      
-  #     it "ユーザーが保存される" do
-  #       expect { subject }.to change { User.count }.by(1)
-  #     end
-
-  #     it "詳細ページにリダイレクトされる", type: :doing   do
-  #       subject
-  #       binding.pry
-  #       # expect(response).to redirect_to User.last
-  #       expect(response).to redirect_to root_path
-  #     end
-  #   end
-
-  #   context "パラメータが異常なとき" do
-  #     it "リクエストが成功する" do
-  #     end
+  end
   
-  #     it "ユーザーが保存されない" do
-  #     end
-  
-  #     it "新規投稿ページがレンダリングされる" do
-  #     end
-  #   end    
+  context ":idに対応するユーザーが存在しない時" do
+    it "エラーが発生する" do      
+    end
 
+end
+
+
+# update
+
+
+# destroy 
+
+
+# clean
 
 
 

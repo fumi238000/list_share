@@ -6,17 +6,14 @@ class UsersController < ApplicationController
     #経過日数
     @today = Time.current
     @continued_day= (@today.to_date - @user.created_at.to_date).to_i
-
   end
 
   def edit
-    binding.pry
   end
 
 
 
   def update
-    binding.pry
     @user.update!(user_params)
     redirect_to user_path(current_user), notice: "画像を変更しました"
   end
