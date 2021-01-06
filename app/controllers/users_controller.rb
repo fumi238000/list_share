@@ -9,25 +9,14 @@ class UsersController < ApplicationController
 
   end
 
-
-  def create
-    user = User.create(image: user_params)
-
-    if user.save
-      redirect_to user_path(current_user),notice:"作成しました"
-    else 
-      redirect_to user_path(current_user),alert:"すでに存在しています"
-    end
-  end
-
-
-
   def edit
+    binding.pry
   end
 
 
 
   def update
+    binding.pry
     @user.update!(user_params)
     redirect_to user_path(current_user), notice: "画像を変更しました"
   end
