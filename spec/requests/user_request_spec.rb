@@ -54,22 +54,21 @@ describe "GET #edit" do
     let(:user) { create(:user) }
     let(:user_id) { user.id }
     
-    it "リクエストが成功する", type: :doing  do      
-      binding.pry
+    it "リクエストが成功する" do      
      subject
      expect(response).to have_http_status(200)
     end
     
-    it "〇〇が表示される" do      
+    it "imageが表示される" do 
     end
-
   end
   
   context ":idに対応するユーザーが存在しない時" do
-    it "エラーが発生する" do      
+    let(:user_id) { 1000 }
+    it "エラーが発生する" do 
+      expect { subject }.to raise_error ActiveRecord::RecordNotFound
     end
-
-end
+  end
 
 
 # update
