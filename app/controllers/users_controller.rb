@@ -14,8 +14,11 @@ class UsersController < ApplicationController
 
 
   def update
-    @user.update!(user_params)
-    redirect_to user_path(@user), notice: "画像を変更しました"
+    if @user.update!(user_params)
+      redirect_to user_path(@user), notice: "画像を変更しました"
+    else
+      render :edit  
+    end
   end
 
 

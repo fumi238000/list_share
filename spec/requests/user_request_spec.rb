@@ -106,8 +106,7 @@ describe 'GET #update' do
       #   expect(response).to have_http_status(200)
       end
 
-      it 'image が更新されない', type: :doing do
-        binding.pry
+      it 'image が更新されない'do
         expect { subject }.not_to change(user.reload, :image)
       end
 
@@ -118,18 +117,28 @@ describe 'GET #update' do
     end
   
   end
-
-
-
-
-    
-
-
-
-
-
     
 # destroy 
+describe 'GET #destroy' do
+  subject { delete(user_path(user.id)) }
+  let!(:user) { create(:user) }
+
+  context 'パラメータが正常な場合' do
+    it 'リクエストが成功する' do
+      subject
+      expect(response).to have_http_status(302)
+    end
+
+    it 'ユーザーが削除される' do
+      # expect { subject }.to change(User, :count).by(-1)
+    end
+
+    it 'ユーザー一覧にリダイレクトすること' do
+      # subject
+      # expect(response).to redirect_to(users_path)
+    end
+  end
+end
 
 
 # clean
