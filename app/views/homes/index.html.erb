@@ -5,14 +5,12 @@
 
 <section class="text-center">
   <span><%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "gest-btn btn text-light px-5",method: :post %></span>
-  <span><%= link_to '無料で新規作成', new_user_session_path, class: "btn text-light px-5 registration-btn", method: :post %></span>
+  <span><%= link_to '無料で新規作成', new_user_registration_path, class: "btn text-light px-5 registration-btn", method: :get %></span>
 </section>
 
 <section class="login-link">
   <%= link_to 'すでにアカウントをお持ちですか？ログイン', new_user_session_path,method: :post %>
 </section>
-
-
 
 <section>
   <div class="top-image w-50">    
