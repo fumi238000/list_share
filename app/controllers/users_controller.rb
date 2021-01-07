@@ -1,27 +1,12 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[edit update destroy]
+  before_action :set_user, only: %i[show edit update destroy]
 
   #マイページ
   def show
-    @user = User.find(params[:id])
     #経過日数
     @today = Time.current
     @continued_day= (@today.to_date - @user.created_at.to_date).to_i
-
   end
-
-
-  def create
-    user = User.create(image: user_params)
-
-    if user.save
-      redirect_to user_path(current_user),notice:"作成しました"
-    else 
-      redirect_to user_path(current_user),alert:"すでに存在しています"
-    end
-  end
-
-
 
   def edit
   end
@@ -29,8 +14,11 @@ class UsersController < ApplicationController
 
 
   def update
-    @user.update!(user_params)
-    redirect_to user_path(current_user), notice: "画像を変更しました"
+    if @user.update!(user_params)
+      redirect_to user_path(@user), notice: "画像を変更しました"
+    else
+      render :edit  
+    end
   end
 
 
@@ -38,23 +26,20 @@ class UsersController < ApplicationController
   def destroy
     @user.remove_image!
     @user.save
-    redirect_to user_path(current_user),alert:"イメージ画像を削除しました"
+    redirect_to user_path(@user),alert:"イメージ画像を削除しました"
   end
 
 
   def clean
     @user = current_user.id
-
     #participations
     @participation = Participation.all
     @owner = @participation.where(owner_id: @user)
     @owner.destroy_all
-
     #comment
     @comments = Comment.all
     @comment = @comments.where(user_id: @user)
     @comment.destroy_all
-
     #task
     @tasks = Task.all
     @tasks.each do |task|      
@@ -62,12 +47,10 @@ class UsersController < ApplicationController
         task.destroy
       end
     end
-   
     #category
     @categorys = Category.all
     @category = @categorys.where(user_id: @user)
     @category.destroy_all
-
     #user
     @user = User.find(@user)
     @user.destroy

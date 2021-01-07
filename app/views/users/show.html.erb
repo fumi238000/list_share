@@ -11,13 +11,13 @@
 
 
 <div class="text-center mb-3">
-  <%= link_to '画像の編集', edit_user_path(current_user) ,class: "btn btn-dark text-light" %>
+  <%= link_to '画像の編集', edit_user_path(@user) ,class: "btn btn-dark text-light" %>
 </div>  
 
 <div class="mb-3 border border-white">
-  <p>ユーザー名 : <%= current_user.name %></p>
-  <p>メールアドレス : <%= current_user.email %></p>
-  <p>登録日 : <%= current_user.created_at.to_s(:datetime_jp) %></p>
+  <p>ユーザー名 : <%= @user.name %></p>
+  <p>メールアドレス : <%= @user.email %></p>
+  <p>登録日 : <%= @user.created_at.to_s(:datetime_jp) %></p>
   <p>利用日数： <%= @continued_day %>日 </p>
 
 </div>  
