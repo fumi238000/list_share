@@ -79,7 +79,7 @@ describe 'GET #update' do
     context 'パラメータが正常な場合' do
       let(:params) { { user: attributes_for(:user) } }
 
-      it 'リクエストが成功する'do
+      it 'リクエストが成功する' do
         subject
         expect(response).to have_http_status(302)
       end
@@ -90,11 +90,33 @@ describe 'GET #update' do
         # expect { subject }.to change { user.reload.name }.from(origin_name).to(new_name)
       end
 
-      it '詳細ページにリダイレクトされる', type: :doing do
+      it '詳細ページにリダイレクトされる' do
         subject
         expect(response).to redirect_to User.last
       end
     end
+
+
+    
+    context 'user のパラメータが異常なとき' do
+      let(:params) { { user: attributes_for(:user, :invalid) } }
+
+      it 'リクエストが成功する' do
+      #   subject
+      #   expect(response).to have_http_status(200)
+      end
+
+      it 'image が更新されない', type: :doing do
+        binding.pry
+        expect { subject }.not_to change(user.reload, :image)
+      end
+
+      it '編集ページがレンダリングされる' do
+        # subject
+        # expect(response.body).to include '編集'
+      end
+    end
+  
   end
 
 
