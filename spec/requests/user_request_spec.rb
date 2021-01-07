@@ -134,8 +134,8 @@ describe 'GET #destroy' do
     end
 
     it 'ユーザー一覧にリダイレクトすること' do
-      # subject
-      # expect(response).to redirect_to(users_path)
+       subject
+       expect(response).to redirect_to(user_path)
     end
   end
 end
