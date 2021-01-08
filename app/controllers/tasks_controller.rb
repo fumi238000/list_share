@@ -9,7 +9,6 @@ class TasksController < ApplicationController
 
     # @tasks = Task.all
     @tasks = Task.order(id: :asc)
-    binding.pry
     # @task.find(category_id: @category.id)
 
     @checked_task_ids = current_user.check.pluck(:task_id)
