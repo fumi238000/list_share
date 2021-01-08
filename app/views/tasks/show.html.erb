@@ -20,16 +20,15 @@
 <div class="card p-3">
  <br>
   <% @comments.each do |c| %>
+   <% binding.pry %>
     <% if c.task_id == params[:id].to_i %>
       
       <div class="card mb-4 comment-bg">
-
         <%# 日付%> 
         <div>
           <div class="float-left ml-2 mt-2 d-inline-block w-50 ">
             作成日時：<%= c.created_at.to_s(:datetime_jp) %>
           </div>
-
           <%# 編集ボタン%>
           <div class ="float-right">
             <%= link_to edit_comment_path(c), class: "btn-sm  mr-1 mt-1 text-light d-inline-block w-50 " ,method: :get do %>
@@ -37,11 +36,8 @@
             <% end %>
           </div>
         </div>
-
-
         <%# コメント%>
         <span class="h5 mt-3 pl-2 px-4 mb-3" ><%= c.content %></span>
-      
         <%# 削除ボタン%>
         <div  class="text-right pb-2">
           <%= link_to comment_path(c), class: " btn-sm btn-sm mr-1 text-light", data: { confirm: '本当に削除しますか?' } ,:method => :delete do%>
@@ -49,8 +45,13 @@
           <% end %> 
         </div>
       
-      </div> 
+      </div>
+
+        <% else %>
+        表示されません
+
     <% end %>
+
   <% end %>
 
 </div>

@@ -5,13 +5,11 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
-
-    
-
-
     @categorys = current_user.category.order(:id)
-    @tasks = Task.all
 
+    # @tasks = Task.all
+    @tasks = Task.order(id: :asc)
+    binding.pry
     # @task.find(category_id: @category.id)
 
     @checked_task_ids = current_user.check.pluck(:task_id)
@@ -38,7 +36,7 @@ class TasksController < ApplicationController
 
   
   def show
-    comments = Comment.all  
+    comments = Comment.order(id: :desc)
     @comments = comments.where(user_id: current_user[:id])
   end
 
