@@ -23,7 +23,7 @@ RSpec.describe Category, type: :model do
       it "エラーが発生する" do
         expect(subject).to eq false
         expect(category.errors.messages[:user]).to include "を入力してください"
-      end
+      endget
     end
 
     context "nameが空の時" do
@@ -57,5 +57,6 @@ RSpec.describe Category, type: :model do
     # end
 
 
+  end
 end
 
