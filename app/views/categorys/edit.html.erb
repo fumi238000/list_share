@@ -1,8 +1,6 @@
 
 <%= render partial: "form" %>
 
-
-
 <%= form_with model: @category, method: :patch, local: true do |f| %>
   <div class="card category-card pt-3 pb-5">
     <p>カテゴリー名：<%= f.text_field :name ,size: 50, class: "category-submit"%></p>
