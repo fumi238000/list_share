@@ -4,7 +4,6 @@ class CategorysController < ApplicationController
   # before_action :set_user, only: %i[index]
 
   def index
-    binding.pry
      @categorys = @current_user.category.order(:position)
   end
 

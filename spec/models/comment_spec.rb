@@ -15,7 +15,6 @@ RSpec.describe Comment, type: :model do
     context "contentが100文字以下の場合" do
       let(:comment) { build(:comment, content: "a" * 51) }
        it "保存できる" do
-        binding.pry
         expect(subject).to eq true
        end
      end

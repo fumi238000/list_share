@@ -14,9 +14,7 @@ RSpec.describe "Categorys", type: :request do
       cateogry1 = create(:category)
       cateogry2 = create(:category)
       cateogry3 = create(:category)
-      binding.pry
       get(categorys_path)
-      binding.pry
       expect(response.body).to include(category1.name)  
     end
   end

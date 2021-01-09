@@ -6,6 +6,8 @@
       <span>カテゴリーを追加</span><i class="fas fa-plus-circle"></i>
     <% end %>
 </div>
+
+
   
 
 <div id="tasks-list">
@@ -22,11 +24,10 @@
                 <%# グリッド%>
                 <i class="grid fas fa-grip-lines-vertical"></i>
                 <%# カテゴリー名・リンク %>
-                <a href="/tasks#index" class="category_link">
-                <span class="category-name"><%= c.name %></span>
-                </a>
+                <%= link_to tasks_path class: "category_link" do%>
+                  <span class="category-name"><%= c.name %></span>
+                <% end %>
               </div>
-    
      
               <%# ボタン %>
               <div class="d-none d-sm-block ">
