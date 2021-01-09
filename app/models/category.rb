@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
   validates :name, presence: true, length: { maximum: 20 }
+  validates :name, :uniqueness => {:scope => :user_id}
 
   has_many :tasks, dependent: :destroy
   scope :tasks, -> { order(position: :asc)}
