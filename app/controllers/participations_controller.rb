@@ -21,16 +21,20 @@ class ParticipationsController < ApplicationController
 
 
   def create
-    participation = Participation.create(
-                    owner_id: current_user[:id], 
-                    participation_id: participation_params[:participation_id],
-                    category: participation_params[:category_id],
-                    )
-    if participation.save
-      redirect_to participation_path(participation_params[:category_id]), notice:"作成しました"
-    
+    if current_user[:id] == participation_params[:participation_id].to_i
+      redirect_to new_participation_path ,alert: "自分自身は登録できません"
     else
-      redirect_to new_participation_path, alert: "入力に誤りがあります。すでに登録されている可能性もあります。"
+
+      participation = Participation.create(
+                      owner_id: current_user[:id], 
+                      participation_id: participation_params[:participation_id],
+                      category: participation_params[:category_id],
+                      )
+      if participation.save
+        redirect_to participation_path(participation_params[:category_id]), notice:"作成しました"
+      else
+        redirect_to new_participation_path, alert: "入力に誤りがあります。すでに登録されている可能性もあります。"
+      end
     end
   end
 
@@ -48,6 +52,9 @@ class ParticipationsController < ApplicationController
 
   def set_participation
     @participation = Participation.find(params[:id])
+    
+
+
     # cuurent_userのみ消せないように後から設定する
     # redirect_to category_path, alert: "権限がありません"
   end
