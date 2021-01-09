@@ -7,14 +7,11 @@
     <% end %>
 </div>
 
-<% if @participations.nil? %>
-  <%# render partial: 'share/no_data' %>     
-  <li class="card p-5">
-    <div class ="text-light">登録がありません</div>
-  </li>
-
-<% else %> 
-
+<% if @participations.empty? %>
+   <div class="card">
+    <p class="text-center">現在共有しているユーザーはいません</p>
+  </div>
+<% else %>
   <ul>
     <% @participations.each.with_index(1) do |p, i| %>
       <div class="card category-card">

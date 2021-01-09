@@ -1,7 +1,7 @@
 class CategorysController < ApplicationController
   before_action :login_check
   before_action :set_category, only: %i[edit update destroy]
-  # before_action :set_user, only: %i[index]
+  before_action :current_user_create_category?, only: %i[index]
 
   def index
      @categorys = @current_user.category.order(:position)
@@ -63,8 +63,13 @@ class CategorysController < ApplicationController
     end
   end
 
-  # def set_user
-  #   user = User.find(params[:id])
-  # end
+  def current_user_create_category?
+    @category = Category.all
+    @category = @category.where(user_id: current_user[:id]).present?
+
+    if @category == false
+      redirect_to new_category_path, notice: "カテゴリーを作成しましょう！"
+    end  
+  end
 
 end
