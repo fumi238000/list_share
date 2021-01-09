@@ -152,16 +152,6 @@ footer {
   list-style: none
 }
 
-
-
-// カテゴリーのリンク表示を調整する
-// 下線を消す
-.category_link a {
-    text-decoration: none;
-    color: red;
-}
-
-
 .icon-style {
   color: rgba(0,59,144,0.9);
 }
@@ -172,7 +162,10 @@ footer {
   
 }
 
-
+//hover時に下線を表示させない
+a:hover {
+  text-decoration: none;  
+}
 
 //メインカラーメモ
 
