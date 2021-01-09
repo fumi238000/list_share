@@ -90,9 +90,7 @@ private
     @category = Category.all
     @category = @category.where(user_id: current_user[:id]).present?
 
-    #省略すること
-    if @category
-    else
+    if @category == false
       redirect_to new_category_path, notice: "カテゴリーを作成しましょう！"
     end  
   end
