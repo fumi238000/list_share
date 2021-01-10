@@ -98,10 +98,5 @@ RSpec.describe "Tasks", type: :request do
     end
   end
 
-  describe "GET #move" do
-    it "リクエストが成功する" do
-    end
-  end
-
 
 end
