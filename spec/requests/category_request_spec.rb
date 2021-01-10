@@ -35,10 +35,10 @@ RSpec.describe "Categorys", type: :request do
       it "リクエストが成功する" do
       end
 
-      it "カテゴリーが保存される"
+      it "カテゴリーが保存される" do
       end
 
-      it "〇〇にリダイレクトされる"
+      it "〇〇にリダイレクトされる" do
       end
     end
 
@@ -46,14 +46,14 @@ RSpec.describe "Categorys", type: :request do
       it "リクエストが成功する" do
       end
     
-      it "〇〇が保存されない"
+      it "〇〇が保存されない" do 
       end
 
-      it "〇〇がレンダリングされる"
-    
+      it "〇〇がレンダリングされる"do
+      end    
     
     end
-
+  end
 
 
   describe "GET #edit" do
@@ -76,10 +76,10 @@ RSpec.describe "Categorys", type: :request do
       it "リクエストが成功する" do
       end
 
-      it "カテゴリーが保存される"
+      it "カテゴリーが保存される" do 
       end
 
-      it "〇〇にリダイレクトされる"
+      it "〇〇にリダイレクトされる" do
       end
     end
 
@@ -87,11 +87,11 @@ RSpec.describe "Categorys", type: :request do
       it "リクエストが成功する" do
       end
     
-      it "〇〇が保存されない"
+      it "〇〇が保存されない" do
       end
 
-      it "〇〇がレンダリングされる"
-    
+      it "〇〇がレンダリングされる" do
+      end    
     end
   end
 
