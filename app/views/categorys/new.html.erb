@@ -1,1 +1,10 @@
-<%= render partial: "form" %>
+<%= render "form" %>
+
+<%= form_with model: @category, url: "/categorys", method: :post, local: true do |f| %>
+  <div class="card category-card pt-3 pb-5">
+    <p>カテゴリー名：<%= f.text_field :name ,size: 50, class: "category-submit"%></p>
+  </div>
+  <div>  
+    <%= f.submit "新規作成", class:"category-button btn-block"%>
+  </div>
+<% end %>

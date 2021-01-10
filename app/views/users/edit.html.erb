@@ -7,6 +7,7 @@
 </div>
 
 <%= form_with model: @user, local: true do |form| %>
+  <p><%= form.hidden_field :user, value: @user %></p>
   <p><%= form.file_field :image, accept: "image/png,image/jpeg,image/gif" ,class: "btn btn-primary btn-block" %></p>
   <p><%= form.submit "送信", class: "btn btn-primary btn-block"%></p>
 <% end %>

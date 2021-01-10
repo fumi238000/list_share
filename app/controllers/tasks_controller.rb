@@ -8,7 +8,7 @@ class TasksController < ApplicationController
     @categorys = current_user.category.order(:id)
 
     # @tasks = Task.all
-    @tasks = Task.order(id: :asc)
+    @tasks = Task.order(position: :asc)
     # @task.find(category_id: @category.id)
 
     @checked_task_ids = current_user.check.pluck(:task_id)
@@ -90,9 +90,7 @@ private
     @category = Category.all
     @category = @category.where(user_id: current_user[:id]).present?
 
-    #省略すること
-    if @category
-    else
+    if @category == false
       redirect_to new_category_path, notice: "カテゴリーを作成しましょう！"
     end  
   end

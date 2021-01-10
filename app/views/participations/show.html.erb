@@ -7,14 +7,11 @@
     <% end %>
 </div>
 
-<% if @participations.nil? %>
-  <%# render partial: 'share/no_data' %>     
-  <li class="card p-5">
-    <div class ="text-light">登録がありません</div>
-  </li>
-
-<% else %> 
-
+<% if @participations.empty? %>
+   <div class="card">
+    <p class="text-center">現在共有しているユーザーはいません</p>
+  </div>
+<% else %>
   <ul>
     <% @participations.each.with_index(1) do |p, i| %>
       <div class="card category-card">
@@ -23,9 +20,9 @@
           <div class="text-left w-25 d-inline-block float-left ">
             <div>No.<%= i %></div>
           </div>
-  
+
           <div class="w-50 d-inline-block float-left">
-            <h5 class="text-center">ここにユーザー名を表示<%= p.participation_id%></h5>
+            <h5 class="text-center"><%= p.participation_id%></h5>
           </div>
   
           <div class="w-25 d-inline-block">

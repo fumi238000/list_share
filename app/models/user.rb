@@ -3,6 +3,8 @@ class User < ApplicationRecord
   
   has_many :category, dependent: :destroy, foreign_key: 'user_id'
   scope :category, -> { order(position: :asc)}
+  
+  # has_many :participations, foreign_key: :participation_id
 
   has_many :check, dependent: :destroy, foreign_key: 'user_id'
 

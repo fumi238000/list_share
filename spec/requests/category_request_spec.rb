@@ -7,7 +7,7 @@ RSpec.describe "Categorys", type: :request do
     subject { get(categorys_path) }
     context "ユーザーが存在する時" do
       before  {create_list(:category,3) }
-      it "リクエストが成功する"  , type: :doing do
+      it "リクエストが成功する" do
         subject
         expect(response).to have_http_status(200)
     end
@@ -23,27 +23,90 @@ RSpec.describe "Categorys", type: :request do
   end
 
   describe "GET #new" do
+    subject { get(new_category_path) }
     it "リクエストが成功する" do
-    end
+    #   subject
+    #   expect(response).to have_http_status(200)
+     end
   end
 
   describe "GET #create" do
-    it "リクエストが成功する" do
+    context "パラメータが正常な時" do
+      it "リクエストが成功する" do
+      end
+
+      it "カテゴリーが保存される"
+      end
+
+      it "〇〇にリダイレクトされる"
+      end
     end
-  end
+
+    context "パラメータが異常な時" do
+      it "リクエストが成功する" do
+      end
+    
+      it "〇〇が保存されない"
+      end
+
+      it "〇〇がレンダリングされる"
+    
+    
+    end
+
+
 
   describe "GET #edit" do
+    context "カテゴリーが存在する時"
     it "リクエストが成功する" do
+    end
+
+    it "〇〇が表示されている" do
     end
   end
 
+  context ":idに対応するユーザーが存在しないとき" do
+    it "エラーが発生する" do
+    end
+  end
+
+  
   describe "GET #update" do
-    it "リクエストが成功する" do
+    context "パラメータが正常な時" do
+      it "リクエストが成功する" do
+      end
+
+      it "カテゴリーが保存される"
+      end
+
+      it "〇〇にリダイレクトされる"
+      end
+    end
+
+    context "パラメータが異常な時" do
+      it "リクエストが成功する" do
+      end
+    
+      it "〇〇が保存されない"
+      end
+
+      it "〇〇がレンダリングされる"
+    
     end
   end
 
   describe "GET #destroy" do
-    it "リクエストが成功する" do
+    context "パラメータが正常な場合" do
+      it "リクエストが成功する" do
+      end
+
+      it "カテゴリーが削除される" do
+      end
+
+      it "〇〇リダイレクトすること" do
+        subject
+        expect(response).to redirect_to(users_path)
+      end
     end
   end
 
