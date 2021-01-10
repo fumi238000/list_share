@@ -13,11 +13,18 @@ class ParticipationsController < ApplicationController
   end
 
 
+
+#///////////////////////
+
   def show
     @participations = Participation.all
     @participations = @participations.where(category: params[:id])
     @participation = params[:id]
+    binding.pry
+    @user = User.find(@participations)
   end
+
+#////////////////
 
 
   def create
