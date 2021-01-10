@@ -25,7 +25,7 @@ RSpec.describe "Categorys", type: :request do
   describe "GET #new" do
     subject { get(new_category_path) }
     it "リクエストが成功する" do
-    #   subject
+    #   subjectgit b
     #   expect(response).to have_http_status(200)
      end
   end
