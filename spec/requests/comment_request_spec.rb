@@ -2,18 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "Tasks", type: :request do
 
-  describe "GET #index" do
-    context "タスクが存在する時" do
-      it "リクエストが成功する" do
-        subject
-        expect(response).to have_http_status(200)
-      end
-
-      it "nameが表示されている" do
-      end
-    end
-  end
-
   describe "GET #new" do
     subject { get(new_category_path) }
     it "リクエストが成功する" do
@@ -27,10 +15,10 @@ RSpec.describe "Tasks", type: :request do
       it "リクエストが成功する" do
       end
 
-      it "タスクが保存される"
+      it "コメントが保存される"
       end
 
-      it "task/indexにリダイレクトされる"
+      it "task/showにリダイレクトされる"
       end
     end
 
@@ -38,7 +26,7 @@ RSpec.describe "Tasks", type: :request do
       it "リクエストが成功する" do
       end
     
-      it "タスクが保存されない"
+      it "コメントが保存されない"
       end
 
       it "新規登録にレンダリングされる"
@@ -47,11 +35,11 @@ RSpec.describe "Tasks", type: :request do
     end
 
   describe "GET #show" do
-    context "タスクが存在する時" do 
+    context "コメントが存在する時" do 
       it "リクエストが成功する" do
       end
 
-      it "〇〇が表示されている" do
+      it "コメントが表示されている" do
       end
     end
   end
@@ -59,19 +47,15 @@ RSpec.describe "Tasks", type: :request do
 
 
   describe "GET #edit" do
-    context "タスクが存在する時" do
+    context "コメントが存在する時" do
       it "リクエストが成功する" do
       end
 
-      it "name が表示されている" do
+      it "contentが表示されている" do
       end
     end
   end
 
-
-  context ":idに対応するユーザーが存在しないとき" do
-    it "エラーが発生する" do
-    end
   end
 
   
@@ -80,10 +64,10 @@ RSpec.describe "Tasks", type: :request do
       it "リクエストが成功する" do
       end
 
-      it "タスクが保存される"
+      it "コメントが保存される"
       end
 
-      it "task/indexにリダイレクトされる"
+      it "task/showにリダイレクトされる"
       end
     end
 
@@ -91,10 +75,10 @@ RSpec.describe "Tasks", type: :request do
       it "リクエストが成功する" do
       end
     
-      it "タスクが保存されない"
+      it "コメントが保存されない"
       end
 
-      it "task/indexにレンダリングされる"
+      it "task/showにレンダリングされる"
     
     end
   end
@@ -104,10 +88,10 @@ RSpec.describe "Tasks", type: :request do
       it "リクエストが成功する" do
       end
 
-      it "タスクが削除される" do
+      it "コメントが削除される" do
       end
 
-      it "task/indexリダイレクトすること" do
+      it "task/showリダイレクトすること" do
         # expect(response).to redirect_to(tasks_path)
       end
     end
