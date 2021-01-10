@@ -21,7 +21,7 @@ class ParticipationsController < ApplicationController
     @participations = @participations.where(category: params[:id])
     @participation = params[:id]
     binding.pry
-    @user = User.find(@participations)
+    # @user = User.find(@participations)
   end
 
 #////////////////
