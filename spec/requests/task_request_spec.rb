@@ -15,11 +15,9 @@ RSpec.describe "Tasks", type: :request do
   end
 
   describe "GET #new" do
-    subject { get(new_category_path) }
+    subject { get(new_task_path) }
     it "リクエストが成功する" do
-    #   subjectgit b
-    #   expect(response).to have_http_status(200)
-     end
+    end
   end
 
   describe "GET #create" do
@@ -27,7 +25,7 @@ RSpec.describe "Tasks", type: :request do
       it "リクエストが成功する" do
       end
 
-      it "タスクが保存される"
+      it "タスクが保存される" do
       end
 
       it "task/indexにリダイレクトされる"
@@ -38,20 +36,21 @@ RSpec.describe "Tasks", type: :request do
       it "リクエストが成功する" do
       end
     
-      it "タスクが保存されない"
+      it "タスクが保存されない" do
       end
 
-      it "新規登録にレンダリングされる"
+      it "新規登録にレンダリングされる" do 
       end
     
     end
+  end
 
   describe "GET #show" do
     context "タスクが存在する時" do 
       it "リクエストが成功する" do
       end
 
-      it "〇〇が表示されている" do
+      it "nameが表示されている" do
       end
     end
   end
@@ -80,10 +79,10 @@ RSpec.describe "Tasks", type: :request do
       it "リクエストが成功する" do
       end
 
-      it "タスクが保存される"
+      it "タスクが保存される" do
       end
 
-      it "task/indexにリダイレクトされる"
+      it "task/indexにリダイレクトされる" do
       end
     end
 
@@ -94,7 +93,7 @@ RSpec.describe "Tasks", type: :request do
       it "タスクが保存されない"
       end
 
-      it "task/indexにレンダリングされる"
+      it "task/indexにレンダリングされる" do
     
     end
   end

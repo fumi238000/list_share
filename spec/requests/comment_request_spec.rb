@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe "Tasks", type: :request do
 
   describe "GET #new" do
-    subject { get(new_category_path) }
+    subject { get(new_comment_path) }
     it "リクエストが成功する" do
     #   subjectgit b
     #   expect(response).to have_http_status(200)
-     end
+    end
   end
 
   describe "GET #create" do
@@ -15,10 +15,10 @@ RSpec.describe "Tasks", type: :request do
       it "リクエストが成功する" do
       end
 
-      it "コメントが保存される"
+      it "コメントが保存される" do
       end
 
-      it "task/showにリダイレクトされる"
+      it "task/showにリダイレクトされる" do
       end
     end
 
@@ -26,13 +26,14 @@ RSpec.describe "Tasks", type: :request do
       it "リクエストが成功する" do
       end
     
-      it "コメントが保存されない"
+      it "コメントが保存されない" do
       end
 
-      it "新規登録にレンダリングされる"
+      it "新規登録にレンダリングされる" do
       end
     
     end
+  end
 
   describe "GET #show" do
     context "コメントが存在する時" do 
@@ -64,10 +65,10 @@ RSpec.describe "Tasks", type: :request do
       it "リクエストが成功する" do
       end
 
-      it "コメントが保存される"
+      it "コメントが保存される" do
       end
 
-      it "task/showにリダイレクトされる"
+      it "task/showにリダイレクトされる" do
       end
     end
 
@@ -75,11 +76,11 @@ RSpec.describe "Tasks", type: :request do
       it "リクエストが成功する" do
       end
     
-      it "コメントが保存されない"
+      it "コメントが保存されない" do
       end
 
-      it "task/showにレンダリングされる"
-    
+      it "task/showにレンダリングされる" do 
+      end
     end
   end
 
