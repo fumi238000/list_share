@@ -44,10 +44,12 @@ ActiveRecord::Schema.define(version: 2020_12_07_095223) do
 
   create_table "participations", force: :cascade do |t|
     t.integer "owner_id", null: false
-    t.integer "participation_id", null: false
-    t.integer "category", null: false
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_participations_on_category_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -77,5 +79,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_095223) do
   add_foreign_key "checks", "users"
   add_foreign_key "comments", "tasks"
   add_foreign_key "comments", "users"
+  add_foreign_key "participations", "categories"
+  add_foreign_key "participations", "users"
   add_foreign_key "tasks", "categories"
 end

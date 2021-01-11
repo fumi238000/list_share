@@ -90,7 +90,7 @@ RSpec.describe "Tasks", type: :request do
       it "リクエストが成功する" do
       end
     
-      it "タスクが保存されない"
+      it "タスクが保存されない" do
       end
 
       it "task/indexにレンダリングされる" do

@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
-    @categorys = current_user.category.order(:id)
+    @categorys = current_user.categorys.order(:id)
 
     # @tasks = Task.all
     @tasks = Task.order(position: :asc)

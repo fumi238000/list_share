@@ -1,16 +1,15 @@
 class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 20 }
-  
-  has_many :category, dependent: :destroy, foreign_key: 'user_id'
-  scope :category, -> { order(position: :asc)}
-  
-  # has_many :participations, foreign_key: :participation_id
 
+  has_many :categorys, dependent: :destroy, foreign_key: 'user_id'
+  scope :categorys, -> { order(position: :asc)}
+  
   has_many :check, dependent: :destroy, foreign_key: 'user_id'
-
+  
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-
+  :recoverable, :rememberable, :validatable
+  
+  has_many :participations
   mount_uploader :image, ImageUploader       
 
     def self.guest
