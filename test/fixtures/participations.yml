@@ -2,10 +2,21 @@
 
 one:
   owner_id: MyString
-  participation_id: MyString
+  user_id: MyString
   category: one
 
 two:
   owner_id: MyString
-  participation_id: MyString
+  user_id: MyString
   category: two
+
+# 原本
+# one:
+#   owner_id: MyString
+#   participation_id: MyString
+#   category: one
+
+# two:
+#   owner_id: MyString
+#   participation_id: MyString
+#   category: two

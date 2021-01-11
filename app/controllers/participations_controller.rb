@@ -8,8 +8,9 @@ class ParticipationsController < ApplicationController
   PER_PAGE = 3
 
   def new
+    @category_id = params[:format]
     @participation = Participation.new
-    @category = params[:category]
+    binding.pry
   end
 
 
@@ -17,9 +18,9 @@ class ParticipationsController < ApplicationController
 #///////////////////////
 
   def show
-    @participations = Participation.all
-    @participations = @participations.where(category: params[:id])
-    @participation = params[:id]
+    @participations = Participation.order(id: :asc)
+    @participations = @participations.where(category_id: params[:id])
+    @category_id = params[:id]
     binding.pry
     # @user = User.find(@participations)
   end
@@ -28,18 +29,22 @@ class ParticipationsController < ApplicationController
 
 
   def create
+    binding.pry
     if current_user[:id] == participation_params[:user_id].to_i
+      binding.pry
       redirect_to new_participation_path ,alert: "自分自身は登録できません"
     else
-
+      binding.pry
       participation = Participation.create(
                       owner_id: current_user[:id], 
                       user_id: participation_params[:user_id],
-                      category: participation_params[:category_id],
+                      category_id: participation_params[:category_id]
                       )
       if participation.save
-        redirect_to participation_path(participation_params[:category_id]), notice:"作成しました"
+        binding.pry
+        redirect_to participation_path(participation_para), notice:"作成しました"
       else
+        binding.pry
         redirect_to new_participation_path, alert: "入力に誤りがあります。すでに登録されている可能性もあります。"
       end
     end

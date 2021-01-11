@@ -8,6 +8,7 @@ class Category < ApplicationRecord
   has_many :tasks, dependent: :destroy
   scope :tasks, -> { order(position: :asc)}
   
+  has_many :participation, dependent: :destroy
 
 end
 
