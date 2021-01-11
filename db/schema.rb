@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 2020_12_07_095223) do
 
   create_table "participations", force: :cascade do |t|
     t.integer "owner_id", null: false
-    t.bigint "user_id", null: false
-    t.bigint "category_id", null: false
+    t.bigint "user_id"
+    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_participations_on_category_id"
