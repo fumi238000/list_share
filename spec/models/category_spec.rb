@@ -4,9 +4,10 @@ RSpec.describe Category, type: :model do
   describe "バリデーション" do
     subject {category.valid?} 
    
-    context "データが条件を満たす時" do
+    context "データが条件を満たす時"  do
       let(:category) { build(:category) }
-      it "保存ができる" do
+      it "保存ができる" , type: :doing  do
+        binding.pry
         expect(subject).to eq true
       end
     end

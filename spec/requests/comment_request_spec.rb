@@ -33,15 +33,18 @@ RSpec.describe "Tasks", type: :request do
       end
     
     end
+
   end
 
   describe "GET #show" do
     context "コメントが存在する時" do 
+      
       it "リクエストが成功する" do
       end
 
       it "コメントが表示されている" do
       end
+
     end
   end
 
@@ -49,16 +52,17 @@ RSpec.describe "Tasks", type: :request do
 
   describe "GET #edit" do
     context "コメントが存在する時" do
+      
       it "リクエストが成功する" do
       end
 
       it "contentが表示されている" do
       end
+    
     end
   end
 
-  end
-
+  
   
   describe "GET #update" do
     context "パラメータが正常な時" do

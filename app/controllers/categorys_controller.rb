@@ -4,7 +4,7 @@ class CategorysController < ApplicationController
   before_action :current_user_create_category?, only: %i[index]
 
   def index
-     @categorys = @current_user.category.order(:position)
+     @categorys = current_user.categorys.order(:position)
   end
 
 
@@ -14,7 +14,8 @@ class CategorysController < ApplicationController
 
 
   def create
-    category = current_user.category.create(category_params)
+    binding.pry
+    category = current_user.categorys.create(category_params)
     if category.save
       redirect_to categorys_path, notice:"作成しました"
     else

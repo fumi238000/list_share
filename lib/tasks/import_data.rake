@@ -59,6 +59,7 @@ namespace :import_csv do
     list = Import.csv_data(path: "db/csv_data/category_data.csv")
 
     begin
+      binding.pry
       Category.create!(list)
       puts "Categoryインポート完了！"
     rescue => e
