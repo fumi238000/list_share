@@ -31,20 +31,17 @@ class ParticipationsController < ApplicationController
   def create
     binding.pry
     if current_user[:id] == participation_params[:user_id].to_i
-      binding.pry
       redirect_to new_participation_path ,alert: "自分自身は登録できません"
     else
-      binding.pry
+
       participation = Participation.create(
                       owner_id: current_user[:id], 
                       user_id: participation_params[:user_id],
                       category_id: participation_params[:category_id]
                       )
       if participation.save
-        binding.pry
-        redirect_to participation_path(participation_para), notice:"作成しました"
+        redirect_to participation_path(participation_params[:category_id]), notice:"作成しました"
       else
-        binding.pry
         redirect_to new_participation_path, alert: "入力に誤りがあります。すでに登録されている可能性もあります。"
       end
     end
