@@ -7,25 +7,22 @@ RSpec.describe "Categorys", type: :request do
 
     context "カテゴリーが存在する時" do
 
-      it "リクエストが成功する", type: :doing do
+      it "リクエストが成功する" do
         create_list(:category,1)
-        binding.pry
         subject
         expect(response).to have_http_status(200)
       end
 
     end
+    
+    it "nameが表示されている" do
+      category1 = create(:category)
+      category2 = create(:category)
+      category3 = create(:category)
+      get(categorys_path)
+      expect(response.body).to include(category1.name)  
+    end
   end
-
-
-
-      # it "nameが表示されている" do
-      #   # cateogry1 = create(:category)
-      #   # cateogry2 = create(:category)
-      #   # cateogry3 = create(:category)
-      #   # get(categorys_path)
-      #   # expect(response.body).to include(category1.name)  
-      # end
 
   # describe "GET #new" do
   #   subject { get(new_category_path) }
