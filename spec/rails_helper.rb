@@ -33,8 +33,18 @@ end
 RSpec.configure do |config|
    # 使用する際に FactoryBot を省略できるようにする
    config.include FactoryBot::Syntax::Methods
+   
+   # deviseのhelperメソッドを使用する  
+   config.include Devise::Test::ControllerHelpers, type: :controller
+   config.include Devise::Test::IntegrationHelpers, type: :request
+  #  config.include RequestSpecHelper, type: :request
+
+  
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+   
+  #ApplicationHelperをincludeして、 before_actionをスキップする
+  # config.include ApplicationHelper, type: :request, application: :skip
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

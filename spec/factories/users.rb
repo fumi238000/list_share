@@ -15,7 +15,5 @@ FactoryBot.define do
 end
 
 
-
-
   # factory :today do
   # end

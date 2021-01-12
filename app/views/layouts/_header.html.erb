@@ -22,7 +22,7 @@
           <%= link_to "カテゴリー", categorys_path, class: 'nav-link nav-color' %>
         </li>
         <li class="nav-item">
-          <%= link_to "マイページ", user_path(current_user.id), class: 'nav-link nav-color' %>
+          <%= link_to "マイページ", user_path(current_user), class: 'nav-link nav-color' %>
         </li>
         <li class="nav-item">  
           <%= link_to 'ログアウト', destroy_user_session_path,class: "nav-link nav-color", method: :delete %>    

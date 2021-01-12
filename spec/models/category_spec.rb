@@ -6,8 +6,7 @@ RSpec.describe Category, type: :model do
    
     context "データが条件を満たす時"  do
       let(:category) { build(:category) }
-      it "保存ができる" , type: :doing  do
-        binding.pry
+      it "保存ができる" do
         expect(subject).to eq true
       end
     end
@@ -50,7 +49,6 @@ RSpec.describe Category, type: :model do
     #     subject { category.valid? }
     #     let(:category) { build(:category) }
         
-    #     binding.pry
     #       it "positionに番号は付与される" do
     #       expect(category).to eq true 
     #      end

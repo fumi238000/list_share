@@ -15,6 +15,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.define_derived_metadata do |meta|
+    config.infer_base_class_for_anonymous_controllers = true
     meta[:aggregate_failures] = true unless meta.key?(:aggregate_failures)
   end
   # rspec-expectations config goes here. You can use an alternate
@@ -46,7 +47,6 @@ RSpec.configure do |config|
   # inherited by the metadata hash of host groups and examples, rather than
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
-
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin

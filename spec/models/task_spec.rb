@@ -51,7 +51,6 @@ end
     #     subject { category.valid? }
     #     let(:category) { build(:category) }
         
-    #     binding.pry
     #       it "positionに番号は付与される" do
     #       expect(category).to eq true 
     #      end
