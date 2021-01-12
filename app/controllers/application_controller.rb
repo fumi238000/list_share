@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
   #ログインしているか確認
   def login_check
     unless user_signed_in?
-      binding.pry
       flash[:alert] = "ログインしてください"
       redirect_to root_path
     end
