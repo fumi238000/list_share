@@ -1,4 +1,5 @@
 class CategorysController < ApplicationController
+  before_action :login_check
   before_action :set_category, only: %i[edit update destroy]
   before_action :current_user_create_category?, only: %i[index]
   # テスト用
@@ -17,9 +18,11 @@ class CategorysController < ApplicationController
 
 
   def create
+    binding.pry
     category = current_user.categorys.create(category_params)
+    binding.pry
     if category.save
-      redirect_to categorys_path, notice:"作成しました"
+      redirect_to categorys_path, notice:"作成しました" 
     else
       redirect_to new_category_path, alert: "エラーが発生しました。重複・空投稿の可能性はありませんか？"
     end

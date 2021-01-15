@@ -26,15 +26,25 @@ RSpec.describe "Categorys", type: :request do
 
   describe "GET #new" do
     subject { get(new_category_path) }
-    it "リクエストが成功する", type: :doing  do
+    it "リクエストが成功する" do
        subject
        expect(response).to have_http_status(200)
      end
   end
 
+
+
   describe "GET #create" do
     context "パラメータが正常な時" do
-      it "リクエストが成功する" do
+      
+      it "リクエストが成功する", type: :doing do
+
+
+        # allow(request).to receive(:current_user).and_return(user)
+        binding.pry
+        post(categorys_path, params:{ category: attributes_for(:category)})
+        binding.pry
+        expect(response).to have_http_status(302)
       end
 
       it "カテゴリーが保存される" do
@@ -56,6 +66,7 @@ RSpec.describe "Categorys", type: :request do
     
     end
   end
+
 
 
   describe "GET #edit" do

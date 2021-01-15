@@ -13,8 +13,7 @@ module RequestSpecHelper
 
   def sign_out(resource)
     logout(warden_scope(resource))
-  end
-
+  enm
   private
 
   def warden_scope(resource)
