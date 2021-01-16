@@ -105,11 +105,14 @@ RSpec.describe "Categorys", type: :request do
       end
     end
 
-  context ":idに対応するユーザーが存在しないとき" do
-    it "エラーが発生する" do
+    context ":idに対応するユーザーが存在しないとき" do
+      let(:category_id) { 1 }
+      it "エラーが発生する" do
+        expect{ subject }.to raise_error ActiveRecord::RecordNotFound
+      end
     end
+
   end
-end
 
   
   describe "GET #update" do
