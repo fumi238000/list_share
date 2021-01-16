@@ -35,24 +35,30 @@ RSpec.describe "Categorys", type: :request do
 
 
   describe "GET #create" do
+    subject { post(categorys_path, params: params) }
+    
     context "パラメータが正常な時" do
-     
       before do
         @user = create(:user)
       end
-      
+      let(:params) { { category: attributes_for(:category) } }  
+          
       it "リクエストが成功する" do
         sign_in @user
-        post(categorys_path, params:{ category: attributes_for(:category)})
+        subject
         expect(response).to have_http_status(302)
       end
 
       it "カテゴリーが保存される" do
+        sign_in @user
+        expect { subject }.to change { Category.count }.by(1)
       end
 
-      it "〇〇にリダイレクトされる" do
+      it "〇〇にリダイレクトされる", type: :doing  do
       end
     end
+
+
 
     context "パラメータが異常な時" do
       it "リクエストが成功する" do
@@ -63,8 +69,10 @@ RSpec.describe "Categorys", type: :request do
 
       it "〇〇がレンダリングされる"do
       end    
-    
     end
+
+
+
   end
 
 
