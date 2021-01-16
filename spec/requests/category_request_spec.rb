@@ -139,7 +139,9 @@ RSpec.describe "Categorys", type: :request do
         expect { subject }.to change { category.reload.name }.from(origin_name).to(new_name)
       end
 
-      it "〇〇にリダイレクトされる" do
+      it "categorys_path にリダイレクトされる" do
+        subject
+        expect(response).to redirect_to categorys_path
       end
     end
 
