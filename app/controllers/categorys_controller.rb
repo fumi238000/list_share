@@ -3,8 +3,9 @@ class CategorysController < ApplicationController
   before_action :set_category, only: %i[edit update destroy]
   before_action :current_user_create_category?, only: %i[index]
   # テスト用
-  skip_before_action :current_user_create_category?, only: %i[index]
   skip_before_action :login_check
+  skip_before_action :set_category, only: %i[edit update destroy]
+  skip_before_action :current_user_create_category?, only: %i[index]
 
   def index
      @categorys = Category.order(:position)
@@ -23,6 +24,7 @@ class CategorysController < ApplicationController
     if category.save
       redirect_to categorys_path, notice:"作成しました" 
     else
+      binding.pry
       redirect_to new_category_path, alert: "エラーが発生しました。重複・空投稿の可能性はありませんか？"
     end
   end
