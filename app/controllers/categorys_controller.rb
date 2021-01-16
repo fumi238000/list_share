@@ -4,7 +4,7 @@ class CategorysController < ApplicationController
   before_action :current_user_create_category?, only: %i[index]
   # テスト用
   skip_before_action :login_check
-  skip_before_action :set_category, only: %i[edit update destroy]
+  # skip_before_action :set_category, only: %i[edit update destroy]
   skip_before_action :current_user_create_category?, only: %i[index]
 
   def index
@@ -29,6 +29,7 @@ class CategorysController < ApplicationController
 
 
   def edit
+    binding.pry
   end
 
 
@@ -57,15 +58,18 @@ class CategorysController < ApplicationController
 
 
   def set_category
-    # カテゴリーに含まれるuser_idとログインユーザーが一致しているか
     @category = Category.find(params[:id])
-
+  end
+  
+  # カテゴリーに含まれるuser_idとログインユーザーが一致しているか
+  def category_user?
     if @category.user_id === current_user[:id]
       @category = current_user.category.find(params[:id])
     else
       redirect_to categorys_path, alert: "権限がありません"
     end
   end
+
 
   def current_user_create_category?
     @category = Category.all

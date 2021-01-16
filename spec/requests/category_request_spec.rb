@@ -73,7 +73,7 @@ RSpec.describe "Categorys", type: :request do
         expect { subject }.not_to change(Category, :count)
       end
 
-      it "new_category_pathにレンダリングされる", type: :doing  do
+      it "new_category_pathにレンダリングされる" do
         sign_in @user
         subject
         expect(response).to redirect_to new_category_path
@@ -84,18 +84,30 @@ RSpec.describe "Categorys", type: :request do
 
 
   describe "GET #edit" do
-    context "カテゴリーが存在する時"
-    it "リクエストが成功する" do
+    subject { get(edit_category_path(category_id)) }
+    before do
+      @user = create(:user)
     end
+    
+    context "カテゴリーが存在する時" do
+      let(:category) { create(:category) }
+      let(:category_id) { category.id }
+    
+      it "リクエストが成功する",type: :doing do
+        sign_in @user
+        subject
+        expect(response).to have_http_status(200)
+      end
 
-    it "〇〇が表示されている" do
+      it "〇〇が表示されている" do
+      end
     end
-  end
 
   context ":idに対応するユーザーが存在しないとき" do
     it "エラーが発生する" do
     end
   end
+end
 
   
   describe "GET #update" do
