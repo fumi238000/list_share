@@ -54,13 +54,16 @@ RSpec.describe "Categorys", type: :request do
         expect { subject }.to change { Category.count }.by(1)
       end
 
-      it "〇〇にリダイレクトされる", type: :doing  do
+      it "category/indexにリダイレクトされる" do
+        sign_in @user
+        subject
+        expect(response).to redirect_to categorys_path
       end
     end
 
 
 
-    context "パラメータが異常な時" do
+    context "パラメータが異常な時", type: :doing do
       it "リクエストが成功する" do
       end
     
