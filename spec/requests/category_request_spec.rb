@@ -148,7 +148,7 @@ RSpec.describe "Categorys", type: :request do
 
     context "パラメータが異常な時" do
       let(:params) { { category: attributes_for(:category, :invalid) } }  
-      it "リクエストが成功する",type: :doing do
+      it "リクエストが成功する" do
         sign_in @user
         subject
         expect(response).to have_http_status(302)
@@ -168,8 +168,13 @@ RSpec.describe "Categorys", type: :request do
 
 
   describe "GET #destroy" do
+    subject { delete(category_path(category.id)) }
+    let!(:category) { create(:category) }
+    
     context "パラメータが正常な場合" do
-      it "リクエストが成功する" do
+      it "リクエストが成功する", type: :doing  do
+        subject
+        expect(response).to have_http_status(302)
       end
 
       it "カテゴリーが削除される" do
