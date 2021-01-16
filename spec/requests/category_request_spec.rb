@@ -148,13 +148,13 @@ RSpec.describe "Categorys", type: :request do
 
     context "パラメータが異常な時" do
       let(:params) { { category: attributes_for(:category, :invalid) } }  
-      it "リクエストが成功する"do
+      it "リクエストが成功する",type: :doing do
         sign_in @user
         subject
-        expect(response).to have_http_status(200)
+        expect(response).to have_http_status(302)
       end
     
-      it "name が保存されない",type: :doing  do
+      it "name が保存されない" do
         expect { subject }.not_to change(category.reload, :name)
       end
 
@@ -165,8 +165,6 @@ RSpec.describe "Categorys", type: :request do
 
     end
   end
-
-
 
 
   describe "GET #destroy" do

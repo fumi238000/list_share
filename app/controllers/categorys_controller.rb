@@ -37,7 +37,7 @@ class CategorysController < ApplicationController
     if @category.update(category_params)
       redirect_to categorys_path, notice: "更新しました"
     else
-      redirect_to edit_category_path
+      redirect_to edit_category_path, alert: "更新できませんでした"
     end
   end
 
