@@ -154,13 +154,12 @@ RSpec.describe "Categorys", type: :request do
         expect(response).to have_http_status(200)
       end
     
-      it "name が保存されない"  do
+      it "name が保存されない",type: :doing  do
         expect { subject }.not_to change(category.reload, :name)
       end
 
       it "edit_category_path にレンダリングされる" do
         subject
-        binding.pry
         expect(response.body).to redirect_to edit_category_path
       end
 
