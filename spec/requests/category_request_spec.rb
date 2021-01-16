@@ -32,7 +32,6 @@ RSpec.describe "Categorys", type: :request do
      end
   end
 
-
   describe "GET #create" do
     subject { post(categorys_path, params: params) }
     before do
@@ -60,8 +59,6 @@ RSpec.describe "Categorys", type: :request do
       end
     end
 
-
-
     context "パラメータが異常な時" do
       let(:params) { { category: attributes_for(:category, :invalid) } }
 
@@ -77,11 +74,11 @@ RSpec.describe "Categorys", type: :request do
       end
 
       it "new_category_pathにレンダリングされる", type: :doing  do
+        sign_in @user
+        subject
+        expect(response).to redirect_to new_category_path
       end
     end
-
-
-
   end
 
 

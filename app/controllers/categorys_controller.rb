@@ -19,12 +19,10 @@ class CategorysController < ApplicationController
 
 
   def create
-    binding.pry
     category = current_user.categorys.create(category_params)
     if category.save
       redirect_to categorys_path, notice:"作成しました" 
     else
-      binding.pry
       redirect_to new_category_path, alert: "エラーが発生しました。重複・空投稿の可能性はありませんか？"
     end
   end
