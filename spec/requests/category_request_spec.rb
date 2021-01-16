@@ -172,12 +172,13 @@ RSpec.describe "Categorys", type: :request do
     let!(:category) { create(:category) }
     
     context "パラメータが正常な場合" do
-      it "リクエストが成功する", type: :doing  do
+      it "リクエストが成功する" do
         subject
         expect(response).to have_http_status(302)
       end
 
       it "カテゴリーが削除される" do
+        expect { subject }.to change(Category, :count).by(-1)
       end
 
       it "〇〇リダイレクトすること" do
