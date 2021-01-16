@@ -32,6 +32,8 @@ RSpec.describe "Categorys", type: :request do
      end
   end
 
+
+
   describe "GET #create" do
     subject { post(categorys_path, params: params) }
     before do
@@ -116,8 +118,18 @@ RSpec.describe "Categorys", type: :request do
 
   
   describe "GET #update" do
+    subject { post(categorys_path, params: params) }
+    before do
+      @user = create(:user)
+    end
+    
     context "パラメータが正常な時" do
+      let(:params) { { category: attributes_for(:category) } }  
+      
       it "リクエストが成功する" do
+        sign_in @user
+        subject
+        expect(response).to have_http_status(302)
       end
 
       it "カテゴリーが保存される" do 
