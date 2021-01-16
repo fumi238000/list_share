@@ -118,7 +118,8 @@ RSpec.describe "Categorys", type: :request do
 
   
   describe "GET #update" do
-    subject { post(categorys_path, params: params) }
+    subject { patch(category_path(category.id), params: params) }
+    let(:category) { create(:category)}
     before do
       @user = create(:user)
     end
@@ -132,7 +133,10 @@ RSpec.describe "Categorys", type: :request do
         expect(response).to have_http_status(302)
       end
 
-      it "カテゴリーが保存される" do 
+      it "カテゴリーが更新される" do
+        origin_name = category.name
+        new_name = params[:category][:name]
+        expect { subject }.to change { category.reload.name }.from(origin_name).to(new_name)
       end
 
       it "〇〇にリダイレクトされる" do
