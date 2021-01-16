@@ -181,9 +181,9 @@ RSpec.describe "Categorys", type: :request do
         expect { subject }.to change(Category, :count).by(-1)
       end
 
-      it "〇〇リダイレクトすること" do
-        # subject
-        # expect(response).to redirect_to(users_path)
+      it "categorys_path にリダイレクトすること" do
+        subject
+        expect(response).to redirect_to categorys_path
       end
     end
   end

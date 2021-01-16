@@ -33,7 +33,6 @@ class CategorysController < ApplicationController
 
 
   def update
-    binding.pry
     if @category.update(category_params)
       redirect_to categorys_path, notice: "更新しました"
     else
