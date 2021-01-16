@@ -42,7 +42,7 @@ RSpec.describe "Categorys", type: :request do
     context "パラメータが正常な時" do
       let(:params) { { category: attributes_for(:category) } }  
       
-      it "リクエストが成功する" , type: :doing do
+      it "リクエストが成功する" do
         sign_in @user
         subject
         expect(response).to have_http_status(302)
@@ -64,7 +64,6 @@ RSpec.describe "Categorys", type: :request do
 
     context "パラメータが異常な時" do
       let(:params) { { category: attributes_for(:category, :invalid) } }
-      binding.pry
 
       it "リクエストが成功する" do
         sign_in @user
@@ -73,10 +72,12 @@ RSpec.describe "Categorys", type: :request do
       end
     
       it "カテゴリーが保存されない" do 
+        sign_in @user
+        expect { subject }.not_to change(Category, :count)
       end
 
-      it "〇〇がレンダリングされる"do
-      end    
+      it "new_category_pathにレンダリングされる", type: :doing  do
+      end
     end
 
 
