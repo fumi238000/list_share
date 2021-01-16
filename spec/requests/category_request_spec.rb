@@ -36,15 +36,14 @@ RSpec.describe "Categorys", type: :request do
 
   describe "GET #create" do
     context "パラメータが正常な時" do
+     
+      before do
+        @user = create(:user)
+      end
       
-
-      it "リクエストが成功する", type: :doing  do
-        binding.pry
-
-        # allow(request).to receive(:current_user).and_return(user)
-        binding.pry
+      it "リクエストが成功する" do
+        sign_in @user
         post(categorys_path, params:{ category: attributes_for(:category)})
-        binding.pry
         expect(response).to have_http_status(302)
       end
 
