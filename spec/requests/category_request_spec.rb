@@ -37,8 +37,9 @@ RSpec.describe "Categorys", type: :request do
   describe "GET #create" do
     context "パラメータが正常な時" do
       
-      it "リクエストが成功する", type: :doing do
 
+      it "リクエストが成功する", type: :doing  do
+        binding.pry
 
         # allow(request).to receive(:current_user).and_return(user)
         binding.pry
