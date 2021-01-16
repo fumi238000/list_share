@@ -93,13 +93,15 @@ RSpec.describe "Categorys", type: :request do
       let(:category) { create(:category) }
       let(:category_id) { category.id }
     
-      it "リクエストが成功する",type: :doing do
+      it "リクエストが成功する" do
         sign_in @user
         subject
         expect(response).to have_http_status(200)
       end
 
-      it "〇〇が表示されている" do
+      it "name が表示されている" do
+        subject
+        expect(response.body).to include category.name
       end
     end
 
