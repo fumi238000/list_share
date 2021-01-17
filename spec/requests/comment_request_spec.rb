@@ -128,14 +128,19 @@ RSpec.describe "Comments", type: :request do
         expect { subject }.to change { comment.reload.content }.from(origin_content).to(new_content)
       end
 
-      it "task/showにリダイレクトされる", type: :doing  do
+      it "task/showにリダイレクトされる" do
         subject
         expect(response.body).to redirect_to Task.last
       end
     end
 
     context "パラメータが異常な時" do
-      it "リクエストが成功する" do
+      let(:params) { { comment: attributes_for(:comment, :invalid) } }
+      
+      it "リクエストが成功する", type: :doing  do
+        sign_in @user
+        subject
+        expect(response).to have_http_status(302)
       end
     
       it "コメントが保存されない" do
