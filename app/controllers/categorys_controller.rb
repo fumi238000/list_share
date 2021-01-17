@@ -4,7 +4,6 @@ class CategorysController < ApplicationController
   before_action :current_user_create_category?, only: %i[index]
   # テスト用
   skip_before_action :login_check
-  # skip_before_action :set_category, only: %i[edit update destroy]
   skip_before_action :current_user_create_category?, only: %i[index]
 
   def index

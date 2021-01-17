@@ -1,10 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe "Tasks", type: :request do
+  subject { get(tasks_path) }
+  before do
+    @user = create(:user)
+  end
 
   describe "GET #index" do
     context "タスクが存在する時" do
-      it "リクエストが成功する" do
+      it "リクエストが成功する", type: :doing do
+        create_list(:task,1)
+        sign_in @user
         subject
         expect(response).to have_http_status(200)
       end
