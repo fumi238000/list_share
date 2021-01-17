@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :task do
     association :category
-    id { 1 }
+    sequence(:id, 1) { |n| "#{n}" }
     category_id { 1 }
-    name { Faker::Name.name }
+    name { Faker::Job.title }
   end
 end

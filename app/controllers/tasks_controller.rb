@@ -14,11 +14,9 @@ class TasksController < ApplicationController
 
 
   def index
-    @categorys = current_user.categorys.order(:id)
-
-    # @tasks = Task.all
     @tasks = Task.order(position: :asc)
-    # @task.find(category_id: @category.id)
+    @categorys = current_user.categorys.order(:id)
+    binding.pry
 
     @checked_task_ids = current_user.check.pluck(:task_id)
   end

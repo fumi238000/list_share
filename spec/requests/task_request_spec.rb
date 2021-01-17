@@ -1,14 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe "Tasks", type: :request do
-  subject { get(tasks_path) }
   before do
     @user = create(:user)
   end
-
+  
+  
   describe "GET #index" do
+    subject { get(tasks_path) }
+
     context "タスクが存在する時" do
-      it "リクエストが成功する", type: :doing do
+      it "リクエストが成功する" do
         create_list(:task,1)
         sign_in @user
         subject
@@ -16,6 +18,12 @@ RSpec.describe "Tasks", type: :request do
       end
 
       it "nameが表示されている" do
+        sign_in @user
+        task1 = create(:task)
+        task2 = create(:task)
+        task3 = create(:task)
+        get(tasks_path)
+        expect(response.body).to include(task1.name)  
       end
     end
   end
