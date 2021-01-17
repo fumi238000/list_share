@@ -28,12 +28,15 @@ RSpec.describe "Comments", type: :request do
         expect(response).to have_http_status(302)
       end
 
-      it "コメントが保存される" do
+      it "コメントが保存される"  do
         sign_in @user
         expect { subject }.to change { Comment.count }.by(1)
       end
 
-      it "task/showにリダイレクトされる" do
+      it "task/show にリダイレクトされる" do
+        sign_in @user
+        subject
+        expect(response).to redirect_to Task.last
       end
     end
 
