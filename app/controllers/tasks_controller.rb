@@ -16,8 +16,6 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.order(position: :asc)
     @categorys = current_user.categorys.order(:id)
-    binding.pry
-
     @checked_task_ids = current_user.check.pluck(:task_id)
   end
 
@@ -52,6 +50,7 @@ class TasksController < ApplicationController
 
 
   def update 
+    binding.pry
     @task.update!(task_params)
     redirect_to tasks_path, notice: "更新しました"
   end

@@ -128,10 +128,22 @@ RSpec.describe "Tasks", type: :request do
     end
   end
 
+
   
   describe "GET #update" do
+    subject { patch(task_path(task.id), params: params) }
+    let(:task) { create(:task)}
+    before do
+      @user = create(:user)
+    end
+
     context "パラメータが正常な時" do
-      it "リクエストが成功する" do
+      let(:params) { { task: attributes_for(:task) } }  
+
+      it "リクエストが成功する", type: :doing  do
+        sign_in @user
+        subject
+        expect(response).to have_http_status(302)
       end
 
       it "タスクが保存される" do
