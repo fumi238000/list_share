@@ -41,14 +41,17 @@ RSpec.describe "Tasks", type: :request do
 
     context "パラメータが正常な時" do
       let(:params) { { task: attributes_for(:task) } }  
+      let(:category) { create(:category) }
       
-      it "リクエストが成功する", type: :doing do
+      it "リクエストが成功する" do
         sign_in @user
         subject
         expect(response).to have_http_status(302)
       end
-
+      
       it "タスクが保存される" do
+        sign_in @user
+        expect { subject }.to change { Task.count }.by(1)      
       end
 
       it "task/indexにリダイレクトされる"

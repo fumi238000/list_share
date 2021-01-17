@@ -30,11 +30,13 @@ class TasksController < ApplicationController
 
 
   def create
-    task = Task.create(name: task_params[:name], category_id: task_params[:category_id])
-    
+    task = Task.new(name: task_params[:name], category_id: task_params[:category_id])
+    binding.pry
     if task.save
+      binding.pry
       redirect_to tasks_path, notice:"作成しました"
     else      
+      binding.pry
       redirect_to new_task_path, alert: "エラーが発生しました。重複・空投稿の可能性はありませんか？"
     end 
   end
