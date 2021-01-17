@@ -128,7 +128,9 @@ RSpec.describe "Comments", type: :request do
         expect { subject }.to change { comment.reload.content }.from(origin_content).to(new_content)
       end
 
-      it "task/showにリダイレクトされる" do
+      it "task/showにリダイレクトされる", type: :doing  do
+        subject
+        expect(response.body).to redirect_to Task.last
       end
     end
 
