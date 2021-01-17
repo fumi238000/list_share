@@ -31,6 +31,7 @@ class CommentsController < ApplicationController
 
 
   def edit
+    binding.pry
     @task_id = params[:id]
   end
 

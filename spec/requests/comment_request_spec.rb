@@ -62,7 +62,7 @@ RSpec.describe "Comments", type: :request do
     end
   end
 
-  
+
 
   describe "GET #show" do
     context "コメントが存在する時" do 
@@ -79,9 +79,15 @@ RSpec.describe "Comments", type: :request do
 
 
   describe "GET #edit" do
+    subject { get(edit_comment_path(comment_id)) }
     context "コメントが存在する時" do
+      let(:comment) { create(:comment) }
+      let(:comment_id) { comment.id }
       
       it "リクエストが成功する" do
+        sign_in @user
+        subject
+        expect(response).to have_http_status(200)
       end
 
       it "contentが表示されている" do
