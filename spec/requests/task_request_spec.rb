@@ -177,9 +177,16 @@ RSpec.describe "Tasks", type: :request do
     end
   end
 
+
+
   describe "GET #destroy" do
+    subject { delete(task_path(task.id)) }
+    let!(:task) { create(:task) }
+    
     context "パラメータが正常な場合" do
-      it "リクエストが成功する" do
+      it "リクエストが成功する", type: :doing do
+        subject
+        expect(response).to have_http_status(302)
       end
 
       it "タスクが削除される" do
