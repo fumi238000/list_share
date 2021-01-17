@@ -78,7 +78,10 @@ RSpec.describe "Tasks", type: :request do
         expect { subject }.not_to change(Task, :count)
       end
 
-      it "新規登録にレンダリングされる" do 
+      it "new_task_pathにレンダリングされる" do 
+        sign_in @user
+        subject
+        expect(response).to redirect_to new_task_path
       end
     
     end
