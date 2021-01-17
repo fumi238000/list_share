@@ -29,6 +29,8 @@ RSpec.describe "Comments", type: :request do
       end
 
       it "コメントが保存される" do
+        sign_in @user
+        expect { subject }.to change { Comment.count }.by(1)
       end
 
       it "task/showにリダイレクトされる" do
