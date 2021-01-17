@@ -140,13 +140,16 @@ RSpec.describe "Tasks", type: :request do
     context "パラメータが正常な時" do
       let(:params) { { task: attributes_for(:task) } }  
 
-      it "リクエストが成功する", type: :doing  do
+      it "リクエストが成功する" do
         sign_in @user
         subject
         expect(response).to have_http_status(302)
       end
 
       it "タスクが保存される" do
+        origin_name = task.name
+        new_name = params[:task][:name]
+        expect { subject }.to change { task.reload.name }.from(origin_name).to(new_name)
       end
 
       it "task/indexにリダイレクトされる" do
