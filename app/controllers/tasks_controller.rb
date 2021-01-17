@@ -51,8 +51,11 @@ class TasksController < ApplicationController
 
   def update 
     binding.pry
-    @task.update!(task_params)
-    redirect_to tasks_path, notice: "更新しました"
+    if @task.update(task_params)
+      redirect_to tasks_path, notice: "更新しました"
+    else
+      redirect_to edit_task_path, alert: "更新に失敗しました"
+    end
   end
 
 

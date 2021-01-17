@@ -152,7 +152,10 @@ RSpec.describe "Tasks", type: :request do
         expect { subject }.to change { task.reload.name }.from(origin_name).to(new_name)
       end
 
-      it "task/indexにリダイレクトされる" do
+      it "tasks_pathにリダイレクトされる" do
+        subject
+        binding.pry
+        expect(response.body).to redirect_to tasks_path
       end
     end
 
