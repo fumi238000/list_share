@@ -5,5 +5,9 @@ FactoryBot.define do
     user_id { 1 }
     task_id { 1 }
     content { Faker::Sports::Football.player }
+
+    trait :invalid do
+      content { nil }
+    end
   end
 end

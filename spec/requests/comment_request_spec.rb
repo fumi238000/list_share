@@ -41,7 +41,12 @@ RSpec.describe "Comments", type: :request do
     end
 
     context "パラメータが異常な時" do
-      it "リクエストが成功する" do
+      let(:params) { { comment: attributes_for(:comment, :invalid) } }
+
+      it "リクエストが成功する",type: :doing  do
+        sign_in @user
+        subject
+        expect(response).to have_http_status(302)
       end
     
       it "コメントが保存されない" do
