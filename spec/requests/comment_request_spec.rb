@@ -54,12 +54,15 @@ RSpec.describe "Comments", type: :request do
         expect { subject }.not_to change(Comment, :count)
       end
 
-      it "新規登録にレンダリングされる" do
+      it "new_comment_pathにレンダリングされる" do
+        sign_in @user
+        subject
+        expect(response).to redirect_to new_comment_path
       end
-    
     end
-
   end
+
+  
 
   describe "GET #show" do
     context "コメントが存在する時" do 
