@@ -101,8 +101,16 @@ RSpec.describe "Tasks", type: :request do
 
 
   describe "GET #edit" do
+    subject { get(edit_task_path(task_id)) }
+
     context "タスクが存在する時" do
+      let(:task) { create(:task) }
+      let(:task_id) { task.id }
+
       it "リクエストが成功する" do
+        sign_in @user
+        subject
+        expect(response).to have_http_status(200)
       end
 
       it "name が表示されている" do
