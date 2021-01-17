@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Comments", type: :request do
+  before do
+    @user = create(:user)
+  end
 
   describe "GET #new" do
     subject { get(new_comment_path) }
@@ -11,8 +14,18 @@ RSpec.describe "Comments", type: :request do
   end
 
   describe "GET #create" do
+    subject { post(comments_path, params: params) }
+    before do
+      task =  create(:task) 
+    end
+
     context "パラメータが正常な時" do
+      let(:params) { { comment: attributes_for(:comment) } }
+     
       it "リクエストが成功する" do
+        sign_in @user
+        subject
+        expect(response).to have_http_status(302)
       end
 
       it "コメントが保存される" do
