@@ -114,13 +114,17 @@ RSpec.describe "Tasks", type: :request do
       end
 
       it "name が表示されている" do
+        subject
+        expect(response.body).to include task.name
       end
+
     end
-  end
 
-
-  context ":idに対応するユーザーが存在しないとき" do
-    it "エラーが発生する" do
+    context ":idに対応するユーザーが存在しないとき" do
+      let(:task_id) { 1 }
+      it "エラーが発生する" do
+        expect{ subject }.to raise_error ActiveRecord::RecordNotFound
+      end
     end
   end
 

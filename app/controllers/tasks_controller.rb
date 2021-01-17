@@ -46,6 +46,7 @@ class TasksController < ApplicationController
 
   
   def edit
+    binding.pry
     @category_id = @task.id
   end
 
@@ -71,6 +72,10 @@ private
 
   def set_task
     @task = Task.find(params[:id])
+
+  end
+
+  def include_category
     @category = Category.find(@task.category_id) 
     
     if @category.user_id == current_user[:id] 
