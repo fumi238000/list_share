@@ -88,15 +88,31 @@ RSpec.describe "Tasks", type: :request do
 
   end
 
+
+
   describe "GET #show" do
+    subject { get(task_path(task_id)) }
+    before do
+      commnet = create(:comment)
+    end
+    
     context "タスクが存在する時" do 
-      it "リクエストが成功する" do
+      let(:task) { create(:task) }
+      let(:task_id) { task.id }
+
+      it "リクエストが成功する"  do
+        sign_in @user
+        subject
+        expect(response).to have_http_status(200)
       end
 
-      it "nameが表示されている" do
+      it "nameが表示されている", type: :doing do
+        subject
+        expect(response.body).to include task.name
       end
     end
   end
+
 
 
 
@@ -193,7 +209,7 @@ RSpec.describe "Tasks", type: :request do
         expect { subject }.to change(Task, :count).by(-1)
       end
 
-      it "task/indexにリダイレクトする", type: :doing  do
+      it "task/indexにリダイレクトする" do
         subject
         expect(response).to redirect_to tasks_path
       end

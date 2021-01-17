@@ -39,12 +39,17 @@ class TasksController < ApplicationController
   
   def show
     comments = Comment.order(id: :desc)
-    @comments = comments.where(user_id: current_user[:id])
+    binding.pry
+
+    @comments = comments.where(user_id: current_user)
+    # @comments = comments.where(user_id: current_user[:id])
+
+    binding.pry
+
   end
 
   
   def edit
-    binding.pry
     @category_id = @task.id
   end
 
