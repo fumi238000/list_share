@@ -13,6 +13,7 @@ RSpec.describe "Comments", type: :request do
     end
   end
 
+
   describe "GET #create" do
     subject { post(comments_path, params: params) }
     before do
@@ -86,7 +87,6 @@ RSpec.describe "Comments", type: :request do
   # end
 
 
-
   describe "GET #edit" do
     subject { get(edit_comment_path(comment_id)) }
     context "コメントが存在する時" do
@@ -106,7 +106,6 @@ RSpec.describe "Comments", type: :request do
     end
   end
 
-  
   
   describe "GET #update" do
   subject { patch(comment_path(comment.id), params: params) }
@@ -155,7 +154,6 @@ RSpec.describe "Comments", type: :request do
   end
 
 
-
   describe "GET #destroy" do
     subject { delete(comment_path(comment.id)) }
     let!(:comment) { create(:comment) }
@@ -166,15 +164,14 @@ RSpec.describe "Comments", type: :request do
         expect(response).to have_http_status(302)
       end
 
-      it "コメントが削除される", type: :doing do
+      it "コメントが削除される" do
         expect { subject }.to change(Comment, :count).by(-1)
       end
 
-      it "task/showリダイレクトすること" do
-        # expect(response).to redirect_to(tasks_path)
+      it "task/showリダイレクトする" do
+        subject
+        expect(response).to redirect_to Task.last
       end
     end
   end
-
-
 end
