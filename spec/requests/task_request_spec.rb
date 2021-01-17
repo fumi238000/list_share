@@ -65,7 +65,12 @@ RSpec.describe "Tasks", type: :request do
     end
 
     context "パラメータが異常な時" do
-      it "リクエストが成功する" do
+      let(:params) { { task: attributes_for(:task, :invalid) } }
+
+      it "リクエストが成功する",type: :doing  do
+        sign_in @user
+        subject
+        expect(response).to have_http_status(302)
       end
     
       it "タスクが保存されない" do

@@ -4,5 +4,9 @@ FactoryBot.define do
     sequence(:id, 1) { |n| "#{n}" }
     category_id { 1 }
     name { Faker::Job.title }
+        
+    trait :invalid do
+      name { nil }
+    end
   end
 end
