@@ -166,11 +166,13 @@ RSpec.describe "Tasks", type: :request do
         expect(response).to have_http_status(302)
       end
     
-      it "タスクが保存されない", type: :doing  do
+      it "タスクが保存されない"  do
         expect { subject }.not_to change(task.reload, :name)
       end
 
-      it "task/indexにレンダリングされる" do
+      it "edit_task_pathにレンダリングされる" do
+        subject
+        expect(response.body).to redirect_to edit_task_path
       end
     end
   end
