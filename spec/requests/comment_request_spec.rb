@@ -90,7 +90,9 @@ RSpec.describe "Comments", type: :request do
         expect(response).to have_http_status(200)
       end
 
-      it "contentが表示されている" do
+      it "contentが表示されている",type: :doing do
+        subject
+        expect(response.body).to include comment.content
       end
     
     end
