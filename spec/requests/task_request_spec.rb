@@ -154,13 +154,16 @@ RSpec.describe "Tasks", type: :request do
 
       it "tasks_pathにリダイレクトされる" do
         subject
-        binding.pry
         expect(response.body).to redirect_to tasks_path
       end
     end
 
     context "パラメータが異常な時" do
-      it "リクエストが成功する" do
+      let(:params) { { task: attributes_for(:task, :invalid) } }  
+      it "リクエストが成功する", type: :doing  do
+        sign_in @user
+        subject
+        expect(response).to have_http_status(302)
       end
     
       it "タスクが保存されない" do
