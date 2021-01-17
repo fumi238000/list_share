@@ -193,8 +193,9 @@ RSpec.describe "Tasks", type: :request do
         expect { subject }.to change(Task, :count).by(-1)
       end
 
-      it "task/indexリダイレクトすること" do
-        # expect(response).to redirect_to(tasks_path)
+      it "task/indexにリダイレクトする", type: :doing  do
+        subject
+        expect(response).to redirect_to tasks_path
       end
     end
   end
