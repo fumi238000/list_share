@@ -31,6 +31,8 @@ RSpec.describe "Tasks", type: :request do
   describe "GET #new" do
     subject { get(new_task_path) }
     it "リクエストが成功する" do
+      subject
+      expect(response).to have_http_status(200)
     end
   end
 
