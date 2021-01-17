@@ -38,11 +38,13 @@ RSpec.describe "Tasks", type: :request do
 
   describe "GET #create" do
     subject { post(tasks_path, params: params) }
+    before do 
+      category =  create(:category) 
+    end
 
     context "パラメータが正常な時" do
+
       let(:params) { { task: attributes_for(:task) } }  
-      let(:category) { create(:category) }
-      
       it "リクエストが成功する" do
         sign_in @user
         subject
@@ -54,8 +56,12 @@ RSpec.describe "Tasks", type: :request do
         expect { subject }.to change { Task.count }.by(1)      
       end
 
-      it "task/indexにリダイレクトされる"
+      it "task/indexにリダイレクトされる" do
+        sign_in @user
+        subject
+        expect(response).to redirect_to tasks_path
       end
+    
     end
 
     context "パラメータが異常な時" do
@@ -69,6 +75,7 @@ RSpec.describe "Tasks", type: :request do
       end
     
     end
+
   end
 
   describe "GET #show" do
@@ -120,7 +127,7 @@ RSpec.describe "Tasks", type: :request do
       end
 
       it "task/indexにレンダリングされる" do
-    
+      end
     end
   end
 
