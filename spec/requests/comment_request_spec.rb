@@ -143,11 +143,13 @@ RSpec.describe "Comments", type: :request do
         expect(response).to have_http_status(302)
       end
     
-      it "コメントが保存されない", type: :doing do
+      it "コメントが保存されない" do
         expect { subject }.not_to change(comment.reload, :content)
       end
 
-      it "task/showにレンダリングされる" do 
+      it "edit_comment_pathにレンダリングされる", type: :doing do 
+        subject
+        expect(response.body).to redirect_to edit_comment_path
       end
     end
   end
