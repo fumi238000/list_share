@@ -9,10 +9,6 @@ class TasksController < ApplicationController
   skip_before_action :current_user_create_category?, only: %i[index]
 
 
-
-
-
-
   def index
     @tasks = Task.order(position: :asc)
     @categorys = current_user.categorys.order(:id)
@@ -39,13 +35,7 @@ class TasksController < ApplicationController
   
   def show
     comments = Comment.order(id: :desc)
-    binding.pry
-
     @comments = comments.where(user_id: current_user)
-    # @comments = comments.where(user_id: current_user[:id])
-
-    binding.pry
-
   end
 
   
@@ -55,7 +45,6 @@ class TasksController < ApplicationController
 
 
   def update 
-    binding.pry
     if @task.update(task_params)
       redirect_to tasks_path, notice: "更新しました"
     else

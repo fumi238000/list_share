@@ -100,13 +100,14 @@ RSpec.describe "Tasks", type: :request do
       let(:task) { create(:task) }
       let(:task_id) { task.id }
 
-      it "リクエストが成功する"  do
+      it "リクエストが成功する", type: :doing  do
         sign_in @user
+        binding.pry
         subject
         expect(response).to have_http_status(200)
       end
 
-      it "nameが表示されている", type: :doing do
+      it "nameが表示されている" do
         subject
         expect(response.body).to include task.name
       end
