@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "Tasks", type: :request do
+RSpec.describe "Comments", type: :request do
 
   describe "GET #new" do
     subject { get(new_comment_path) }
     it "リクエストが成功する" do
-    #   subjectgit b
-    #   expect(response).to have_http_status(200)
+      subject
+      expect(response).to have_http_status(200)
     end
   end
 

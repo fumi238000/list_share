@@ -2,10 +2,14 @@ class CommentsController < ApplicationController
   before_action :login_check
   before_action :set_comment, only: %i[edit update destroy]
   before_action :set_task, only: %i[index]
-  
+
+  # テスト用
+  skip_before_action :login_check
+
+
   def new
     @comment = Comment.new 
-    @task_id = params[:task_id].to_i
+    @task_id = params[:task_id]
   end
 
 

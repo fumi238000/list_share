@@ -100,7 +100,7 @@ RSpec.describe "Tasks", type: :request do
       let(:task) { create(:task) }
       let(:task_id) { task.id }
 
-      it "リクエストが成功する", type: :doing  do
+      it "リクエストが成功する" do
         sign_in @user
         binding.pry
         subject
