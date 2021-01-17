@@ -23,10 +23,11 @@ RSpec.describe "Tasks", type: :request do
         task2 = create(:task)
         task3 = create(:task)
         get(tasks_path)
-        expect(response.body).to include(task1.name)  
+        expect(response.body).to include(task1.name)
       end
     end
   end
+
 
   describe "GET #new" do
     subject { get(new_task_path) }
@@ -36,6 +37,7 @@ RSpec.describe "Tasks", type: :request do
     end
   end
 
+
   describe "GET #create" do
     subject { post(tasks_path, params: params) }
     before do 
@@ -43,8 +45,8 @@ RSpec.describe "Tasks", type: :request do
     end
 
     context "パラメータが正常な時" do
-
-      let(:params) { { task: attributes_for(:task) } }  
+      let(:params) { { task: attributes_for(:task) } }
+     
       it "リクエストが成功する" do
         sign_in @user
         subject
@@ -53,7 +55,7 @@ RSpec.describe "Tasks", type: :request do
       
       it "タスクが保存される" do
         sign_in @user
-        expect { subject }.to change { Task.count }.by(1)      
+        expect { subject }.to change { Task.count }.by(1)
       end
 
       it "task/indexにリダイレクトされる" do
@@ -61,7 +63,6 @@ RSpec.describe "Tasks", type: :request do
         subject
         expect(response).to redirect_to tasks_path
       end
-    
     end
 
     context "パラメータが異常な時" do
@@ -73,7 +74,7 @@ RSpec.describe "Tasks", type: :request do
         expect(response).to have_http_status(302)
       end
     
-      it "タスクが保存されない"  do
+      it "タスクが保存されない" do
         sign_in @user
         expect { subject }.not_to change(Task, :count)
       end
@@ -87,7 +88,6 @@ RSpec.describe "Tasks", type: :request do
     end
 
   end
-
 
 
   describe "GET #show" do
@@ -113,8 +113,6 @@ RSpec.describe "Tasks", type: :request do
       end
     end
   end
-
-
 
 
   describe "GET #edit" do
@@ -146,7 +144,6 @@ RSpec.describe "Tasks", type: :request do
   end
 
 
-  
   describe "GET #update" do
     subject { patch(task_path(task.id), params: params) }
     let(:task) { create(:task)}
@@ -155,7 +152,7 @@ RSpec.describe "Tasks", type: :request do
     end
 
     context "パラメータが正常な時" do
-      let(:params) { { task: attributes_for(:task) } }  
+      let(:params) { { task: attributes_for(:task) } }
 
       it "リクエストが成功する" do
         sign_in @user
@@ -176,14 +173,14 @@ RSpec.describe "Tasks", type: :request do
     end
 
     context "パラメータが異常な時" do
-      let(:params) { { task: attributes_for(:task, :invalid) } }  
+      let(:params) { { task: attributes_for(:task, :invalid) } }
       it "リクエストが成功する" do
         sign_in @user
         subject
         expect(response).to have_http_status(302)
       end
     
-      it "タスクが保存されない"  do
+      it "タスクが保存されない" do
         expect { subject }.not_to change(task.reload, :name)
       end
 
@@ -193,7 +190,6 @@ RSpec.describe "Tasks", type: :request do
       end
     end
   end
-
 
 
   describe "GET #destroy" do
@@ -217,10 +213,10 @@ RSpec.describe "Tasks", type: :request do
     end
   end
 
+
   describe "GET #move" do
     it "リクエストが成功する" do
     end
   end
-
 
 end
