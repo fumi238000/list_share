@@ -30,13 +30,12 @@ class TasksController < ApplicationController
 
 
   def create
-    task = Task.create!(name: task_params[:name], category_id: task_params[:category_id])
+    task = Task.create(name: task_params[:name], category_id: task_params[:category_id])
     
     if task.save
       redirect_to tasks_path, notice:"作成しました"
-    else
-      flash.now[:alert] = "作成に失敗しました"
-      render :new
+    else      
+      redirect_to new_task_path, alert: "エラーが発生しました。重複・空投稿の可能性はありませんか？"
     end 
   end
 
