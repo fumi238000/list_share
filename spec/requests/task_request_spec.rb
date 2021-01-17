@@ -184,12 +184,13 @@ RSpec.describe "Tasks", type: :request do
     let!(:task) { create(:task) }
     
     context "パラメータが正常な場合" do
-      it "リクエストが成功する", type: :doing do
+      it "リクエストが成功する" do
         subject
         expect(response).to have_http_status(302)
       end
 
       it "タスクが削除される" do
+        expect { subject }.to change(Task, :count).by(-1)
       end
 
       it "task/indexリダイレクトすること" do
