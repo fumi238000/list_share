@@ -24,9 +24,12 @@ class CommentsController < ApplicationController
 
 
 
+  # 以下task/showに置き換えてもいいかもしれない
   def show
+    binding.pry
     comments = Comment.all  
     @comments = comments.where(user_id: current_user)
+    binding.pry
   end
 
 
@@ -37,8 +40,14 @@ class CommentsController < ApplicationController
 
 
   def update
-    @comment.update!(comment_params)
-    redirect_to task_path(@comment.task_id), notice: "コメントを更新しました"
+    binding.pry
+    if @comment.update(comment_params)
+      binding.pry
+      redirect_to task_path(@comment.task_id), notice: "コメントを更新しました"
+    else
+      binding.pry
+      redirect_to edit_comment_path, alert: "エラーが発生しました"
+    end
   end
  
 

@@ -63,18 +63,27 @@ RSpec.describe "Comments", type: :request do
   end
 
 
-
-  describe "GET #show" do
-    context "コメントが存在する時" do 
+# テンプレートが存在しないため、現在パス
+  # describe "GET #show" do
+  #   subject { get(comment_path(comment_id)) }
+    
+  #   context "コメントが存在する時" do 
+  #     let(:comment) { create(:comment) }
+  #     let(:comment_id) { comment.id }
       
-      it "リクエストが成功する" do
-      end
+  #     it "リクエストが成功する", type: :doing do
+  #       sign_in @user
+  #       binding.pry
+  #       subject
+  #       binding.pry
+  #       expect(response).to have_http_status(200)
+  #     end
 
-      it "コメントが表示されている" do
-      end
+  #     it "commentが表示されている" do
+  #     end
 
-    end
-  end
+  #   end
+  # end
 
 
 
@@ -90,19 +99,26 @@ RSpec.describe "Comments", type: :request do
         expect(response).to have_http_status(200)
       end
 
-      it "contentが表示されている",type: :doing do
+      it "contentが表示される" do
         subject
         expect(response.body).to include comment.content
       end
-    
     end
   end
 
   
   
   describe "GET #update" do
+  subject { patch(comment_path(comment.id), params: params) }
+  let(:comment) { create(:comment)}
+    
     context "パラメータが正常な時" do
-      it "リクエストが成功する" do
+      let(:params) { { comment: attributes_for(:comment) } }
+
+      it "リクエストが成功する", type: :doing  do
+        sign_in @user
+        subject
+        expect(response).to have_http_status(302)
       end
 
       it "コメントが保存される" do
