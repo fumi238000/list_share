@@ -161,12 +161,13 @@ RSpec.describe "Comments", type: :request do
     let!(:comment) { create(:comment) }
 
     context "パラメータが正常な場合" do
-      it "リクエストが成功する", type: :doing do
+      it "リクエストが成功する" do
         subject
         expect(response).to have_http_status(302)
       end
 
-      it "コメントが削除される" do
+      it "コメントが削除される", type: :doing do
+        expect { subject }.to change(Comment, :count).by(-1)
       end
 
       it "task/showリダイレクトすること" do
