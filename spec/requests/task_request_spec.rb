@@ -93,7 +93,7 @@ RSpec.describe "Tasks", type: :request do
   describe "GET #show" do
     subject { get(task_path(task_id)) }
     before do
-      commnet = create(:comment)
+      comment = create(:comment)
     end
     
     context "タスクが存在する時" do 
@@ -102,7 +102,6 @@ RSpec.describe "Tasks", type: :request do
 
       it "リクエストが成功する" do
         sign_in @user
-        binding.pry
         subject
         expect(response).to have_http_status(200)
       end

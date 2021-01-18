@@ -20,6 +20,7 @@ class ParticipationsController < ApplicationController
 
 
   def show
+    binding.pry
     @participations = Participation.order(id: :asc)
     @participations = @participations.where(category_id: params[:id])
     @category_id = params[:id]

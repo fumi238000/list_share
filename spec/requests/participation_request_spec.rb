@@ -14,10 +14,18 @@ RSpec.describe "Tasks", type: :request do
     end
   end
 
-  
+
   describe "GET #show" do
-    context "参加者が存在する時" do 
+    subject { get(participation_path(participation_id)) }
+    
+    context "参加者が存在する時" do
+      let(:participation) { create(:participation) }
+      let(:participation_id) { participation.id }
+
       it "リクエストが成功する" do
+        sign_in @user
+        subject
+        expect(response).to have_http_status(200)
       end
 
       it "参加者が表示されている" do
