@@ -9,4 +9,5 @@ FactoryBot.define do
       name { nil }
     end
   end
+
 end

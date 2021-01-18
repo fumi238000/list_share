@@ -4,6 +4,11 @@ class ParticipationsController < ApplicationController
   before_action :set_participation, only: %i[destroy]
   before_action :set_ransack, only: %i[new]
 
+  #テスト用
+  skip_before_action :login_check
+
+
+
 
   PER_PAGE = 3
 
@@ -14,17 +19,11 @@ class ParticipationsController < ApplicationController
   end
 
 
-
-#///////////////////////
-
   def show
     @participations = Participation.order(id: :asc)
     @participations = @participations.where(category_id: params[:id])
     @category_id = params[:id]
-    # @user = User.find(@participations)
   end
-
-#////////////////
 
 
   def create

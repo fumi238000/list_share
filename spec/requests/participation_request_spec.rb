@@ -1,15 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe "Tasks", type: :request do
+  before do
+    @user = create(:user)
+  end
 
   describe "GET #new" do
-    subject { get(new_participation_path) }
+    subject { get(new_participation_path, params: {format: 1} ) }
+
     it "リクエストが成功する" do
-    #   subjectgit b
-    #   expect(response).to have_http_status(200)
+      subject
+      expect(response).to have_http_status(200)
     end
   end
 
+  
   describe "GET #show" do
     context "参加者が存在する時" do 
       it "リクエストが成功する" do
