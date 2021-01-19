@@ -76,11 +76,10 @@ RSpec.describe "Tasks", type: :request do
     
       it "参加者が保存されない" do
         sign_in @user
-
-        # expect { subject }.not_to change(participation.reload, :user_id)
+        expect { subject }.not_to change(Participation, :count)
       end
 
-      it "new_participation_pathにレンダリングされる",type: :doing do
+      it "new_participation_pathにレンダリングされる" do
         sign_in @user
         subject
         expect(response).to redirect_to ("/participations/new.1")

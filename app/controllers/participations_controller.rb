@@ -40,7 +40,7 @@ class ParticipationsController < ApplicationController
       redirect_to participation_path(category_id), notice:"作成しました"
     else
       binding.pry
-      redirect_to new_participation_path(format:category_id),  alert: "入力に誤りがあります。すでに登録されている可能性もあります。"
+      redirect_to new_participation_path(format: category_id),  alert: "入力に誤りがあります。すでに登録されている可能性もあります。"
     end
   end
 
