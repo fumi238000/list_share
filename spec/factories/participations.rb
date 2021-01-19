@@ -10,7 +10,7 @@ FactoryBot.define do
     
     
     trait :invalid do
-      category_id { nil }
+      user_id { nil }
     end
     
   end
