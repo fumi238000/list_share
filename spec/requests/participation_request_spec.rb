@@ -85,23 +85,25 @@ RSpec.describe "Tasks", type: :request do
         expect(response).to redirect_to ("/participations/new.1")
       end  
     end
-
-
-
  end
 
 
-  # describe "GET #destroy" do
-  #   context "パラメータが正常な場合" do
-  #     it "リクエストが成功する" do
-  #     end
+  describe "GET #destroy" do
+  subject { delete(participation_path(participation.id)) }
+  let!(:participation) { create(:participation) }
+  
+    context "パラメータが正常な場合" do
+      it "リクエストが成功する",type: :doing  do
+        subject
+        expect(response).to have_http_status(302)
+      end
 
-  #     it "参加者が削除される" do
-  #     end
+      it "参加者が削除される" do
+      end
 
-  #     it "participation/showリダイレクトすること" do
-  #     end
-  #   end
-  # end
+      it "participation/showリダイレクトすること" do
+      end
+    end
+  end
 
 end
