@@ -18,7 +18,6 @@ class ParticipationsController < ApplicationController
 
 
   def show
-    binding.pry
     @participations = Participation.order(id: :asc)
     @participations = @participations.where(category_id: params[:id])
     @category_id = params[:id]
@@ -26,9 +25,7 @@ class ParticipationsController < ApplicationController
 
 
   def create
-    binding.pry
     category_id = participation_params[:category_id]
-    binding.pry
     participation = Participation.new(
                     owner_id: current_user[:id], 
                     user_id: participation_params[:user_id],
@@ -36,10 +33,8 @@ class ParticipationsController < ApplicationController
                     )
 
     if participation.save
-      binding.pry
       redirect_to participation_path(category_id), notice:"作成しました"
     else
-      binding.pry
       redirect_to new_participation_path(format: category_id),  alert: "入力に誤りがあります。すでに登録されている可能性もあります。"
     end
   end

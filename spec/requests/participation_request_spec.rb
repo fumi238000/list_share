@@ -31,7 +31,6 @@ RSpec.describe "Tasks", type: :request do
       # 保留
       it "参加者が表示されている" do
         # subject
-        # binding.pry
         # expect(response.body).to include participation.user_id
       end
     end
@@ -64,8 +63,7 @@ RSpec.describe "Tasks", type: :request do
         expect(response).to redirect_to("/participations/1")
       end
     end
-
-
+    
     context "パラメータが異常な時" do
       let(:params) { {  participation: attributes_for(:participation, :invalid) } }
       it "リクエストが成功する"do
@@ -102,7 +100,9 @@ RSpec.describe "Tasks", type: :request do
         expect { subject }.to change(Participation, :count).by(-1)
       end
 
-      it "participation/showリダイレクトすること" do
+      it "participation/showにリダイレクトする" do
+        subject
+        expect(response).to redirect_to ("/participations/1")
       end
     end
   end
