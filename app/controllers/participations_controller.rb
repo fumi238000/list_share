@@ -10,7 +10,7 @@ class ParticipationsController < ApplicationController
   def new
     @category_id = params[:format]
     @participation = Participation.new
-    binding.pry
+    
   end
 
 
@@ -21,7 +21,6 @@ class ParticipationsController < ApplicationController
     @participations = Participation.order(id: :asc)
     @participations = @participations.where(category_id: params[:id])
     @category_id = params[:id]
-    binding.pry
     # @user = User.find(@participations)
   end
 
@@ -29,7 +28,6 @@ class ParticipationsController < ApplicationController
 
 
   def create
-    binding.pry
     if current_user[:id] == participation_params[:user_id].to_i
       redirect_to new_participation_path ,alert: "自分自身は登録できません"
     else

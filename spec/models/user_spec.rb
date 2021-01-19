@@ -7,14 +7,15 @@ RSpec.describe User, type: :model do
 
     context "データが条件を満たす時" do
       let(:user) { build(:user) }
-      it "保存ができる" do
+      
+      it "保存ができる",type: :run do
         expect(subject).to eq true
       end
     end
   
     context "名前が空のとき" do
       let(:user) { build(:user, name: "") }
-      it "エラーが発生する" do
+      it "エラーが発生する",type: :run do
         expect(subject).to eq false
         expect(user.errors.messages[:name]).to include "を入力してください"
       end
@@ -53,11 +54,6 @@ RSpec.describe User, type: :model do
       end
     end
   end  
-
-
-
-
-
 
 
 

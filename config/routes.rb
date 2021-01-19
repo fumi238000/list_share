@@ -1,18 +1,17 @@
 Rails.application.routes.draw do
   root to: 'homes#index'
-
+  
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
   devise_scope :user do 
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
-
+  
   resources :users do
     delete :clean, on: :member
   end
 
-  resources :tasks
   
   resources :tasks do
     resource :checks, only: %i[create destroy]
@@ -21,7 +20,6 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :categorys
   resources :categorys do
     member do
       patch :move
@@ -29,8 +27,10 @@ Rails.application.routes.draw do
   end
   
   
+  resources :tasks
+  resources :categorys
   resources :category,only: %i[edit]
-
+  
   resources :comments 
   resources :participations, only: %i[new show create destroy]
 

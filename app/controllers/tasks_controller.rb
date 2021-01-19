@@ -88,7 +88,7 @@ private
   #カテゴリー作成判定メソッド
   def current_user_create_category?
     @category = Category.all
-    @category = @category.where(user_id: current_user[:id]).present?
+    @category = @category.where(user_id: current_user).present?
 
     if @category == false
       redirect_to new_category_path, notice: "カテゴリーを作成しましょう！"
