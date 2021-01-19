@@ -1,12 +1,13 @@
 class ParticipationsController < ApplicationController
   before_action :login_check
-  before_action :participation_params, only: %i[create]
-  before_action :set_participation, only: %i[destroy]
   before_action :set_ransack, only: %i[new]
+  before_action :participation_params, only: %i[create]
   before_action :current_user?, only: %i[create] 
+  before_action :set_participation, only: %i[destroy]
 
   #テスト用
-  # skip_before_action :login_check
+  skip_before_action :login_check
+  skip_before_action :current_user?, only: %i[create] 
 
   PER_PAGE = 3
 
@@ -25,7 +26,9 @@ class ParticipationsController < ApplicationController
 
 
   def create
+    binding.pry
     category_id = participation_params[:category_id]
+    binding.pry
     participation = Participation.new(
                     owner_id: current_user[:id], 
                     user_id: participation_params[:user_id],
@@ -33,8 +36,10 @@ class ParticipationsController < ApplicationController
                     )
 
     if participation.save
+      binding.pry
       redirect_to participation_path(category_id), notice:"作成しました"
     else
+      binding.pry
       redirect_to new_participation_path(format:category_id),  alert: "入力に誤りがあります。すでに登録されている可能性もあります。"
     end
   end
@@ -49,8 +54,6 @@ class ParticipationsController < ApplicationController
 private
 
   def participation_params
-
-
     params.require(:participation).permit(:user_id,:category_id)
   end
 

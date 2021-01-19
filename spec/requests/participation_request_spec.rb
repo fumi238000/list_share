@@ -39,7 +39,7 @@ RSpec.describe "Tasks", type: :request do
 
 
   describe "GET #create" do
-    subject { post(participations_path, params: params) }
+    subject { post(participations_path, params: params ) }
     before do 
       category =  create(:category) 
     end
@@ -47,18 +47,18 @@ RSpec.describe "Tasks", type: :request do
     context "パラメータが正常な時" do
       let(:params) { {  participation: attributes_for(:participation) } }
       
-      it "リクエストが成功する",type: :doing do
+      it "リクエストが成功する" do
         sign_in @user
         subject
         expect(response).to have_http_status(302)
       end
 
-      # it "参加者が保存される" do
-      #   sign_in @user
-      #   expect { subject }.to change { Participation.count }.by(1)
-      # end
+      it "参加者が保存される" do
+        sign_in @user
+        expect { subject }.to change { Participation.count }.by(1)
+      end
 
-      # it "participation/showにリダイレクトされる" do
+      # it "participation/showにリダイレクトされる",type: :doing   do
       # end
     
     

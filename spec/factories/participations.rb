@@ -5,5 +5,7 @@ FactoryBot.define do
 
     sequence(:id, 1) { |n| "#{n}" }
     owner_id { 1 }
+    user_id { 1 }  
+    category_id { 1 }
   end
 end
