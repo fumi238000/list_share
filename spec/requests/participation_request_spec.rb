@@ -93,12 +93,13 @@ RSpec.describe "Tasks", type: :request do
   let!(:participation) { create(:participation) }
   
     context "パラメータが正常な場合" do
-      it "リクエストが成功する",type: :doing  do
+      it "リクエストが成功する"  do
         subject
         expect(response).to have_http_status(302)
       end
 
-      it "参加者が削除される" do
+      it "参加者が削除される"do
+        expect { subject }.to change(Participation, :count).by(-1)
       end
 
       it "participation/showリダイレクトすること" do
