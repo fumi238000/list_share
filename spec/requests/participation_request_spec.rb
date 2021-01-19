@@ -38,47 +38,47 @@ RSpec.describe "Tasks", type: :request do
   end
 
 
-  # describe "GET #create" do
-  #   subject { post(participations_path, params: params) }
-  #   before do 
-  #     category =  create(:category) 
-  #   end
+  describe "GET #create" do
+    subject { post(participations_path, params: params) }
+    before do 
+      category =  create(:category) 
+    end
 
-
-  #   context "パラメータが正常な時" do
-  #     let(:params) { { participation: attributes_for(:participation) } 
-  #     let(:params_params ) { { participation: attributes_for(:participation) } 
+    context "パラメータが正常な時" do
+      let(:params) { {  participation: attributes_for(:participation) } }
       
-  #     it "リクエストが成功する" do
-  #       sign_in @user
-  #       subject
-  #       binding.pry
-  #       expect(response).to have_http_status(302)
-  #       binding.pry
-  #     end
+      it "リクエストが成功する",type: :doing do
+        sign_in @user
+        subject
+        expect(response).to have_http_status(302)
+      end
 
-  #     it "参加者が保存される" do
-  #       sign_in @user
-  #       expect { subject }.to change { Participation.count }.by(1)
-  #     end
+      # it "参加者が保存される" do
+      #   sign_in @user
+      #   expect { subject }.to change { Participation.count }.by(1)
+      # end
 
-  #     it "participation/showにリダイレクトされる" do
-  #     end
+      # it "participation/showにリダイレクトされる" do
+      # end
     
-  #   end
-
-  #   context "パラメータが異常な時" do
-  #     it "リクエストが成功する" do
-  #     end
     
-  #     it "参加者が保存されない" do
-  #     end
+    end
 
-  #     it "新規登録にレンダリングされる" do
-  #     end
+
+    # context "パラメータが異常な時" do
+    #   it "リクエストが成功する" do
+    #   end
     
-  #   end
-  # end
+    #   it "参加者が保存されない" do
+    #   end
+
+    #   it "新規登録にレンダリングされる" do
+    #   end  
+    # end
+
+
+
+ end
 
 
   # describe "GET #destroy" do
