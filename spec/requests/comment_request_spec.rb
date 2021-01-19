@@ -72,7 +72,7 @@ RSpec.describe "Comments", type: :request do
   #     let(:comment) { create(:comment) }
   #     let(:comment_id) { comment.id }
       
-  #     it "リクエストが成功する", type: :doing do
+  #     it "リクエストが成功する" do
   #       sign_in @user
   #       binding.pry
   #       subject

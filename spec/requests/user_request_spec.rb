@@ -28,7 +28,7 @@ RSpec.describe "Users", type: :request do
         expect(response.body).to include user.created_at.to_s(:datetime_jp)
       end  
 
-      # it "利用日数が表示されている", type: :doing do
+      # it "利用日数が表示されている" do
       #   subject
       #   let(:continuerd_day) { }
       #   expect(response.body).to include user.Time.current

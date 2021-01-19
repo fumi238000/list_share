@@ -3,19 +3,16 @@ class ParticipationsController < ApplicationController
   before_action :participation_params, only: %i[create]
   before_action :set_participation, only: %i[destroy]
   before_action :set_ransack, only: %i[new]
+  before_action :current_user?, only: %i[create] 
 
   #テスト用
-  skip_before_action :login_check
-
-
-
+  # skip_before_action :login_check
 
   PER_PAGE = 3
 
   def new
     @category_id = params[:format]
-    @participation = Participation.new
-    
+    @participation = Participation.new    
   end
 
 
@@ -28,20 +25,17 @@ class ParticipationsController < ApplicationController
 
 
   def create
-    if current_user[:id] == participation_params[:user_id].to_i
-      redirect_to new_participation_path ,alert: "自分自身は登録できません"
-    else
+    category_id = participation_params[:category_id]
+    participation = Participation.new(
+                    owner_id: current_user[:id], 
+                    user_id: participation_params[:user_id],
+                    category_id: category_id 
+                    )
 
-      participation = Participation.create(
-                      owner_id: current_user[:id], 
-                      user_id: participation_params[:user_id],
-                      category_id: participation_params[:category_id]
-                      )
-      if participation.save
-        redirect_to participation_path(participation_params[:category_id]), notice:"作成しました"
-      else
-        redirect_to new_participation_path, alert: "入力に誤りがあります。すでに登録されている可能性もあります。"
-      end
+    if participation.save
+      redirect_to participation_path(category_id), notice:"作成しました"
+    else
+      redirect_to new_participation_path(format:category_id),  alert: "入力に誤りがあります。すでに登録されている可能性もあります。"
     end
   end
 
@@ -55,6 +49,8 @@ class ParticipationsController < ApplicationController
 private
 
   def participation_params
+
+
     params.require(:participation).permit(:user_id,:category_id)
   end
 
@@ -70,4 +66,10 @@ private
     @search_users= @q.result(distinct: true).limit(PER_PAGE)
   end
 
+
+  def current_user? 
+    if current_user[:id] == participation_params[:user_id].to_i
+      redirect_to new_participation_path ,alert: "自分自身は登録できません"
+    end
+  end
 end

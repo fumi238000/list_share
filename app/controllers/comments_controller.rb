@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
 
   # テスト用
-  skip_before_action :login_check
+  # skip_before_action :login_check
 
 
   def new

@@ -28,49 +28,70 @@ RSpec.describe "Tasks", type: :request do
         expect(response).to have_http_status(200)
       end
 
+      # 保留
       it "参加者が表示されている" do
+        # subject
+        # binding.pry
+        # expect(response.body).to include participation.user_id
       end
     end
   end
 
 
-  describe "GET #create" do
-    context "パラメータが正常な時" do
-      it "リクエストが成功する" do
-      end
+  # describe "GET #create" do
+  #   subject { post(participations_path, params: params) }
+  #   before do 
+  #     category =  create(:category) 
+  #   end
 
-      it "参加者が保存される" do
-      end
 
-      it "participation/showにリダイレクトされる" do
-      end
-    end
+  #   context "パラメータが正常な時" do
+  #     let(:params) { { participation: attributes_for(:participation) } 
+  #     let(:params_params ) { { participation: attributes_for(:participation) } 
+      
+  #     it "リクエストが成功する" do
+  #       sign_in @user
+  #       subject
+  #       binding.pry
+  #       expect(response).to have_http_status(302)
+  #       binding.pry
+  #     end
 
-    context "パラメータが異常な時" do
-      it "リクエストが成功する" do
-      end
+  #     it "参加者が保存される" do
+  #       sign_in @user
+  #       expect { subject }.to change { Participation.count }.by(1)
+  #     end
+
+  #     it "participation/showにリダイレクトされる" do
+  #     end
     
-      it "参加者が保存されない" do
-      end
+  #   end
 
-      it "新規登録にレンダリングされる" do
-      end
+  #   context "パラメータが異常な時" do
+  #     it "リクエストが成功する" do
+  #     end
     
-    end
-  end
+  #     it "参加者が保存されない" do
+  #     end
+
+  #     it "新規登録にレンダリングされる" do
+  #     end
+    
+  #   end
+  # end
 
 
-  describe "GET #destroy" do
-    context "パラメータが正常な場合" do
-      it "リクエストが成功する" do
-      end
+  # describe "GET #destroy" do
+  #   context "パラメータが正常な場合" do
+  #     it "リクエストが成功する" do
+  #     end
 
-      it "参加者が削除される" do
-      end
+  #     it "参加者が削除される" do
+  #     end
 
-      it "participation/showリダイレクトすること" do
-      end
-    end
-  end
+  #     it "participation/showリダイレクトすること" do
+  #     end
+  #   end
+  # end
 
 end

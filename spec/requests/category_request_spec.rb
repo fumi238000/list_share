@@ -7,7 +7,7 @@ RSpec.describe "Categorys", type: :request do
 
     context "カテゴリーが存在する時" do
       it "リクエストが成功する" do
-        create_list(:category,1)
+        category = create(:category)
         subject
         expect(response).to have_http_status(200)
       end
