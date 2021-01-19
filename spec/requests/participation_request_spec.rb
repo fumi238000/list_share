@@ -63,21 +63,23 @@ RSpec.describe "Tasks", type: :request do
         subject
         expect(response).to redirect_to("/participations/1")
       end
-    
-    
     end
 
 
-    # context "パラメータが異常な時" do
-    #   it "リクエストが成功する" do
-    #   end
+    context "パラメータが異常な時" do
+      let(:params) { {  participation: attributes_for(:participation, :invalid) } }
+      it "リクエストが成功する"do
+        sign_in @user
+        subject
+        expect(response).to have_http_status(302)
+      end
     
-    #   it "参加者が保存されない" do
-    #   end
+      it "参加者が保存されない" do
+      end
 
-    #   it "新規登録にレンダリングされる" do
-    #   end  
-    # end
+      it "新規登録にレンダリングされる" do
+      end  
+    end
 
 
 
