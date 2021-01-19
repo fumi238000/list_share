@@ -58,8 +58,11 @@ RSpec.describe "Tasks", type: :request do
         expect { subject }.to change { Participation.count }.by(1)
       end
 
-      # it "participation/showにリダイレクトされる",type: :doing   do
-      # end
+      it "participation/showにリダイレクトされる" do
+        sign_in @user
+        subject
+        expect(response).to redirect_to("/participations/1")
+      end
     
     
     end
