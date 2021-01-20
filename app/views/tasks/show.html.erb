@@ -19,53 +19,43 @@
 
 <% else %>
 
-
-
-
-
-
   <%# コメントカード %>
-    <div class="card p-3">
-  <% @comments.each do |c| %>
-    <% binding.pry %>
+  
+  <div class="card p-3">
+    <% @comments.each do |c| %>
       <% if c.task_id == @task_id %>
 
-        <div class="card mb-4 comment-bg">
+        <div class="card comment-bg">
           
           <div>
+
             <%# 日付%> 
-            <div class="float-left ml-2 mt-2 d-inline-block w-50 ">
+            <div class="float-left ml-2 mt-2 ">
               <span>作成日時：<%= c.created_at.to_s(:datetime_jp) %><span>
             </div>
             <%# 編集ボタン%>
             <div class ="float-right">
-            <% binding.pry %>
               <%= link_to edit_comment_path(c), class: "btn-sm  mr-1 mt-1 text-light d-inline-block w-50 " ,method: :get do %>
-              <div class="fas fa-pen icon-style"></div>
-            <% end %>
+                <div class="fas fa-pen icon-style"></div>
+              <% end %>
+            </div>
+
           </div>
-
+        
+          <%# コメント%>
+          <p class="mt-3 pl-2 px-4 mb-3" ><%= c.content %></p>
+        
+          <%# 削除ボタン%>
+          <div  class="text-right pb-2">
+            <%= link_to comment_path(c), class: " btn-sm btn-sm mr-1 text-light", data: { confirm: '本当に削除しますか?' } ,:method => :delete do%>
+              <i class="far fa-trash-alt icon-style"></i> 
+            <% end %> 
+          </div>
+        
         </div>
-        
-        <%# コメント%>
-        <p class="mt-3 pl-2 px-4 mb-3" ><%= c.content %></p>
-        
-        <%# 削除ボタン%>
-        <div  class="text-right pb-2">
-          <%= link_to comment_path(c), class: " btn-sm btn-sm mr-1 text-light", data: { confirm: '本当に削除しますか?' } ,:method => :delete do%>
-            <i class="far fa-trash-alt icon-style"></i> 
-          <% end %> 
-        </div>
 
-        
       <% end %>
-  <% end %>
-    
-</div>
-
-
-
-
-
+    <% end %>
+  </div>
 
 <% end %>
