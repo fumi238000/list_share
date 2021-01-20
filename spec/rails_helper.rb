@@ -40,8 +40,8 @@ RSpec.configure do |config|
    
    # deviseのhelperメソッドを使用する  
    config.include Devise::Test::ControllerHelpers, type: :controller
-   config.include RequestSpecHelper,type: :request
-  #  config.include Devise::Test::IntegrationHelpers, type: :request
+  #  config.include RequestSpecHelper,type: :request
+   config.include Devise::Test::IntegrationHelpers, type: :request
 
   #  config.include ControllerMacros, type: :controller
   

@@ -1,29 +1,33 @@
 class CommentsController < ApplicationController
   before_action :login_check
   before_action :set_comment, only: %i[edit update destroy]
-  before_action :set_task, only: %i[index]
-  
+
+  # テスト用
+  # skip_before_action :login_check
+
+
   def new
     @comment = Comment.new 
-    @task_id = params[:task_id].to_i
+    @task_id = params[:task_id]
   end
 
 
-  def create
+  def create 
     comment = Comment.create(task_id: comment_params[:task_id], user_id: current_user[:id],content: comment_params[:content])  
       
     if comment.save
       redirect_to task_path(comment_params[:task_id]), notice:"コメントを作成しました"
     else
-      redirect_to new_comment_path, alert: "空投稿はできません。"
+      redirect_to new_comment_path, alert: "エラーが発生しました。再度入力してください。"
     end
   end
 
 
 
+  # 以下task/showに置き換えてもいいかもしれない
   def show
     comments = Comment.all  
-    @comments = comments.where(user_id: current_user[:id])
+    @comments = comments.where(user_id: current_user)
   end
 
 
@@ -33,8 +37,12 @@ class CommentsController < ApplicationController
 
 
   def update
-    @comment.update!(comment_params)
-    redirect_to task_path(@comment.task_id), notice: "コメントを更新しました"
+
+    if @comment.update(comment_params)
+      redirect_to task_path(@comment.task_id), notice: "コメントを更新しました"
+    else
+      redirect_to edit_comment_path, alert: "エラーが発生しました"
+    end
   end
  
 

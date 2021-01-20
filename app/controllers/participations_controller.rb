@@ -1,47 +1,41 @@
 class ParticipationsController < ApplicationController
   before_action :login_check
-  before_action :participation_params, only: %i[create]
-  before_action :set_participation, only: %i[destroy]
   before_action :set_ransack, only: %i[new]
+  before_action :participation_params, only: %i[create]
+  before_action :current_user?, only: %i[create] 
+  before_action :set_participation, only: %i[destroy]
 
+  #テスト用
+  skip_before_action :login_check
+  skip_before_action :current_user?, only: %i[create] 
 
   PER_PAGE = 3
 
   def new
     @category_id = params[:format]
-    @participation = Participation.new
-    
+    @participation = Participation.new    
   end
 
-
-
-#///////////////////////
 
   def show
     @participations = Participation.order(id: :asc)
     @participations = @participations.where(category_id: params[:id])
     @category_id = params[:id]
-    # @user = User.find(@participations)
   end
-
-#////////////////
 
 
   def create
-    if current_user[:id] == participation_params[:user_id].to_i
-      redirect_to new_participation_path ,alert: "自分自身は登録できません"
-    else
+    category_id = participation_params[:category_id]
+    participation = Participation.new(
+                    owner_id: current_user[:id], 
+                    user_id: participation_params[:user_id],
+                    category_id: category_id 
+                    )
 
-      participation = Participation.create(
-                      owner_id: current_user[:id], 
-                      user_id: participation_params[:user_id],
-                      category_id: participation_params[:category_id]
-                      )
-      if participation.save
-        redirect_to participation_path(participation_params[:category_id]), notice:"作成しました"
-      else
-        redirect_to new_participation_path, alert: "入力に誤りがあります。すでに登録されている可能性もあります。"
-      end
+    if participation.save
+      redirect_to participation_path(category_id), notice:"作成しました"
+    else
+      redirect_to new_participation_path(format: category_id),  alert: "入力に誤りがあります。すでに登録されている可能性もあります。"
     end
   end
 
@@ -70,4 +64,10 @@ private
     @search_users= @q.result(distinct: true).limit(PER_PAGE)
   end
 
+
+  def current_user? 
+    if current_user[:id] == participation_params[:user_id].to_i
+      redirect_to new_participation_path ,alert: "自分自身は登録できません"
+    end
+  end
 end

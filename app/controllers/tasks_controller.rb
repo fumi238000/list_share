@@ -4,13 +4,14 @@ class TasksController < ApplicationController
   before_action :task_params, only: %i[create]
   before_action :set_task, only: %i[show edit update destroy]
 
+  # テスト用
+  # skip_before_action :login_check
+  # skip_before_action :current_user_create_category?, only: %i[index]
+
+
   def index
-    @categorys = current_user.categorys.order(:id)
-
-    # @tasks = Task.all
     @tasks = Task.order(position: :asc)
-    # @task.find(category_id: @category.id)
-
+    @categorys = current_user.categorys.order(:id)
     @checked_task_ids = current_user.check.pluck(:task_id)
   end
 
@@ -23,20 +24,18 @@ class TasksController < ApplicationController
 
 
   def create
-    task = Task.create!(name: task_params[:name], category_id: task_params[:category_id])
-    
+    task = Task.new(name: task_params[:name], category_id: task_params[:category_id])
     if task.save
       redirect_to tasks_path, notice:"作成しました"
-    else
-      flash.now[:alert] = "作成に失敗しました"
-      render :new
+    else      
+      redirect_to new_task_path, alert: "エラーが発生しました。重複・空投稿の可能性はありませんか？"
     end 
   end
 
   
   def show
     comments = Comment.order(id: :desc)
-    @comments = comments.where(user_id: current_user[:id])
+    @comments = comments.where(user_id: current_user)
   end
 
   
@@ -46,8 +45,11 @@ class TasksController < ApplicationController
 
 
   def update 
-    @task.update!(task_params)
-    redirect_to tasks_path, notice: "更新しました"
+    if @task.update(task_params)
+      redirect_to tasks_path, notice: "更新しました"
+    else
+      redirect_to edit_task_path, alert: "更新に失敗しました"
+    end
   end
 
 
@@ -66,6 +68,10 @@ private
 
   def set_task
     @task = Task.find(params[:id])
+
+  end
+
+  def include_category
     @category = Category.find(@task.category_id) 
     
     if @category.user_id == current_user[:id] 

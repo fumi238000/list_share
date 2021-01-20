@@ -46,7 +46,7 @@ RSpec.describe Task, type: :model do
 end
   
 
-    # describe "scope" , type: :doing do
+    # describe "scope"  do
     #   context "データを保存した時" do
     #     subject { category.valid? }
     #     let(:category) { build(:category) }
