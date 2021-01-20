@@ -36,7 +36,9 @@ class TasksController < ApplicationController
   def show
     comments = Comment.order(id: :desc)
     @comments = comments.where(user_id: current_user)
+    @task_id = params[:id].to_i
   end
+
 
   
   def edit

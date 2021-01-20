@@ -12,7 +12,8 @@
 </div>
 
 <%= form_with model: @comment, local: true do |f| %>
-  <%= f.hidden_field :task_id, value: @task_id %>
+<% binding.pry%>
+  <%= f.hidden_field :task_id %>
   <div class="card category-card pt-3 pb-5">
     <p>コメント：</p>
     <%= f.text_field :content ,size: 50 , class:"card pb-5" %>

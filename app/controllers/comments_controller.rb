@@ -23,24 +23,17 @@ class CommentsController < ApplicationController
   end
 
 
-
-  # 以下task/showに置き換えてもいいかもしれない
-  def show
-    comments = Comment.all  
-    @comments = comments.where(user_id: current_user)
-  end
-
-
   def edit
-    @task_id = params[:id]
   end
 
 
   def update
-
+    binding.pry
     if @comment.update(comment_params)
+      binding.pry
       redirect_to task_path(@comment.task_id), notice: "コメントを更新しました"
     else
+      binding.pry
       redirect_to edit_comment_path, alert: "エラーが発生しました"
     end
   end
@@ -56,6 +49,7 @@ class CommentsController < ApplicationController
 private
 
   def comment_params
+    binding.pry
     params.require(:comment).permit(:content,:task_id)
   end
 
