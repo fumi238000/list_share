@@ -1,10 +1,4 @@
-$cPurple:rgb(0,59,144);  //紫
-$cLiteBlue:rgba(188,226,232,0.9);  //水色
-$cLitePurple: rgba(0,132,202,0.9);  //薄紫
-$cRed: rgb(237,85,27);  //赤
-$cWhite: white;
-$cBlack: black;
-
+@import "./modules/color";
 
 /*-------------------------
 link
@@ -17,7 +11,6 @@ link
   }
 
 }
-
 
 /*-------------------------
 tab
@@ -50,8 +43,6 @@ tab
     padding: 20px;
     border: 1px solid $cWhite;
   }
-
-
 
 
 /*-------------------------
