@@ -1,3 +1,11 @@
+$cPurple:rgb(0,59,144);  //紫
+$cLiteBlue:rgba(188,226,232,0.9);  //水色
+$cLitePurple: rgba(0,132,202,0.9);  //薄紫
+$cRed: rgb(237,85,27);  //赤
+$cWhite: white;
+$cBlack: black;
+
+
 /*-------------------------
 link
 -------------------------*/
@@ -20,7 +28,7 @@ tab
   .tab_list li {
     float: left;
     padding: 10px 20px;
-    border: 1px solid #ccc;
+    border: 1px solid $cWhite;
     cursor: pointer;
     transition: .3s;
   }
@@ -28,9 +36,9 @@ tab
     border-left: none;
   }
   .tab_list li.active, {
-    background-color: #000;
-    border-color: #000;
-    color: #fff;
+    background-color: $cBlack;
+    border-color: $cBlack;
+    color: $cWhite;
     cursor: auto;
   }
   .article{
@@ -40,7 +48,7 @@ tab
   .article li {
     width: 320px;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid $cWhite;
   }
 
 

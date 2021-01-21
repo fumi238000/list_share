@@ -1,3 +1,16 @@
+//継承させる
+// @extend %base-color
+
+$cPurple:rgb(0,59,144);  //紫
+$cLiteBlue:rgba(188,226,232,0.9);  //水色
+$cLitePurple: rgba(0,132,202,0.9);  //薄紫
+$cRed: rgb(237,85,27);  //赤
+$cWhite: white;
+$cBlack: black;
+
+
+
+
 /*-------------------------
 title
 -------------------------*/
@@ -22,12 +35,12 @@ button/link
 -------------------------*/
 .gest-btn {
   margin-right: 15px;
-  background-color: #003b90;
+  background-color: $cPurple;
 }
 
 .registration-btn {
   margin-left: 15px;
-  background-color: #003b90;
+  background-color: $cPurple;
 }
 
 .login-link {
