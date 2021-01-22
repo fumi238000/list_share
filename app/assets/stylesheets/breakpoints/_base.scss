@@ -6,3 +6,37 @@ Stylesheet: ベーススタイル
 body {
   font-family: 'Kameron','Noto Sans JP', sans-serif;
 }
+
+.font-sm {
+  font-size: 14px;
+}
+.font-md {
+  font-size: 17px;
+}
+.font-lr {
+  font-size: 17px;
+}
+.font-lg {
+  font-size: 25px;
+}
+
+.mb-sm {
+    margin-bottom: 16px !important;
+}
+.mb-lg {
+  margin-bottom: 80px !important;
+}
+
+.pb-sm {
+  margin-bottom: 16px !important;
+}
+.pb-lg {
+margin-bottom: 80px !important;
+}
+
+.content-width {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1070px;
+  // max-width: $contentMaxWidth;
+}
