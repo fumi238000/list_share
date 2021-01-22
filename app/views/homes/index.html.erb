@@ -1,6 +1,6 @@
-<section class="home-title">
-  <h1>生み出すからこそ、進化できる</h1>
-  <h2>ListShareなら、オリジナルのリスト作成・改善をサポートします</h2>
+<section id="home-title">
+  <div class="main">生み出すからこそ、進化できる</div>
+  <div class="font-sm">ListShareなら、オリジナルのリスト作成・改善をサポートします</div>
 </section>
 
 <section id="home-btn">
@@ -10,31 +10,23 @@
   <%= link_to new_user_registration_path, method: :get do %>
     <button class="btnn slide-bg">無料で作成</button> 
   <% end %>
-
-<%= link_to new_user_registration_path, method: :get do %>
-    <button class="btnn shadow">無料で作成</button> 
-  <% end %>
-
-
 </section>
 
-<section class="login-link">
+<section id="login-link">
   <%= link_to 'すでにアカウントをお持ちですか？ログイン', new_user_session_path,method: :get %>
 </section>
 
-<section>
-  <div class="top-image w-50">    
-   <%= image_tag "image-photo.png", width:'90%', height:'90%'%>    
-  </div>
+<section id="top-image">
+   <%= image_tag "image-photo.png", width:'80%', height:'80%'%> 
+</section> 
 
-  <div class="home-text w-50">
-    <h3>習慣のリスト化</h3>
-    <p>自分だけのオリジナルリストを作成できます</p>
-    <h3>リストを共有する</h3>
-    <p>作成したリストを、ご家族・友人と共同で使用することができます</p>
-    <h3>思うままに自由に編集</h3>
-    <p>カテゴリーからオリジナルで作成することができます</p>
-    <h3>簡単に素早く変更</h3>
-    <p>ドラッグ＆ドロップで素早く並べ替えが可能です</p>
-  </div>
+<section id="home-text"> 
+  <h3 class="font-lr">習慣のリスト化</h3>
+  <p class="font-sm">自分だけのオリジナルリストを作成できます</p>
+  <h3 class="font-lr">リストを共有する</h3>
+  <p class="font-sm">作成したリストを、ご家族・友人と共同で使用することができます</p>
+  <h3 class="font-lr">思うままに自由に編集</h3>
+  <p class="font-sm">カテゴリーからオリジナルで作成することができます</p>
+  <h3 class="font-lr">簡単に素早く変更</h3>
+  <p class="font-sm">ドラッグ＆ドロップで素早く並べ替えが可能です</p>
 </section> 

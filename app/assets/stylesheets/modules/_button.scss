@@ -7,17 +7,13 @@ $cWhite: white;
 $cBlack: black;
 
 /*ボタン*/
-#home-btn {
-  text-align: center;
-  margin:30px;
-
   .btnn {
     background-color: $cWhite;
-    color: $cBlack;
+    color: $cPurple;
     border: 2px solid $cPurple;
     padding: 15px 50px;
-    margin: 50px 10px 50px 0;
-    font-weight: 600px;
+    // margin: 50px 10px 50px 0;
+    // font-weight: 700px;
     cursor: pointer;
     transition: all 0.3s; 
 
@@ -55,5 +51,4 @@ $cBlack: black;
         transform: translate(-2.5px, -2.5px); 
         box-shadow: 5px 5px 0 0 $cBlack;
       }
-  }
 }
