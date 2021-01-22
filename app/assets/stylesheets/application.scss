@@ -13,12 +13,124 @@
  *= require_tree .
  *= require_self
  */
-
+ 
  @import "bootstrap/scss/bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
  @import "@fortawesome/fontawesome-free/scss/fontawesome";
+ @import url('https://fonts.googleapis.com/css2?family=Kameron:wght@400;700&family=Noto+Sans+JP&display=swap');
+ @import "breakpoints/base";
  @import "home";
+ 
+ //  @import "modules/variables";
+
+
+/*ボタン*/
+#home-btn {
+  text-align: center;
+  margin:30px;
+
+  .btnn {
+    background-color: $cWhite;
+    color: $cBlack;
+    border: 2px solid $cPurple;
+    padding: 15px 50px;
+    margin: 50px 10px 50px 0;
+    font-weight: 600px;
+    cursor: pointer;
+    transition: all 0.3s; 
+
+    /*スライドボタン*/
+    &.slide-bg {
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        background-color: $cPurple;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+        z-index: -1;
+        }
+      
+      &:hover {
+      color:$cWhite;
+        &::before {
+          transform: none;
+        }
+      } 
+         
+    }
+
+      /*シャドーボタン*/
+      &.shadow:hover {
+        transform: translate(-2.5px, -2.5px); 
+        box-shadow: 5px 5px 0 0 $cBlack;
+      }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/******************************************************************
+レスポンシブルデザイン
+******************************************************************/
+
+/*スマホのランドスケープ*/
+@media(min-width: 480px) {
+  @import "breakpoints/480up";
+}
+
+/*タブレット*/
+@media(min-width: 600px) {
+  @import "breakpoints/600up";
+}
+
+/*タブレットのランクスケープ*/
+@media(min-width: 960px) {
+  @import "breakpoints/960up";
+}
+
+/*ディスプレイ*/
+@media(min-width: 1280px) {
+  @import "breakpoints/1280up";
+}
+
+/*レキナディスプレイ*/
+@media (min-resolution: 192dpi),
+(-webkit-min-device-pixel-ratio: 2) {
+  @import "breakpoints/2x";
+}
+
+/*プリント*/
+@media print {
+  @import "breakpoints/print";
+}
+
+
+
+/******************************************************************
+devise
+******************************************************************/
 
 
  .mw-md {
@@ -170,3 +282,15 @@ a:hover {
 
 
 
+
+
+
+
+
+
+
+
+//実験
+body {
+  font-family: 'Kameron','Noto Sans JP', sans-serif;
+}

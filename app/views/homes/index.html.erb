@@ -1,11 +1,21 @@
-<div class="home-title">
+<section class="home-title">
   <h1>生み出すからこそ、進化できる</h1>
   <h2>ListShareなら、オリジナルのリスト作成・改善をサポートします</h2>
-</div>
+</section>
 
-<section class="text-center">
-  <span><%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "gest-btn btn text-light px-5",method: :post %></span>
-  <span><%= link_to '無料で新規作成', new_user_registration_path, class: "btn text-light px-5 registration-btn", method: :get %></span>
+<section id="home-btn">
+  <%= link_to  users_guest_sign_in_path, method: :post do %>
+    <button class="btnn slide-bg">ゲストログイン</button> 
+  <% end %>
+  <%= link_to new_user_registration_path, method: :get do %>
+    <button class="btnn slide-bg">無料で作成</button> 
+  <% end %>
+
+<%= link_to new_user_registration_path, method: :get do %>
+    <button class="btnn shadow">無料で作成</button> 
+  <% end %>
+
+
 </section>
 
 <section class="login-link">

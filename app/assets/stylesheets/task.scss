@@ -1,4 +1,8 @@
-@import "./modules/color";
+// @import "./modules/template";
+// @import "modules/variables";
+ @import "modules/button";
+
+
 
 /*-------------------------
 link
@@ -28,7 +32,7 @@ tab
   .tab_list li:not(:first-child) {
     border-left: none;
   }
-  .tab_list li.active, {
+  .tab_list li.active {
     background-color: $cBlack;
     border-color: $cBlack;
     color: $cWhite;
