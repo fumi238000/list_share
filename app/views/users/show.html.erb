@@ -10,15 +10,11 @@
 <p class="text-center m-5"><%= image_tag @user.image.url %></p>
 
 
-
-
-
-<%# 今回はここから %>
-<div class="text-center mb-3">
-  <%= link_to '画像の編集', edit_user_path(@user) ,class: "btn btn-dark text-light" %>
-</div>  
-
-
+<section id="image-edit-btn">
+  <%= link_to edit_user_path(@user), method: :get do %>
+    <button class="btnn float">画像の編集</button> 
+  <% end %>
+</section>
 
 
 

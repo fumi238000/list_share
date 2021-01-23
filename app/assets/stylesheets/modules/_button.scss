@@ -42,9 +42,22 @@ $cBlack: black;
         &::before {
           transform: none;
         }
-      } 
-         
+      }      
     }
+
+    /* 背景が「白」→「黒」*/
+    &.float {
+     background-color:$cWhite;
+     color: $cBlack;
+     border: 2px solid $cBlack;
+    }
+
+    &.float:hover {
+     background-color:$cBlack;
+     color: $cWhite;
+    }
+
+
 
       /*シャドーボタン*/
       &.shadow:hover {
