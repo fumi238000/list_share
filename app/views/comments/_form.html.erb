@@ -11,14 +11,15 @@
   </div>
 </div>
 
-<%= form_with model: @comment, local: true do |f| %>
-<% binding.pry%>
-  <%= f.hidden_field :task_id %>
-  <div class="card category-card pt-3 pb-5">
-    <p>コメント：</p>
-    <%= f.text_field :content ,size: 50 , class:"card pb-5" %>
+<section id="comment-form">
+  <div class="title">
+    <p>コメント</p>
   </div>
-  <div>
-    <%= f.submit button_value , class:"category-button btn-block"%>
-  <div>
-<% end %>
+  <%= form_with model: @comment, local: true do |f| %>
+    <%= f.hidden_field :task_id %>
+    <%= f.text_field :content ,size: 50 , class:"submit" %>
+      <section id="comment-btn">
+        <%= f.submit button_value, class:"btnn float-purple"%>
+      </section> 
+  <% end %>
+</section>

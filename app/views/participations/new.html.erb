@@ -1,7 +1,6 @@
 <div class="card category-card">
   <div>
     <div class="text-left w-25 d-inline-block float-left ">
-    <% binding.pry %>
       <%= link_to "キャンセル", participation_path(@category_id), class: 'text-dark'%>
     </div>
     <div class="w-50 d-inline-block float-left">
@@ -14,14 +13,14 @@
 
 <div>
   <%= form_with model: @participation, local: true do |f| %>
-    <div class="card category-form">
-    <% binding.pry %>
-      <%= f.hidden_field :category_id , value: @category_id, size: 2, class: "category-submit"%>
-      <p>参加者ID：<%= f.text_field :user_id , size: 2, class: "category-submit"%></p> 
+    <div class="participation-form">
+      <%= f.hidden_field :category_id , value: @category_id, size: 2, class: "submit"%>
+      <p><%= f.text_field :user_id , size: 50, class: "submit"%></p> 
     </div>
-    <div>
-      <%= f.submit "作成" , class:"category-button btn-block"%>
-    </div>
+
+    <section id="participation-btn">
+        <%= f.submit "作成", class:"btnn float-purple"%>
+    </section>
  <% end %>
 <div>
 

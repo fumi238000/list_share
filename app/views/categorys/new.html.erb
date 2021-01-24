@@ -1,11 +1,18 @@
 <%= render "form" %>
 
-<%= form_with model: @category, url: "/categorys", method: :post, local: true do |f| %>
-  <div class="card category-card pt-3 pb-5">
-    <p><%= f.hidden_field :category, value: @category %></p>
-    <p>カテゴリー名：<%= f.text_field :name ,size: 50, class: "category-submit"%></p>
+<section id="category-form">
+  <div class="title">
+    <p>カテゴリー名</p>
   </div>
-  <div>  
-    <%= f.submit "新規作成", class:"category-button btn-block"%>
-  </div>
-<% end %>
+
+  <%= form_with model: @category, url: "/categorys", method: :post, local: true do |f| %>
+    <%= f.hidden_field :category, value: @category %>
+    <p><%= f.text_field :name ,size: 50, class: "submit"%></p>
+
+     <section id="category-btn">
+      <%= f.submit "新規作成", class:"btnn float-purple"%>
+    </section>
+
+  <% end %>
+
+</section>

@@ -1,0 +1,55 @@
+/*カラー*/
+$cPurple:rgb(0,59,144);  //紫
+$cLiteBlue:rgba(188,226,232,0.9);  //水色
+$cLitePurple: rgba(0,132,202,0.9);  //薄紫
+$cRed: rgb(237,85,27);  //赤
+$cWhite: white;
+$cBlack: black;
+
+
+.form-top {
+  max-width: 800px;
+  display: flex;
+  margin: 0 auto;
+  background-color: $cWhite;
+  height: 5vh;
+  width: 100%;
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+  
+  & .title {
+    flex: 50%;
+    text-align: center;
+    padding: 10px;
+  }
+  & .back {
+    flex: 25%;
+    font-size: 10px;
+    padding-left: 20px;
+  }
+ & .space {
+    flex: 25%;
+
+  }
+}
+
+.form {
+  max-width: 800px;
+  margin: 0 auto;
+  & .title{
+    color: $cPurple;
+    margin-top: 50px;
+    // @extend .font-sm;
+     border-left: solid 5px $cPurple;
+     padding-left: 10px;
+  }
+
+  & .submit {
+    border: 0px none; /*枠線をなくす*/
+    height: 10vh;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0 0 3px 1px rgba(0,0,0,0.1) inset;
+  }
+}

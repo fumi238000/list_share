@@ -1,8 +1,7 @@
 <%= render partial: "form", locals:{ button_value: "更新", category_id: @category_id} %>
   
-<%# 削除ボタン%>
-<div class="category-delete">
-  <center>
-    <%= link_to "このタスクを削除する" ,task_path(@task), class: "btn-block btn-sm btn-sm mr-1 text-light",data: { confirm: '本当に削除しますか?' } ,method: :delete%>
-  </center>
-</div>
+<section id="task-btn">
+  <%= link_to task_path(@task), method: :delete do %>
+    <button class="btnn float-red">タスクを削除</button> 
+  <% end %>
+</section>

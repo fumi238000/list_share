@@ -17,6 +17,9 @@ $cBlack: black;
     cursor: pointer;
     transition: all 0.3s; 
 
+    width: 250px;
+    height: 50px;
+
     /*スライドボタン*/
     &.slide-bg {
       position: relative;
@@ -46,16 +49,42 @@ $cBlack: black;
     }
 
     /* 背景が「白」→「黒」*/
-    &.float {
+    &.float-black {
      background-color:$cWhite;
      color: $cBlack;
      border: 2px solid $cBlack;
     }
 
-    &.float:hover {
+    &.float-black:hover {
      background-color:$cBlack;
      color: $cWhite;
     }
+
+    &.float-red {
+      background-color:$cWhite;
+      color: $cRed;
+      border: 2px solid $cRed;
+     }
+ 
+     &.float-red:hover {
+      background-color:$cRed;
+      color: $cWhite;
+      border: 2px solid $cRed;
+     }
+
+     &.float-purple {
+       background-color:$cPurple;
+       color: $cWhite;
+       border: 2px solid $cPurple;
+      }
+      
+      &.float-purple:hover {
+        background-color:$cWhite;
+        color: $cPurple;
+      border: 2px solid $cPurple;
+     }
+
+
 
 
 

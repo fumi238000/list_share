@@ -12,10 +12,9 @@
 
 <section id="image-edit-btn">
   <%= link_to edit_user_path(@user), method: :get do %>
-    <button class="btnn float">画像の編集</button> 
+    <button class="btnn float-black">画像の編集</button> 
   <% end %>
 </section>
-
 
 
 <div class="mb-3 border border-white">
@@ -23,11 +22,11 @@
   <p>メールアドレス : <%= @user.email %></p>
   <p>登録日 : <%= @user.created_at.to_s(:datetime_jp) %></p>
   <p>利用日数： <%= @continued_day %>日 </p>
-
 </div>  
 
-<div class="logout-button">
-  <center>
-    <%= link_to 'ログアウト', destroy_user_session_path,class: "text-light", method: :delete %>
-  </center>
-</div>
+
+<section id="logout-btn">
+  <%= link_to destroy_user_session_path, method: :delete do %>
+    <button class="btnn float-red">ログアウト</button> 
+  <% end %>
+</section>

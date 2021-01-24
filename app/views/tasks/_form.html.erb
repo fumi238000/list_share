@@ -1,23 +1,21 @@
-<div class="card category-card">
-  <div>
-    <div class="text-left w-25 d-inline-block float-left ">
-      <%= link_to "キャンセル", tasks_path, class: 'text-dark'%>
-    </div>
-    <div class="w-50 d-inline-block float-left">
-      <h5 class="text-center">タスク名</h5>
-    </div>
-    <div class="ml-3 bg-dark w-25 d-inline-block float-left">
-    </div>
-  </div>
-</div>
+<section class="form-top">
+  <div class= "back"><%= link_to "キャンセル", tasks_path%></div>
+  <div class="title">タスク名</div>
+  <div class="space"></div>
+</section>
 
-<%= form_with model: @task, local: true do |f| %>
-  <%= f.hidden_field :category_id, value: @category_id %>
-  <div class="card category-card pt-3 pb-5">
-    <p>タスク名</p>
-    <%= f.text_field :name , size: 30, class:"card"%>
-  </div>    
-  <div>
-    <%= f.submit button_value, class:"category-button btn-block"%>
+
+<section class="form">
+  <div class="title">
+  <p>タスク名</p>
   </div>
-<% end %>
+ 
+  <%= form_with model: @task, local: true do |f| %>
+    <%= f.hidden_field :category_id, value: @category_id %>
+    <p><%= f.text_field :name , size: 30, class:"submit"%></p>
+ 
+     <section id="task-btn">
+        <%= f.submit button_value, class:"btnn float-purple"%>
+      </section>
+  <% end %>
+</section>
