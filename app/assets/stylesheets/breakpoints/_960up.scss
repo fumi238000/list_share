@@ -1,3 +1,11 @@
+/*カラー*/
+$cPurple: rgb(0,59,144);  /*紫*/
+$cLiteBlue: #f0f8ff;/*水色*/
+$cLitePurple: rgba(0,132,202,0.9); /*薄紫*/
+$cRed: rgb(237,85,27);
+$cWhite: white;
+$cBlack: black;
+
 /******************************************************************
 
 Stylesheet: 960px以上のモニタで適用
@@ -30,6 +38,10 @@ margin-bottom: 16px !important;
 margin-bottom: 150px !important;
 }
 
+h1 {
+  text-align: left;
+  margin-left:40px;
+}
 
 /* homeタイトル*/
 #home-title {
@@ -37,3 +49,4 @@ margin-bottom: 150px !important;
     font-size: 40px;
   }
 }
+
