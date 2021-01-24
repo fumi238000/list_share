@@ -6,13 +6,13 @@
 
 
 <section class="form">
-  <div class="title">
+  <div class="form__title">
   <p>タスク名</p>
   </div>
  
   <%= form_with model: @task, local: true do |f| %>
     <%= f.hidden_field :category_id, value: @category_id %>
-    <p><%= f.text_field :name , size: 30, class:"submit"%></p>
+    <p><%= f.text_field :name , size: 30, class:"form__submit"%></p>
  
      <section id="task-btn">
         <%= f.submit button_value, class:"btnn float-purple"%>

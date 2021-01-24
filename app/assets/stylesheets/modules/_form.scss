@@ -37,7 +37,7 @@ $cBlack: black;
 .form {
   max-width: 800px;
   margin: 0 auto;
-  & .title{
+  & .form__title{
     color: $cPurple;
     margin-top: 50px;
     // @extend .font-sm;
@@ -45,7 +45,7 @@ $cBlack: black;
      padding-left: 10px;
   }
 
-  & .submit {
+  & .form__submit {
     border: 0px none; /*枠線をなくす*/
     height: 10vh;
     width: 100%;
