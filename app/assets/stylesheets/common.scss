@@ -1,78 +1,27 @@
-// /*カラー*/
-// $cPurple:rgb(0,59,144);  /*紫*/
-// $cLiteBlue:rgba(188,226,232,0.9);  /*水色*/
-// $cLitePurple: rgba(0,132,202,0.9); /*薄紫*/
-// $cRed: rgb(237,85,27);
-// $cWhite: white;
-// $cBlack: black;
+/******************************************************************
+responsible
+******************************************************************/
 
-// /*最大幅*/
-// $contentMaxWidth: 1070px;
-// $contentMinWidth: 480px;
+@media screen and (min-width: 480px) {
+  @import "breakpoints/480up";
+}
 
+@media screen and(min-width: 600px) {
+  @import "breakpoints/600up";
+}
 
-// // /*スマホのランドスケープ*/
-// // @media(min-width: 480px){
-// //  .font-sm {
-// //   background-color: blue;
-// //  } 
-// // }
+@media (min-width: 960px) {
+  @import "breakpoints/960up";
+}
 
-// // // /*タブレット*/
-// // @media(min-width: 600px){
-// //  .font-sm {
-// //   background-color: red;
-// //   }
-// // }
+@media screen and(min-width: 1280px) {
+  @import "breakpoints/1280up";
+}
 
-// // // /*タブレットのランクスケープ*/
-// // @media(min-width: 960px) {
-// //   .font-sm {
-// //   background-color: green; 
-// //   }
-// // }
-
-
-
-// // .font-md {
-// //   font-size: 19px;
-// // }
-// // .font-lr {
-// //   font-size: 23px;
-// // }
-// // .font-lg {
-// //   font-size: 36px;
-// // }
-
-// // .mb-sm {
-// //   margin-bottom: 16px !important;
-// // }
-// // .mb-lg {
-// // margin-bottom: 150px !important;
-// // }
-
-// // .pb-sm {
-// // margin-bottom: 16px !important;
-// // }
-// // .pb-lg {
-// // margin-bottom: 150px !important;
-// // }
-  
-//   // @import "breakpoints/960up";
-// }
-
-// // /*ディスプレイ*/
-// // @media(min-width: 1280px) {
-// //   @import "breakpoints/1280up";
-// // }
-
-// // /*レキナディスプレイ*/
-// // @media (min-resolution: 192dpi),
-// // (-webkit-min-device-pixel-ratio: 2) {
-// //   @import "breakpoints/2x";
-// // }
-
-// // /*プリント*/
-// // @media print {
-// //   @import "breakpoints/print";
-// // }
+@media screZen and(min-resolution: 192dpi)
+      ,(-webkit-min-device-pixel-ratio: 2) {
+  @import "breakpoints/2x";
+}
+@media print {
+  @import "breakpoints/print";
+}
