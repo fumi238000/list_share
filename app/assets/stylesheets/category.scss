@@ -14,9 +14,6 @@
   }
 }
 
-
-
-
 /*-------------------------
 link
 -------------------------*/
@@ -33,61 +30,12 @@ link
 category-card
 -------------------------*/
 
-.category-name {
-  margin-right: 30px;
-  font-size: 20px;
-}
+// .category-name {
+//   margin-right: 30px;
+//   font-size: 20px;
+// }
 
-.card {
-  margin-bottom: 10px;
-}
+// .card {
+//   margin-bottom: 10px;
+// }
 
-.grid {
-  color: #003b90;
-  margin-right: 10px;
-}
-
-.shara-link {
-  color: black;
-  margin-right: 10px;
-}
-
-.category-edit-link {
-  color: #003b90;
-  margin-right: 10px;
-}
-
-
-
-// カテゴリー
-.category-card {
- padding: 5px 50px;
- margin-bottom: 30px;
- border: 0px none;
-}
-
-.category-form {
- color: black;
- background-color: $cLiteBlue;
- padding: 5px 50px;
- border: 0px none;
-}
-
-//更新ボタン・作成ボタン
-.category-button {
-  color: white;
-  margin-top:70px;
-  padding: 10px 50px;
-  background-color: $cPurple;
-  border: 0px none;
-  border-radius: 5px;
-}
-
-
-
-// 削除ボタン
-.category-delete {
-  margin-top: 350px;
-  padding: 10px 50px;
-  background-color: $cRed;
-}

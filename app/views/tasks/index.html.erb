@@ -22,7 +22,7 @@
             <% @categorys.each do |c| %>
               <% if t.category_id == c.id%> 
                 <div  data-id="<%= t.id%>"  v-if="isActive === '<%= t.category_id %>'">
-                  <section class="task-card">
+                  <section class="card__drag">
                     <div class="card__content">
     
                       <div class="card__left__content">
@@ -65,6 +65,7 @@
           <% end %> 
         </div>
       </div>
+    </ul>
 
   </div>
 

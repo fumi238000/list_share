@@ -8,7 +8,7 @@ $cBlack: black;
 
 
 .form-top {
-  max-width: 800px;
+  // max-width: 800px;
   display: flex;
   margin: 0 auto;
   background-color: $cWhite;
@@ -35,7 +35,7 @@ $cBlack: black;
 }
 
 .form {
-  max-width: 800px;
+  // max-width: 800px;
   margin: 0 auto;
   & .form__title{
     color: $cPurple;

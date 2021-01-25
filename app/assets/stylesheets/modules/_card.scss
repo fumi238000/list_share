@@ -6,16 +6,16 @@ $cRed: rgb(237,85,27);  //赤
 $cWhite: white;
 $cBlack: black;
 
+.card {
+   margin-bottom: 10px;
+ }
 
-.task-card {
+.card__drag {
   
   .card__content {
     display: flex;
-    max-width: 1280px;
     background-color: $cWhite;
     margin-bottom: 10px;
-    
-    
     
     .card__left__content {
         text-align: left;
@@ -54,14 +54,14 @@ $cBlack: black;
           color: $cPurple;
           margin-right: 10px; 
         }
+         
+        & .shara {
+        color: black;
+        margin-right: 10px;
+        }
       }
     }
 }
-
-
-
-
-
 
 
 
@@ -72,6 +72,5 @@ $cBlack: black;
  
 
  
- .card {
-   margin-bottom: 10px;
- }
+ 
+
