@@ -9,8 +9,8 @@
 <p class="task__name">【<%= @task.name %>】</p>
 
 <% if @comments.empty? %>
-  <div class="card p-3 text-center">
-    <p>登録されているコメントはありません</p>
+  <div>
+    <p class="no__data__card">登録されているコメントはありません</p>
   </div>
 
 <% else %>

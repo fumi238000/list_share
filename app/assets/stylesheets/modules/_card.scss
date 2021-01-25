@@ -62,6 +62,13 @@
 }
 
 
+/* 情報がない場合のカード*/
+.no__data__card {
+  padding: 20px;
+  background-color: $cWhite;
+  box-shadow: 1px 1px 4px gray;  
+}
+
 
 .checkbox{
   margin-right: 15px;

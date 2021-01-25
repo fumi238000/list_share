@@ -24,8 +24,33 @@
 
 #participation-btn {
   text-align: center;
-
+  
   & .float-purple {
    margin-top: 30px;
   }
+}
+
+
+/*参加者のカード*/
+.participation__card {
+  display: flex;
+  background-color: $cWhite;
+  padding: 20px 40px;
+  margin: 0 auto;
+
+
+  & .number {
+    flex: 15%;
+  }
+
+   & .user__name {
+    flex: 70%;
+    text-align: center;
+   }
+
+   & .delete__btn {
+    flex: 15%;
+     text-align: right;
+   }
+
 }
