@@ -1,7 +1,7 @@
 @import "modules/variables";
 
+/* キャンセル + タイトル + 余白 */
 .form-top {
-  // max-width: 800px;
   display: flex;
   margin: 0 auto;
   background-color: $cWhite;
@@ -28,7 +28,6 @@
 }
 
 .form {
-  // max-width: 800px;
   margin: 0 auto;
   & .form__title{
     color: $cPurple;
@@ -44,5 +43,30 @@
     width: 100%;
     padding: 10px;
     box-shadow: 0 0 3px 1px rgba(0,0,0,0.1) inset;
+  }
+}
+
+
+/* キャンセル + リンク*/
+.form__index {
+  display: flex;
+  margin: 0 auto;
+  height: 5vh;
+  width: 100%;
+  margin-top: 30px;
+  justify-content: center;
+
+  & .back {
+    flex: 50%;
+    text-align: left;
+    font-size: 10px;
+    padding: 10px;
+  }
+  
+   & .link {
+    flex: 50%;
+    font-size: 14px;
+    text-align: right;
+    padding: 10px;
   }
 }

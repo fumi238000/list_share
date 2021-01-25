@@ -13,6 +13,17 @@
   }
 }
 
+.task__name {
+  margin: 30px;
+  font-size: 20px;
+  // font-size: font-lg;
+}
+
+.link {
+  & span {
+  padding-right: 10px;
+  }
+}
 
 /*-------------------------
 link

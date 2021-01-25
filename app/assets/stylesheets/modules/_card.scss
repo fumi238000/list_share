@@ -5,11 +5,13 @@
  }
 
 .card__drag {
+    box-shadow: 2px 2px 4px gray;  
   
   .card__content {
     display: flex;
     background-color: $cWhite;
     margin-bottom: 10px;
+    
     
     .card__left__content {
         text-align: left;

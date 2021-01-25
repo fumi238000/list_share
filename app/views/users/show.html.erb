@@ -17,11 +17,12 @@
 </section>
 
 
-<div class="mb-3 border border-white">
-  <p>ユーザー名 : <%= @user.name %></p>
-  <p>メールアドレス : <%= @user.email %></p>
-  <p>登録日 : <%= @user.created_at.to_s(:datetime_jp) %></p>
-  <p>利用日数： <%= @continued_day %>日 </p>
+<div class="user__data">
+  <p class="font-md">【ユーザー情報】</p>
+  <p><span>ユーザー名 : </span><%= @user.name %></p>
+  <p><span>メールアドレス : </span><%= @user.email %></p>
+  <p><span>登録日 : </span><%= @user.created_at.to_s(:datetime_jp) %></p>
+  <p><span>利用日数：</span> <%= @continued_day %>日 </p>
 </div>  
 
 

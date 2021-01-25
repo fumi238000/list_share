@@ -8,10 +8,23 @@
 /*ログアウト*/
 #logout-btn {
  text-align: center;
- margin-bottom: 50px;
+ margin: 50px 0;
+ 
 }
 
 .user-btn {
  text-align: center;
  margin-top: 50px;
+}
+
+.user__data {
+  background-color: $cWhite;
+  padding: 10px;
+  box-shadow: 2px 2px 4px gray;  
+
+    span {
+    color: $cPurple;
+  }
+
+
 }
