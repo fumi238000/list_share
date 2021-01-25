@@ -10,15 +10,15 @@
   <%= f.hidden_field :user, value: @user %>
   <p><%= f.file_field :image, accept: "image/png,image/jpeg,image/gif" ,class: "btn btn-primary btn-block " %></p>
     
-    <section id="user-btn">
+    <section class="user-btn">
       <%= f.submit "送信", class:"btnn float-purple"%>
     </section>
 <% end %>
 
-
 <% if @user.image? %>
-  <section id="user-btn">
-    <%= link_to "画像の初期化", user_path, class:"btnn float-purple", method: :delete, data: { confirm: "デフォルトに戻しますか？" } %> 
+  <section class="user-btn">
+    <%= link_to user_path, method: :delete, data: { confirm: "デフォルトに戻しますか？" } do %> 
+      <button class="btnn float-red">画像の初期化</button> 
+    <% end %>
   </section>
-
 <% end %>
