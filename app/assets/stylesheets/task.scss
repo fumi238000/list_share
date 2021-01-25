@@ -24,7 +24,7 @@ link
   text-align: right;
   margin-bottom: 15px;
   span {
-    padding-right: 10px;
+    margin-right: 10px;
   }
 
 }
@@ -51,47 +51,3 @@ tab
     color: $cWhite;
     cursor: auto;
   }
-  .article{
-    overflow: hidden;
-    margin-top: -1px;
-  }
-  .article li {
-    width: 320px;
-    padding: 20px;
-    border: 1px solid $cWhite;
-  }
-
-
-/*-------------------------
-card
--------------------------*/
-
-.checkbox{
- padding-right: 15px;
- color: #003b90;
-}
-
-.grid {
-  color: #003b90;
-  margin-right: 10px;
-}
-
-.task-name {
-  padding-right: 30px;
-  font-size: 20px;
-}
- 
-.task-edit-link {
-  color: #003b90;
-  margin-right: 10px; 
-}
-
-
-.task-comment-link {
-  color: #003b90;
-  margin-right: 10px; 
-}
-
-.card {
-  margin-bottom: 10px;
-}
