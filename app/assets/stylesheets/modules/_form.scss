@@ -4,7 +4,6 @@
 .form-top {
   display: flex;
   margin: 0 auto;
-  background-color: $cWhite;
   height: 5vh;
   width: 100%;
   margin-top: 30px;
@@ -29,11 +28,13 @@
 
 .form {
   margin: 0 auto;
+  
   & .form__title{
     color: $cPurple;
+    
     margin-top: 50px;
     // @extend .font-sm;
-     border-left: solid 5px $cPurple;
+     border-left: solid 5px $cPurple;   
      padding-left: 10px;
   }
 
@@ -42,7 +43,9 @@
     height: 10vh;
     width: 100%;
     padding: 10px;
-    box-shadow: 0 0 3px 1px rgba(0,0,0,0.1) inset;
+    // box-shadow: 0 0 3px 1px rgba(0,0,0,0.1) inset;
+    box-shadow: 2px 2px 4px gray;  
+
   }
 }
 

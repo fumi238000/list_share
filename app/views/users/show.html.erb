@@ -1,23 +1,22 @@
 <h1>MyPage</h1>
 
  <%# ユーザー編集ボタン %>
- <div class="text-right">
+ <div class="page__link">
     <%= link_to  edit_user_registration_path ,method: :get do %>
     <span>ユーザー編集画面</span><i class="fas fa-pen"></i>
     <% end %>
  </div>  
 
-<p class="text-center m-5"><%= image_tag @user.image.url %></p>
-
-
-<section id="image-edit-btn">
-  <%= link_to edit_user_path(@user), method: :get do %>
-    <button class="btnn float-black">画像の編集</button> 
-  <% end %>
-</section>
-
-
 <div class="user__data">
+
+  <p class="text-center m-5"><%= image_tag @user.image.url %></p>
+
+  <section class="image-edit-btn">
+    <%= link_to edit_user_path(@user), method: :get do %>
+      <button class="btnn float-black">画像の編集</button> 
+    <% end %>
+  </section>
+
   <p class="font-md">【ユーザー情報】</p>
   <p><span>ユーザー名 : </span><%= @user.name %></p>
   <p><span>メールアドレス : </span><%= @user.email %></p>
@@ -26,7 +25,7 @@
 </div>  
 
 
-<section id="logout-btn">
+<section class="logout-btn">
   <%= link_to destroy_user_session_path, method: :delete do %>
     <button class="btnn float-red">ログアウト</button> 
   <% end %>
