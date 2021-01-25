@@ -6,7 +6,9 @@
 
 .card__drag {
     box-shadow: 2px 2px 4px gray;  
-  
+    padding: 20px;
+    background-color: $cWhite;
+    
   .card__content {
     display: flex;
     background-color: $cWhite;
