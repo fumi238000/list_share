@@ -87,6 +87,18 @@
         border: 2px solid $cInfo;
      }
 
+       &.float-secondary {
+       background-color: $cSecondary;
+       color: $cWhite;
+       border: 2px solid $cSecondary;
+      }
+      
+      &.float-secondary:hover {
+        background-color:$cWhite;
+        color: $cSecondary;
+        border: 2px solid $cSecondary;
+     }
+
 
 
 

@@ -1,7 +1,6 @@
 /******************************************************************
 responsible
 ******************************************************************/
-
 @media screen and (min-width: 480px) {
   @import "breakpoints/480up";
 }
@@ -27,10 +26,13 @@ responsible
 }
 
 
-.devise-btn {
-  text-align: center;
-  margin: 20px 0;
-}
+
+
+  
+  .devise-btn {
+    text-align: center;
+  }
+  
 
 
 
