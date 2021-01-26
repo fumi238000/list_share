@@ -1,0 +1,78 @@
+@import "modules/variables";
+
+.card {
+   margin-bottom: 10px;
+ }
+
+.card__drag {
+  box-shadow: 2px 2px 4px gray;
+  padding: 20px;
+  background-color: $cWhite;
+  margin-bottom: 5px;  
+
+  .card__content {
+    display: flex;
+    background-color: $cWhite;
+    margin-bottom: 10px;
+    
+    .card__left__content {
+        text-align: left;
+        flex: 70%;
+        padding: 10px;    
+
+        & .checkbox {
+          color: $cBlack;
+        }
+ 
+        & .grid {
+          color: $cPurple;
+          margin-right: 10px;
+        }
+        
+        & .name {
+          color: $cBlack;
+          margin-right: 10px;
+          font-size: 14px;
+          // font-size: .font-sm; 
+        }
+      }
+
+      .card__right__content {
+        flex: 30%;
+        text-align: right;
+        padding: 10px;    
+        
+        & .edit {
+          color: $cPurple;
+          margin-right: 10px; 
+        }
+        & .comment {
+          color: $cPurple;
+          margin-right: 10px; 
+        }
+         
+        & .shara {
+        color: black;
+        margin-right: 10px;
+        }
+      }
+    }
+}
+
+
+/* 情報がない場合のカード*/
+.no__data__card {
+  padding: 20px;
+  background-color: $cWhite;
+  box-shadow: 1px 1px 4px gray;  
+}
+
+.checkbox{
+  margin-right: 15px;
+  color: #003b90;
+ }
+ 
+
+ 
+ 
+

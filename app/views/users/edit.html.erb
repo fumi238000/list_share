@@ -1,18 +1,29 @@
 <h1>画像編集</h1>
 
-<div class="text-left ml-3">
-  <span>
-    <%= link_to "戻る", user_path(@user), class: 'text-dark'%>
-  </span>
-</div>
+<section class="page__back">
+  <%= link_to "キャンセル", user_path(@user), class: 'back__style'%>
+</section>
 
-<%= form_with model: @user, local: true do |form| %>
-  <p><%= form.hidden_field :user, value: @user %></p>
-  <p><%= form.file_field :image, accept: "image/png,image/jpeg,image/gif" ,class: "btn btn-primary btn-block" %></p>
-  <p><%= form.submit "送信", class: "btn btn-primary btn-block"%></p>
+<%= form_with model: @user, local: true do |f| %>
+  <div class="image__form">
+    <%= f.hidden_field :user, value: @user %>
+    <div class="image__title">
+      <p class="font-md">イメージ写真</p>
+    </div>
+    <div class="image__select__form">
+      <%= f.file_field :image, accept: "image/png,image/jpeg,image/gif" %>
+    </div>
+  </div>
+    
+    <div class="user-btn">
+      <%= f.submit "送信", class:"btnn float-purple"%>
+    </div>
 <% end %>
 
-
 <% if @user.image? %>
- <%= link_to "画像の初期化", user_path, method: :delete, data: { confirm: "デフォルトに戻しますか？" } %> 
+  <div class="user-btn">
+    <%= link_to user_path, method: :delete, data: { confirm: "デフォルトに戻しますか？" } do %> 
+      <button class="btnn float-red">画像の初期化</button> 
+    <% end %>
+  </div>
 <% end %>

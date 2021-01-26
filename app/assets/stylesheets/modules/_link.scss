@@ -1,0 +1,20 @@
+@import "modules/variables";
+
+/* キャンセルリンク用 */
+.page__back {
+  margin: 20px 0px 20px 10px;
+  max-width: $contentMaxWidth;
+  & .back__style {
+    color: $cBlack;
+    font-size: 14px;
+    // font-size: font-sm;
+  }
+}
+
+.page__link {
+    text-align: right;
+    padding: 35px;
+  span {
+    padding-right: 5px;
+  }
+}

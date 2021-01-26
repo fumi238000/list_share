@@ -1,0 +1,54 @@
+@import "modules/variables";
+
+
+
+.user__data {
+  background-color: $cWhite;
+  padding: 20px;
+  box-shadow: 2px 2px 4px gray;
+  max-width: 600px;
+  margin: 0 auto;
+    span {
+    color: $cPurple;
+  }
+}
+
+.image__form {
+  background-color: white;
+  padding: 5px 10px;
+  margin-top: 50px;
+  max-width: $contentMaxWidth;
+  box-shadow: 2px 2px 4px gray;  
+
+  & .image__title {
+    color: $cPurple;
+    // @extend .font-sm;
+     border-left: solid 5px $cPurple;
+     padding-left: 10px;
+   }
+& .image__select__form {
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+}
+
+.user-btn {
+ text-align: center;
+ margin-top: 50px;
+ background-color: $cLiteBlue;
+}
+ 
+/*画像編集ボタン*/
+.image-edit-btn {
+ text-align: center;
+  margin-top:50px;
+  margin-bottom:50px;
+}
+
+/*ログアウトボタン*/
+.logout-btn {
+ text-align: center;
+ margin: 50px 0;
+ 
+}

@@ -1,0 +1,38 @@
+/******************************************************************
+
+Stylesheet: 1280px以上のモニタで適用
+
+******************************************************************/
+.font-sm {
+  font-size: 19px;
+}
+.font-md {
+  font-size: 23px;
+}
+.font-lr {
+  font-size: 28px;
+}
+.font-lg {
+  font-size: 40px;
+}
+
+.mb-sm {
+  margin-bottom: 16px !important;
+}
+.mb-lg {
+margin-bottom: 150px !important;
+}
+
+.pb-sm {
+margin-bottom: 16px !important;
+}
+.pb-lg {
+margin-bottom: 150px !important;
+}
+
+/* homeタイトル*/
+#home-title {
+  .main {
+    font-size: 60px;
+  }
+}

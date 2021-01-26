@@ -1,0 +1,45 @@
+ @import "modules/variables";
+
+/******************************************************************
+
+Stylesheet: 960px以上のモニタで適用
+
+******************************************************************/
+.font-sm {
+  font-size: 16px;
+}
+.font-md {
+  font-size: 19px;
+}
+.font-lr {
+  font-size: 23px;
+}
+.font-lg {
+  font-size: 36px;
+}
+
+.mb-sm {
+  margin-bottom: 16px !important;
+}
+.mb-lg {
+margin-bottom: 150px !important;
+}
+
+.pb-sm {
+margin-bottom: 16px !important;
+}
+.pb-lg {
+margin-bottom: 150px !important;
+}
+
+h1 {
+  text-align: left;
+}
+
+/* homeタイトル*/
+#home-title {
+  .main {
+    font-size: 40px;
+  }
+}
+

@@ -1,0 +1,62 @@
+ @import "modules/variables";
+
+/******************************************************************
+
+Stylesheet: ベーススタイル
+
+******************************************************************/
+body {
+  font-family: 'Kameron','Noto Sans JP', sans-serif;
+  background-color:  #f0f8ff;
+  // background-color: $cLiteBlue; 後日こちらへ
+}
+
+.font-sm {
+  font-size: 14px;
+}
+.font-md {
+  font-size: 17px;
+}
+.font-lr {
+  font-size: 17px;
+}
+.font-lg {
+  font-size: 25px;
+}
+
+.mb-sm {
+    margin-bottom: 16px !important;
+}
+.mb-lg {
+  margin-bottom: 80px !important;
+}
+
+.pb-sm {
+  margin-bottom: 16px !important;
+}
+.pb-lg {
+margin-bottom: 80px !important;
+}
+
+.content-width {
+  width: 90%;
+  margin: 0 auto;
+  min-width: 480px;
+  max-width: 1070px;
+  // max-width: $contentMaxWidth;
+}
+
+h1 {
+  color: $cPurple;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+
+//* homeタイトル*/
+#home-title {
+  .main {
+    font-size: 30px;
+  }
+}

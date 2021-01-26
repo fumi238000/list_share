@@ -1,27 +1,23 @@
-<div>
-  <%# キャンセルボタン %>
-  <div class ="text-left ">
-    <span><%= link_to "キャンセル", tasks_path, class: 'text-dark'%></span>
-  </div>
-  <%# 追加ボタン %>
-  <div class ="text-right ">
-    <%= link_to new_comment_path(task_id: @task_id), class: "btn text-primary btn-sm btn-sm mr-1", :method => :get do %> 
-      <span class="mr-2">コメントを追加</span><i class="fas fa-plus-circle"></i>
+<section class="form__index">
+  <div class= "back"><%= link_to "キャンセル", tasks_path%></div>
+  <div class="link">
+    <%= link_to new_comment_path(task_id: @task_id), class:"link__color",:method => :get do %> 
+      <span>コメントを追加</span><i class="fas fa-plus-circle"></i>
     <% end %>
   </div>
-  <h4 class="mb-3">【<%= @task.name %>】</h4>
-</div>
+</section>
+<p class="task__name">【<%= @task.name %>】</p>
 
 <% if @comments.empty? %>
-  <div class="card p-3 text-center">
-    <p>登録されているコメントはありません</p>
+  <div>
+    <p class="no__data__card">登録されているコメントはありません</p>
   </div>
 
 <% else %>
 
   <%# コメントカード %>
   
-  <div class="card p-3">
+  <div class="p-3">
     <% @comments.each do |c| %>
       <% if c.task_id == @task_id %>
 

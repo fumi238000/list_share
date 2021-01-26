@@ -13,12 +13,23 @@
  *= require_tree .
  *= require_self
  */
+ 
+ /* bootstrap*/
+ @import "bootstrap";
 
- @import "bootstrap/scss/bootstrap";
- @import 'font-awesome-sprockets';
- @import 'font-awesome';
- @import "@fortawesome/fontawesome-free/scss/fontawesome";
- @import "home";
+ /* modules*/
+ @import "modules/variables";
+ @import "modules/button";
+ @import "modules/form";
+ 
+ /* responsible */
+ @import "breakpoints/base";
+ @import "common";
+
+/******************************************************************
+devise
+******************************************************************/
+
 
  .mw-md {
   max-width: 576px;
@@ -34,10 +45,9 @@
 }
 
 
-
 //header
 .header-color {
-  background-color: rgb(0, 59, 144);
+  background-color: $cPurple;
 }
 
 .nav-color {
@@ -61,7 +71,7 @@
 }
 
 footer {
-  background-color: rgb(0, 59, 144);
+  background-color: $cPurple;
   margin-top: auto;
 }
 
@@ -86,7 +96,7 @@ footer {
 
 //データリセット
 .reset-button {
-  background-color: #ed551b;
+  background-color: $cRed;
   border: 0px none;
   margin-top: 100px;
   border-radius: 5px;
@@ -95,52 +105,9 @@ footer {
 // ログアウト
 .logout-button {
   padding: 10px 50px;
-  background-color: #ed551b;
+  background-color: $cRed;
   margin-top: 50px;
   border-radius: 5px;
-}
-
-
-
-
-// カテゴリー
-
-.category-card {
- color: black;
- background-color:#bce2e8;
- padding: 5px 50px;
- margin-bottom: 30px;
- border: 0px none;
-}
-
-.category-form {
- color: black;
- background-color:#bce2e8;
- padding: 5px 50px;
- border: 0px none;
-}
-
-//更新ボタン・作成ボタン
-.category-button {
-  color: white;
-  margin-top:70px;
-  padding: 10px 50px;
-  background-color: #003b90;
-  border: 0px none;
-  border-radius: 5px;
-}
-
-.category-submit {
- border: 0px none;
-//form内の色を付けたい場合
-//background-color:rgba(188,226,232,0.9)
-}
-
-// 削除ボタン
-.category-delete {
-  margin-top: 350px;
-  padding: 10px 50px;
-  background-color: #ed551b;
 }
 
 
@@ -153,36 +120,14 @@ footer {
 }
 
 .icon-style {
-  color: rgba(0,59,144,0.9);
+  color: $cPurple;
 }
 
-.comment-bg {
-  color: #003b90;
-  background-color:rgba(188,226,232,0.9);
-  
-}
 
 //hover時に下線を表示させない
 a:hover {
   text-decoration: none;  
 }
 
-//メインカラーメモ
-
-// ①メイン１（header/更新ボタン)
-// background-color:rgba(0,59,144,0.9)
-// background-color: #003b90;
-
-// ②メイン２(formの背景)
-// background-color:rgba(188,226,232,0.9)
-// background-color:#bce2e8
-
-// ③メイン3(文字)
-// background-color:rgba((0,132,202,0.9)
-// background-color: #0084b6;
-
-// ④削除
-// rgb(237,85,27) 
-// background-color:#ed551b;
 
 

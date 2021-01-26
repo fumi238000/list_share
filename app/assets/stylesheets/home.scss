@@ -1,62 +1,45 @@
-/*-------------------------
-title
--------------------------*/
-.home-title {
-  h1{
-    color: #003b90;
-    font-size: 60px;
-    margin-top: 30px;
+@import "modules/button";
+ @import "breakpoints/base";
+
+#home-title {
     text-align: center;
-  }
-  h5 {
-    color: black;
-    font-size: 20px;
-    margin-bottom: 50px;
-    text-align: center;
+    margin-bottom: 30px;
 
-  }
+    .main {
+      color: $cPurple;
+      margin-top: 30px;
+    }     
+     .font-sm {
+      color: $cPurple;
+      margin-top: 30px;
+      text-align: center;
+    }
 }
 
-/*-------------------------
-button/link
--------------------------*/
-.gest-btn {
-  margin-right: 15px;
-  background-color: #003b90;
+#home-btn {
+  text-align: center;
+  // margin:30px;
 }
 
-.registration-btn {
-  margin-left: 15px;
-  background-color: #003b90;
-}
 
-.login-link {
+#login-link {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 70px;
 }
 
-/*-------------------------
-content
--------------------------*/
-.top-image {
-  padding-bottom: 50%;
-  float: left;
+
+#top-image {
+  text-align: center;
+  margin-bottom: 50px;
+  // @include mb-lg;
 }
 
-.home-text {
-  float: right;
-  padding-left: 50px;
-
-  h4 {
-    font-size: 20px;
+#home-text {
+  text-align: center;
+  & .font-lr {
     font-weight: bolder;
-  }
-
-  p {
-    font-size: 16px;
-    margin-bottom: 30px;
+    color: $cPurple;
   }
 }
-
 

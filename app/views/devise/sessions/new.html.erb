@@ -27,13 +27,18 @@
 
  
   <div class="form-group">
-    <%= f.submit  t('.sign_in'), class: 'btn btn-primary btn-block' %>
+    <div class="devise-btn">  
+      <%= f.submit  t('.sign_in'), class: 'btnn float-purple' %>
+    </div>
   </div>
 <% end %>
 
-  <div>  
-    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-primary text-light btn-block",method: :post %>
+  <div class="devise-btn">
+      <%= link_to  users_guest_sign_in_path,method: :post do %>
+        <button class="btnn float-purple">ゲストログイン</button>
+      <% end %>
   </div>
+
 
 
 <%= render 'devise/shared/links' %>
