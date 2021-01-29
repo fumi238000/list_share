@@ -1,19 +1,13 @@
+// import Vue from 'vue'
 import Vue from 'vue/dist/vue.esm'
-import App from '../app.vue'
+import App from 'App.vue'
 
-document.addEventListener('turbolinks:load', () => {
-  const app = new Vue({
-    data: () => {
-      return {
-      }
-    },
-    components: { App }
-  })
-}),
+Vue.config.productionTip = false
 
-new  Vue({
-  el: '#app',
-  data: {
-    message: 'Hello Vue.js'
-  }
-})
+console.log(App);
+
+  new Vue({
+
+    render: h => h(App)
+  }).$mount('#app');
+

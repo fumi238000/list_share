@@ -7,23 +7,6 @@
     <span><a v-bind:href="href" >タスクを追加</span><i class="fas fa-plus-circle"></i></a>
   </div> 
 
-
-<%#ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー %>
-<%# ここに記述する %>
-
-
-<div id="app">
-  <p>こんにち{{ message }}こんにちは</p>
-</div>
-
-
-
-
-
-<%#ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー %>
-
-
-
   <div class="tab_box">
 
     <%# カテゴリーリスト start %>
@@ -91,8 +74,22 @@
 
 
 
+<%#ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー %>
+<%# ここに記述する %>
+
+<div id ="app">
+{{ message }}
+<div>
+
+<%#ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー %>
+
+
+
+
+
 <%# Vue.js %>
 <%= javascript_pack_tag 'main' %> 
 <%= javascript_pack_tag 'tab_vue' %> 
+<%#= javascript_pack_tag 'hooper_vue' %> 
 
 
