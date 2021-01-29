@@ -8,7 +8,6 @@ class CategorysController < ApplicationController
 
   def index
      @categorys = Category.order(:position)
-    #  @categorys = current_user.categorys.order(:position)
   end
 
 
@@ -18,11 +17,14 @@ class CategorysController < ApplicationController
 
 
   def create
-    category = current_user.categorys.create(category_params)
-    if category.save
-      redirect_to categorys_path, notice:"作成しました" 
+    @category = current_user.categorys.create(category_params)
+    if @category.save
+      redirect_to categorys_path, notice:"【#{@category[:name]}】を作成しました" 
     else
-      redirect_to new_category_path, alert: "エラーが発生しました。重複・空投稿の可能性はありませんか？"
+       binding.pry
+      # redirect_to new_category_path, alert: "#{@category.errors.full_messages}"
+      binding.pry
+      redirect_to new_category_path, alert: @category.errors.full_messages    
     end
   end
 
@@ -33,16 +35,17 @@ class CategorysController < ApplicationController
 
   def update
     if @category.update(category_params)
-      redirect_to categorys_path, notice: "更新しました"
+      redirect_to categorys_path, notice: "【#{@category[:name]}】に変更しました"
     else
-      redirect_to edit_category_path, alert: "更新できませんでした"
+      redirect_to edit_category_path, alert: @category.errors.full_messages
+      # redirect_to edit_category_path, alert: "更新できませんでした"
     end
   end
 
 
   def destroy
     @category.destroy
-    redirect_to categorys_path, alert: "削除しました"
+    redirect_to categorys_path, alert: "【#{@category[:name]}】を削除しました"
   end
 
   def move
@@ -54,7 +57,6 @@ class CategorysController < ApplicationController
   private
 
   def category_params
-    binding.pry
     params.require(:category).permit(:name)
   end
 

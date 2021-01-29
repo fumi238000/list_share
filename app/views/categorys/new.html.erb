@@ -1,3 +1,4 @@
+
 <%= render "form" %>
 
 <section class="form">
@@ -5,13 +6,16 @@
     <p>カテゴリー名</p>
   </div>
 
+
   <%= form_with model: @category, url: "/categorys", method: :post, local: true do |f| %>
+    <%= render 'error_form', locals: { category: @category } %>
+    <div>
     <%= f.hidden_field :category, value: @category %>
     <p><%= f.text_field :name ,size: 50, class: "form__submit"%></p>
-     
-     <section id="category-btn">
+    </div> 
+     <div id="category-btn">
       <%= f.submit "新規作成", class:"btnn float-purple"%>
-    </section>
+    </div>
   <% end %>
 </section>
 
