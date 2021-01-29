@@ -10,21 +10,15 @@
   </head>
 
   <body>
-    <header>
-      <%= render 'layouts/header' %>
-    </header>
-    <main class="main">
-      <div id="wrapper">
+    <div id="wrapper">
+      <header><%= render 'layouts/header' %></header>
+      <main class="main">
         <%= render "layouts/flash" %>
         <div class="container">
-          <%= yield %>
-        </div>
-    </main>
-    <footer>
-      <%= render 'layouts/footer' %>
-    </footer>
+        <%= yield %>
+      </div>
+      </main>
+      <footer><%= render 'layouts/footer' %></footer>
     </div>
   </body>
-  
-
 </html>
