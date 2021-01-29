@@ -23,10 +23,12 @@ class CommentsController < ApplicationController
 
 
   def edit
+    @task_id = Comment.find(params[:id]).task.id
   end
 
 
   def update
+    binding.pry
     if @comment.update(comment_params)
       redirect_to task_path(@comment.task_id), notice: "コメントを更新しました"
     else
