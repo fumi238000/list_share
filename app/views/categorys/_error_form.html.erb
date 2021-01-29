@@ -1,5 +1,4 @@
 <% if @category.errors.any? %>
-  <% binding.pry %>
   <div class = "alert">
     <ul>
       <% @category.errors.full_messages.each do |message| %>

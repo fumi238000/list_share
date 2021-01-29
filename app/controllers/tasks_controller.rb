@@ -24,7 +24,6 @@ class TasksController < ApplicationController
 
 
   def create
-    binding.pry
     task = Task.new(name: task_params[:name], category_id: task_params[:category_id])
     if task.save
       redirect_to tasks_path, notice:"【#{task[:name]}】を作成しました"
@@ -43,17 +42,14 @@ class TasksController < ApplicationController
 
   
   def edit
-    binding.pry
     @category_id = @task.category_id
   end
 
 
   def update
-    binding.pry
     if @task.update(task_params)
       redirect_to tasks_path, notice: "【#{@task[:name]}】に変更しました"
     else
-      binding.pry
       redirect_to edit_task_path, alert: "更新に失敗しました"
     end
   end

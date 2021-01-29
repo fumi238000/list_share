@@ -21,9 +21,7 @@ class CategorysController < ApplicationController
     if @category.save
       redirect_to categorys_path, notice:"【#{@category[:name]}】を作成しました" 
     else
-       binding.pry
       # redirect_to new_category_path, alert: "#{@category.errors.full_messages}"
-      binding.pry
       redirect_to new_category_path, alert: @category.errors.full_messages    
     end
   end
