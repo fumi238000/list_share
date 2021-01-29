@@ -5,9 +5,10 @@
 Stylesheet: ベーススタイル
 
 ******************************************************************/
-body {
+html,body {
   font-family: 'Kameron','Noto Sans JP', sans-serif;
   background-color:  #f0f8ff;
+  height: 100%;
   // background-color: $cLiteBlue; 後日こちらへ
 }
 
