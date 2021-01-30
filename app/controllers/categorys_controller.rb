@@ -21,10 +21,7 @@ class CategorysController < ApplicationController
     if @category.save
       redirect_to categorys_path, notice:"【#{@category[:name]}】を作成しました" 
     else
-      # redirect_to new_category_path, alert: "#{@category.errors.full_messages}"
-      # ここをrenderにすると、if文が作動するよ！ 書き方確認する　ダサいz
       render "new"
-      # redirect_to new_category_path, alert: @category.errors.full_messages  
     end
   end
 
@@ -38,8 +35,6 @@ class CategorysController < ApplicationController
       redirect_to categorys_path, notice: "【#{@category[:name]}】に変更しました"
     else
       render "edit"
-      # redirect_to edit_category_path, alert: @category.errors.full_messages
-      # redirect_to edit_category_path, alert: "更新できませんでした"
     end
   end
 
