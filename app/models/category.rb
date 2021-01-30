@@ -2,7 +2,8 @@ class Category < ApplicationRecord
   belongs_to :user
   acts_as_list scope: :user
 
-  validates :name, presence: { message:"は１文字以上入力してください。"}
+  validates :name, presence: true
+  # validates :name, presence: { message:"は１文字以上入力してください。"}
   validates :name, length: { maximum: 20 }
 
   # validates :name, :uniqueness => {:scope => :user_id}

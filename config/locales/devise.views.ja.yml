@@ -141,20 +141,3 @@ ja:
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
-
-
-
-ja:
-  activerecord:
-    models:
-      task:　タスク
-    attributes:
-      task:
-        name: タスク名
-    errors:
-      models:
-        task:
-          attributes:
-            name:
-              format: '%{message}'
-              blank: この%{attribute}は１文字以上入力してください。

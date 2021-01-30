@@ -1,21 +1,20 @@
 
 <%= render "form" %>
 
+<%= render 'error_form',  model: @category %>
+
 <section class="form">
   <div class="form__title">
     <p>カテゴリー名</p>
   </div>
 
-
   <%= form_with model: @category, url: "/categorys", method: :post, local: true do |f| %>
-    <%= render 'error_form', locals: { category: @category } %>
-    <div>
     <%= f.hidden_field :category, value: @category %>
     <p><%= f.text_field :name ,size: 50, class: "form__submit"%></p>
-    </div> 
      <div id="category-btn">
       <%= f.submit "新規作成", class:"btnn float-purple"%>
     </div>
   <% end %>
+
 </section>
 
