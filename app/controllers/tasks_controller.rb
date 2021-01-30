@@ -24,12 +24,12 @@ class TasksController < ApplicationController
 
 
   def create
-    task = Task.new(name: task_params[:name], category_id: task_params[:category_id])
-    if task.save
-      redirect_to tasks_path, notice:"【#{task[:name]}】を作成しました"
-    else      
-      # redirect_to new_task_path, alert: "エラーが発生しました。重複・空投稿の可能性はありませんか？"
-      redirect_to new_task_path, alert: task.errors.full_messages  
+    @task = Task.new(name: task_params[:name], category_id: task_params[:category_id])
+    if @task.save
+      redirect_to tasks_path, notice:"【#{@task[:name]}】を作成しました"
+    else
+      @category_id = task_params[:category_id]
+      render 'new'
     end 
   end
 
@@ -51,7 +51,8 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to tasks_path, notice: "【#{@task[:name]}】に変更しました"
     else
-      redirect_to edit_task_path, alert: "更新に失敗しました"
+      @category_id = task_params[:category_id]
+      render "edit"  
     end
   end
 
