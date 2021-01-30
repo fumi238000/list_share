@@ -1,5 +1,5 @@
 import Vue from 'vue/dist/vue.esm'
-import App from '../app.vue'
+// import App from 'App.vue'
 
 document.addEventListener('turbolinks:load', () => {
   const app = new Vue({
@@ -15,7 +15,7 @@ new Vue({
   el: '#tabs',
   data: {
     isActive: '1',
-    href:'',
+    href:`/tasks/new?category_id=1`,
   },
   methods: {
     change: function(num){

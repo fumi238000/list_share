@@ -12,8 +12,9 @@ class ParticipationsController < ApplicationController
   PER_PAGE = 3
 
   def new
+    @participation = Participation.new
+    @owner_id = current_user[:id]
     @category_id = params[:format]
-    @participation = Participation.new    
   end
 
 
@@ -25,17 +26,16 @@ class ParticipationsController < ApplicationController
 
 
   def create
-    category_id = participation_params[:category_id]
-    participation = Participation.new(
-                    owner_id: current_user[:id], 
-                    user_id: participation_params[:user_id],
-                    category_id: category_id 
-                    )
-
-    if participation.save
+    @participation = Participation.new(participation_params)
+      
+    if @participation.save
       redirect_to participation_path(category_id), notice:"作成しました"
     else
-      redirect_to new_participation_path(format: category_id),  alert: "入力に誤りがあります。すでに登録されている可能性もあります。"
+      @owner_id = current_user[:id]
+      @category_id = participation_params[:category_id]
+      @q = User.ransack(params[:q])
+      @search_users= @q.result(distinct: true).limit(PER_PAGE)
+      render 'new'
     end
   end
 
@@ -49,7 +49,7 @@ class ParticipationsController < ApplicationController
 private
 
   def participation_params
-    params.require(:participation).permit(:user_id,:category_id)
+    params.require(:participation).permit(:owner_id, :user_id,:category_id)
   end
 
 

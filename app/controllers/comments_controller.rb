@@ -13,25 +13,28 @@ class CommentsController < ApplicationController
 
 
   def create 
-    comment = Comment.create(task_id: comment_params[:task_id], user_id: current_user[:id],content: comment_params[:content])  
-      
-    if comment.save
+    @comment = Comment.create(task_id: comment_params[:task_id], user_id: current_user[:id],content: comment_params[:content])  
+    if @comment.save
       redirect_to task_path(comment_params[:task_id]), notice:"コメントを作成しました"
     else
-      redirect_to new_comment_path, alert: "エラーが発生しました。再度入力してください。"
+      @task_id = comment_params[:task_id]
+      render 'new'
     end
   end
 
 
   def edit
+    @task_id = Comment.find(params[:id]).task.id
   end
 
 
   def update
+    binding.pry
     if @comment.update(comment_params)
       redirect_to task_path(@comment.task_id), notice: "コメントを更新しました"
     else
-      redirect_to edit_comment_path, alert: "エラーが発生しました"
+      @task_id = comment_params[:task_id]
+      render 'edit'
     end
   end
  

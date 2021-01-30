@@ -9,16 +9,18 @@
   <p>参加者ID</p>
   </div>
 
+  <%= render 'layouts/error_form',  model: @participation %>
+
   <%= form_with model: @participation, local: true do |f| %>
-      <%= f.hidden_field :category_id , value: @category_id, size: 2, class: "submit"%>
+      <%= f.hidden_field :owner_id , value: @owner_id %>
       <p><%= f.text_field :user_id , size: 2, class: "form__submit"%></p> 
+      <%= f.hidden_field :category_id , value: @category_id %>
 
     <section id="participation-btn">
         <%= f.submit "作成", class:"btnn float-purple"%>
     </section>
  <% end %>
 </section>
-
 
 <div class="border mt-5 p-3 bg-white">
   <h5 class="mb-3">候補ユーザ検索</h5>
@@ -29,7 +31,6 @@
       <%= f.submit "検索", class: "btn btn-primary" %>
     <% end %>
   </div>
-
 
   <div class="p-3 mt-5">
     <% @search_users.each.with_index(1) do |user,i| %>
