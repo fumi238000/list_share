@@ -37,7 +37,8 @@ class CategorysController < ApplicationController
     if @category.update(category_params)
       redirect_to categorys_path, notice: "【#{@category[:name]}】に変更しました"
     else
-      redirect_to edit_category_path, alert: @category.errors.full_messages
+      render "edit"
+      # redirect_to edit_category_path, alert: @category.errors.full_messages
       # redirect_to edit_category_path, alert: "更新できませんでした"
     end
   end
