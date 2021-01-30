@@ -16,12 +16,19 @@ link
 .new-category-link {
   text-align: right;
   margin-bottom: 15px;
+
   span {
     margin-right: 10px;
   }
 }
 
 
+.name {
+ a:hover {
+  text-decoration: none;  
+  }
+}
+  
 /*-------------------------
 category-card
 -------------------------*/

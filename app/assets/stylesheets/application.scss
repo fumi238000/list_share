@@ -26,65 +26,14 @@
  @import "breakpoints/base";
  @import "common";
 
+
 /******************************************************************
 devise
 ******************************************************************/
-
-
+ // これなに？
  .mw-md {
   max-width: 576px;
 }
-
-// devise
-.alert-notice {
-  @extend .alert-info;
-}
-
-.alert-alert {
-  @extend .alert-danger;
-}
-
-
-//後日修正
-.header-color {
-  background-color: $cPurple;
-}
-
-//後日修正
-.nav-color {
-  font-size: 14px;
-  color: white;
-}
-
-
-/******************************************************************
-wrapper
-******************************************************************/
-
-#wrapper {
-  width: 100%;
-  position: relative;
-  min-height: 100vh; //高さの最小値の指定
-  padding-bottom: 50px;
-}
-
-/******************************************************************
-footer
-******************************************************************/
-footer {
-  background-color: $cPurple;
-  // margin-top: auto;
-  width:100%;
-  height: 30px;
-  position: absolute;
-  bottom: 0;
-  }
-  .footer-text {
-    font-size: 12px;
-    color: white;
-    text-align: center;
-    padding: 5px 0;
-  }
 
 /******************************************************************
 flash
@@ -97,50 +46,10 @@ flash
   @extend .alert-danger;
 }
 
-//マイページ
-
-//データリセット
-.reset-button {
-  background-color: $cRed;
-  border: 0px none;
-  margin-top: 100px;
-  border-radius: 5px;
+.alert-notice {
+  @extend .alert-info;
 }
 
-// ログアウト
-.logout-button {
-  padding: 10px 50px;
-  background-color: $cRed;
-  margin-top: 50px;
-  border-radius: 5px;
+.alert-alert {
+  @extend .alert-danger;
 }
-
-
-.display-none{
-    display:none;
-}
-
-#tabs ul {
-  list-style: none
-}
-
-.icon-style {
-  color: $cPurple;
-}
-
-
-//hover時に下線を表示させない
-a:hover {
-  text-decoration: none;  
-}
-
-
-/******************************************************************
-error_message
-******************************************************************/
- .error-alert {
-    color: $cRed; 
-    background-color: $cWhite;
-    border:1px solid $cRed;
-    padding:12px; font-weight:850;
-  }
