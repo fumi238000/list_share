@@ -1,5 +1,7 @@
 <section class="form__index">
-  <div class= "back"><%= link_to "キャンセル", tasks_path%></div>
+  <div class= "page__back">
+    <%= link_to "キャンセル", tasks_path, class:"back__style"%>
+  </div>
   <div class="link">
     <%= link_to new_comment_path(task_id: @task_id), class:"link__color",:method => :get do %> 
       <span>コメントを追加</span><i class="fas fa-plus-circle"></i>

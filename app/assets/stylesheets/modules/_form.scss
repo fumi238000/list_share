@@ -9,16 +9,16 @@
   margin-top: 30px;
   justify-content: center;
   align-items: center;
+  color: $cPurple;
   
   & .title {
     flex: 50%;
     text-align: center;
     padding: 10px;
   }
-  & .back {
+  & .page__back {
     flex: 25%;
-    font-size: 10px;
-    padding-left: 20px;
+    font-size: 12px;
   }
  & .space {
     flex: 25%;
