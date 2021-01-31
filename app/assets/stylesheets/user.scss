@@ -1,7 +1,5 @@
 @import "modules/variables";
 
-
-
 .user__data {
   background-color: $cWhite;
   padding: 20px;
@@ -12,6 +10,12 @@
     color: $cPurple;
   }
 }
+
+.user__image {
+    text-align: center;
+    margin: 10px;
+  }
+  
 
 .image__form {
   background-color: white;
@@ -39,16 +43,13 @@
  background-color: $cLiteBlue;
 }
  
-/*画像編集ボタン*/
 .image-edit-btn {
  text-align: center;
   margin-top:50px;
   margin-bottom:50px;
 }
 
-/*ログアウトボタン*/
 .logout-btn {
  text-align: center;
- margin: 50px 0;
- 
+ margin: 50px 0; 
 }
