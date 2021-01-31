@@ -51,7 +51,6 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to tasks_path, notice: "【#{@task[:name]}】に変更しました"
     else
-      binding.pry
       @task = Task.find(params[:id])
       @category_id = task_params[:category_id]
       render "edit"  
@@ -74,7 +73,6 @@ private
 
   def set_task
     @task = Task.find(params[:id])
-
   end
 
   def include_category

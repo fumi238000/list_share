@@ -29,7 +29,6 @@ class CommentsController < ApplicationController
 
 
   def update
-    binding.pry
     if @comment.update(comment_params)
       redirect_to task_path(@comment.task_id), notice: "コメントを更新しました"
     else
