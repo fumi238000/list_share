@@ -2,6 +2,8 @@
   <div class= "page__back">
     <%= link_to "キャンセル", categorys_path, class:"back__style"%>
   </div>
-  <div class="title">カテゴリー名</div>
+  <div class="title">
+    <p><%= @category.name %></p>
+  </div>
   <div class="space"></div>
 </section>
