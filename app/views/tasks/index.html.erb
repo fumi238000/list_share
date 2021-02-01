@@ -11,7 +11,7 @@
 
     <%# カテゴリーリスト start %>
     <ul class="tab_list">
-      <% @categorys.each.with_index(1) do |c,i| %>
+      <% @categories.each.with_index(1) do |c,i| %>
         <li v-on:click="change('<%= c.id %>')" v-bind:class="{'active': isActive === '<%= c.id %>'}"><%= i %>.<%= c.name %></li>
       <% end %>
     </ul>
@@ -19,7 +19,7 @@
       <div id="tasks-list">
         <div data-controller = "drag" data-drag-url = "/tasks/id/move">
           <% @tasks.each do |t| %>
-            <% @categorys.each do |c| %>
+            <% @categories.each do |c| %>
               <% if t.category_id == c.id%> 
                 <div  data-id="<%= t.id%>"  v-if="isActive === '<%= t.category_id %>'">
                   <section class="card__drag">

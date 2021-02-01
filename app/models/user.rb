@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 20 }
 
-  has_many :categorys, dependent: :destroy, foreign_key: 'user_id'
-  scope :categorys, -> { order(position: :asc)}
+  has_many :categories, dependent: :destroy, foreign_key: 'user_id'
+  scope :categories, -> { order(position: :asc)}
   
   has_many :check, dependent: :destroy, foreign_key: 'user_id'
   

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     delete :clean, on: :member
   end
 
-  
+
   resources :tasks do
     resource :checks, only: %i[create destroy]
     member do
@@ -20,10 +20,9 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :categorys
-  post 'categorys/new' => 'categorys#new'
+  resources :categories
 
-  resources :categorys do
+  resources :categories do
     member do
       patch :move
     end

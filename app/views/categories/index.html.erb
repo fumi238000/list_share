@@ -2,17 +2,14 @@
 
 <div class="new-category-link">
    <%# 追加ボタン %>
-    <%= link_to new_category_path, :method => :post do %> 
+    <%= link_to new_category_path, :method => :get do %> 
       <span>カテゴリーを追加</span><i class="fas fa-plus-circle"></i>
     <% end %>
 </div>
 
-
-  
-
 <div id="tasks-list">
-  <div data-controller="drag" data-drag-url = "/categorys/id/move">
-    <% @categorys.each do |c| %>
+  <div data-controller="drag" data-drag-url = "/categories/id/move">
+    <% @categories.each do |c| %>
 
         <div class="card" data-id="<%= c.id%>">
           <section class="card__drag">

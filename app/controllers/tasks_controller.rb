@@ -11,7 +11,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.order(position: :asc)
-    @categorys = current_user.categorys.order(:id)
+    @categories = current_user.categoriess.order(:id)
     @checked_task_ids = current_user.check.pluck(:task_id)
   end
 
@@ -80,7 +80,7 @@ private
     
     if @category.user_id == current_user[:id] 
     else
-      redirect_to categorys_path, alert: "そのタスクは権限がありません"
+      redirect_to categories_path, alert: "そのタスクは権限がありません"
     end
     
     @task = Task.find(params[:id])
