@@ -27,6 +27,7 @@ class CategoriesController < ApplicationController
 
 
   def edit
+    @category_name = @category.name
   end
 
 
@@ -34,7 +35,6 @@ class CategoriesController < ApplicationController
     if @category.update(category_params)
       redirect_to categories_path, notice: "カテゴリー名【 #{@category[:name]} 】に変更しました"
     else
-      # @category = Category.find(params[:id])
       render :edit
     end
   end

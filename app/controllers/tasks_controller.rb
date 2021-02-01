@@ -37,15 +37,19 @@ class TasksController < ApplicationController
 
   
   def show
-    comments = Comment.order(id: :desc)
-    @comments = comments.where(user_id: current_user)
+    # comments = Comment.order(id: :desc)
+    # @comments = comments.where(user_id: current_user)
+    @comments = Comment.order(id: :desc).where(user_id: current_user)
+    binding.pry
     @task_id = params[:id].to_i
+    # ログインユーザーが登録したコメントが存在するかしないか？
   end
 
 
   
   def edit
     @category_id = @task.category_id
+    @task_name = @task.name
   end
 
 
@@ -53,7 +57,6 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to tasks_path, notice: "【#{@task[:name]}】に変更しました"
     else
-      @task = Task.find(params[:id])
       @category_id = task_params[:category_id]
       render :edit
     end

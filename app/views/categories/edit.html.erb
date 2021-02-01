@@ -1,3 +1,13 @@
+<section class="form-top">
+  <div class= "page__back">
+    <%= link_to "キャンセル", categories_path, class:"back__style"%>
+  </div>
+  <div class="title">
+    <p><%= @category_name %></p>
+  </div>
+  <div class="space"></div>
+</section>
+
 <%= render "form", button_value: "更新" %>
 
 <section id="category-btn">

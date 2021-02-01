@@ -1,5 +1,13 @@
+<section class="form-top">
+  <div class= "page__back">
+    <%= link_to "キャンセル", tasks_path, class:"back__style"%>
+  </div>
+  <div class="title"><%= @task_name%></div>
+  <div class="space"></div>
+</section>
+
 <%= render partial: "form", locals:{ button_value: "更新", category_id: @category_id} %>
-  
+
 <section id="task-btn">
   <%= link_to task_path(@task), data: { confirm: '本当に削除しますか?' }, method: :delete do %>
     <button class="btnn float-red">タスクを削除</button> 
