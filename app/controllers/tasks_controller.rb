@@ -25,9 +25,11 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(name: task_params[:name], category_id: task_params[:category_id])
+    binding.pry
     if @task.save
       redirect_to tasks_path, notice:"【#{@task[:name]}】を作成しました"
     else
+    binding.pry
       @category_id = task_params[:category_id]
       render :new
     end 

@@ -1,10 +1,8 @@
-<% binding.pry %>
 <% if model.errors.any? %>
   <div class="error-alert">
     <ul>
       <% model.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-        <% binding.pry %>
       <% end %>
     </ul>
   </div>

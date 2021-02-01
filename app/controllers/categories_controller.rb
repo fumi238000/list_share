@@ -21,7 +21,6 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to categories_path, notice:"【#{@category[:name]}】を作成しました" 
     else
-      binding.pry
       render :new
     end
   end
@@ -35,7 +34,6 @@ class CategoriesController < ApplicationController
     if @category.update(category_params)
       redirect_to categories_path, notice: "カテゴリー名【 #{@category[:name]} 】に変更しました"
     else
-      binding.pry
       # @category = Category.find(params[:id])
       render :edit
     end
