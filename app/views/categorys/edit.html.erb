@@ -1,21 +1,10 @@
-<%= render partial: "form" %>
+<%= render partial: "form", locals:{ button_value: "更新" } %>
 
-<section class="form">
-  <div class="form__title">
-    <p>カテゴリー名</p>
-  </div>
+<% binding.pry%>
 
-  <%= form_with model: @category, method: :patch, local: true do |f| %>    <%= f.hidden_field :category, value: @category %>
-    <p><%= f.text_field :name ,size: 50, class: "form__submit"%></p>
 
-     <section id="category-btn">
-      <%= f.submit "更新", class:"btnn float-purple"%>
-    </section>
+<section id="category-btn">
+  <%= link_to category_path(@category), method: :delete do %>
+    <button class="btnn float-red">カテゴリーを削除</button> 
   <% end %>
 </section>
-
-  <section id="category-btn">
-    <%= link_to category_path(@category), method: :delete do %>
-      <button class="btnn float-red">カテゴリーを削除</button> 
-    <% end %>
-  </section>

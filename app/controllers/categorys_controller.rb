@@ -1,7 +1,7 @@
 class CategorysController < ApplicationController
   before_action :login_check
   before_action :set_category, only: %i[edit update destroy]
-  before_action :current_user_create_category?, only: %i[index]
+  # before_action :current_user_create_category?, only: %i[index]
   # テスト用
   # skip_before_action :login_check
   # skip_before_action :current_user_create_category?, only: %i[index]
@@ -17,8 +17,10 @@ class CategorysController < ApplicationController
 
 
   def create
+    binding.pry
     @category = current_user.categorys.create(category_params)
     if @category.save
+      binding.pry
       redirect_to categorys_path, notice:"【#{@category[:name]}】を作成しました" 
     else
       render "new"
@@ -31,10 +33,10 @@ class CategorysController < ApplicationController
 
 
   def update
+    binding.pry
     if @category.update(category_params)
       redirect_to categorys_path, notice: "カテゴリー名【 #{@category[:name]} 】に変更しました"
     else
-      # @category = Category.find(params[:id])
       render "edit"
     end
   end
@@ -46,6 +48,7 @@ class CategorysController < ApplicationController
   end
 
   def move
+    binding.pry
     @category = Category.find(params[:id])
     @category.insert_at(params[:position].to_i)
     head :ok
@@ -54,11 +57,13 @@ class CategorysController < ApplicationController
   private
 
   def category_params
+    binding.pry
     params.require(:category).permit(:name)
   end
 
 
   def set_category
+    binding.pry
     @category = Category.find(params[:id])
   end
   

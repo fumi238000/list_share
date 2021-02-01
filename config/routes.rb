@@ -20,6 +20,9 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :categorys
+  post 'categorys/new' => 'categorys#new'
+
   resources :categorys do
     member do
       patch :move
@@ -28,8 +31,7 @@ Rails.application.routes.draw do
   
   
   resources :tasks
-  resources :categorys
-  resources :category,only: %i[edit]
+  # resources :category,only: %i[edit]
   
   resources :comments 
   resources :participations, only: %i[new show create destroy]
