@@ -43,11 +43,10 @@ margin-bottom: 80px !important;
   width: 90%;
   margin: 0 auto;
   min-width: 480px;
-  max-width: 1070px;
-  // max-width: $contentMaxWidth;
+  max-width: $contentMaxWidth;
 }
 
-h1 {
+.main__title {
   color: $cPurple;
   text-align: center;
   margin-top: 30px;

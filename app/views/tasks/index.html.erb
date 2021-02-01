@@ -1,17 +1,17 @@
-<h1>タスク</h1>
+<h1 class="main__title">タスク</h1>
 
 <div id="tabs">
 
   <%# リンク%>
-  <div class="task-link">
-    <span><a v-bind:href="href" >タスクを追加</span><i class="fas fa-plus-circle"></i></a>
+  <div class="page__link">
+    <span><a v-bind:href="href" class="page__link__style">タスクを追加</span><i class="fas fa-plus-circle"></i></a>
   </div> 
 
   <div class="tab_box">
 
     <%# カテゴリーリスト start %>
     <ul class="tab_list">
-      <% @categorys.each.with_index(1) do |c,i| %>
+      <% @categories.each.with_index(1) do |c,i| %>
         <li v-on:click="change('<%= c.id %>')" v-bind:class="{'active': isActive === '<%= c.id %>'}"><%= i %>.<%= c.name %></li>
       <% end %>
     </ul>
@@ -19,7 +19,7 @@
       <div id="tasks-list">
         <div data-controller = "drag" data-drag-url = "/tasks/id/move">
           <% @tasks.each do |t| %>
-            <% @categorys.each do |c| %>
+            <% @categories.each do |c| %>
               <% if t.category_id == c.id%> 
                 <div  data-id="<%= t.id%>"  v-if="isActive === '<%= t.category_id %>'">
                   <section class="card__drag">
@@ -46,8 +46,7 @@
                         <%# 編集ボタン %>
                         <span>
                           <%= link_to edit_task_path(t),class: "edit", :method => :get do %>
-                            <i class="fas fa-pen
-                            "></i>
+                            <i class="fas fa-pen"></i>
                           <% end %>
                         </span>
                         <%# コメント一覧へリンク %>

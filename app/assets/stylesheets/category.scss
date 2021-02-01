@@ -1,37 +1,12 @@
+/*-------------------------
+category_btn
+-------------------------*/
 #category-btn {
   text-align: center;
-
   & .float-red {
     margin-top: 50px;
   }
-
   & .float-purple {
    margin-top: 30px;
   }
 }
-
-/*-------------------------
-link
--------------------------*/
-.new-category-link {
-  text-align: right;
-  margin-bottom: 15px;
-  span {
-    margin-right: 10px;
-  }
-}
-
-
-/*-------------------------
-category-card
--------------------------*/
-
-// .category-name {
-//   margin-right: 30px;
-//   font-size: 20px;
-// }
-
-// .card {
-//   margin-bottom: 10px;
-// }
-

@@ -1,20 +1,38 @@
 @import "modules/variables";
+@import "breakpoints/base";
 
-/* キャンセルリンク用 */
+/*-------------------------
+キャンセルリンク用
+-------------------------*/
 .page__back {
   margin: 20px 0px 20px 10px;
   max-width: $contentMaxWidth;
   & .back__style {
-    color: $cBlack;
     font-size: 14px;
-    // font-size: font-sm;
+    color: $cPurple;
+    // @extend .font-sm;
+     &:hover {
+      text-decoration: none;  
+    }
   }
 }
 
+/*-------------------------
+右寄せ
+-------------------------*/
 .page__link {
     text-align: right;
-    padding: 35px;
-  span {
-    padding-right: 5px;
+    padding:20px 10px;
+
+    .page__link__style{
+      color: $cPurple;
+    
+      &:hover {
+      text-decoration: none;  
+      }
+    }
+
+    span {
+    margin-right: 5px;
+    }
   }
-}

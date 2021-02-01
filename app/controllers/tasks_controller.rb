@@ -11,7 +11,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.order(position: :asc)
-    @categorys = current_user.categorys.order(:id)
+    @categories = current_user.categories.order(:id)
     @checked_task_ids = current_user.check.pluck(:task_id)
   end
 
@@ -25,25 +25,31 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(name: task_params[:name], category_id: task_params[:category_id])
+    binding.pry
     if @task.save
       redirect_to tasks_path, notice:"【#{@task[:name]}】を作成しました"
     else
+    binding.pry
       @category_id = task_params[:category_id]
-      render 'new'
+      render :new
     end 
   end
 
   
   def show
-    comments = Comment.order(id: :desc)
-    @comments = comments.where(user_id: current_user)
+    # comments = Comment.order(id: :desc)
+    # @comments = comments.where(user_id: current_user)
+    @comments = Comment.order(id: :desc).where(user_id: current_user)
+    binding.pry
     @task_id = params[:id].to_i
+    # ログインユーザーが登録したコメントが存在するかしないか？
   end
 
 
   
   def edit
     @category_id = @task.category_id
+    @task_name = @task.name
   end
 
 
@@ -52,7 +58,7 @@ class TasksController < ApplicationController
       redirect_to tasks_path, notice: "【#{@task[:name]}】に変更しました"
     else
       @category_id = task_params[:category_id]
-      render "edit"  
+      render :edit
     end
   end
 
@@ -72,7 +78,6 @@ private
 
   def set_task
     @task = Task.find(params[:id])
-
   end
 
   def include_category
@@ -80,7 +85,7 @@ private
     
     if @category.user_id == current_user[:id] 
     else
-      redirect_to categorys_path, alert: "そのタスクは権限がありません"
+      redirect_to categories_path, alert: "そのタスクは権限がありません"
     end
     
     @task = Task.find(params[:id])

@@ -1,13 +1,13 @@
-class CategorysController < ApplicationController
+class CategoriesController < ApplicationController
   before_action :login_check
   before_action :set_category, only: %i[edit update destroy]
-  before_action :current_user_create_category?, only: %i[index]
+  # before_action :current_user_create_category?, only: %i[index]
   # テスト用
   # skip_before_action :login_check
   # skip_before_action :current_user_create_category?, only: %i[index]
 
   def index
-     @categorys = Category.order(:position)
+     @categories = Category.order(:position)
   end
 
 
@@ -17,31 +17,32 @@ class CategorysController < ApplicationController
 
 
   def create
-    @category = current_user.categorys.create(category_params)
+    @category = current_user.categories.create(category_params)
     if @category.save
-      redirect_to categorys_path, notice:"【#{@category[:name]}】を作成しました" 
+      redirect_to categories_path, notice:"【#{@category[:name]}】を作成しました" 
     else
-      render "new"
+      render :new
     end
   end
 
 
   def edit
+    @category_name = @category.name
   end
 
 
   def update
     if @category.update(category_params)
-      redirect_to categorys_path, notice: "【#{@category[:name]}】に変更しました"
+      redirect_to categories_path, notice: "カテゴリー名【 #{@category[:name]} 】に変更しました"
     else
-      render "edit"
+      render :edit
     end
   end
 
 
   def destroy
     @category.destroy
-    redirect_to categorys_path, alert: "【#{@category[:name]}】を削除しました"
+    redirect_to categories_path, alert: "【#{@category[:name]}】を削除しました"
   end
 
   def move
@@ -66,7 +67,7 @@ class CategorysController < ApplicationController
     if @category.user_id === current_user[:id]
       @category = current_user.category.find(params[:id])
     else
-      redirect_to categorys_path, alert: "権限がありません"
+      redirect_to categories_path, alert: "権限がありません"
     end
   end
 

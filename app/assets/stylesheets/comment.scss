@@ -16,7 +16,49 @@
     height: 10vh;
     width: 100%;
     padding: 10px;
-    box-shadow: 0 0 3px 1px rgba(0,0,0,0.1) inset;
+  }
+}
+
+
+.comment__task__name {
+  margin-top: 30px;
+  font-size: 20px; 
+}
+
+.comment__card__body {
+  background-color: $cWhite;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: $boxshadow;
+  
+  .comment__card__top {
+    display: flex;
+    
+    & .day {
+      flex:50%;
+      padding:10px;
+      font-size: 14px;
+
+    }
+    & .edit {
+      flex:50%;
+      text-align: right;
+      padding:10px;
+
+    }
+    
+  }
+
+  .comment__card__content{
+    padding:20px 20px;
+  }
+
+  .comment__card__bottom {
+    text-align: right;
+    
+    & .delete{
+      padding:10px;
+    }
   }
 
 }
@@ -29,7 +71,6 @@
    margin-top: 30px;
   }
 }
-
 
 .comment-bg {
   color: $cBlack;

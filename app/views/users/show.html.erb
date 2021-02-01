@@ -1,15 +1,14 @@
-<h1>MyPage</h1>
+<h1 class="main__title">MyPage</h1>
 
+<div class="user__data">
  <%# ユーザー編集ボタン %>
  <div class="page__link">
-    <%= link_to  edit_user_registration_path ,method: :get do %>
-    <span>ユーザー編集画面</span><i class="fas fa-pen"></i>
+    <%= link_to  edit_user_registration_path, class:"page__link__style", method: :get do %>
+    <span>ユーザー編集</span><i class="fas fa-pen"></i>
     <% end %>
  </div>  
 
-<div class="user__data">
-
-  <p class="text-center m-5"><%= image_tag @user.image.url %></p>
+  <p class="user__image"><%= image_tag @user.image.url %></p>
 
   <section class="image-edit-btn">
     <%= link_to edit_user_path(@user), method: :get do %>

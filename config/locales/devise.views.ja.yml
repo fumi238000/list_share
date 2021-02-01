@@ -141,3 +141,14 @@ ja:
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+  activerecord:
+    attributes:
+      task:
+        name: タスク
+        category: カテゴリー
+      category:
+        name: カテゴリー
+      comment:
+        content: コメント
+      participation:
+        user: 参加者

@@ -99,13 +99,19 @@
         border: 2px solid $cSecondary;
      }
 
-
-
-
-
       /*シャドーボタン*/
       &.shadow:hover {
         transform: translate(-2.5px, -2.5px); 
         box-shadow: 5px 5px 0 0 $cInfo;
       }
+}
+
+
+
+.icon__edit__btn {
+  color: $cPurple;
+}
+
+.icon__delete__btn {
+  color: $cRed;
 }

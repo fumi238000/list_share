@@ -1,0 +1,15 @@
+<section class="form">
+  <div class="form__title">
+    <p>カテゴリー名</p>
+  </div>
+    
+<%= render "layouts/error_form", model: @category %>
+
+  <%= form_with model: @category, local: true do |f| %>    
+    <%= f.hidden_field :category, value: @category %>
+    <p><%= f.text_field :name ,size: 50, class: "form__submit"%></p>
+    <div id="category-btn">
+      <%= f.submit button_value, class:"btnn float-purple"%>
+    </div>
+  <% end %>
+</section>

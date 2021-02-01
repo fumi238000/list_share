@@ -9,21 +9,22 @@
   margin-top: 30px;
   justify-content: center;
   align-items: center;
+  color: $cPurple;
   
   & .title {
     flex: 50%;
     text-align: center;
     padding: 10px;
   }
-  & .back {
+  & .page__back {
     flex: 25%;
-    font-size: 10px;
-    padding-left: 20px;
+    font-size: 12px;
   }
  & .space {
     flex: 25%;
   }
 }
+
 
 .form {
   margin: 0 auto;
@@ -65,10 +66,17 @@
     padding: 10px;
   }
   
-   & .link {
+   & .page__link {
     flex: 50%;
-    font-size: 14px;
     text-align: right;
-    padding: 10px;
+
+    & .page__link__style{
+      color: $cPurple;
+    
+      &:hover {
+      text-decoration: none;  
+      }
+    }
+
   }
 }

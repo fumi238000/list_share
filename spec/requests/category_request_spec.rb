@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Categorys", type: :request do
   
   describe "GET #index" do
-    subject { get(categorys_path) }
+    subject { get(categories_path) }
 
     context "カテゴリーが存在する時" do
       it "リクエストが成功する" do
@@ -16,7 +16,7 @@ RSpec.describe "Categorys", type: :request do
         category1 = create(:category)
         category2 = create(:category)
         category3 = create(:category)
-        get(categorys_path)
+        get(categories_path)
         expect(response.body).to include(category1.name)  
       end
     end
@@ -35,7 +35,7 @@ RSpec.describe "Categorys", type: :request do
 
 
   describe "GET #create" do
-    subject { post(categorys_path, params: params) }
+    subject { post(categories_path, params: params) }
     before do
       @user = create(:user)
     end
@@ -57,7 +57,7 @@ RSpec.describe "Categorys", type: :request do
       it "category/indexにリダイレクトされる" do
         sign_in @user
         subject
-        expect(response).to redirect_to categorys_path
+        expect(response).to redirect_to categories_path
       end
     end
 
@@ -139,9 +139,9 @@ RSpec.describe "Categorys", type: :request do
         expect { subject }.to change { category.reload.name }.from(origin_name).to(new_name)
       end
 
-      it "categorys_path にリダイレクトされる" do
+      it "categories_path にリダイレクトされる" do
         subject
-        expect(response).to redirect_to categorys_path
+        expect(response).to redirect_to categories_path
       end
     end
 
@@ -181,9 +181,9 @@ RSpec.describe "Categorys", type: :request do
         expect { subject }.to change(Category, :count).by(-1)
       end
 
-      it "categorys_path にリダイレクトすること" do
+      it "categories_path にリダイレクトすること" do
         subject
-        expect(response).to redirect_to categorys_path
+        expect(response).to redirect_to categories_path
       end
     end
   end

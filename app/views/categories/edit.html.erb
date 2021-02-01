@@ -1,0 +1,17 @@
+<section class="form-top">
+  <div class= "page__back">
+    <%= link_to "キャンセル", categories_path, class:"back__style"%>
+  </div>
+  <div class="title">
+    <p><%= @category_name %></p>
+  </div>
+  <div class="space"></div>
+</section>
+
+<%= render "form", button_value: "更新" %>
+
+<section id="category-btn">
+  <%= link_to category_path(@category), data: { confirm: '本当に削除しますか?' } ,method: :delete do %>
+    <button class="btnn float-red">カテゴリーを削除</button> 
+  <% end %>
+</section>

@@ -48,8 +48,8 @@ class UsersController < ApplicationController
       end
     end
     #category
-    @categorys = Category.all
-    @category = @categorys.where(user_id: @user)
+    @categories = Category.all
+    @category = @categories.where(user_id: @user)
     @category.destroy_all
     #user
     @user = User.find(@user)
