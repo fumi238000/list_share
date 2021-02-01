@@ -40,7 +40,7 @@
       .card__right__content {
         flex: 30%;
         text-align: right;
-        padding: 10px;    
+        padding: 10px;
         
         & .edit {
           color: $cPurple;
@@ -54,6 +54,7 @@
         & .shara {
         color: black;
         margin-right: 10px;
+        text-decoration: none;  
         }
       }
     }

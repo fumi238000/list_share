@@ -6,14 +6,12 @@
   <div class="space"></div>
 </section>
 
-
-
 <section class="form">
   <div class="form__title">
     <p>タスク名</p>
   </div>
 
-<%= render 'layouts/error_form',  model: @task %>
+  <%= render 'layouts/error_form',  model: @task %>
 
   <%= form_with model: @task, local: true do |f| %>
     <%= f.hidden_field :category_id, value: @category_id %>
