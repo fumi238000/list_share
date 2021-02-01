@@ -29,7 +29,7 @@ class TasksController < ApplicationController
       redirect_to tasks_path, notice:"【#{@task[:name]}】を作成しました"
     else
       @category_id = task_params[:category_id]
-      render 'new'
+      render :new
     end 
   end
 
@@ -53,7 +53,7 @@ class TasksController < ApplicationController
     else
       @task = Task.find(params[:id])
       @category_id = task_params[:category_id]
-      render "edit"  
+      render :edit
     end
   end
 

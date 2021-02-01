@@ -37,7 +37,7 @@ class CategoriesController < ApplicationController
     else
       binding.pry
       # @category = Category.find(params[:id])
-      render "edit"
+      render :edit
     end
   end
 

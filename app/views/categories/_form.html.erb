@@ -15,7 +15,7 @@
     
 <%= render "layouts/error_form", model: @category %>
 
-  <%= form_with model: @category do |f| %>    
+  <%= form_with model: @category, local: true do |f| %>    
     <%= f.hidden_field :category, value: @category %>
     <p><%= f.text_field :name ,size: 50, class: "form__submit"%></p>
     <div id="category-btn">

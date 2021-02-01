@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
       redirect_to task_path(comment_params[:task_id]), notice:"コメントを作成しました"
     else
       @task_id = comment_params[:task_id]
-      render 'new'
+      render :new
     end
   end
 
@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
       redirect_to task_path(@comment.task_id), notice: "コメントを更新しました"
     else
       @task_id = comment_params[:task_id]
-      render 'edit'
+      render :edit
     end
   end
  

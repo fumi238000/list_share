@@ -35,7 +35,7 @@ class ParticipationsController < ApplicationController
       @category_id = participation_params[:category_id]
       @q = User.ransack(params[:q])
       @search_users= @q.result(distinct: true).limit(PER_PAGE)
-      render 'new'
+      render :new
     end
   end
 
