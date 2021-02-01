@@ -8,21 +8,18 @@
   <div class="space"></div>
 </section>
 
-<%= render 'layouts/error_form',  model: @category %>
-
 <section class="form">
   <div class="form__title">
     <p>カテゴリー名</p>
   </div>
     
-  <% binding.pry %>  
+<%= render "layouts/error_form", model: @category %>
+
   <%= form_with model: @category do |f| %>    
     <%= f.hidden_field :category, value: @category %>
     <p><%= f.text_field :name ,size: 50, class: "form__submit"%></p>
-    <section id="category-btn">
+    <div id="category-btn">
       <%= f.submit button_value, class:"btnn float-purple"%>
-    </section>
+    </div>
   <% end %>
 </section>
-
-

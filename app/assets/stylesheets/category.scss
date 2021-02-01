@@ -1,17 +1,18 @@
+/*-------------------------
+category_btn
+-------------------------*/
 #category-btn {
   text-align: center;
-
   & .float-red {
     margin-top: 50px;
   }
-
   & .float-purple {
    margin-top: 30px;
   }
 }
 
 /*-------------------------
-link
+category_link
 -------------------------*/
 .new-category-link {
   text-align: right;
@@ -22,23 +23,8 @@ link
   }
 }
 
-
 .name {
  a:hover {
   text-decoration: none;  
   }
 }
-  
-/*-------------------------
-category-card
--------------------------*/
-
-// .category-name {
-//   margin-right: 30px;
-//   font-size: 20px;
-// }
-
-// .card {
-//   margin-bottom: 10px;
-// }
-

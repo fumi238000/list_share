@@ -15,8 +15,8 @@
   <%= form_with model: @comment, local: true do |f| %>
     <%= f.hidden_field :task_id, value: @task_id %>
     <%= f.text_field :content ,size: 100 , class:"form__submit" %>
-      <section id="comment-btn">
+      <div id="comment-btn">
         <%= f.submit button_value, class:"btnn float-purple"%>
-      </section> 
+      </div> 
   <% end %>
 </section>

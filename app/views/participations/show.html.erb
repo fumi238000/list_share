@@ -20,7 +20,7 @@
             <div><%= p.user.name%></div>
           </div>
           <div class="delete__btn">
-              <%= link_to participation_path(p), class: "text-danger",data: { confirm: '本当に削除しますか?' } ,:method => :delete do%>
+              <%= link_to participation_path(p), class: "text-danger", data: { confirm: '本当に削除しますか?' } ,:method => :delete do %>
                 <i class="fas fa-trash"></i> 
               <% end %>
           </div>

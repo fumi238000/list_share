@@ -17,13 +17,12 @@ class CategoriesController < ApplicationController
 
 
   def create
-    binding.pry
     @category = current_user.categories.create(category_params)
     if @category.save
-      binding.pry
       redirect_to categories_path, notice:"【#{@category[:name]}】を作成しました" 
     else
-      render "new"
+      binding.pry
+      render :new
     end
   end
 
@@ -33,10 +32,11 @@ class CategoriesController < ApplicationController
 
 
   def update
-    binding.pry
     if @category.update(category_params)
       redirect_to categories_path, notice: "カテゴリー名【 #{@category[:name]} 】に変更しました"
     else
+      binding.pry
+      # @category = Category.find(params[:id])
       render "edit"
     end
   end
@@ -48,7 +48,6 @@ class CategoriesController < ApplicationController
   end
 
   def move
-    binding.pry
     @category = Category.find(params[:id])
     @category.insert_at(params[:position].to_i)
     head :ok
@@ -57,13 +56,11 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    binding.pry
     params.require(:category).permit(:name)
   end
 
 
   def set_category
-    binding.pry
     @category = Category.find(params[:id])
   end
   
