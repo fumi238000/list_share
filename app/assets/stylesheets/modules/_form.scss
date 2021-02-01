@@ -25,6 +25,8 @@
   }
 }
 
+
+
 .form {
   margin: 0 auto;
   
@@ -65,10 +67,17 @@
     padding: 10px;
   }
   
-   & .link {
+   & .page__link {
     flex: 50%;
-    font-size: 14px;
     text-align: right;
-    padding: 10px;
+
+    & .page__link__style{
+      color: $cPurple;
+    
+      &:hover {
+      text-decoration: none;  
+      }
+    }
+
   }
 }

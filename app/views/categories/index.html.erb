@@ -1,10 +1,10 @@
 <h1 class="main__title">カテゴリー</h1>
 
-<div class="new-category-link">
-   <%# 追加ボタン %>
-    <%= link_to new_category_path, :method => :get do %> 
-      <span>カテゴリーを追加</span><i class="fas fa-plus-circle"></i>
-    <% end %>
+<%# 追加ボタン %>
+<div class="page__link">
+  <%= link_to new_category_path, class:"page__link__style", :method => :get do %> 
+    <span>カテゴリーを追加</span><i class="fas fa-plus-circle"></i>
+  <% end %>
 </div>
 
 <div id="tasks-list">

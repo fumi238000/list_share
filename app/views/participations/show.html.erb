@@ -2,7 +2,7 @@
 
 <div class="page__link">
    <%# 追加ボタン %>
-    <%= link_to new_participation_path(@category_id), :method => :get do %> 
+    <%= link_to new_participation_path(@category_id),class:"page__link__style", :method => :get do %> 
       <span>共有者を追加</span><i class="fas fa-plus-circle"></i>
     <% end %>
 </div>
