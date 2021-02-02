@@ -5,7 +5,7 @@
   <%- if controller_name != 'sessions' %>
       <div class="devise-btn">
          <%= link_to  new_session_path(resource_name) do %><br />
-           <button class="btnn float-info">ログイン画面</button>
+           <button class="btn float-info">ログイン画面</button>
          <% end %>
       </div>
   <% end -%>
@@ -14,7 +14,7 @@
   <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
     <div class="devise-btn">
       <%= link_to new_registration_path(resource_name) do %><br />
-        <button class="btnn float-info">アカウント新規作成</button>
+        <button class="btn float-info">アカウント新規作成</button>
       <% end %>
     </div>
   <% end -%>
@@ -22,7 +22,7 @@
   <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
     <div class="devise-btn">
       <%= link_to new_password_path(resource_name) do %><br />
-        <button class="btnn float-secondary"><%= t(".forgot_your_password") %></button>
+        <button class="btn float-secondary"><%= t(".forgot_your_password") %></button>
       <% end %>
     </div>
   <% end -%>
@@ -31,7 +31,7 @@
   <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
     <div class="devise-btn">
       <%= link_to  new_confirmation_path(resource_name) do %><br />
-        <button class="btnn float-secondary">あばあばあ<%=t('.didn_t_receive_confirmation_instructions')%></button>
+        <button class="btn float-secondary">あばあばあ<%=t('.didn_t_receive_confirmation_instructions')%></button>
       <% end %>
     </div>
 
@@ -41,7 +41,7 @@
   <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
     <div class="devise-btn">  
       <%= link_to new_unlock_path(resource_name) do %><br />
-        <button class="btnn float-secondary"><%= t('.didn_t_receive_unlock_instructions') %>あばあばあ<%= %></button>
+        <button class="btn float-secondary"><%= t('.didn_t_receive_unlock_instructions') %>あばあばあ<%= %></button>
       <% end %>
     </div>
 
@@ -51,7 +51,7 @@
     <%- resource_class.omniauth_providers.each do |provider| %>
       <div class="devise-btn">  
         <%= link_to  omniauth_authorize_path(resource_name, provider), provider: OmniAuth::Utils.camelize(provider) do %>
-          <button class="btnn float-secondary"><%= t('.sign_in_with_provider') %></button>  
+          <button class="btn float-secondary"><%= t('.sign_in_with_provider') %></button>  
         <% end %>
       </div>  
     <% end -%>
