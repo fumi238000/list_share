@@ -7,9 +7,9 @@ Stylesheet: ベーススタイル
 ******************************************************************/
 html,body {
   font-family: 'Kameron','Noto Sans JP', sans-serif;
-  background-color:  #f0f8ff;
+  // background-color:  #f0f8ff;
   height: 100%;
-  // background-color: $cLiteBlue; 後日こちらへ
+  background-color: $cLiteBlue;
 }
 
 .font-sm {
@@ -42,21 +42,20 @@ margin-bottom: 80px !important;
 .content-width {
   width: 90%;
   margin: 0 auto;
-  min-width: 480px;
+  min-width: $contentMinWidth;
   max-width: $contentMaxWidth;
 }
 
 .main__title {
   color: $cPurple;
-  text-align: center;
   margin-top: 30px;
+  text-align: center;
   margin-bottom: 20px;
-}
-
-
-//* homeタイトル*/
-#home-title {
-  .main {
-    font-size: 30px;
   }
-}
+
+.sub__title {
+  color: $cPurple;
+  margin-top: 30px;
+  text-align: center;
+   @extend .font-sm;
+  }

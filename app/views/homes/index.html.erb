@@ -1,13 +1,14 @@
-<section id="home-title">
-  <div class="main">生み出すからこそ、進化できる</div>
-  <div class="font-sm">ListShareなら、オリジナルのリスト作成・改善をサポートします</div>
+<section class="home__title">
+  <h3 class="main__title">生み出すからこそ、進化できる</h3>
+  <div class="sub__title">ListShareなら、オリジナルのリスト作成・改善をサポートします</div>
 </section>
 
-<section id="home-btn">
-  <%= link_to  users_guest_sign_in_path, method: :post do %>
+<section class="home__btn">
+  <%= link_to  users_guest_sign_in_path, class:"home__btn__left", method: :post do %>
     <button class="btn slide-bg">ゲストログイン</button> 
   <% end %>
-  <%= link_to new_user_registration_path, method: :get do %>
+
+  <%= link_to new_user_registration_path, class:"home__btn__right", method: :get do %>
     <button class="btn slide-bg">無料で作成</button> 
   <% end %>
 </section>
