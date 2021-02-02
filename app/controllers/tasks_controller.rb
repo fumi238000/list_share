@@ -11,7 +11,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.order(position: :asc)
-    @categories = current_user.categories.order(:id)
+    @categories = current_user.categories.order(position: :asc)
     @checked_task_ids = current_user.check.pluck(:task_id)
   end
 
@@ -25,11 +25,9 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(name: task_params[:name], category_id: task_params[:category_id])
-    binding.pry
     if @task.save
       redirect_to tasks_path, notice:"【#{@task[:name]}】を作成しました"
     else
-    binding.pry
       @category_id = task_params[:category_id]
       render :new
     end 
@@ -40,7 +38,6 @@ class TasksController < ApplicationController
     # comments = Comment.order(id: :desc)
     # @comments = comments.where(user_id: current_user)
     @comments = Comment.order(id: :desc).where(user_id: current_user)
-    binding.pry
     @task_id = params[:id].to_i
     # ログインユーザーが登録したコメントが存在するかしないか？
   end
