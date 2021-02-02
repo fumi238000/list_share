@@ -16,14 +16,14 @@
   </div>
     
     <div class="user-btn">
-      <%= f.submit "送信", class:"btnn float-purple"%>
+      <%= f.submit "送信", class:"btn float-purple"%>
     </div>
 <% end %>
 
 <% if @user.image? %>
   <div class="user-btn">
     <%= link_to user_path, method: :delete, data: { confirm: "デフォルトに戻しますか？" } do %> 
-      <button class="btnn float-red">画像の初期化</button> 
+      <button class="btn float-red">画像の初期化</button> 
     <% end %>
   </div>
 <% end %>
