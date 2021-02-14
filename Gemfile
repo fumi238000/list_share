@@ -15,7 +15,7 @@ gem 'devise'
 gem 'rails-i18n', '~> 6.0'
 gem 'devise-i18n'
 gem 'font-awesome-sass'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem 'mini_magick'
 gem 'ransack'
 gem "acts_as_list", "~> 1.0"
