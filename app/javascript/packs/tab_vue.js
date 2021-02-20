@@ -7,14 +7,16 @@ document.addEventListener('turbolinks:load', () => {
       return {
       }
     },
-    components: { App }
+    // components: { App }
   })
 }),
+
 
 new Vue({
   el: '#tabs',
   data: {
-    isActive: '1',
+    // num: 1,
+    isActive: 1,
     href:`/tasks/new?category_id=1`,
   },
   methods: {
@@ -24,3 +26,13 @@ new Vue({
     }
   }
 })
+
+
+
+
+//仕組み
+//changeイベントが発火した時
+//isActiveの数字が変わる
+// numが変わることで、リンク先も変わる
+
+// https://jp.vuejs.org/v2/api/#mounted

@@ -17,6 +17,7 @@
  /* bootstrap*/
  @import "bootstrap";
 
+
  /* modules*/
  @import "modules/variables";
  @import "modules/button";
@@ -27,6 +28,9 @@
 
  /* scss*/
  @import "common";
+
+  /* swiper*/
+ @import 'swiper/swiper-bundle';
 
 /******************************************************************
 flash
@@ -46,3 +50,34 @@ flash
 .alert-alert {
   @extend .alert-danger;
 }
+
+
+
+/******************************************************************
+swiper
+******************************************************************/
+.swiper-container {
+  width: 300px;
+  height: 50px;
+  //TODO: 中央に寄せる// margin: 0 auto;
+}
+
+.swiper-wrapper {
+  height:50vw;
+}
+
+.swiper-slide {
+  background-color: $cPurple;
+  // background-color: aqua;
+  color: white;
+  height: 50vw;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ページネーション の矢印
+// .swiper-button-next,.swiper-button-prev {
+//   color: white;
+// }
