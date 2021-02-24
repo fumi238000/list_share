@@ -1,0 +1,18 @@
+  require:
+  - rubocop-rails
+
+AllCops:
+  # アプリの Ruby のバージョンに合わせること!!
+  TargetRubyVersion: 2.6
+  NewCops: enable
+
+inherit_from:
+  - config/rubocop/rubocop.yml
+  - config/rubocop/rails.yml
+  - config/rubocop/rspec.yml
+
+  Rails/BulkChangeTable:
+  Enabled: false
+
+Lint/EmptyBlock:
+  Enabled: false
