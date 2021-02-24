@@ -13,18 +13,17 @@ class TasksController < ApplicationController
     @tasks = Task.order(position: :asc)
     @categories = current_user.categories.order(position: :asc)
     @checked_task_ids = current_user.check.pluck(:task_id)
+    #TODO:クリックしている時のカテゴリーIDを取得したい
+    @category_list_id = @categories.first.id
   end
-
-
 
   def new
     @task = Task.new
     @category_id = params[:category_id]
   end
 
-
   def create
-    @task = Task.new(name: task_params[:name], category_id: task_params[:category_id])
+    @task = Task.new(task_params)
     if @task.save
       redirect_to tasks_path, notice:"【#{@task[:name]}】を作成しました"
     else
@@ -77,6 +76,7 @@ private
     @task = Task.find(params[:id])
   end
 
+  # TODO: 将来見直す
   def include_category
     @category = Category.find(@task.category_id) 
     
