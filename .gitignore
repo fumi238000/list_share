@@ -37,9 +37,6 @@ yarn-debug.log*
 
 .DS_Store
 /vendor/bundle
-
+/.vscode
 /public/uploads/
-
-.gitignore
-
 /.github

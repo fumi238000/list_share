@@ -22,6 +22,8 @@ gem "acts_as_list", "~> 1.0"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rubocop-rails', require: false
+  gem "rubocop-rspec", require: false
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
@@ -35,6 +37,7 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pre-commit', require: false
 end
 
 group :test do
