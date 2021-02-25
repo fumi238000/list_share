@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 # CSVファイルを扱うときは次が必要
-require "csv"
+require 'csv'
 
 class Import
   def self.csv_data(path:)
@@ -9,7 +11,5 @@ class Import
     list = []
     CSV.foreach(path, headers: true) { |row| list << row.to_h }
     list
-     
   end
-
 end

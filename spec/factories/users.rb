@@ -1,19 +1,19 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :user do
-    sequence(:id, 1) { |n| "#{n}" }
+    sequence(:id, 1, &:to_s)
     name { Faker::Name.name }
     email { Faker::Internet.email }
-    password { "password" } 
-    
+    password { 'password' }
+
     # 異常なパラメータ
     trait :invalid do
-      id { nil}
+      id { nil }
       image { nil }
     end
-
   end
 end
 
-
-  # factory :today do
-  # end
+# factory :today do
+# end

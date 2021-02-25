@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :login_check
   before_action :set_comment, only: %i[edit update destroy]
@@ -5,55 +7,47 @@ class CommentsController < ApplicationController
   # テスト用
   # skip_before_action :login_check
 
-
   def new
-    @comment = Comment.new 
+    @comment = Comment.new
     @task_id = params[:task_id]
   end
 
-
-  def create 
-    @comment = Comment.create(task_id: comment_params[:task_id], user_id: current_user[:id],content: comment_params[:content])  
+  def create
+    @comment = Comment.create(task_id: comment_params[:task_id], user_id: current_user[:id],
+                              content: comment_params[:content])
     if @comment.save
-      redirect_to task_path(comment_params[:task_id]), notice:"コメントを作成しました"
+      redirect_to task_path(comment_params[:task_id]), notice: 'コメントを作成しました'
     else
       @task_id = comment_params[:task_id]
       render :new
     end
   end
 
-
   def edit
     @task_id = Comment.find(params[:id]).task.id
   end
 
-
   def update
     if @comment.update(comment_params)
-      redirect_to task_path(@comment.task_id), notice: "コメントを更新しました"
+      redirect_to task_path(@comment.task_id), notice: 'コメントを更新しました'
     else
       @task_id = comment_params[:task_id]
       render :edit
     end
   end
- 
 
   def destroy
     @comment.destroy!
-    redirect_to task_path(@comment.task_id), alert: "コメントを削除しました"
+    redirect_to task_path(@comment.task_id), alert: 'コメントを削除しました'
   end
 
-
-
-private
+  private
 
   def comment_params
-    params.require(:comment).permit(:content,:task_id)
+    params.require(:comment).permit(:content, :task_id)
   end
-
 
   def set_comment
     @comment = Comment.find(params[:id])
   end
-
 end

@@ -9,7 +9,7 @@ RSpec.describe "Comments", type: :request do
     subject { get(new_comment_path) }
     it "リクエストが成功する" do
       subject
-      expect(response)to have_http_status(200)
+      expect(response).to have_http_status(200)
     end
   end
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # shared_examples :sign_in do
 #   include Devise::Test::IntegrationHelpers
 
