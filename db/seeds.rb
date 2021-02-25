@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # # テストユーザー
 # NAME = "テスト"
 # EMAIL = "test@example.com"
@@ -11,7 +12,6 @@
 # user1 = User.create!(name: "佐藤", email: "satou@example.com", password: "password")
 # user2 = User.create!(name: "山田", email: "yamada@example.com", password: "password")
 # user3 = User.create!(name: "鈴木", email: "suzuki@example.com", password: "password")
-
 
 # Category.create!(name:"朝ルーティン", user_id: user1.id)
 

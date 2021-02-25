@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 # require 'devise'
 # require File.expand_path("spec/support/controller_macros.rb")
 
-
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -35,20 +36,20 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
-   # 使用する際に FactoryBot を省略できるようにする
-   config.include FactoryBot::Syntax::Methods
-   
-   # deviseのhelperメソッドを使用する  
-   config.include Devise::Test::ControllerHelpers, type: :controller
+  # 使用する際に FactoryBot を省略できるようにする
+  config.include FactoryBot::Syntax::Methods
+
+  # deviseのhelperメソッドを使用する
+  config.include Devise::Test::ControllerHelpers, type: :controller
   #  config.include RequestSpecHelper,type: :request
-   config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include Devise::Test::IntegrationHelpers, type: :request
 
   #  config.include ControllerMacros, type: :controller
-  
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-   
-  #ApplicationHelperをincludeして、 before_actionをスキップする
+
+  # ApplicationHelperをincludeして、 before_actionをスキップする
   # config.include ApplicationHelper, type: :request, application: :skip
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

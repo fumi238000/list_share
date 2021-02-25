@@ -11,8 +11,15 @@ inherit_from:
   - config/rubocop/rails.yml
   - config/rubocop/rspec.yml
 
-  Rails/BulkChangeTable:
+Rails/BulkChangeTable:
   Enabled: false
 
 Lint/EmptyBlock:
   Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'

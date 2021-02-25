@@ -60,3 +60,11 @@ RSpec/NestedGroups:
 # ブロックの方が見た目がスッキリして見やすいので、どちらでもお好きにどうぞ。
 RSpec/ReturnFromStub:
   Enabled: false
+
+  # 1exampleの中で複数の検証をしたいこともある
+RSpec/MultipleExpectations:
+  Enabled: false
+
+  # 空白のdescribe, contextを認める（条件だけ設定して後でspec追加することもある）
+RSpec/EmptyExampleGroup:
+  Enabled: false

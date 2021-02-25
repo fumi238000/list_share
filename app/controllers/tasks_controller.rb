@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TasksController < ApplicationController
   before_action :login_check
   before_action :current_user_create_category?, only: %i[index]
@@ -8,12 +10,11 @@ class TasksController < ApplicationController
   # skip_before_action :login_check
   # skip_before_action :current_user_create_category?, only: %i[index]
 
-
   def index
     @tasks = Task.order(position: :asc)
     @categories = current_user.categories.order(position: :asc)
     @checked_task_ids = current_user.check.pluck(:task_id)
-    #TODO:クリックしている時のカテゴリーIDを取得したい
+    # TODO: クリックしている時のカテゴリーIDを取得したい
     @category_list_id = @categories.first.id
   end
 
@@ -25,14 +26,13 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      redirect_to tasks_path, notice:"【#{@task[:name]}】を作成しました"
+      redirect_to tasks_path, notice: "【#{@task[:name]}】を作成しました"
     else
       @category_id = task_params[:category_id]
       render :new
-    end 
+    end
   end
 
-  
   def show
     # comments = Comment.order(id: :desc)
     # @comments = comments.where(user_id: current_user)
@@ -41,13 +41,10 @@ class TasksController < ApplicationController
     # ログインユーザーが登録したコメントが存在するかしないか？
   end
 
-
-  
   def edit
     @category_id = @task.category_id
     @task_name = @task.name
   end
-
 
   def update
     if @task.update(task_params)
@@ -57,7 +54,6 @@ class TasksController < ApplicationController
       render :edit
     end
   end
-
 
   def destroy
     @task.destroy!
@@ -70,7 +66,7 @@ class TasksController < ApplicationController
     head :ok
   end
 
-private
+  private
 
   def set_task
     @task = Task.find(params[:id])
@@ -78,33 +74,25 @@ private
 
   # TODO: 将来見直す
   def include_category
-    @category = Category.find(@task.category_id) 
-    
-    if @category.user_id == current_user[:id] 
+    @category = Category.find(@task.category_id)
+
+    if @category.user_id == current_user[:id]
     else
-      redirect_to categories_path, alert: "そのタスクは権限がありません"
+      redirect_to categories_path, alert: 'そのタスクは権限がありません'
     end
-    
+
     @task = Task.find(params[:id])
-    
-    end
-
-
-
-  def task_params
-    params.require(:task).permit(:name,:category_id)
   end
 
+  def task_params
+    params.require(:task).permit(:name, :category_id)
+  end
 
-
-  #カテゴリー作成判定メソッド
+  # カテゴリー作成判定メソッド
   def current_user_create_category?
     @category = Category.all
     @category = @category.where(user_id: current_user).present?
 
-    if @category == false
-      redirect_to new_category_path, notice: "カテゴリーを作成しましょう！"
-    end  
+    redirect_to new_category_path, notice: 'カテゴリーを作成しましょう！' if @category == false
   end
-
 end

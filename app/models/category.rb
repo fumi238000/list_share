@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Category < ApplicationRecord
   belongs_to :user
   acts_as_list scope: :user
@@ -8,9 +10,7 @@ class Category < ApplicationRecord
   # validates :name, :uniqueness => {:scope => :user_id}
 
   has_many :tasks, dependent: :destroy
-  scope :tasks, -> { order(position: :asc)}
-  
+  scope :tasks, -> { order(position: :asc) }
+
   has_many :participations, dependent: :destroy
-
 end
-

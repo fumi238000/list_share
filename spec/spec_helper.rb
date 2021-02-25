@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 RSpec.configure do |config|
   config.define_derived_metadata do |meta|
-  meta[:aggregate_failures] = true unless meta.key?(:aggregate_failures)
-  config.infer_base_class_for_anonymous_controllers = true
-end
+    meta[:aggregate_failures] = true unless meta.key?(:aggregate_failures)
+    config.infer_base_class_for_anonymous_controllers = true
+  end
 
-config.expect_with :rspec do |expectations|
+  config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 
