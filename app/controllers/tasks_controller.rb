@@ -76,10 +76,7 @@ class TasksController < ApplicationController
   def include_category
     @category = Category.find(@task.category_id)
 
-    if @category.user_id == current_user[:id]
-    else
-      redirect_to categories_path, alert: 'そのタスクは権限がありません'
-    end
+    redirect_to categories_path, alert: 'そのタスクは権限がありません' unless @category.user_id == current_user[:id]
 
     @task = Task.find(params[:id])
   end
