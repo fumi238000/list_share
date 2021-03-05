@@ -1,5 +1,7 @@
+# rubocop:disable all
 require 'rails_helper'
 
+# rubocop:disable all
 RSpec.describe 'Tasks', type: :request do
   before do
     @user = create(:user)
@@ -207,3 +209,5 @@ RSpec.describe 'Tasks', type: :request do
     end
   end
 end
+
+# rubocop:enable all

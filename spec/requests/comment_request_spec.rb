@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# rubocop:disable all
 
 require 'rails_helper'
 
@@ -170,3 +170,4 @@ RSpec.describe 'Comments', type: :request do
     end
   end
 end
+# rubocop:enable all
