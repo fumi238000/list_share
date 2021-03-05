@@ -1,5 +1,4 @@
-# frozen_string_literal: true
-
+# rubocop:disable all
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
@@ -140,3 +139,4 @@ RSpec.describe 'Users', type: :request do
 end
 
 # clean
+# rubocop:enable all

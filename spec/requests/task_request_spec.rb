@@ -1,7 +1,7 @@
-# frozen_string_literal: true
-
+# rubocop:disable all
 require 'rails_helper'
 
+# rubocop:disable all
 RSpec.describe 'Tasks', type: :request do
   before do
     @user = create(:user)
@@ -18,9 +18,8 @@ RSpec.describe 'Tasks', type: :request do
         expect(response).to have_http_status(200)
       end
 
-      it 'nameが表示されている' ,type: :doing  do
+      it 'nameが表示されている', type: :doing do
         sign_in @user
-        binding.pry
         task1 = create(:task)
         task2 = create(:task)
         task3 = create(:task)
@@ -210,3 +209,5 @@ RSpec.describe 'Tasks', type: :request do
     end
   end
 end
+
+# rubocop:enable all
