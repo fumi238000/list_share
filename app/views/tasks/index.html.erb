@@ -33,7 +33,10 @@
         <div data-controller="drag" data-drag-url="/tasks/id/move">
           <% @tasks.each do |t| %>
           <% @categories.each do |c| %>
+
+          <%# TODO: リファタリングする%>
           <% if t.category_id == c.id%>
+          
           <div data-id="<%= t.id%>" v-if="isActive === '<%= t.category_id %>'">
             <section class="card__drag">
               <div class="card__content">
@@ -41,7 +44,10 @@
                 <div class="card__left__content">
                   <%# チェックボックス %>
                   <span id="taks-<%= t.id%>" class="checkbox">
+         
+                   <%# TODO: リファタリングする%>
                     <% if  @checked_task_ids.include?(t.id) %>
+                    
                     <%= render "offcheck", task_id: t %>
                     <% else %>
                     <%= render "oncheck", task_id: t %>
