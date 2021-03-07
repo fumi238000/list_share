@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Category < ApplicationRecord
   belongs_to :user
   acts_as_list scope: :user

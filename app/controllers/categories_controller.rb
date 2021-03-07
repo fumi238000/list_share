@@ -2,11 +2,10 @@
 
 class CategoriesController < ApplicationController
   before_action :login_check
-  before_action :set_category, only: %i[edit update destroy]
   # before_action :current_user_create_category?, only: %i[index]
 
   def index
-    @categories = Category.order(:position)
+    @categories = current_user.categories.order(:position)
   end
 
   def new
@@ -14,7 +13,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = current_user.categories.create(category_params)
+    @category = current_user.categories.create!(category_params)
     if @category.save
       redirect_to categories_path, notice: "【#{@category[:name]}】を作成しました"
     else
@@ -23,10 +22,12 @@ class CategoriesController < ApplicationController
   end
 
   def edit
+    @category = Category.find(params[:id])
     @category_name = @category.name
   end
 
   def update
+    @category = Category.find(params[:id])
     if @category.update(category_params)
       redirect_to categories_path, notice: "カテゴリー名【 #{@category[:name]} 】に変更しました"
     else
@@ -35,6 +36,7 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
+    @category = Category.find(params[:id])
     @category.destroy
     redirect_to categories_path, alert: "【#{@category[:name]}】を削除しました"
   end
@@ -56,18 +58,19 @@ class CategoriesController < ApplicationController
   end
 
   # カテゴリーに含まれるuser_idとログインユーザーが一致しているか
+  # TODO: リファクタリング？
   def category_user?
-    if @category.user_id === current_user[:id]
+    if @category.user_id == current_user[:id]
       @category = current_user.category.find(params[:id])
     else
       redirect_to categories_path, alert: '権限がありません'
     end
   end
 
+  # TODO: リファクタリング？
   def current_user_create_category?
     @category = Category.all
     @category = @category.where(user_id: current_user).present?
-
     redirect_to new_category_path, notice: 'カテゴリーを作成しましょう！' if @category == false
   end
 end
