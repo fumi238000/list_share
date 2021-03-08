@@ -1,14 +1,8 @@
-# frozen_string_literal: true
-
 class TasksController < ApplicationController
   before_action :login_check
   before_action :current_user_create_category?, only: %i[index]
   before_action :task_params, only: %i[create]
   before_action :set_task, only: %i[show edit update destroy]
-
-  # テスト用
-  # skip_before_action :login_check
-  # skip_before_action :current_user_create_category?, only: %i[index]
 
   def index
     @tasks = Task.order(position: :asc)
@@ -16,6 +10,7 @@ class TasksController < ApplicationController
     @checked_task_ids = current_user.check.pluck(:task_id)
     # TODO: クリックしている時のカテゴリーIDを取得したい
     @category_list_id = @categories.first.id
+    binding.pry
   end
 
   def new
