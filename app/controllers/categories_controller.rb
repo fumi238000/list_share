@@ -1,9 +1,12 @@
 class CategoriesController < ApplicationController
   before_action :login_check
+  before_action :login_user_create_category?, only: %i[index edit update destroy]
   before_action :set_category, only: %i[edit update destroy move]
+  # TODO: 共有関連のbefore_actionを追加する
 
   def index
     @categories = current_user.categories.order(:position)
+    # TODO: 共有しているカテゴリーを表示
   end
 
   def new
@@ -52,11 +55,10 @@ class CategoriesController < ApplicationController
     params.require(:category).permit(:name)
   end
 
-  # TODO: リファクタリング？
-  def current_user_create_category?
-    @category = Category.all
-    @category = @category.where(user_id: current_user).present?
-    redirect_to new_category_path, notice: 'カテゴリーを作成しましょう！' if @category == false
+  # カテゴリーが一つもない場合、作成する
+  def login_user_create_category?
+    unless current_user.categories.present?
+      redirect_to new_category_path, notice: 'カテゴリーを作成しましょう！'
+    end
   end
 end
-
