@@ -18,7 +18,7 @@ RSpec.describe 'Tasks', type: :request do
         expect(response).to have_http_status(200)
       end
 
-      it 'nameが表示されている', type: :doing do
+      it 'nameが表示されている' do
         sign_in @user
         task1 = create(:task)
         task2 = create(:task)
