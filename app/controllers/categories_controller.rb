@@ -1,7 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :login_check
   before_action :set_category, only: %i[edit update destroy move]
-  # before_action :current_user_create_category?, only: %i[index]
 
   def index
     @categories = current_user.categories.order(:position)
@@ -53,21 +52,11 @@ class CategoriesController < ApplicationController
     params.require(:category).permit(:name)
   end
 
-  # カテゴリーに含まれるuser_idとログインユーザーが一致しているか
-  # TODO: リファクタリング？
-  def category_user?
-    if @category.user_id == current_user[:id]
-      @category = current_user.category.find(params[:id])
-    else
-      redirect_to categories_path, alert: '権限がありません'
-    end
-  end
-
   # TODO: リファクタリング？
   def current_user_create_category?
     @category = Category.all
     @category = @category.where(user_id: current_user).present?
     redirect_to new_category_path, notice: 'カテゴリーを作成しましょう！' if @category == false
   end
-
 end
+

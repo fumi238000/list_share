@@ -11,7 +11,7 @@
 <div id="tasks-list">
   <div data-controller="drag" data-drag-url = "/categories/id/move">
     <% @categories.each do |category| %>
-      <%= render partial: 'categories_card' ,locals: {category: category} %>   
+      <%= render partial: 'category_card' ,locals: {category: category} %>   
     <% end %>
   </div>
 </div> 
