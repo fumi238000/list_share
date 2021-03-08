@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class CategoriesController < ApplicationController
   before_action :login_check
   # before_action :current_user_create_category?, only: %i[index]
@@ -31,6 +29,7 @@ class CategoriesController < ApplicationController
     if @category.update(category_params)
       redirect_to categories_path, notice: "カテゴリー名【 #{@category[:name]} 】に変更しました"
     else
+      @category_name = Category.find(params[:id]).name
       render :edit
     end
   end
@@ -51,10 +50,6 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name)
-  end
-
-  def set_category
-    @category = Category.find(params[:id])
   end
 
   # カテゴリーに含まれるuser_idとログインユーザーが一致しているか
