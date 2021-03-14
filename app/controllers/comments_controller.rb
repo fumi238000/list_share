@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create(comment_params)
-
     if @comment.save
       redirect_to task_path(comment_params[:task_id]), notice: 'コメントを作成しました'
     else
@@ -19,7 +18,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @task_id = Comment.find(params[:id]).task.id
+    @task_id = @comment.task.id
   end
 
   def update
@@ -45,4 +44,5 @@ class CommentsController < ApplicationController
   def set_comment
     @comment = Comment.find(params[:id])
   end
+
 end
