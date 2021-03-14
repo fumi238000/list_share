@@ -8,8 +8,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.create(task_id: comment_params[:task_id], user_id: current_user[:id],
-                              content: comment_params[:content])
+    @comment = Comment.create(comment_params)
+
     if @comment.save
       redirect_to task_path(comment_params[:task_id]), notice: 'コメントを作成しました'
     else
@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :task_id)
+    params.require(:comment).permit(:content, :task_id).merge(user_id: current_user.id)
   end
 
   def set_comment

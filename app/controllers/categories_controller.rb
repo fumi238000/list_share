@@ -57,8 +57,6 @@ class CategoriesController < ApplicationController
 
   # カテゴリーが一つもない場合、作成する
   def login_user_create_category?
-    unless current_user.categories.present?
-      redirect_to new_category_path, notice: 'カテゴリーを作成しましょう！'
-    end
+    redirect_to new_category_path, notice: 'カテゴリーを作成しましょう！' if current_user.categories.blank?
   end
 end

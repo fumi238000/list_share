@@ -9,7 +9,7 @@ RSpec.describe 'Tasks', type: :request do
     subject { get(tasks_path) }
 
     context 'タスクが存在する時' do
-      it 'リクエストが成功する',type: :doing do
+      it 'リクエストが成功する', type: :doing do
         create_list(:task, 1)
         sign_in @user
         subject

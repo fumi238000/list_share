@@ -2,16 +2,17 @@
   <div class= "page__back">
     <%= link_to "キャンセル", tasks_path, class: 'back__style'%>
   </div>
+
+  <%# ここで条件分岐は可能か？%>
   <div class="title">コメント</div>
+  
   <div class="space"></div>
 </section>
 
 <%= render 'layouts/error_form',  model: @comment %>
 
 <section class="form">
-  <div class="form__title">
-    <p>コメント名</p>
-  </div>
+  <div class="form__title"><p>コメント名</p></div>
   <%= form_with model: @comment, local: true do |f| %>
     <%= f.hidden_field :task_id, value: @task_id %>
     <%= f.text_field :content ,size: 100 , class:"form__submit" %>
