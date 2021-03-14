@@ -3,12 +3,13 @@
     <p>カテゴリー名</p>
   </div>
     
-<%= render "layouts/error_form", model: @category %>
+  <%= render "layouts/error_form", model: @category %>
 
   <%= form_with model: @category, local: true do |f| %>    
     <p><%= f.text_field :name ,size: 50, class: "form__submit"%></p>
+
     <div id="category-btn">
-      <%= f.submit button_value, class:"btn float-purple"%>
+      <%= f.submit button_value, data: {edit_category_name: @edit_category_name }, class:"btn float-purple"%>
     </div>
   <% end %>
 </section>

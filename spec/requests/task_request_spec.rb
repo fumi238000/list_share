@@ -1,7 +1,5 @@
-# rubocop:disable all
 require 'rails_helper'
 
-# rubocop:disable all
 RSpec.describe 'Tasks', type: :request do
   before do
     @user = create(:user)
@@ -11,14 +9,14 @@ RSpec.describe 'Tasks', type: :request do
     subject { get(tasks_path) }
 
     context 'タスクが存在する時' do
-      it 'リクエストが成功する' do
+      it 'リクエストが成功する',type: :doing do
         create_list(:task, 1)
         sign_in @user
         subject
         expect(response).to have_http_status(200)
       end
 
-      it 'nameが表示されている', type: :doing do
+      it 'nameが表示されている' do
         sign_in @user
         task1 = create(:task)
         task2 = create(:task)
@@ -209,5 +207,3 @@ RSpec.describe 'Tasks', type: :request do
     end
   end
 end
-
-# rubocop:enable all

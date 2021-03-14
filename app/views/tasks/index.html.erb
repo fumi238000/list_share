@@ -5,84 +5,29 @@
   <div id="swiper">
     <div class="swiper-container">
       <div class="swiper-wrapper">
-
         <% @categories.each.with_index(1) do |c,i| %>
-        <li class="swiper-slide" v-on:click="change('<%= c.id %>')" v-bind:class="{'active': isActive === '<%= c.id %>'}"><%= i %>.<%= c.name %></li>
-        <!-- イベントは以下の2つだけでした。 -->
-        <!-- v-on:click -->
-        <!-- v-bind:class -->
-
-
+          <li class="swiper-slide" v-on:click="change('<%= c.id %>')" v-bind:class="{'active': isActive === '<%= c.id %>'}"><%= i %>.<%= c.name %></li>
+          <!-- todo: v-on:click -->
+          <!-- todo: v-bind:class -->
         <% end %>
       </div>
     </div>
-
-
-    <!------------------------------------------------------------------>
 
     <%# リンク%>
     <div class="page__link">
       <span><a v-bind:href="href" class="page__link__style">タスクを追加</span><i class="fas fa-plus-circle"></i></a>
     </div>
-    <!------------------------------------------------------------------>
 
+    <%# TODO: tab_boxの把握%>
     <div class="tab_box">
-
-      <%# カテゴリーリスト start %>
       <div id="tasks-list">
-        <div data-controller="drag" data-drag-url="/tasks/id/move">
-          <% @tasks.each do |t| %>
-          <% @categories.each do |c| %>
-          <% if t.category_id == c.id%>
-          <div data-id="<%= t.id%>" v-if="isActive === '<%= t.category_id %>'">
-            <section class="card__drag">
-              <div class="card__content">
-
-                <div class="card__left__content">
-                  <%# チェックボックス %>
-                  <span id="taks-<%= t.id%>" class="checkbox">
-                    <% if  @checked_task_ids.include?(t.id) %>
-                    <%= render "offcheck", task_id: t %>
-                    <% else %>
-                    <%= render "oncheck", task_id: t %>
-                    <% end %>
-                  </span>
-                  <%# グリッド%>
-                  <span class="grid">
-                    <i class="grid fas fa-grip-lines-vertical"></i>
-                  </span>
-                  <%# タスク名 %>
-                  <span class="name"><%= t.name %></span>
-                </div>
-
-                <div class="card__right__content">
-                  <%# 編集ボタン %>
-                  <span>
-                    <%= link_to edit_task_path(t),class: "edit", :method => :get do %>
-                    <i class="fas fa-pen"></i>
-                    <% end %>
-                  </span>
-                  <%# コメント一覧へリンク %>
-                  <span class="comment">
-                    <%= link_to  task_path(t), class: "comment", :method => :get do%>
-                    <i class="far fa-comments"></i>
-                    <% end %>
-                  </span>
-                </div>
-              </div>
-            </section>
-          </div>
-          <% end %>
-          <% end %>
-          <% end %>
-        </div>
+        <%= render partial: 'task_card' %>
       </div>
-      </ul>
-
     </div>
 
   </div>
-
+  
+</div>
 
   <%# Vue.js %>
   <%= javascript_pack_tag 'swiper'%>

@@ -1,17 +1,13 @@
-# frozen_string_literal: true
-
 class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 20 }
 
   has_many :categories, dependent: :destroy
-  scope :categories, -> { order(position: :asc) }
-
   has_many :check, dependent: :destroy
+  has_many :participations
 
+  scope :categories, -> { order(position: :asc) }
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  has_many :participations
   mount_uploader :image, ImageUploader
 
   def self.guest
