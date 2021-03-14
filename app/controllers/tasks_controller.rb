@@ -10,7 +10,6 @@ class TasksController < ApplicationController
     @checked_task_ids = current_user.check.pluck(:task_id)
     # TODO: クリックしている時のカテゴリーIDを取得したい
     @category_list_id = @categories.first.id
-    binding.pry
   end
 
   def new
@@ -29,11 +28,8 @@ class TasksController < ApplicationController
   end
 
   def show
-    # comments = Comment.order(id: :desc)
-    # @comments = comments.where(user_id: current_user)
-    @comments = Comment.order(id: :desc).where(user_id: current_user)
+    @comments = @task.comments.order(id: :desc)
     @task_id = params[:id].to_i
-    # ログインユーザーが登録したコメントが存在するかしないか？
   end
 
   def edit

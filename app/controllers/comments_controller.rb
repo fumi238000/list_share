@@ -1,11 +1,6 @@
-# frozen_string_literal: true
-
 class CommentsController < ApplicationController
   before_action :login_check
   before_action :set_comment, only: %i[edit update destroy]
-
-  # テスト用
-  # skip_before_action :login_check
 
   def new
     @comment = Comment.new
