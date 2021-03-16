@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :login_check
+  before_action :login_check, only: %i[new create edit update destroy]
   before_action :set_comment, only: %i[edit update destroy]
 
   def new
@@ -44,5 +44,4 @@ class CommentsController < ApplicationController
   def set_comment
     @comment = Comment.find(params[:id])
   end
-
 end
