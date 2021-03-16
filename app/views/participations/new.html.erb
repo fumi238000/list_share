@@ -22,22 +22,6 @@
  <% end %>
 </section>
 
-<div class="border mt-5 p-3 bg-white">
-  <h5 class="mb-3">候補ユーザ検索</h5>
-  <div class="my-3">
-    <%= search_form_for @q , url: new_participation_path do |f| %>
-      <%= f.label :name_cont, "ユーザー名" %>
-      <%= f.search_field :name_cont %>
-      <%= f.submit "検索", class: "btn btn-primary" %>
-    <% end %>
-  </div>
 
-  <div class="p-3 mt-5">
-    <% @search_users.each.with_index(1) do |user,i| %>
-      <div class=" mb-3 ">
-        <span class="mr-5 ">No.<%= i %></span>
-        <span><%= user.name %> ID:【<%= user.id %>】</span>
-      </div>
-    <% end %>
-  </div>
-</div>
+<!-- 検索フォーム -->
+<%#= render partial: 'search_form'%>

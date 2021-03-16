@@ -1,15 +1,9 @@
-# frozen_string_literal: true
-
 class ParticipationsController < ApplicationController
   before_action :login_check
   before_action :set_ransack, only: %i[new]
   before_action :participation_params, only: %i[create]
   before_action :current_user?, only: %i[create]
   before_action :set_participation, only: %i[destroy]
-
-  # テスト用
-  skip_before_action :login_check
-  skip_before_action :current_user?, only: %i[create]
 
   PER_PAGE = 3
 
