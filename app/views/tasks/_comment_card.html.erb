@@ -1,0 +1,26 @@
+<section class="comment__card">
+  <% @comments.each do |comment| %>  
+    <div class="comment__card__body">
+      <div class="comment__card__top">
+        <div class="day">
+          <span>作成日時：<%= comment.created_at.to_s(:datetime_jp) %><span>
+        </div>  
+        <div class="edit">
+          <%= link_to edit_comment_path(comment), class: "icon__edit__btn" ,method: :get do %>
+            <i class="fas fa-pen"></i>
+          <% end %>
+        </div>
+      </div>
+      <div class="comment__card__content">
+        <p><%= comment.content %></p>
+      </div>
+      <div class="comment__card__bottom">
+        <span  class="delete">
+          <%= link_to comment_path(comment), class: "icon__delete__btn", data: { confirm: '本当に削除しますか?' } ,:method => :delete do%>
+            <i class="far fa-trash-alt"></i> 
+          <% end %> 
+        </span>
+      </div>
+    </div>
+  <% end %>
+</section>

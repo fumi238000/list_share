@@ -1,7 +1,9 @@
 <section class="form__index">
+  <!--　キャンセル　-->
   <div class= "page__back">
     <%= link_to "キャンセル", tasks_path, class:"back__style"%>
   </div>
+  <!--　新規作成　-->
   <div class="page__link">
     <%= link_to new_comment_path(task_id: @task_id), class:"page__link__style",:method => :get do %> 
       <span>コメントを追加</span><i class="fas fa-plus-circle"></i>
@@ -9,50 +11,12 @@
   </div>
 </section>
 
+<!--　タスク名　-->
 <p class="comment__task__name">【<%= @task.name %>】</p>
 
-<% if @comments.empty? %>
-  <div>
-    <p class="no__data__card">登録されているコメントはありません</p>
-  </div>
-
+<!--　コメントカード　-->
+<% if @comments.present? %>
+  <%= render partial: 'comment_card'%>
 <% else %>
-
-  <%# コメントカード %>
-  <section class="comment__card">
-    <% @comments.each do |c| %>
-      <% if c.task_id == @task_id %>
-        <div class="comment__card__body">
-          <div class="comment__card__top">
-            <div class="day">
-              <span>作成日時：<%= c.created_at.to_s(:datetime_jp) %><span>
-            </div>  
-            <div class="edit">
-              <%= link_to edit_comment_path(c), class: "icon__edit__btn" ,method: :get do %>
-                <i class="fas fa-pen"></i>
-              <% end %>
-            </div>
-          </div>
-  
-          <div class="comment__card__content">
-            <p><%= c.content %></p>
-          </div>
-  
-          <div class="comment__card__bottom">
-            <span  class="delete">
-              <%= link_to comment_path(c), class: "icon__delete__btn", data: { confirm: '本当に削除しますか?' } ,:method => :delete do%>
-                <i class="far fa-trash-alt"></i> 
-              <% end %> 
-            </span>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </section>
-
+  <div><p class="no__data__card">登録されているコメントはありません</p></div>
 <% end %>
-
-
-
-
-

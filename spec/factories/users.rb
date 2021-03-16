@@ -3,7 +3,6 @@
 FactoryBot.define do
   factory :user do
     # sequence(:id, 1, &:to_s)
-    id { Faker::Number.number(3) }
     name { Faker::Name.name }
     email { Faker::Internet.email }
     password { 'password' }

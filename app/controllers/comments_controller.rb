@@ -1,11 +1,6 @@
-# frozen_string_literal: true
-
 class CommentsController < ApplicationController
-  before_action :login_check
+  before_action :login_check, only: %i[new create edit update destroy]
   before_action :set_comment, only: %i[edit update destroy]
-
-  # テスト用
-  # skip_before_action :login_check
 
   def new
     @comment = Comment.new
@@ -13,8 +8,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.create(task_id: comment_params[:task_id], user_id: current_user[:id],
-                              content: comment_params[:content])
+    @comment = Comment.create(comment_params)
     if @comment.save
       redirect_to task_path(comment_params[:task_id]), notice: 'コメントを作成しました'
     else
@@ -24,7 +18,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @task_id = Comment.find(params[:id]).task.id
+    @task_id = @comment.task.id
   end
 
   def update
@@ -44,7 +38,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :task_id)
+    params.require(:comment).permit(:content, :task_id).merge(user_id: current_user.id)
   end
 
   def set_comment
