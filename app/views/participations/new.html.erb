@@ -6,14 +6,14 @@
 
 <section class="form">
   <div class="form__title">
-  <p>参加者ID</p>
+    <p>参加者ID</p>
   </div>
 
   <%= render 'layouts/error_form',  model: @participation %>
 
   <%= form_with model: @participation, local: true do |f| %>
       <%= f.hidden_field :owner_id , value: @owner_id %>
-      <p><%= f.text_field :user_id , size: 2, class: "form__submit"%></p> 
+      <p><%= f.number_field :user_id , class: "form__submit"%></p> 
       <%= f.hidden_field :category_id , value: @category_id %>
 
     <section id="participation-btn">
