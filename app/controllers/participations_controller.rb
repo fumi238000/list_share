@@ -1,15 +1,15 @@
 class ParticipationsController < ApplicationController
   before_action :login_check
-  before_action :set_ransack, only: %i[new]
+  # before_action :set_ransack, only: %i[new]
   before_action :participation_params, only: %i[create]
   before_action :current_user?, only: %i[create]
   before_action :set_participation, only: %i[destroy]
 
   PER_PAGE = 3
 
+  # OK
   def new
     @participation = Participation.new
-    @owner_id = current_user[:id]
     @category_id = params[:format]
   end
 
@@ -20,15 +20,16 @@ class ParticipationsController < ApplicationController
   end
 
   def create
+    binding.pry
     @participation = Participation.new(participation_params)
 
     if @participation.save
       redirect_to participation_path(category_id), notice: '作成しました'
     else
-      @owner_id = current_user[:id]
+      # @owner_id = current_user[:id]
       @category_id = participation_params[:category_id]
-      @q = User.ransack(params[:q])
-      @search_users = @q.result(distinct: true).limit(PER_PAGE)
+      # @q = User.ransack(params[:q])
+      # @search_users = @q.result(distinct: true).limit(PER_PAGE)
       render :new
     end
   end
@@ -41,7 +42,7 @@ class ParticipationsController < ApplicationController
   private
 
   def participation_params
-    params.require(:participation).permit(:owner_id, :user_id, :category_id)
+    params.require(:participation).permit(:owner_id, :user_id, :category_id).merge(owner_id: current_user.id)
   end
 
   def set_participation

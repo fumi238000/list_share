@@ -12,13 +12,12 @@
   <%= render 'layouts/error_form',  model: @participation %>
 
   <%= form_with model: @participation, local: true do |f| %>
-      <%= f.hidden_field :owner_id , value: @owner_id %>
       <p><%= f.number_field :user_id , class: "form__submit"%></p> 
       <%= f.hidden_field :category_id , value: @category_id %>
 
-    <section id="participation-btn">
+      <section id="participation-btn">
         <%= f.submit "作成", class:"btn float-purple"%>
-    </section>
+      </section>
  <% end %>
 </section>
 
