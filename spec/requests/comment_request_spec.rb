@@ -50,7 +50,6 @@ RSpec.describe 'Comments', type: :request do
         # TODO : うまくいかない・・・
         xit 'コメントが保存される',type: :doing  do
           sign_in @user
-          binding.pry
           subject
           expect { subject }.to change { Comment.count }.by(1)
         end
@@ -107,7 +106,6 @@ RSpec.describe 'Comments', type: :request do
   
         xit 'contentが表示される' do
           subject
-          binding.pry
           expect(response.body).to include comment.content
         end
       end
