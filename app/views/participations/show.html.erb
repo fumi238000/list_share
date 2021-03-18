@@ -7,24 +7,8 @@
   <% end %>
 </div>
 
-<% binding.pry%>
 <% if @participations.empty? %>
   <p class="no__data__card">現在共有しているユーザーはいません</p>
 <% else %>
- 
-  <%#= render partial: 'participation_card', locals: { participations: @participations }%>
-  
-<% @participations.each do |participation| %>
- 
-  <div class="participation__card">
-    <span class="number"><span>No.<%#= i %></span></span>
-    <span class="user__name"><span>id:<%= participation.user.id%>:<%= participation.user.name%></span></span>
-    <span class="delete__btn">
-      <%= link_to participation_path(participation.id), class: "text-danger", data: { confirm: '本当に削除しますか?' } ,:method => :delete do %>
-        <i class="fas fa-trash"></i> 
-      <% end %>
-    </span>
-  <div>
-  <% end %>
-
+  <%= render partial: 'participation_card'%> 
 <% end %>

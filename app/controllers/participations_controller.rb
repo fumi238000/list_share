@@ -15,7 +15,6 @@ class ParticipationsController < ApplicationController
 
   # リファクタリングすること
   def show
-    binding.pry
     @participations = Participation.where(owner_id: current_user.id)
 
     # @participations = Participation.includes(owner_id: current_user.id)
@@ -28,7 +27,6 @@ class ParticipationsController < ApplicationController
     if @participation.save
       redirect_to participation_path(@participation[:owner_id]), notice: '共有者を追加しました'
     else
-      binding.pry
       # @owner_id = current_user[:id]
       @category_id = participation_params[:category_id]
       # @q = User.ransack(params[:q])
