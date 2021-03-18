@@ -21,11 +21,11 @@ gem 'ransack'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'pry-doc'
   gem 'pry-rails'
   gem 'rails-controller-testing'
