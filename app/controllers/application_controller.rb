@@ -22,4 +22,9 @@ class ApplicationController < ActionController::Base
     redirect_back(fallback_location: root_path) and return unless user_signed_in?
     # flash[:alert] = 'ログインしてください'
   end
+
+  # リダイレクトするメソッド
+  def redirect_root
+    redirect_back(fallback_location: root_path) and return
+  end
 end

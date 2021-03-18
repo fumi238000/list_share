@@ -22,16 +22,23 @@ class ParticipationsController < ApplicationController
   end
 
   def create
-    @participation = Participation.new(participation_params)
+    # ログインユーザーの登録を阻止
+    redirect_to participation_path(participation_params[:owner_id]), alert: 'ログインユーザーは登録できません'
+    and return if participation_params[:user_id].to_i == current_user.id
+    
+    #同じユーザーの登録を阻止 
+    binding.pry
 
+    @participation = Participation.new(participation_params)
+    
     if @participation.save
       redirect_to participation_path(@participation[:owner_id]), notice: '共有者を追加しました'
     else
-      # @owner_id = current_user[:id]
       @category_id = participation_params[:category_id]
+      render :new and return
+      # @owner_id = current_user[:id]
       # @q = User.ransack(params[:q])
       # @search_users = @q.result(distinct: true).limit(PER_PAGE)
-      render :new
     end
   end
 
@@ -64,4 +71,6 @@ class ParticipationsController < ApplicationController
   #     # redirect_to new_participation_path, alert: '自分自身は登録できません'
   #   end
   # end
+
+
 end
