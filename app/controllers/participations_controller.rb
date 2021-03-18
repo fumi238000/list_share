@@ -16,18 +16,17 @@ class ParticipationsController < ApplicationController
   # リファクタリングすること
   def show
     @participations = Participation.where(owner_id: current_user.id)
-
     # @participations = Participation.includes(owner_id: current_user.id)
     @category_id = params[:id]
   end
 
   def create
     # ログインユーザーの登録を阻止
-    redirect_to participation_path(participation_params[:owner_id]), alert: 'ログインユーザーは登録できません'
-    and return if participation_params[:user_id].to_i == current_user.id
+    # TODO: before_actionにて実装する
+    redirect_to participation_path(participation_params[:owner_id]), alert: 'ログインユーザーは登録できません' and return if participation_params[:user_id].to_i == current_user.id
     
     #同じユーザーの登録を阻止 
-    binding.pry
+    redirect_to participation_path(participation_params[:owner_id]), alert: 'すでに登録されたユーザーです' and return if Participation.exists?(user_id: participation_params[:user_id])
 
     @participation = Participation.new(participation_params)
     
