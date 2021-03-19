@@ -9,41 +9,52 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  def default_url(*_args)
-    "/images/fallback/#{[version_name, 'default.jpeg'].compact.join('_')}"
-  end
-
+  # ファイル形式を制限
   def extension_whitelist
-    %w[jpg jpeg gif png]
+    %w[jpg jpeg png]
   end
 
+  # 画像ファイルサイズの制限（5MB）
   def size_range
     0..5.megabytes
   end
 
-  def filename
-    "#{secure_token}.#{file.extension}" if original_filename.present?
+  # 画像サイズ
+  process resize_to_fill: [250, 250, "Center"]
+
+  version :thumb25 do
+    process resize_to_fit: [25, 25]
   end
 
-  # jpg に変換
-  process convert: 'jpg'
+  version :thumb100 do
+    process resize_to_fit: [100, 100]
+  end
+
+  version :thumb200 do
+    process resize_to_fit: [200, 200]
+  end
+
+  # デフォルト画像
+  def default_url(*_args)
+    "/images/fallback/#{[version_name, 'default.jpeg'].compact.join('_')}"
+  end
+
+  # def filename
+  #   "#{secure_token}.#{file.extension}" if original_filename.present?
+  # end
+
+  # jpgに変換
+  process convert: 'jpeg'
 
   # ファイル名の拡張子を jpg に変更
-  def filename
-    "#{super.chomp(File.extname(super))}.jpg" if original_filename.present?
-  end
+  # def filename
+  #   "#{super.chomp(File.extname(super))}.jpg" if original_filename.present?
+  # end
 
-  # サイズの変更
-  process resize_to_limit: [500, 500]
+  # protected
 
-  version :thumb do
-    process resize_to_fit: [500, 500]
-  end
-
-  protected
-
-  def secure_token
-    var = :"@#{mounted_as}_secure_token"
-    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
-  end
+  # def secure_token
+  #   var = :"@#{mounted_as}_secure_token"
+  #   model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
+  # end
 end
