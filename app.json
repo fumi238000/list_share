@@ -1,0 +1,22 @@
+{
+  "name": "list-share",
+  "scripts": {},
+  "env": {
+    "ROOT_URL": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "mongolab"
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/fumi238000/list_share.git"
+    }
+  ]
+}
