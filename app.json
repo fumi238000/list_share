@@ -1,5 +1,5 @@
 {
-  "name": "reviewapp",
+  "name": "list-share-pf",
   "scripts": {
     "postdeploy": "bin/setup"
   },
