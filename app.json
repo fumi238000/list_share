@@ -5,7 +5,6 @@
   "env": {
     "ROOT_URL": {
       "description": "これは説明です。",
-      // "value": "ここがデフォルト値になる",
       "required": true
     }
   }
