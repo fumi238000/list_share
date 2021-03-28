@@ -5,7 +5,6 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
-    # テスト
     @tasks = Task.order(position: :asc)
     @categories = current_user.categories.order(position: :asc)
     @checked_task_ids = current_user.check.pluck(:task_id)
