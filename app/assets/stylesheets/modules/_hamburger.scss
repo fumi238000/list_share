@@ -1,0 +1,99 @@
+/******************************************************************
+hamburger
+******************************************************************/
+@import "modules/variables";
+
+#nav {
+  position: absolute;
+  top: 0;
+  /*ナビメニューを左に隠した状態になる*/
+  left: -40%;
+  // right: 140%;
+  width: 40%;
+  height: 100vh;
+  background: #ffffff;
+  transition: .2s;
+  //一番上に設置
+}
+
+#nav ul {
+  padding-top: 80px;
+}
+
+#nav ul li {
+  list-style-type: none;
+  font-size: 20px;
+}
+
+#nav a {
+  display: block;
+  text-decoration: none;
+  color: #000000;
+  margin: 0 15px;
+  padding: 10px;
+  transition: .5s;
+}
+
+#nav li a:hover {
+  color: #ffffff;
+  background: $cPurple;
+  border-bottom: none;
+}
+
+#hamburger {
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  width: 50px;
+  height: 44px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.inner_line {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #ffffff;
+  transition: .2s;
+  border-radius: 4px;
+}
+
+//アイコン
+#line1 {
+  top: 0;
+}
+
+#line2 {
+  top: 20px;
+}
+
+#line3 {
+  bottom: 0px;
+}
+
+.in{
+  transform: translateX(100%);
+}
+
+.line_1,.line_2,.line_3 {
+  background: #000000;
+}
+
+//アイコンのアクション
+.line_1 {
+  transform: rotate(-360deg);
+  top: 0;
+}
+
+.line_2 {
+  opacity: 0;
+}
+
+.line_3 {
+  transform: rotate(360deg);
+  bottom: 0;
+}
