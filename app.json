@@ -6,12 +6,8 @@
   "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Ruby_on_Rails_logo.svg",
 
   "env": {
-    "PAPERTRAIL_API_TOKEN" :     "6opm0GPAa0NbN1r0J0W",
     "RACK_ENV" :                 "production",
     "RAILS_ENV" :                "production",
-    "RAILS_LOG_TO_STDOUT" :      "enabled",
-    "RAILS_SERVE_STATIC_FILES" : "enabled",
-    "SECRET_KEY_BASE" :          "19a2aaa33935850f0d27a12b8b6dbcbb847593e2615da7e92acb3630791f887ebe7a3c77984d0e62388ff4b41f26889ca4ec0d36515ba6ae8663aa51f350f60a"  
   },
   "SETUP_BY": {
     "description": "Who initiated this setup",
