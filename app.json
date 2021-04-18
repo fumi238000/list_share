@@ -1,39 +1,24 @@
 {
-  "name": "reviewapp",
-  "scripts": {
-    "postdeploy": "bin/setup"
-  },
+  "name": "Ruby on Rails",
+  "description": "A template for getting started with the popular Ruby framework.",
+  "website": "http://rubyonrails.org",
+  "repository": "https://github.com/heroku/ruby-rails-sample",
+  "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Ruby_on_Rails_logo.svg",
+
   "env": {
-    "LANG": {
-      "required": true
-    },
-    "RACK_ENV": {
-      "required": true
-    },
-    "RAILS_ENV": {
-      "required": true
-    },
-    "RAILS_SERVE_STATIC_FILES": {
-      "required": true
-    },
-    "SECRET_KEY_BASE": {
-      "required": true
-    }
+    "PAPERTRAIL_API_TOKEN" :     "6opm0GPAa0NbN1r0J0W",
+    "RACK_ENV" :                 "production",
+    "RAILS_ENV" :                "production",
+    "RAILS_LOG_TO_STDOUT" :      "enabled",
+    "RAILS_SERVE_STATIC_FILES" : "enabled",
+    "SECRET_KEY_BASE" :          "19a2aaa33935850f0d27a12b8b6dbcbb847593e2615da7e92acb3630791f887ebe7a3c77984d0e62388ff4b41f26889ca4ec0d36515ba6ae8663aa51f350f60a"  
   },
-  "formation": {
-    "worker": {
-      "quantity": 1
-    },
-    "web": {
-      "quantity": 1
-    }
+  "SETUP_BY": {
+    "description": "Who initiated this setup",
+    "required": false
   },
-  "addons": [
-    "heroku-postgresql"
-  ],
-  "buildpacks": [
-    {
-      "url": "heroku/ruby"
-    }
-  ]
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  },
+  "addons": ["heroku-postgresql", "papertrail"]
 }
