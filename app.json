@@ -24,14 +24,18 @@
     },
   },
   "addons": [
-    "heroku-postgresql", "papertrail"
+    "heroku-postgresql:  hobby-dev",
+    "papertrail: choklad"
   ],
   "scripts": {
    "postdeploy": "bin/setup"
   },
   "buildpacks": [
     {
-      "url": "https://github.com/AdmitHub/meteor-buildpack-horse.git"
+      "url": "https://github.com/heroku/heroku-buildpack-pgbouncer"
+    },
+    {
+      "url": "heroku/ruby"
     }
   ]
 }
