@@ -1,22 +1,17 @@
 {
   "name": "List Share",
-  "scripts": {},
   "env": {
-    "ROOT_URL": {
-      "required": true
-    }
-  },
-  "formation": {
-    "web": {
-      "quantity": 1
-    }
   },
   "addons": [
-    "heroku-postgresql","papertrail"
+    "heroku-postgresql:  hobby-dev",
+    "papertrail: choklad"
   ],
+  "scripts": {
+   "postdeploy": "bundle exec rake db:migrate"
+  },
   "buildpacks": [
     {
-      "url": "https://github.com/AdmitHub/meteor-buildpack-horse.git"
+      "url": "heroku/ruby"
     }
   ]
 }
